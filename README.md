@@ -1,25 +1,32 @@
 # Oldweb UI
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Release](https://img.shields.io/github/v/release/ChAbdulWahhab/OldwebUI?color=0a7)](https://github.com/ChAbdulWahhab/OldwebUI/releases)
+[![Demo](https://img.shields.io/badge/demo-live-brightgreen)](https://chabdulwahhab.github.io/OldwebUI/demo.html)
+
 **Authentic interface looks from 1980–2020** — a zero-dependency CSS library.
 
 Set one attribute on `<html>`, optionally add `.r-*` classes. Buttons, forms, tables, and links style themselves (classless mode).
 
+**[Live demo →](https://chabdulwahhab.github.io/OldwebUI/demo.html)** · **[Download v1.0.0 →](https://github.com/ChAbdulWahhab/OldwebUI/releases/tag/v1.0.0)**
+
 ```html
-<link rel="stylesheet" href="dist/oldweb-all.css">
+<link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/ChAbdulWahhab/OldwebUI@v1.0.0/dist/oldweb-all.css">
 <html lang="en" data-oldweb="win95">
 ```
-
-Live examples: open [`demo.html`](demo.html).
 
 ---
 
 ## Quick start
 
-### CDN
+### CDN (jsDelivr via GitHub)
+
+All themes (~one file):
 
 ```html
 <link rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/@chabdulwahab/oldweb-ui@1.0.0/dist/oldweb-all.css">
+  href="https://cdn.jsdelivr.net/gh/ChAbdulWahhab/OldwebUI@v1.0.0/dist/oldweb-all.css">
 <html data-oldweb="web20">
 ```
 
@@ -27,11 +34,19 @@ Single theme (smaller ~36 KB):
 
 ```html
 <link rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/@chabdulwahab/oldweb-ui@1.0.0/dist/oldweb-xp.css">
+  href="https://cdn.jsdelivr.net/gh/ChAbdulWahhab/OldwebUI@v1.0.0/dist/oldweb-xp.css">
 <html data-oldweb="xp">
 ```
 
-### npm
+Pin a release tag (`@v1.0.0`) in production. For bleeding-edge you can use `@main`, but versions are safer.
+
+### Download
+
+Grab CSS from the latest **[GitHub Release](https://github.com/ChAbdulWahhab/OldwebUI/releases)** and self-host `dist/`, or clone the repo and use the files locally.
+
+### npm *(coming soon)*
+
+Package name will be `@chabdulwahab/oldweb-ui`. After publish:
 
 ```bash
 npm install @chabdulwahab/oldweb-ui
@@ -197,7 +212,7 @@ Bundles: `dist/oldweb-<id>.css` or `dist/oldweb-all.css`.
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>My Oldweb Site</title>
   <link rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/@chabdulwahab/oldweb-ui@1.0.0/dist/oldweb-xp.css">
+    href="https://cdn.jsdelivr.net/gh/ChAbdulWahhab/OldwebUI@v1.0.0/dist/oldweb-xp.css">
 </head>
 <body>
   <div class="r-container">
@@ -215,22 +230,6 @@ Bundles: `dist/oldweb-<id>.css` or `dist/oldweb-all.css`.
 
 ---
 
-## CDN delivery
-
-1. Publish: `npm publish --access public`
-2. Users load via **jsDelivr** or **unpkg** (automatic from npm — no separate CDN account):
-
-```html
-<link rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/@chabdulwahab/oldweb-ui@1.0.0/dist/oldweb-all.css">
-```
-
-Alternatives: GitHub + jsDelivr (`/gh/USER/oldweb-ui@v1.0.0/...`), or self-host `dist/` on R2 / S3 / Pages with long-cache headers.
-
-**Tip:** Pin the version (`@1.0.0`) and prefer a single-theme file in production.
-
----
-
 ## Build
 
 ```bash
@@ -242,6 +241,14 @@ Zero runtime dependencies. Node is only used for the build concat step.
 
 ---
 
+## Links
+
+- **Live demo:** [chabdulwahhab.github.io/OldwebUI](https://chabdulwahhab.github.io/OldwebUI/demo.html)
+- **Releases / download:** [github.com/ChAbdulWahhab/OldwebUI/releases](https://github.com/ChAbdulWahhab/OldwebUI/releases)
+- **Source:** [github.com/ChAbdulWahhab/OldwebUI](https://github.com/ChAbdulWahhab/OldwebUI)
+
+---
+
 ## License
 
-MIT
+[MIT](LICENSE)

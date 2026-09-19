@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" shape-rendering="crispEdges">
+  <!-- Window Outer Bevel (Win95 Silver) -->
+  <rect x="0" y="0" width="16" height="16" fill="#C0C0C0" />
+  <rect x="0" y="0" width="16" height="1" fill="#FFFFFF" />
+  <rect x="0" y="0" width="1" height="16" fill="#FFFFFF" />
+  <rect x="15" y="0" width="1" height="16" fill="#000000" />
+  <rect x="0" y="15" width="16" height="1" fill="#000000" />
+  <rect x="1" y="14" width="14" height="1" fill="#808080" />
+  <rect x="14" y="1" width="1" height="14" fill="#808080" />
+
+  <!-- Classic Blue Titlebar -->
+  <rect x="2" y="2" width="12" height="3" fill="#000080" />
+
+  <!-- Titlebar Mini Close Button (Red) -->
+  <rect x="11" y="2" width="3" height="3" fill="#C0C0C0" />
+  <rect x="12" y="3" width="1" height="1" fill="#000000" />
+
+  <!-- Window Content Area (White) -->
+  <rect x="2" y="5" width="12" height="9" fill="#FFFFFF" />
+
+  <!-- Retro Text / Wireframe Lines inside window -->
+  <rect x="4" y="7" width="8" height="1" fill="#000000" />
+  <rect x="4" y="9" width="5" height="1" fill="#808080" />
+  <rect x="4" y="11" width="6" height="1" fill="#000080" />
+</svg>
