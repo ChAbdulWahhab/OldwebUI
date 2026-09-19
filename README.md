@@ -6,203 +6,562 @@
 
 **Authentic interface looks from 1980–2020** — a zero-dependency CSS library.
 
-Set one attribute on `<html>`, optionally add `.r-*` classes. Buttons, forms, tables, and links style themselves (classless mode).
-
 **[Live demo →](https://chabdulwahhab.github.io/OldwebUI/demo.html)** · **[Download v1.0.0 →](https://github.com/ChAbdulWahhab/OldwebUI/releases/tag/v1.0.0)**
-
-```html
-<link rel="stylesheet"
-  href="https://cdn.jsdelivr.net/gh/ChAbdulWahhab/OldwebUI@v1.0.0/dist/oldweb-all.css">
-<html lang="en" data-oldweb="win95">
-```
 
 ---
 
-## Quick start
+## How it works (30 seconds)
 
-### CDN (jsDelivr via GitHub)
+1. Add the CSS file  
+2. Set `data-oldweb="theme-id"` on `<html>`  
+3. Write normal HTML — buttons, inputs, tables, links style themselves  
 
-All themes (~one file):
+Optional: add `.r-*` classes for layout, variants, cards, nav, etc.
+
+```html
+<!doctype html>
+<html lang="en" data-oldweb="win95">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My site</title>
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/ChAbdulWahhab/OldwebUI@v1.0.0/dist/oldweb-all.css">
+</head>
+<body>
+  <div class="r-container">
+    <h1>Hello from 1995</h1>
+    <p class="r-muted">This page is already themed.</p>
+    <button class="r-btn-primary">OK</button>
+  </div>
+</body>
+</html>
+```
+
+Open that file in a browser — done.
+
+---
+
+## Install
+
+### Option A — CDN (easiest)
+
+**All themes** (one file, ~122 KB):
 
 ```html
 <link rel="stylesheet"
   href="https://cdn.jsdelivr.net/gh/ChAbdulWahhab/OldwebUI@v1.0.0/dist/oldweb-all.css">
-<html data-oldweb="web20">
+<html lang="en" data-oldweb="web20">
 ```
 
-Single theme (smaller ~36 KB):
+**One theme only** (smaller ~36 KB) — replace `xp` with any theme id:
 
 ```html
 <link rel="stylesheet"
   href="https://cdn.jsdelivr.net/gh/ChAbdulWahhab/OldwebUI@v1.0.0/dist/oldweb-xp.css">
-<html data-oldweb="xp">
+<html lang="en" data-oldweb="xp">
 ```
 
-Pin a release tag (`@v1.0.0`) in production. For bleeding-edge you can use `@main`, but versions are safer.
+### Option B — Download
 
-### Download
+1. Open [Releases](https://github.com/ChAbdulWahhab/OldwebUI/releases)  
+2. Download the CSS you need (or the source zip)  
+3. Put it in your project and link it:
 
-Grab CSS from the latest **[GitHub Release](https://github.com/ChAbdulWahhab/OldwebUI/releases)** and self-host `dist/`, or clone the repo and use the files locally.
-
-### npm *(coming soon)*
-
-Package name will be `@chabdulwahab/oldweb-ui`. After publish:
-
-```bash
-npm install @chabdulwahab/oldweb-ui
+```html
+<link rel="stylesheet" href="./dist/oldweb-all.css">
+<html lang="en" data-oldweb="geocities">
 ```
 
-```js
-import "@chabdulwahab/oldweb-ui";
-// or: import "@chabdulwahab/oldweb-ui/win95";
+### Option C — npm *(coming soon)*
+
+After publish: `npm install @chabdulwahab/oldweb-ui`
+
+---
+
+## Pick a theme
+
+Put the theme id on the root element:
+
+```html
+<html data-oldweb="win95">
 ```
 
-### Switch themes in JS
+Change it anytime with JavaScript:
 
 ```js
 document.documentElement.setAttribute("data-oldweb", "metro");
 ```
 
----
-
-## Themes (researched eras, 1980–2020)
-
-Similar consecutive years are **not** duplicated. Each theme maps to a real design language:
-
-| `data-oldweb` | Era | What it recreates |
-|---------------|------|-------------------|
+| `data-oldweb` | Era | Look |
+|---------------|------|------|
 | `terminal1980` | ~1980 | CRT green-phosphor terminal |
 | `mac1984` | 1984 | Macintosh System 1 (1-bit B&W) |
-| `win31` | 1992 | Windows 3.1 Program Manager greys |
-| `web1993` | 1993 | Mosaic / early WWW (Times + blue links) |
-| `win95` | 1995 | Windows 95 teal `#008080` + silver `#c0c0c0` |
+| `win31` | 1992 | Windows 3.1 Program Manager |
+| `web1993` | 1993 | Mosaic / early WWW |
+| `win95` | 1995 | Windows 95 teal + silver |
 | `geocities` | 1996 | GeoCities personal pages |
 | `win98` | 1998 | Windows 98 classic bevels |
 | `macplatinum` | 1998 | Mac OS 8/9 Platinum |
 | `y2k` | 2000 | Y2K / Flash metallic chrome |
-| `aqua` | 2001 | Mac OS X Aqua (gel / candy) |
+| `aqua` | 2001 | Mac OS X Aqua |
 | `xp` | 2001 | Windows XP Luna |
 | `web20` | 2005–08 | Peak Web 2.0 gloss |
-| `vista` | 2007 | Windows Vista Aero glass |
-| `skeuo` | 2010 | iOS skeuomorphism (linen + gloss) |
-| `metro` | 2010–12 | Metro / Modern UI flat tiles |
-| `ios7` | 2013 | iOS 7 flat (`#007AFF`) |
+| `vista` | 2007 | Windows Vista Aero |
+| `skeuo` | 2010 | iOS skeuomorphism |
+| `metro` | 2010–12 | Metro / Modern UI |
+| `ios7` | 2013 | iOS 7 flat |
 | `material` | 2014 | Google Material Design |
-| `bootstrap3` | 2015 | Bootstrap 3 SaaS docs look |
+| `bootstrap3` | 2015 | Bootstrap 3 docs look |
 | `fluent` | 2017 | Microsoft Fluent / Win10 dark |
-| `dark2019` | 2019 | Dark mode + soft / neumorphic UI |
-| `saas2020` | 2020 | Modern product / SaaS UI |
+| `dark2019` | 2019 | Dark + soft UI |
+| `saas2020` | 2020 | Modern SaaS product UI |
 
-**Sources:** [History of UI](https://www.historyofui.com/), [desktopcolors.com](https://desktopcolors.com/os/windows-95) (Win95 teal), Apple Appearance Manager / Aqua era notes, Microsoft Luna / Metro / Fluent eras, Material Design 2014, Bootstrap 3 defaults.
-
-Bundles: `dist/oldweb-<id>.css` or `dist/oldweb-all.css`.
+CDN path for a single theme:  
+`.../dist/oldweb-<id>.css` — e.g. `oldweb-win95.css`, `oldweb-material.css`.
 
 ---
 
-## Classless vs classes
+## Classless HTML (no classes needed)
 
-**Classless** (no class needed when `data-oldweb` is set):  
+With `data-oldweb` set, these elements are styled automatically:
+
 `button`, `input`, `select`, `textarea`, `table`, `a`, headings, `hr`, `code`, `kbd`, `blockquote`, `progress`, `fieldset`, `dialog`, checkboxes/radios, scrollbars.
 
-**Opt-in `.r-*` classes** for layout and variants — see below.
+```html
+<html data-oldweb="xp">
+<body>
+  <h1>Page title</h1>
+  <p>Body text with a <a href="#">link</a> and <code>inline code</code>.</p>
+  <button>Click me</button>
+  <input type="text" placeholder="Name">
+  <table>
+    <tr><th>A</th><th>B</th></tr>
+    <tr><td>1</td><td>2</td></tr>
+  </table>
+</body>
+</html>
+```
 
 ---
 
-## Class reference
+## Layout helpers
 
-### Layout
-
-| Class | Purpose |
-|-------|---------|
-| `.r-container` | Centered ~960px content panel |
-| `.r-muted` | Secondary / muted text |
-| `.r-full` | `width: 100%` (tables) |
+### Container + muted text
 
 ```html
 <div class="r-container">
-  <h1>My site</h1>
-  <p class="r-muted">Est. 1998</p>
+  <h1>My homepage</h1>
+  <p class="r-muted">Est. 1998 · Best viewed in Netscape</p>
 </div>
 ```
 
-### Buttons
+| Class | What it does |
+|-------|----------------|
+| `.r-container` | Centered content panel (~960px) |
+| `.r-muted` | Secondary / dimmed text |
+| `.r-full` | `width: 100%` (useful on tables) |
+
+---
+
+## Typography
+
+```html
+<h1>Heading 1</h1>
+<h2>Heading 2</h2>
+<h3>Heading 3</h3>
+
+<p>
+  Body with a <a href="#">link</a>,
+  <code>code</code>, and <kbd>Ctrl</kbd>+<kbd>C</kbd>.
+</p>
+
+<blockquote>Blockquote — early blogs and forums.</blockquote>
+<p class="r-muted">Muted helper text.</p>
+<hr>
+
+<ul>
+  <li>Unordered item</li>
+  <li>Another item</li>
+</ul>
+<ol>
+  <li>First step</li>
+  <li>Second step</li>
+</ol>
+```
+
+---
+
+## Buttons
+
+Plain `<button>` works. Add classes for variants.
+
+```html
+<!-- Default (classless) -->
+<button>Default</button>
+<input type="submit" value="Submit">
+
+<!-- Variants -->
+<button class="r-btn-primary">Primary</button>
+<button class="r-btn-danger">Danger</button>
+<button class="r-btn-sm">Small</button>
+<button class="r-btn-lg">Large</button>
+<button disabled>Disabled</button>
+
+<!-- Full width -->
+<button class="r-btn-block r-btn-primary">Block primary</button>
+
+<!-- Style a link like a button -->
+<a class="r-btn r-btn-primary" href="#">Link button</a>
+<a class="r-btn r-btn-danger" href="#">Delete</a>
+```
 
 | Class | Purpose |
 |-------|---------|
-| `.r-btn` | Style an `<a>` as a button |
+| `.r-btn` | Make an `<a>` look like a button |
 | `.r-btn-primary` | Primary action |
 | `.r-btn-danger` | Destructive action |
 | `.r-btn-sm` / `.r-btn-lg` | Size |
 | `.r-btn-block` | Full width |
 
-```html
-<button class="r-btn-primary">Save</button>
-<a class="r-btn r-btn-danger" href="#">Delete</a>
-```
+---
 
-### Forms
+## Forms
+
+```html
+<fieldset>
+  <legend>Account</legend>
+
+  <div class="r-field">
+    <label for="name">Full name</label>
+    <input id="name" class="r-input-block" placeholder="Jane Doe">
+  </div>
+
+  <div class="r-field">
+    <label for="email">Email</label>
+    <input id="email" type="email" class="r-input-block" placeholder="jane@example.com">
+    <span class="r-hint">We’ll never share your email.</span>
+  </div>
+
+  <div class="r-field">
+    <label for="pass">Password</label>
+    <input id="pass" type="password" class="r-input-block">
+  </div>
+
+  <div class="r-field">
+    <label for="country">Country</label>
+    <select id="country" class="r-input-block">
+      <option>Pakistan</option>
+      <option>Canada</option>
+      <option>Germany</option>
+    </select>
+  </div>
+
+  <div class="r-field">
+    <label for="bio">Bio</label>
+    <textarea id="bio" class="r-input-block" rows="3" placeholder="About you..."></textarea>
+  </div>
+
+  <p>
+    <label><input type="checkbox" checked> Email digest</label><br>
+    <label><input type="checkbox"> Beta features</label>
+  </p>
+
+  <p>
+    <label><input type="radio" name="plan" checked> Free</label><br>
+    <label><input type="radio" name="plan"> Pro</label><br>
+    <label><input type="radio" name="plan"> Team</label>
+  </p>
+
+  <p><input type="file"></p>
+
+  <button class="r-btn-primary" type="submit">Create account</button>
+  <button type="reset">Reset</button>
+</fieldset>
+```
 
 | Class | Purpose |
 |-------|---------|
-| `.r-field` | Label + control group |
-| `.r-hint` | Helper text under a field |
-| `.r-input-block` | Full-width control |
+| `.r-field` | Label + control group with spacing |
+| `.r-hint` | Small helper text under a field |
+| `.r-input-block` | Full-width input / select / textarea |
+
+---
+
+## Tables
 
 ```html
-<div class="r-field">
-  <label for="email">Email</label>
-  <input id="email" type="email" class="r-input-block">
-  <span class="r-hint">We never share this.</span>
-</div>
+<table class="r-full">
+  <caption>Example data table</caption>
+  <thead>
+    <tr>
+      <th>Product</th>
+      <th>Year</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Oldweb UI</td>
+      <td>2026</td>
+      <td><span class="r-badge r-badge-danger">Hot</span></td>
+    </tr>
+    <tr>
+      <td>Windows 95</td>
+      <td>1995</td>
+      <td><span class="r-badge">Classic</span></td>
+    </tr>
+    <tr>
+      <td>Material Design</td>
+      <td>2014</td>
+      <td><span class="r-badge">Docs</span></td>
+    </tr>
+  </tbody>
+</table>
 ```
 
-### Navbar
+Any `<table>` is styled automatically. Add `.r-full` for full width.
 
-`.r-nav`, `.r-nav-brand`, `.r-nav-spacer`, `.active` / `[aria-current]`
+---
+
+## Navbar
 
 ```html
 <nav class="r-nav">
-  <a class="r-nav-brand" href="#">Oldweb UI</a>
+  <a class="r-nav-brand" href="#">CoolSite</a>
   <ul>
-    <li><a class="active" href="#">Docs</a></li>
+    <li><a class="active" href="#">Home</a></li>
+    <li><a href="#">Docs</a></li>
+    <li><a href="#">Examples</a></li>
   </ul>
   <span class="r-nav-spacer"></span>
   <a href="#">Login</a>
 </nav>
 ```
 
-### Tabs
-
-`.r-tabs`, `.r-tab-panel`, `aria-selected="true"`, `[hidden]`
-
-### Card / window
-
-`.r-card`, `.r-titlebar` / `.r-card-title`, `.r-card-body`, `.r-card-footer`, `.r-close`
-
-### Dropdown
-
-`.r-dropdown` (`<details>`), `.r-menu`
-
-### Alerts & badges
-
-`.r-alert`, `.r-alert-ok`, `.r-alert-warn`, `.r-alert-err`  
-`.r-badge`, `.r-badge-danger`
-
-### Pagination
-
-`.r-pagination` + `aria-current="page"`
-
-### Tooltip
-
-`data-tip="…"` on any focusable/hoverable element
-
-### Extras (1990s web)
-
-`.r-blink`, `.r-marquee` (child `<span>` required), `.r-counter`, `.r-construction`, `.r-88x31`
+| Class / attr | Purpose |
+|--------------|---------|
+| `.r-nav` | Navbar bar |
+| `.r-nav-brand` | Site name / logo link |
+| `.r-nav-spacer` | Pushes following items to the right |
+| `.active` or `aria-current` | Current page link |
 
 ---
 
-## Minimal page
+## Tabs
+
+CSS styles the tabs. A tiny bit of JS switches panels.
+
+```html
+<nav class="r-tabs" role="tablist">
+  <a href="#panel-a" role="tab" aria-selected="true">Overview</a>
+  <a href="#panel-b" role="tab" aria-selected="false">Settings</a>
+  <a href="#panel-c" role="tab" aria-selected="false">Billing</a>
+</nav>
+
+<div class="r-tab-panel" id="panel-a" role="tabpanel">
+  <p>Overview content.</p>
+</div>
+<div class="r-tab-panel" id="panel-b" role="tabpanel" hidden>
+  <p>Settings content.</p>
+</div>
+<div class="r-tab-panel" id="panel-c" role="tabpanel" hidden>
+  <p>Billing content.</p>
+</div>
+
+<script>
+  document.querySelectorAll(".r-tabs").forEach(function (nav) {
+    var tabs = nav.querySelectorAll(":scope > a");
+    tabs.forEach(function (tab) {
+      tab.addEventListener("click", function (e) {
+        e.preventDefault();
+        tabs.forEach(function (t) {
+          var on = t === tab;
+          t.setAttribute("aria-selected", on ? "true" : "false");
+          var panel = document.querySelector(t.getAttribute("href"));
+          if (panel) panel.hidden = !on;
+        });
+      });
+    });
+  });
+</script>
+```
+
+---
+
+## Cards & windows
+
+```html
+<div class="r-card" style="max-width:420px">
+  <div class="r-titlebar">
+    <span>Document.txt</span>
+    <button class="r-close" type="button" aria-label="Close">x</button>
+  </div>
+  <div class="r-card-body">
+    <p>Window chrome with titlebar, body, and footer.</p>
+  </div>
+  <div class="r-card-footer">
+    <button class="r-btn-primary">OK</button>
+    <button>Cancel</button>
+  </div>
+</div>
+```
+
+| Class | Purpose |
+|-------|---------|
+| `.r-card` | Window / card shell |
+| `.r-titlebar` or `.r-card-title` | Title bar |
+| `.r-card-body` | Main content |
+| `.r-card-footer` | Action row |
+| `.r-close` | Close (×) button |
+
+---
+
+## Alerts & badges
+
+```html
+<div class="r-alert">Info — your profile was updated.</div>
+<div class="r-alert r-alert-ok">Success — changes saved.</div>
+<div class="r-alert r-alert-warn">Warning — storage is nearly full.</div>
+<div class="r-alert r-alert-err">Error — upload failed.</div>
+
+<p>
+  Badges:
+  <span class="r-badge">New</span>
+  <span class="r-badge r-badge-danger">3</span>
+</p>
+```
+
+---
+
+## Pagination
+
+```html
+<ul class="r-pagination">
+  <li><a href="#">&laquo;</a></li>
+  <li><a href="#">1</a></li>
+  <li><a href="#" aria-current="page">2</a></li>
+  <li><a href="#">3</a></li>
+  <li><a href="#">&raquo;</a></li>
+</ul>
+```
+
+Mark the current page with `aria-current="page"`.
+
+---
+
+## Progress
+
+```html
+<p>Upload: <progress value="62" max="100"></progress> 62%</p>
+```
+
+Classless — just use `<progress>`.
+
+---
+
+## Modal (`<dialog>`)
+
+```html
+<button id="open-dialog" class="r-btn-primary">Open modal</button>
+
+<dialog id="dialog">
+  <div class="r-titlebar">
+    <span>Confirm</span>
+    <button class="r-close" data-close type="button" aria-label="Close">x</button>
+  </div>
+  <div class="r-card-body">
+    <p>Are you sure you want to delete this item?</p>
+  </div>
+  <div class="r-card-footer">
+    <button class="r-btn-danger" data-close type="button">Delete</button>
+    <button data-close type="button">Cancel</button>
+  </div>
+</dialog>
+
+<script>
+  var dlg = document.getElementById("dialog");
+  document.getElementById("open-dialog").addEventListener("click", function () {
+    dlg.showModal();
+  });
+  dlg.querySelectorAll("[data-close]").forEach(function (btn) {
+    btn.addEventListener("click", function () { dlg.close(); });
+  });
+</script>
+```
+
+---
+
+## Dropdown menu
+
+Uses native `<details>` — no JS required for open/close.
+
+```html
+<details class="r-dropdown">
+  <summary>Account menu</summary>
+  <ul class="r-menu">
+    <li><a href="#">Profile</a></li>
+    <li><a href="#">Settings</a></li>
+    <li><hr></li>
+    <li><a href="#">Log out</a></li>
+  </ul>
+</details>
+```
+
+Optional: close when clicking outside:
+
+```js
+document.addEventListener("click", function (e) {
+  document.querySelectorAll("details.r-dropdown[open]").forEach(function (d) {
+    if (!d.contains(e.target)) d.open = false;
+  });
+});
+```
+
+---
+
+## Tooltip
+
+```html
+<button data-tip="CSS-only tooltip">Hover me</button>
+<a href="#" data-tip="More info">Help</a>
+```
+
+No JS — set `data-tip="…"`.
+
+---
+
+## Extras (1990s web)
+
+```html
+<span class="r-blink">NEW!</span>
+
+<div class="r-marquee">
+  <span>Welcome to my homepage!! Sign my guestbook!!</span>
+</div>
+
+<span class="r-counter">000123</span>
+
+<div class="r-construction">
+  <span>Under construction</span>
+</div>
+
+<span class="r-88x31">MADE WITH<br>NOTEPAD</span>
+```
+
+| Class | Note |
+|-------|------|
+| `.r-blink` | Blinking text |
+| `.r-marquee` | Needs a child `<span>` for the scrolling text |
+| `.r-counter` | Visitor-counter look |
+| `.r-construction` | Needs a child `<span>` |
+| `.r-88x31` | Classic 88×31 badge size |
+
+---
+
+## Full starter page
+
+Copy, paste, change the theme id:
 
 ```html
 <!doctype html>
@@ -218,11 +577,30 @@ Bundles: `dist/oldweb-<id>.css` or `dist/oldweb-all.css`.
   <div class="r-container">
     <nav class="r-nav">
       <a class="r-nav-brand" href="#">CoolSite</a>
-      <ul><li><a class="active" href="#">Home</a></li></ul>
+      <ul>
+        <li><a class="active" href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+      </ul>
+      <span class="r-nav-spacer"></span>
+      <a href="#">Login</a>
     </nav>
+
     <h1>Welcome</h1>
-    <p class="r-muted">Best viewed in Netscape.</p>
-    <button class="r-btn-primary">Click here</button>
+    <p class="r-muted">Best viewed in Netscape Navigator.</p>
+
+    <div class="r-alert r-alert-ok">You are online. Have a nice day.</div>
+
+    <p>
+      <button class="r-btn-primary">Click here</button>
+      <button>Cancel</button>
+    </p>
+
+    <div class="r-card">
+      <div class="r-titlebar"><span>readme.txt</span></div>
+      <div class="r-card-body">
+        <p>This card uses the active theme’s window chrome.</p>
+      </div>
+    </div>
   </div>
 </body>
 </html>
@@ -230,21 +608,21 @@ Bundles: `dist/oldweb-<id>.css` or `dist/oldweb-all.css`.
 
 ---
 
-## Build
+## Build (contributors)
 
 ```bash
 npm run generate:themes   # rebuild researched era CSS
 npm run build             # → dist/oldweb-*.css
 ```
 
-Zero runtime dependencies. Node is only used for the build concat step.
+Zero runtime dependencies. Node is only used for the build step.
 
 ---
 
 ## Links
 
 - **Live demo:** [chabdulwahhab.github.io/OldwebUI](https://chabdulwahhab.github.io/OldwebUI/demo.html)
-- **Releases / download:** [github.com/ChAbdulWahhab/OldwebUI/releases](https://github.com/ChAbdulWahhab/OldwebUI/releases)
+- **Releases:** [github.com/ChAbdulWahhab/OldwebUI/releases](https://github.com/ChAbdulWahhab/OldwebUI/releases)
 - **Source:** [github.com/ChAbdulWahhab/OldwebUI](https://github.com/ChAbdulWahhab/OldwebUI)
 
 ---
