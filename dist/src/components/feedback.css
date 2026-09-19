@@ -1,0 +1,89 @@
+/* retro-ui / components / feedback.css
+   Alerts (.r-alert + -ok/-warn/-err), badges (.r-badge), <progress>, tooltip ([data-tip]) */
+
+/* alerts */
+[data-oldweb] .r-alert {
+  margin: 0 0 12px;
+  padding: 9px 12px;
+  background: var(--r-info-bg);
+  border: 1px solid var(--r-info-bd);
+  border-radius: var(--r-radius);
+}
+[data-oldweb] .r-alert-ok   { background: var(--r-ok-bg);   border-color: var(--r-ok-bd); }
+[data-oldweb] .r-alert-warn { background: var(--r-warn-bg); border-color: var(--r-warn-bd); }
+[data-oldweb] .r-alert-err  { background: var(--r-err-bg);  border-color: var(--r-err-bd); }
+
+/* badges */
+[data-oldweb] .r-badge {
+  display: inline-block;
+  padding: 1px 8px;
+  font-size: 0.85em;
+  font-weight: bold;
+  line-height: 1.4;
+  color: var(--r-primary-fg);
+  text-shadow: var(--r-primary-text-shadow);
+  border: var(--r-bw) solid var(--r-primary-border);
+  border-radius: calc(var(--r-radius) * 2);
+  background:
+    linear-gradient(rgba(255, 255, 255, var(--r-gloss)) 50%, transparent 50%),
+    linear-gradient(var(--r-primary-top), var(--r-primary-bottom));
+}
+[data-oldweb] .r-badge-danger {
+  color: var(--r-danger-fg);
+  border-color: var(--r-danger-border);
+  background:
+    linear-gradient(rgba(255, 255, 255, var(--r-gloss)) 50%, transparent 50%),
+    linear-gradient(var(--r-danger-top), var(--r-danger-bottom));
+}
+
+/* progress */
+[data-oldweb] progress {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 220px;
+  max-width: 100%;
+  height: 16px;
+  vertical-align: middle;
+  overflow: hidden;
+  color: var(--r-accent);
+  background: var(--r-field-bg);
+  border: var(--r-bw) solid var(--r-field-border);
+  border-radius: var(--r-radius);
+  box-shadow: var(--r-field-shadow);
+}
+[data-oldweb] progress::-webkit-progress-bar {
+  background: transparent;
+}
+[data-oldweb] progress::-webkit-progress-value {
+  background: var(--r-progress-fill);
+}
+[data-oldweb] progress::-moz-progress-bar {
+  background: var(--r-progress-fill);
+}
+
+/* tooltip: <button data-tip="Text">Hover me</button> */
+[data-oldweb] [data-tip] {
+  position: relative;
+}
+[data-oldweb] [data-tip]:is(:hover, :focus-visible)::after {
+  content: attr(data-tip);
+  position: absolute;
+  z-index: 1000;
+  left: 50%;
+  bottom: calc(100% + 6px);
+  transform: translateX(-50%);
+  width: max-content;
+  max-width: 240px;
+  padding: 3px 8px;
+  font: 12px/1.3 var(--r-font);
+  font-weight: normal;
+  text-align: left;
+  white-space: normal;
+  text-shadow: none;
+  color: var(--r-tip-fg);
+  background: var(--r-tip-bg);
+  border: 1px solid var(--r-tip-border);
+  border-radius: var(--r-radius);
+  box-shadow: var(--r-tip-shadow);
+  pointer-events: none;
+}

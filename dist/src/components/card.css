@@ -1,0 +1,46 @@
+/* retro-ui / components / card.css
+   .r-card (= window) + .r-titlebar + .r-card-body + .r-card-footer
+   Titlebar me chhota close button: <button class="r-close" aria-label="Close">x</button> */
+[data-oldweb] .r-card {
+  padding: var(--r-card-pad);
+  background: var(--r-surface);
+  border: var(--r-bw) solid var(--r-border);
+  border-radius: var(--r-radius);
+  box-shadow: var(--r-window-shadow);
+}
+[data-oldweb] :is(.r-titlebar, .r-card-title) {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: var(--r-title-pad);
+  font-weight: bold;
+  color: var(--r-title-fg);
+  text-shadow: var(--r-title-shadow);
+  border-bottom: var(--r-bw) solid var(--r-border);
+  border-radius: var(--r-radius) var(--r-radius) 0 0;
+  background:
+    linear-gradient(rgba(255, 255, 255, var(--r-gloss)) 50%, transparent 50%),
+    linear-gradient(var(--r-title-dir), var(--r-title-top), var(--r-title-bottom));
+}
+[data-oldweb] .r-card-body {
+  padding: var(--r-body-pad);
+}
+[data-oldweb] .r-card-body > :last-child {
+  margin-bottom: 0;
+}
+[data-oldweb] .r-card-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 6px;
+  padding: 8px var(--r-body-pad);
+  background: var(--r-surface-alt);
+  border-top: 1px solid var(--r-border);
+}
+[data-oldweb] .r-close {
+  --_pad: 0 6px;
+  --_fs: 1em;
+  min-width: 1.7em;
+  line-height: 1.2;
+  font-weight: bold;
+}

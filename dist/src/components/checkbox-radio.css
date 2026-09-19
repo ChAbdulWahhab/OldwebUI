@@ -1,0 +1,33 @@
+/* retro-ui / components / checkbox-radio.css
+   Native checkbox/radio ko custom look (appearance: none + SVG tick, images ki zarurat nahi). */
+[data-oldweb] :is(input[type="checkbox"], input[type="radio"]) {
+  appearance: none;
+  -webkit-appearance: none;
+  flex: none;
+  width: var(--r-check-size);
+  height: var(--r-check-size);
+  margin: 0 5px 0 0;
+  vertical-align: -3px;
+  cursor: pointer;
+  background: var(--r-check-bg);
+  border: var(--r-bw) solid var(--r-field-border);
+  border-radius: var(--r-check-radius);
+  box-shadow: var(--r-field-shadow);
+}
+[data-oldweb] input[type="radio"] {
+  border-radius: 50%;
+}
+[data-oldweb] input[type="checkbox"]:checked {
+  background: var(--r-check-mark) center / 100% 100% no-repeat, var(--r-check-bg);
+}
+[data-oldweb] input[type="radio"]:checked {
+  background: var(--r-radio-dot), var(--r-check-bg);
+}
+[data-oldweb] :is(input[type="checkbox"], input[type="radio"]):focus-visible {
+  outline: var(--r-focus);
+  outline-offset: 2px;
+}
+[data-oldweb] :is(input[type="checkbox"], input[type="radio"]):disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}

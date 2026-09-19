@@ -1,0 +1,32 @@
+/* retro-ui / components / table.css
+   Classless: har <table> zebra rows + gradient header ke sath. Full width ke liye .r-full lagao. */
+[data-oldweb] table {
+  border-collapse: collapse;
+  background: var(--r-table-bg);
+  border: 1px solid var(--r-border);
+}
+[data-oldweb] :is(th, td) {
+  padding: 6px 10px;
+  text-align: left;
+  vertical-align: top;
+  border: 1px solid var(--r-border);
+}
+[data-oldweb] th {
+  font-weight: bold;
+  color: var(--r-th-fg);
+  background: linear-gradient(var(--r-th-top), var(--r-th-bottom));
+  box-shadow: var(--r-th-shadow);
+  text-shadow: var(--r-title-shadow);
+}
+[data-oldweb] tbody tr:nth-child(even) > td {
+  background: var(--r-row-alt);
+}
+[data-oldweb] tbody tr:hover > td {
+  background: var(--r-row-hover);
+}
+[data-oldweb] caption {
+  caption-side: bottom;
+  padding: 6px 0;
+  text-align: left;
+  color: var(--r-fg-muted);
+}

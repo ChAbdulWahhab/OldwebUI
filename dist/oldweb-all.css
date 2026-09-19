@@ -1,0 +1,3856 @@
+/*! @chabdulwahab/oldweb-ui v1.0.0 - oldweb-all.css | MIT */
+/* == tokens/defaults.css == */
+/* Oldweb UI / tokens / defaults.css
+   Neutral defaults. :where() keeps specificity at 0 so themes override easily. */
+:where([data-oldweb]) {
+  /* typography */
+  --r-font: Verdana, Tahoma, sans-serif;
+  --r-font-mono: "Courier New", monospace;
+  --r-font-size: 13px;
+  --r-line-height: 1.5;
+  --r-heading: currentColor;
+  --r-heading-shadow: none;
+
+  /* colours */
+  --r-bg: #ffffff;
+  --r-bg-image: linear-gradient(var(--r-bg), var(--r-bg));
+  --r-fg: #000000;
+  --r-fg-muted: #555555;
+  --r-surface: #ffffff;
+  --r-surface-alt: #f2f2f2;
+  --r-border: #999999;
+  --r-hr-hi: #ffffff;
+  --r-link: #0000ee;
+  --r-link-visited: #551a8b;
+  --r-link-hover: #ee0000;
+  --r-accent: #0066cc;
+  --r-accent-fg: #ffffff;
+  --r-disabled-fg: #888888;
+  --r-disabled-shadow: none;
+
+  /* shape + effects */
+  --r-radius: 0px;
+  --r-bw: 1px;
+  --r-gloss: 0;
+  --r-bevel-out: none;
+  --r-bevel-in: none;
+  --r-bevel-press: none;
+  --r-window-shadow: none;
+  --r-modal-shadow: none;
+  --r-panel-shadow: none;
+  --r-text-shadow: none;
+  --r-focus: 2px solid var(--r-accent);
+  --r-focus-offset: 2px;
+  --r-hover-filter: none;
+  --r-active-filter: none;
+
+  /* buttons */
+  --r-btn-top: #eeeeee;
+  --r-btn-bottom: #dddddd;
+  --r-btn-hover-top: #f6f6f6;
+  --r-btn-hover-bottom: #e6e6e6;
+  --r-btn-active-top: #d4d4d4;
+  --r-btn-active-bottom: #e0e0e0;
+  --r-btn-fg: #000000;
+  --r-btn-border: #777777;
+  --r-btn-pad: 4px 12px;
+  --r-primary-top: #3388dd;
+  --r-primary-bottom: #0055aa;
+  --r-primary-fg: #ffffff;
+  --r-primary-border: #003f80;
+  --r-primary-text-shadow: none;
+  --r-primary-shadow: var(--r-bevel-out);
+  --r-primary-active-shadow: var(--r-bevel-press);
+  --r-danger-top: #dd5544;
+  --r-danger-bottom: #aa2211;
+  --r-danger-fg: #ffffff;
+  --r-danger-border: #801808;
+
+  /* text fields */
+  --r-field-bg: #ffffff;
+  --r-field-fg: #000000;
+  --r-field-border: #777777;
+  --r-field-border-focus: var(--r-accent);
+  --r-field-shadow: none;
+  --r-field-focus: 2px solid var(--r-accent);
+  --r-field-pad: 4px 6px;
+  --r-fieldset-shadow: none;
+
+  /* checkbox / radio */
+  --r-check-size: 13px;
+  --r-check-radius: 0px;
+  --r-check-bg: #ffffff;
+  --r-check-mark: none;
+  --r-radio-dot: none;
+
+  /* select */
+  --r-select-top: #ffffff;
+  --r-select-bottom: #ffffff;
+  --r-select-shadow: none;
+  --r-select-arrow: none;
+  --r-select-arrow-pos: 0 0;
+  --r-select-arrow-size: 0 0;
+  --r-select-pad-right: 24px;
+
+  /* card / window / titlebar */
+  --r-title-top: #dddddd;
+  --r-title-bottom: #cccccc;
+  --r-title-fg: #000000;
+  --r-title-dir: to bottom;
+  --r-title-shadow: none;
+  --r-title-pad: 5px 10px;
+  --r-card-pad: 0px;
+  --r-body-pad: 12px;
+
+  /* table */
+  --r-table-bg: #ffffff;
+  --r-th-top: #eeeeee;
+  --r-th-bottom: #dddddd;
+  --r-th-fg: #000000;
+  --r-th-shadow: none;
+  --r-row-alt: #f7f7f7;
+  --r-row-hover: #eeeeee;
+
+  /* alerts */
+  --r-info-bg: #e8f0fb;
+  --r-info-bd: #99b3d9;
+  --r-ok-bg: #e8f6e4;
+  --r-ok-bd: #95c98a;
+  --r-warn-bg: #fff6d6;
+  --r-warn-bd: #e0c860;
+  --r-err-bg: #fbe9e7;
+  --r-err-bd: #e09a94;
+
+  /* navbar */
+  --r-nav-top: #444444;
+  --r-nav-bottom: #222222;
+  --r-nav-fg: #ffffff;
+  --r-nav-border: #000000;
+  --r-nav-shadow: none;
+  --r-nav-text-shadow: none;
+  --r-nav-hover-bg: rgba(255, 255, 255, 0.2);
+  --r-nav-hover-shadow: none;
+  --r-nav-active-bg: rgba(0, 0, 0, 0.3);
+  --r-nav-active-shadow: none;
+
+  /* tabs, progress, tooltip, modal */
+  --r-tab-shadow: none;
+  --r-progress-fill: linear-gradient(var(--r-accent), var(--r-accent));
+  --r-tip-bg: #333333;
+  --r-tip-fg: #ffffff;
+  --r-tip-border: #000000;
+  --r-tip-shadow: none;
+  --r-backdrop: rgba(0, 0, 0, 0.4);
+
+  /* scrollbar */
+  --r-scroll-track: #eeeeee;
+  --r-scroll-track-image: none;
+  --r-scroll-track-size: auto;
+  --r-scroll-thumb: #bbbbbb;
+  --r-scroll-thumb-color: #bbbbbb;
+  --r-scroll-thumb-shadow: none;
+}
+
+/* == components/base.css == */
+/* Oldweb UI / components / base.css
+   Classless mode: set <html data-oldweb="…"> to restyle typography, links, etc. */
+[data-oldweb],
+[data-oldweb] *,
+[data-oldweb] *::before,
+[data-oldweb] *::after {
+  box-sizing: border-box;
+}
+
+[data-oldweb] {
+  color-scheme: light;
+  accent-color: var(--r-accent);
+  font-family: var(--r-font);
+  font-size: var(--r-font-size);
+  line-height: var(--r-line-height);
+  color: var(--r-fg);
+  background: var(--r-bg-image) top left / 100% 260px no-repeat, var(--r-bg);
+  -webkit-text-size-adjust: 100%;
+}
+
+/* links */
+[data-oldweb] a {
+  color: var(--r-link);
+  text-decoration: underline;
+}
+[data-oldweb] a:visited {
+  color: var(--r-link-visited);
+}
+[data-oldweb] a:hover {
+  color: var(--r-link-hover);
+}
+
+/* headings + text */
+[data-oldweb] :is(h1, h2, h3, h4, h5, h6) {
+  margin: 1em 0 0.5em;
+  font-family: inherit;
+  font-weight: bold;
+  line-height: 1.2;
+  color: var(--r-heading);
+  text-shadow: var(--r-heading-shadow);
+}
+[data-oldweb] h1 { font-size: 1.85em; }
+[data-oldweb] h2 { font-size: 1.5em; }
+[data-oldweb] h3 { font-size: 1.25em; }
+[data-oldweb] h4 { font-size: 1.1em; }
+[data-oldweb] h5 { font-size: 1em; }
+[data-oldweb] h6 { font-size: 0.9em; }
+[data-oldweb] p { margin: 0 0 1em; }
+[data-oldweb] :is(ul, ol) { margin: 0 0 1em; padding-left: 2em; }
+[data-oldweb] small { font-size: 0.85em; }
+[data-oldweb] mark { background: #ffff66; color: #000; }
+
+[data-oldweb] hr {
+  height: 2px;
+  margin: 1em 0;
+  border: 0;
+  background: linear-gradient(var(--r-border) 50%, var(--r-hr-hi) 50%);
+}
+
+[data-oldweb] blockquote {
+  margin: 0 0 1em;
+  padding: 0.25em 1em;
+  border-left: 4px solid var(--r-border);
+  color: var(--r-fg-muted);
+}
+
+[data-oldweb] img {
+  max-width: 100%;
+  height: auto;
+  border: 0;
+}
+
+/* code */
+[data-oldweb] :is(code, kbd, samp, pre) {
+  font-family: var(--r-font-mono);
+  font-size: 0.95em;
+}
+[data-oldweb] code {
+  padding: 1px 4px;
+  background: var(--r-surface-alt);
+  border: 1px solid var(--r-border);
+  border-radius: var(--r-radius);
+}
+[data-oldweb] pre {
+  margin: 0 0 1em;
+  padding: 8px 10px;
+  overflow: auto;
+  background: var(--r-field-bg);
+  color: var(--r-field-fg);
+  border: 1px solid var(--r-border);
+  border-radius: var(--r-radius);
+  box-shadow: var(--r-field-shadow);
+}
+[data-oldweb] pre code {
+  padding: 0;
+  background: none;
+  border: 0;
+}
+[data-oldweb] kbd {
+  padding: 1px 6px;
+  color: var(--r-btn-fg);
+  border: 1px solid var(--r-btn-border);
+  border-radius: var(--r-radius);
+  background: linear-gradient(var(--r-btn-top), var(--r-btn-bottom));
+  box-shadow: var(--r-bevel-out);
+}
+
+/* selection + focus */
+[data-oldweb]::selection,
+[data-oldweb] ::selection {
+  background: var(--r-accent);
+  color: var(--r-accent-fg);
+}
+[data-oldweb] :focus-visible {
+  outline: var(--r-focus);
+  outline-offset: var(--r-focus-offset);
+}
+[data-oldweb] a:focus-visible {
+  outline-offset: 1px;
+}
+
+/* helper classes */
+[data-oldweb] .r-container {
+  max-width: 960px;
+  margin: 16px auto;
+  padding: 16px 20px;
+  background: var(--r-surface);
+  border: var(--r-bw) solid var(--r-border);
+  border-radius: var(--r-radius);
+  box-shadow: var(--r-panel-shadow);
+}
+[data-oldweb] .r-muted { color: var(--r-fg-muted); }
+[data-oldweb] .r-full { width: 100%; }
+
+/* == components/button.css == */
+/* retro-ui / components / button.css
+   Classless: har <button> aur input[type=button|submit|reset] khud style ho jata hai.
+   Variants: .r-btn-primary  .r-btn-danger  .r-btn-sm  .r-btn-lg  .r-btn-block
+   Link ko button banane ke liye: <a class="r-btn">.
+   Andar --_xxx local variables hain taake variants sirf variables badlein. */
+
+/* 1. base (specificity kam rakhi hai taake variants asani se jeet sakein) */
+:where([data-oldweb]) :is(button, input[type="button"], input[type="submit"], input[type="reset"], .r-btn) {
+  --_top: var(--r-btn-top);
+  --_bottom: var(--r-btn-bottom);
+  --_hover-top: var(--r-btn-hover-top);
+  --_hover-bottom: var(--r-btn-hover-bottom);
+  --_active-top: var(--r-btn-active-top);
+  --_active-bottom: var(--r-btn-active-bottom);
+  --_fg: var(--r-btn-fg);
+  --_bd: var(--r-btn-border);
+  --_ts: var(--r-text-shadow);
+  --_shadow: var(--r-bevel-out);
+  --_press-shadow: var(--r-bevel-press);
+  --_hover-filter: none;
+  --_active-filter: none;
+  --_pad: var(--r-btn-pad);
+  --_fs: 1em;
+
+  appearance: none;
+  -webkit-appearance: none;
+  display: inline-block;
+  margin: 0;
+  font: inherit;
+  font-size: var(--_fs);
+  line-height: 1.25;
+  text-align: center;
+  cursor: pointer;
+  padding: var(--_pad);
+  color: var(--_fg);
+  border: var(--r-bw) solid var(--_bd);
+  border-radius: var(--r-radius);
+  background:
+    linear-gradient(rgba(255, 255, 255, var(--r-gloss)) 50%, transparent 50%),
+    linear-gradient(var(--_top), var(--_bottom));
+  box-shadow: var(--_shadow);
+  text-shadow: var(--_ts);
+}
+
+/* 2. states */
+[data-oldweb] :is(button, input[type="button"], input[type="submit"], input[type="reset"], .r-btn):hover:not(:disabled):not([aria-disabled="true"]) {
+  background:
+    linear-gradient(rgba(255, 255, 255, var(--r-gloss)) 50%, transparent 50%),
+    linear-gradient(var(--_hover-top), var(--_hover-bottom));
+  filter: var(--_hover-filter);
+}
+[data-oldweb] :is(button, input[type="button"], input[type="submit"], input[type="reset"], .r-btn):active:not(:disabled):not([aria-disabled="true"]) {
+  background:
+    linear-gradient(rgba(255, 255, 255, var(--r-gloss)) 50%, transparent 50%),
+    linear-gradient(var(--_active-top), var(--_active-bottom));
+  box-shadow: var(--_press-shadow);
+  filter: var(--_active-filter);
+}
+[data-oldweb] :is(button, input[type="button"], input[type="submit"], input[type="reset"], .r-btn):disabled,
+[data-oldweb] .r-btn[aria-disabled="true"] {
+  --_top: var(--r-btn-top);
+  --_bottom: var(--r-btn-bottom);
+  --_fg: var(--r-disabled-fg);
+  --_bd: var(--r-btn-border);
+  --_ts: var(--r-disabled-shadow);
+  --_shadow: var(--r-bevel-out);
+  cursor: not-allowed;
+}
+[data-oldweb] a.r-btn[aria-disabled="true"] {
+  pointer-events: none;
+}
+
+/* 3. <a class="r-btn"> ko link ke colours/underline se bachao */
+[data-oldweb] a.r-btn,
+[data-oldweb] a.r-btn:visited,
+[data-oldweb] a.r-btn:hover {
+  color: var(--_fg);
+  text-decoration: none;
+}
+
+/* 4. variants */
+[data-oldweb] .r-btn-primary {
+  --_top: var(--r-primary-top);
+  --_bottom: var(--r-primary-bottom);
+  --_hover-top: var(--r-primary-top);
+  --_hover-bottom: var(--r-primary-bottom);
+  --_active-top: var(--r-primary-bottom);
+  --_active-bottom: var(--r-primary-top);
+  --_fg: var(--r-primary-fg);
+  --_bd: var(--r-primary-border);
+  --_ts: var(--r-primary-text-shadow);
+  --_shadow: var(--r-primary-shadow);
+  --_press-shadow: var(--r-primary-active-shadow);
+  --_hover-filter: var(--r-hover-filter);
+  --_active-filter: var(--r-active-filter);
+  font-weight: bold;
+}
+[data-oldweb] .r-btn-danger {
+  --_top: var(--r-danger-top);
+  --_bottom: var(--r-danger-bottom);
+  --_hover-top: var(--r-danger-top);
+  --_hover-bottom: var(--r-danger-bottom);
+  --_active-top: var(--r-danger-bottom);
+  --_active-bottom: var(--r-danger-top);
+  --_fg: var(--r-danger-fg);
+  --_bd: var(--r-danger-border);
+  --_ts: var(--r-primary-text-shadow);
+  --_hover-filter: var(--r-hover-filter);
+  --_active-filter: var(--r-active-filter);
+}
+[data-oldweb] .r-btn-sm { --_pad: 2px 9px; --_fs: 0.92em; }
+[data-oldweb] .r-btn-lg { --_pad: 8px 22px; --_fs: 1.15em; }
+[data-oldweb] .r-btn-block { display: block; width: 100%; }
+
+/* 5. focus */
+[data-oldweb] :is(button, input[type="button"], input[type="submit"], input[type="reset"], .r-btn):focus-visible {
+  outline: var(--r-focus);
+  outline-offset: var(--r-focus-offset);
+}
+
+/* == components/form.css == */
+/* retro-ui / components / form.css
+   Text inputs, textarea, fieldset, file input, labels.
+   Helper classes: .r-field (label + input ka group), .r-hint, .r-input-block */
+:where([data-oldweb]) :is(
+  input:not([type]),
+  input[type="text"], input[type="email"], input[type="password"], input[type="search"],
+  input[type="url"], input[type="tel"], input[type="number"], input[type="date"],
+  input[type="datetime-local"], input[type="month"], input[type="time"], input[type="week"],
+  textarea
+) {
+  margin: 0;
+  max-width: 100%;
+  font: inherit;
+  line-height: 1.3;
+  padding: var(--r-field-pad);
+  color: var(--r-field-fg);
+  background: var(--r-field-bg);
+  border: var(--r-bw) solid var(--r-field-border);
+  border-radius: var(--r-radius);
+  box-shadow: var(--r-field-shadow);
+}
+
+[data-oldweb] :is(
+  input:not([type]),
+  input[type="text"], input[type="email"], input[type="password"], input[type="search"],
+  input[type="url"], input[type="tel"], input[type="number"], input[type="date"],
+  input[type="datetime-local"], input[type="month"], input[type="time"], input[type="week"],
+  textarea
+):focus {
+  border-color: var(--r-field-border-focus);
+  outline: var(--r-field-focus);
+  outline-offset: 0;
+}
+
+[data-oldweb] :is(
+  input:not([type]), input[type="text"], input[type="email"], input[type="password"],
+  input[type="search"], input[type="url"], input[type="tel"], input[type="number"], textarea
+):disabled {
+  background: var(--r-surface-alt);
+  color: var(--r-disabled-fg);
+  cursor: not-allowed;
+}
+
+[data-oldweb] textarea {
+  resize: vertical;
+  vertical-align: top;
+  min-height: 4.5em;
+}
+[data-oldweb] ::placeholder {
+  color: var(--r-fg-muted);
+  opacity: 0.7;
+}
+
+/* file input ka button */
+[data-oldweb] input[type="file"] {
+  font: inherit;
+  color: var(--r-fg);
+}
+[data-oldweb] input[type="file"]::file-selector-button {
+  margin: 0 8px 0 0;
+  padding: var(--r-btn-pad);
+  font: inherit;
+  color: var(--r-btn-fg);
+  cursor: pointer;
+  border: var(--r-bw) solid var(--r-btn-border);
+  border-radius: var(--r-radius);
+  background:
+    linear-gradient(rgba(255, 255, 255, var(--r-gloss)) 50%, transparent 50%),
+    linear-gradient(var(--r-btn-top), var(--r-btn-bottom));
+  box-shadow: var(--r-bevel-out);
+  text-shadow: var(--r-text-shadow);
+}
+
+/* fieldset + legend */
+[data-oldweb] fieldset {
+  margin: 0 0 12px;
+  padding: 8px 12px 10px;
+  border: 1px solid var(--r-border);
+  border-radius: var(--r-radius);
+  box-shadow: var(--r-fieldset-shadow);
+}
+[data-oldweb] legend {
+  padding: 0 6px;
+  font-weight: bold;
+}
+
+/* helper classes */
+[data-oldweb] .r-field {
+  display: block;
+  margin: 0 0 12px;
+}
+[data-oldweb] .r-field > label {
+  display: block;
+  margin-bottom: 3px;
+  font-weight: bold;
+}
+[data-oldweb] .r-hint {
+  display: block;
+  margin-top: 3px;
+  font-size: 0.92em;
+  color: var(--r-fg-muted);
+}
+[data-oldweb] .r-input-block {
+  display: block;
+  width: 100%;
+}
+
+/* == components/checkbox-radio.css == */
+/* retro-ui / components / checkbox-radio.css
+   Native checkbox/radio ko custom look (appearance: none + SVG tick, images ki zarurat nahi). */
+[data-oldweb] :is(input[type="checkbox"], input[type="radio"]) {
+  appearance: none;
+  -webkit-appearance: none;
+  flex: none;
+  width: var(--r-check-size);
+  height: var(--r-check-size);
+  margin: 0 5px 0 0;
+  vertical-align: -3px;
+  cursor: pointer;
+  background: var(--r-check-bg);
+  border: var(--r-bw) solid var(--r-field-border);
+  border-radius: var(--r-check-radius);
+  box-shadow: var(--r-field-shadow);
+}
+[data-oldweb] input[type="radio"] {
+  border-radius: 50%;
+}
+[data-oldweb] input[type="checkbox"]:checked {
+  background: var(--r-check-mark) center / 100% 100% no-repeat, var(--r-check-bg);
+}
+[data-oldweb] input[type="radio"]:checked {
+  background: var(--r-radio-dot), var(--r-check-bg);
+}
+[data-oldweb] :is(input[type="checkbox"], input[type="radio"]):focus-visible {
+  outline: var(--r-focus);
+  outline-offset: 2px;
+}
+[data-oldweb] :is(input[type="checkbox"], input[type="radio"]):disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+/* == components/select.css == */
+/* retro-ui / components / select.css
+   1) Native <select> ko restyle (arrow SVG data-URI se).
+   2) .r-dropdown: <details> par based CSS-only dropdown menu.
+   Popup list ka apna look browser/OS control karta hai, isliye custom menu ke liye .r-dropdown use karo. */
+[data-oldweb] select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  margin: 0;
+  max-width: 100%;
+  font: inherit;
+  line-height: 1.3;
+  padding: var(--r-field-pad);
+  padding-right: var(--r-select-pad-right);
+  color: var(--r-field-fg);
+  cursor: pointer;
+  border: var(--r-bw) solid var(--r-field-border);
+  border-radius: var(--r-radius);
+  box-shadow: var(--r-select-shadow);
+  background-color: transparent;
+  background-image: var(--r-select-arrow), linear-gradient(var(--r-select-top), var(--r-select-bottom));
+  background-repeat: no-repeat;
+  background-position: var(--r-select-arrow-pos), 0 0;
+  background-size: var(--r-select-arrow-size), 100% 100%;
+}
+[data-oldweb] select:focus {
+  border-color: var(--r-field-border-focus);
+  outline: var(--r-field-focus);
+  outline-offset: 0;
+}
+[data-oldweb] select:disabled {
+  color: var(--r-disabled-fg);
+  cursor: not-allowed;
+}
+/* listbox (multiple / size > 1): arrow nahi chahiye */
+[data-oldweb] select[multiple],
+[data-oldweb] select[size]:not([size="1"]) {
+  padding: 2px;
+  cursor: default;
+  background-image: none;
+  background-color: var(--r-field-bg);
+}
+[data-oldweb] :is(option, optgroup) {
+  background: var(--r-field-bg);
+  color: var(--r-field-fg);
+}
+[data-oldweb] option:checked {
+  background: var(--r-accent);
+  color: var(--r-accent-fg);
+}
+
+/* ---------- .r-dropdown (details/summary) ----------
+   <details class="r-dropdown">
+     <summary>Menu</summary>
+     <ul class="r-menu"><li><a href="#">Item</a></li></ul>
+   </details> */
+[data-oldweb] .r-dropdown {
+  position: relative;
+  display: inline-block;
+}
+[data-oldweb] .r-dropdown > summary {
+  display: inline-block;
+  list-style: none;
+  padding: var(--r-btn-pad);
+  color: var(--r-btn-fg);
+  cursor: pointer;
+  user-select: none;
+  border: var(--r-bw) solid var(--r-btn-border);
+  border-radius: var(--r-radius);
+  background:
+    linear-gradient(rgba(255, 255, 255, var(--r-gloss)) 50%, transparent 50%),
+    linear-gradient(var(--r-btn-top), var(--r-btn-bottom));
+  box-shadow: var(--r-bevel-out);
+  text-shadow: var(--r-text-shadow);
+}
+[data-oldweb] .r-dropdown > summary::-webkit-details-marker {
+  display: none;
+}
+[data-oldweb] .r-dropdown > summary::after {
+  content: "";
+  display: inline-block;
+  margin-left: 8px;
+  vertical-align: -2px;
+  border: 4px solid transparent;
+  border-top-color: currentColor;
+  border-bottom-width: 0;
+}
+[data-oldweb] .r-dropdown[open] > summary {
+  box-shadow: var(--r-bevel-press);
+}
+[data-oldweb] .r-menu {
+  position: absolute;
+  z-index: 100;
+  top: 100%;
+  left: 0;
+  min-width: 100%;
+  margin: 2px 0 0;
+  padding: 2px;
+  list-style: none;
+  background: var(--r-surface);
+  border: var(--r-bw) solid var(--r-border);
+  border-radius: var(--r-radius);
+  box-shadow: var(--r-window-shadow);
+}
+[data-oldweb] .r-menu a,
+[data-oldweb] .r-menu a:visited {
+  display: block;
+  padding: 4px 26px 4px 10px;
+  color: var(--r-fg);
+  text-decoration: none;
+  white-space: nowrap;
+}
+[data-oldweb] .r-menu a:hover,
+[data-oldweb] .r-menu a:focus-visible {
+  color: var(--r-accent-fg);
+  background: var(--r-accent);
+  outline: none;
+}
+[data-oldweb] .r-menu hr {
+  margin: 3px 0;
+}
+
+/* == components/table.css == */
+/* retro-ui / components / table.css
+   Classless: har <table> zebra rows + gradient header ke sath. Full width ke liye .r-full lagao. */
+[data-oldweb] table {
+  border-collapse: collapse;
+  background: var(--r-table-bg);
+  border: 1px solid var(--r-border);
+}
+[data-oldweb] :is(th, td) {
+  padding: 6px 10px;
+  text-align: left;
+  vertical-align: top;
+  border: 1px solid var(--r-border);
+}
+[data-oldweb] th {
+  font-weight: bold;
+  color: var(--r-th-fg);
+  background: linear-gradient(var(--r-th-top), var(--r-th-bottom));
+  box-shadow: var(--r-th-shadow);
+  text-shadow: var(--r-title-shadow);
+}
+[data-oldweb] tbody tr:nth-child(even) > td {
+  background: var(--r-row-alt);
+}
+[data-oldweb] tbody tr:hover > td {
+  background: var(--r-row-hover);
+}
+[data-oldweb] caption {
+  caption-side: bottom;
+  padding: 6px 0;
+  text-align: left;
+  color: var(--r-fg-muted);
+}
+
+/* == components/tabs.css == */
+/* retro-ui / components / tabs.css
+   Sirf styling; switching JS tumhari zimmedari (demo.html me 5 line ka example hai).
+   <nav class="r-tabs" role="tablist">
+     <a href="#a" role="tab" aria-selected="true">One</a>
+     <a href="#b" role="tab">Two</a>
+   </nav>
+   <div class="r-tab-panel" id="a">...</div>
+   Tabs ke liye <a> use karo (button nahi). */
+[data-oldweb] .r-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
+  margin: 0;
+  padding: 0 4px;
+}
+[data-oldweb] .r-tabs > a {
+  position: relative;
+  margin-bottom: -1px;
+  padding: 5px 14px;
+  color: var(--r-fg);
+  text-decoration: none;
+  border: var(--r-bw) solid var(--r-border);
+  border-bottom: 0;
+  border-radius: var(--r-radius) var(--r-radius) 0 0;
+  background: linear-gradient(var(--r-btn-top), var(--r-btn-bottom));
+  box-shadow: var(--r-tab-shadow);
+}
+[data-oldweb] .r-tabs > a:visited {
+  color: var(--r-fg);
+}
+[data-oldweb] .r-tabs > a:hover {
+  color: var(--r-fg);
+  background: linear-gradient(var(--r-btn-hover-top), var(--r-btn-hover-bottom));
+}
+[data-oldweb] .r-tabs > a[aria-selected="true"],
+[data-oldweb] .r-tabs > a.is-active {
+  z-index: 1;
+  padding-bottom: 6px;
+  font-weight: bold;
+  background: var(--r-surface);
+}
+[data-oldweb] .r-tab-panel {
+  position: relative;
+  padding: 12px;
+  background: var(--r-surface);
+  border: var(--r-bw) solid var(--r-border);
+  border-radius: 0 var(--r-radius) var(--r-radius) var(--r-radius);
+  box-shadow: var(--r-panel-shadow);
+}
+[data-oldweb] .r-tab-panel[hidden] {
+  display: none;
+}
+
+/* == components/card.css == */
+/* retro-ui / components / card.css
+   .r-card (= window) + .r-titlebar + .r-card-body + .r-card-footer
+   Titlebar me chhota close button: <button class="r-close" aria-label="Close">x</button> */
+[data-oldweb] .r-card {
+  padding: var(--r-card-pad);
+  background: var(--r-surface);
+  border: var(--r-bw) solid var(--r-border);
+  border-radius: var(--r-radius);
+  box-shadow: var(--r-window-shadow);
+}
+[data-oldweb] :is(.r-titlebar, .r-card-title) {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: var(--r-title-pad);
+  font-weight: bold;
+  color: var(--r-title-fg);
+  text-shadow: var(--r-title-shadow);
+  border-bottom: var(--r-bw) solid var(--r-border);
+  border-radius: var(--r-radius) var(--r-radius) 0 0;
+  background:
+    linear-gradient(rgba(255, 255, 255, var(--r-gloss)) 50%, transparent 50%),
+    linear-gradient(var(--r-title-dir), var(--r-title-top), var(--r-title-bottom));
+}
+[data-oldweb] .r-card-body {
+  padding: var(--r-body-pad);
+}
+[data-oldweb] .r-card-body > :last-child {
+  margin-bottom: 0;
+}
+[data-oldweb] .r-card-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 6px;
+  padding: 8px var(--r-body-pad);
+  background: var(--r-surface-alt);
+  border-top: 1px solid var(--r-border);
+}
+[data-oldweb] .r-close {
+  --_pad: 0 6px;
+  --_fs: 1em;
+  min-width: 1.7em;
+  line-height: 1.2;
+  font-weight: bold;
+}
+
+/* == components/navbar.css == */
+/* retro-ui / components / navbar.css
+   <nav class="r-nav">
+     <a class="r-nav-brand" href="#">Brand</a>
+     <ul><li><a class="active" href="#">Home</a></li><li><a href="#">About</a></li></ul>
+     <a class="r-nav-spacer" href="#">Login</a>
+   </nav> */
+[data-oldweb] .r-nav {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2px 4px;
+  margin: 0 0 12px;
+  padding: 4px 8px;
+  color: var(--r-nav-fg);
+  border: var(--r-bw) solid var(--r-nav-border);
+  border-radius: var(--r-radius);
+  background:
+    linear-gradient(rgba(255, 255, 255, var(--r-gloss)) 50%, transparent 50%),
+    linear-gradient(var(--r-nav-top), var(--r-nav-bottom));
+  box-shadow: var(--r-nav-shadow);
+}
+[data-oldweb] .r-nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+[data-oldweb] .r-nav a,
+[data-oldweb] .r-nav a:visited {
+  display: block;
+  padding: 5px 11px;
+  color: var(--r-nav-fg);
+  text-decoration: none;
+  text-shadow: var(--r-nav-text-shadow);
+  border-radius: var(--r-radius);
+}
+[data-oldweb] .r-nav a:hover {
+  color: var(--r-nav-fg);
+  background: var(--r-nav-hover-bg);
+  box-shadow: var(--r-nav-hover-shadow);
+}
+[data-oldweb] .r-nav a.active,
+[data-oldweb] .r-nav a[aria-current] {
+  background: var(--r-nav-active-bg);
+  box-shadow: var(--r-nav-active-shadow);
+}
+[data-oldweb] .r-nav .r-nav-brand {
+  margin-right: 10px;
+  font-size: 1.15em;
+  font-weight: bold;
+}
+[data-oldweb] .r-nav .r-nav-spacer {
+  margin-left: auto;
+}
+
+/* == components/pagination.css == */
+/* retro-ui / components / pagination.css
+   <ul class="r-pagination"><li><a href="#">1</a></li><li><a aria-current="page">2</a></li></ul> */
+[data-oldweb] .r-pagination {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px;
+  margin: 0 0 1em;
+  padding: 0;
+  list-style: none;
+}
+[data-oldweb] .r-pagination :is(a, span),
+[data-oldweb] .r-pagination a:visited {
+  display: block;
+  min-width: 2.2em;
+  padding: 3px 8px;
+  text-align: center;
+  text-decoration: none;
+  color: var(--r-btn-fg);
+  border: var(--r-bw) solid var(--r-btn-border);
+  border-radius: var(--r-radius);
+  background:
+    linear-gradient(rgba(255, 255, 255, var(--r-gloss)) 50%, transparent 50%),
+    linear-gradient(var(--r-btn-top), var(--r-btn-bottom));
+  box-shadow: var(--r-bevel-out);
+  text-shadow: var(--r-text-shadow);
+}
+[data-oldweb] .r-pagination a:hover {
+  color: var(--r-btn-fg);
+  background:
+    linear-gradient(rgba(255, 255, 255, var(--r-gloss)) 50%, transparent 50%),
+    linear-gradient(var(--r-btn-hover-top), var(--r-btn-hover-bottom));
+}
+[data-oldweb] .r-pagination [aria-current="page"],
+[data-oldweb] .r-pagination a[aria-current="page"]:hover {
+  font-weight: bold;
+  color: var(--r-primary-fg);
+  border-color: var(--r-primary-border);
+  background:
+    linear-gradient(rgba(255, 255, 255, var(--r-gloss)) 50%, transparent 50%),
+    linear-gradient(var(--r-primary-top), var(--r-primary-bottom));
+  box-shadow: var(--r-primary-shadow);
+  text-shadow: var(--r-primary-text-shadow);
+}
+
+/* == components/feedback.css == */
+/* retro-ui / components / feedback.css
+   Alerts (.r-alert + -ok/-warn/-err), badges (.r-badge), <progress>, tooltip ([data-tip]) */
+
+/* alerts */
+[data-oldweb] .r-alert {
+  margin: 0 0 12px;
+  padding: 9px 12px;
+  background: var(--r-info-bg);
+  border: 1px solid var(--r-info-bd);
+  border-radius: var(--r-radius);
+}
+[data-oldweb] .r-alert-ok   { background: var(--r-ok-bg);   border-color: var(--r-ok-bd); }
+[data-oldweb] .r-alert-warn { background: var(--r-warn-bg); border-color: var(--r-warn-bd); }
+[data-oldweb] .r-alert-err  { background: var(--r-err-bg);  border-color: var(--r-err-bd); }
+
+/* badges */
+[data-oldweb] .r-badge {
+  display: inline-block;
+  padding: 1px 8px;
+  font-size: 0.85em;
+  font-weight: bold;
+  line-height: 1.4;
+  color: var(--r-primary-fg);
+  text-shadow: var(--r-primary-text-shadow);
+  border: var(--r-bw) solid var(--r-primary-border);
+  border-radius: calc(var(--r-radius) * 2);
+  background:
+    linear-gradient(rgba(255, 255, 255, var(--r-gloss)) 50%, transparent 50%),
+    linear-gradient(var(--r-primary-top), var(--r-primary-bottom));
+}
+[data-oldweb] .r-badge-danger {
+  color: var(--r-danger-fg);
+  border-color: var(--r-danger-border);
+  background:
+    linear-gradient(rgba(255, 255, 255, var(--r-gloss)) 50%, transparent 50%),
+    linear-gradient(var(--r-danger-top), var(--r-danger-bottom));
+}
+
+/* progress */
+[data-oldweb] progress {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 220px;
+  max-width: 100%;
+  height: 16px;
+  vertical-align: middle;
+  overflow: hidden;
+  color: var(--r-accent);
+  background: var(--r-field-bg);
+  border: var(--r-bw) solid var(--r-field-border);
+  border-radius: var(--r-radius);
+  box-shadow: var(--r-field-shadow);
+}
+[data-oldweb] progress::-webkit-progress-bar {
+  background: transparent;
+}
+[data-oldweb] progress::-webkit-progress-value {
+  background: var(--r-progress-fill);
+}
+[data-oldweb] progress::-moz-progress-bar {
+  background: var(--r-progress-fill);
+}
+
+/* tooltip: <button data-tip="Text">Hover me</button> */
+[data-oldweb] [data-tip] {
+  position: relative;
+}
+[data-oldweb] [data-tip]:is(:hover, :focus-visible)::after {
+  content: attr(data-tip);
+  position: absolute;
+  z-index: 1000;
+  left: 50%;
+  bottom: calc(100% + 6px);
+  transform: translateX(-50%);
+  width: max-content;
+  max-width: 240px;
+  padding: 3px 8px;
+  font: 12px/1.3 var(--r-font);
+  font-weight: normal;
+  text-align: left;
+  white-space: normal;
+  text-shadow: none;
+  color: var(--r-tip-fg);
+  background: var(--r-tip-bg);
+  border: 1px solid var(--r-tip-border);
+  border-radius: var(--r-radius);
+  box-shadow: var(--r-tip-shadow);
+  pointer-events: none;
+}
+
+/* == components/modal.css == */
+/* retro-ui / components / modal.css
+   Native <dialog> use hota hai (dialog.showModal()).
+   <dialog id="d">
+     <div class="r-titlebar">Title <button class="r-close" aria-label="Close">x</button></div>
+     <div class="r-card-body">...</div>
+     <div class="r-card-footer"><button>OK</button></div>
+   </dialog> */
+[data-oldweb] dialog {
+  width: min(92vw, 480px);
+  max-height: 90vh;
+  margin: auto;
+  padding: var(--r-card-pad);
+  overflow: auto;
+  color: var(--r-fg);
+  background: var(--r-surface);
+  border: var(--r-bw) solid var(--r-border);
+  border-radius: var(--r-radius);
+  box-shadow: var(--r-modal-shadow);
+}
+[data-oldweb] dialog::backdrop {
+  background: var(--r-backdrop, rgba(0, 0, 0, 0.4));
+}
+
+/* == components/scrollbar.css == */
+/* retro-ui / components / scrollbar.css
+   Chrome/Edge/Safari: ::-webkit-scrollbar. Firefox: scrollbar-color.
+   (Chrome 121+ me dono ek sath hon to webkit wala ignore hota hai, is liye @supports se alag kiya.) */
+@supports selector(::-webkit-scrollbar) {
+  [data-oldweb]::-webkit-scrollbar,
+  [data-oldweb] *::-webkit-scrollbar {
+    width: 16px;
+    height: 16px;
+  }
+  [data-oldweb]::-webkit-scrollbar-track,
+  [data-oldweb] *::-webkit-scrollbar-track {
+    background-color: var(--r-scroll-track);
+    background-image: var(--r-scroll-track-image);
+    background-size: var(--r-scroll-track-size);
+  }
+  [data-oldweb]::-webkit-scrollbar-thumb,
+  [data-oldweb] *::-webkit-scrollbar-thumb {
+    background: var(--r-scroll-thumb);
+    border: var(--r-bw) solid var(--r-border);
+    border-radius: var(--r-radius);
+    box-shadow: var(--r-scroll-thumb-shadow);
+  }
+  [data-oldweb]::-webkit-scrollbar-corner,
+  [data-oldweb] *::-webkit-scrollbar-corner {
+    background: var(--r-scroll-track);
+  }
+}
+@supports not selector(::-webkit-scrollbar) {
+  [data-oldweb] {
+    scrollbar-color: var(--r-scroll-thumb-color) var(--r-scroll-track);
+  }
+}
+
+/* == components/extras.css == */
+/* retro-ui / components / extras.css
+   GeoCities / MySpace wala mazaa: .r-blink  .r-marquee  .r-counter  .r-construction  .r-88x31
+   Animations prefers-reduced-motion ko respect karti hain. */
+@keyframes r-blink {
+  50% { opacity: 0; }
+}
+@keyframes r-marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-100%); }
+}
+
+[data-oldweb] .r-blink {
+  animation: r-blink 1s steps(1) infinite;
+}
+
+/* <div class="r-marquee"><span>text...</span></div> */
+[data-oldweb] .r-marquee {
+  overflow: hidden;
+  white-space: nowrap;
+}
+[data-oldweb] .r-marquee > span {
+  display: inline-block;
+  padding-left: 100%;
+  animation: r-marquee 14s linear infinite;
+}
+
+/* <span class="r-counter">000123</span> */
+[data-oldweb] .r-counter {
+  display: inline-block;
+  padding: 1px 6px;
+  font: bold 1.1em/1.3 var(--r-font-mono);
+  letter-spacing: 0.2em;
+  color: #33ff33;
+  background: #000000;
+  border: 2px inset #808080;
+}
+
+/* <div class="r-construction">Under construction</div> */
+[data-oldweb] .r-construction {
+  display: inline-block;
+  padding: 8px 14px;
+  font-weight: bold;
+  color: #000000;
+  background: repeating-linear-gradient(45deg, #ffcc00 0 12px, #1a1a1a 12px 24px);
+  border: 2px solid #000000;
+}
+[data-oldweb] .r-construction > span {
+  display: inline-block;
+  padding: 2px 8px;
+  background: #ffcc00;
+}
+
+/* <span class="r-88x31">MADE WITH<br>NOTEPAD</span> */
+[data-oldweb] .r-88x31 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 88px;
+  height: 31px;
+  font: bold 9px/1.1 var(--r-font);
+  text-align: center;
+  color: var(--r-btn-fg);
+  border: var(--r-bw) solid var(--r-btn-border);
+  border-radius: var(--r-radius);
+  background: linear-gradient(var(--r-btn-top), var(--r-btn-bottom));
+  box-shadow: var(--r-bevel-out);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-oldweb] .r-blink,
+  [data-oldweb] .r-marquee > span {
+    animation: none;
+  }
+  [data-oldweb] .r-marquee > span {
+    padding-left: 0;
+  }
+}
+
+/* == themes/terminal1980.css == */
+/* Oldweb UI / themes / terminal1980.css
+   c.1980 CRT terminal: green phosphor on black, monospace, no chrome — early command-line UI. */
+[data-oldweb="terminal1980"] {
+  --r-font: "Courier New", Courier, monospace;
+  --r-font-mono: "Courier New", Courier, monospace;
+  --r-font-size: 15px;
+  --r-line-height: 1.35;
+  --r-heading: #33ff66;
+  --r-heading-shadow: none;
+  --r-bg: #001a00;
+  --r-bg-image: linear-gradient(#001a00, #000800);
+  --r-fg: #33ff66;
+  --r-fg-muted: #1a8833;
+  --r-surface: #001a00;
+  --r-surface-alt: #002200;
+  --r-border: #33ff66;
+  --r-hr-hi: #1a8833;
+  --r-link: #66ff99;
+  --r-link-visited: #22aa44;
+  --r-link-hover: #99ffbb;
+  --r-accent: #33ff66;
+  --r-accent-fg: #001a00;
+  --r-disabled-fg: #888;
+  --r-disabled-shadow: none;
+  --r-radius: 0;
+  --r-bw: 1px;
+  --r-gloss: 0;
+  --r-bevel-out: none;
+  --r-bevel-in: none;
+  --r-bevel-press: none;
+  --r-window-shadow: 0 0 12px rgba(51,255,102,.35);
+  --r-modal-shadow: 0 0 24px rgba(51,255,102,.45);
+  --r-panel-shadow: none;
+  --r-text-shadow: 0 0 4px rgba(51,255,102,.6);
+  --r-focus: 1px solid #66ff99;
+  --r-focus-offset: 2px;
+  --r-hover-filter: brightness(1.2);
+  --r-active-filter: brightness(0.92);
+  --r-btn-top: #001a00;
+  --r-btn-bottom: #001a00;
+  --r-btn-hover-top: #003300;
+  --r-btn-hover-bottom: #003300;
+  --r-btn-active-top: #000800;
+  --r-btn-active-bottom: #000800;
+  --r-btn-fg: #33ff66;
+  --r-btn-border: #33ff66;
+  --r-btn-pad: 4px 10px;
+  --r-primary-top: #33ff66;
+  --r-primary-bottom: #33ff66;
+  --r-primary-fg: #001a00;
+  --r-primary-border: #66ff99;
+  --r-primary-text-shadow: none;
+  --r-primary-shadow: 0 0 8px rgba(51,255,102,.5);
+  --r-primary-active-shadow: var(--r-bevel-press);
+  --r-danger-top: #ff3333;
+  --r-danger-bottom: #ff3333;
+  --r-danger-fg: #001a00;
+  --r-danger-border: #ff6666;
+  --r-field-bg: #000800;
+  --r-field-fg: #33ff66;
+  --r-field-border: #1a8833;
+  --r-field-border-focus: var(--r-accent);
+  --r-field-shadow: none;
+  --r-field-focus: 1px solid #66ff99;
+  --r-field-pad: 4px 6px;
+  --r-fieldset-shadow: none;
+  --r-check-size: 13px;
+  --r-check-radius: 0;
+  --r-check-bg: #000800;
+  --r-check-mark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 13 13'%3E%3Cpath d='M2.5 7l2.5 2.5L10.5 3.5' fill='none' stroke='%2333ff66' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E");
+  --r-radio-dot: radial-gradient(circle, #33ff66 30%, transparent 36%);
+  --r-select-top: #000800;
+  --r-select-bottom: #000800;
+  --r-select-shadow: none;
+  --r-select-arrow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10'%3E%3Cpath d='M1 3l4 4 4-4z' fill='%2333ff66'/%3E%3C/svg%3E");
+  --r-select-arrow-pos: right 7px center;
+  --r-select-arrow-size: 10px 10px;
+  --r-select-pad-right: 24px;
+  --r-title-top: #001a00;
+  --r-title-bottom: #001a00;
+  --r-title-fg: #33ff66;
+  --r-title-dir: to bottom;
+  --r-title-shadow: none;
+  --r-title-pad: 5px 10px;
+  --r-card-pad: 0px;
+  --r-body-pad: 12px;
+  --r-table-bg: #001a00;
+  --r-th-top: #002200;
+  --r-th-bottom: #002200;
+  --r-th-fg: #66ff99;
+  --r-th-shadow: none;
+  --r-row-alt: #001f00;
+  --r-row-hover: #003300;
+  --r-info-bg: #001a00;
+  --r-info-bd: #33ff66;
+  --r-ok-bg: #001a00;
+  --r-ok-bd: #33ff66;
+  --r-warn-bg: #1a1a00;
+  --r-warn-bd: #cccc33;
+  --r-err-bg: #1a0000;
+  --r-err-bd: #ff3333;
+  --r-nav-top: #001a00;
+  --r-nav-bottom: #001a00;
+  --r-nav-fg: #33ff66;
+  --r-nav-border: #33ff66;
+  --r-nav-shadow: none;
+  --r-nav-text-shadow: none;
+  --r-nav-hover-bg: rgba(255,255,255,.2);
+  --r-nav-hover-shadow: none;
+  --r-nav-active-bg: rgba(0,0,0,.3);
+  --r-nav-active-shadow: none;
+  --r-tab-shadow: inset 0 1px 0 rgba(255,255,255,.8);
+  --r-progress-fill: linear-gradient(var(--r-primary-top), var(--r-primary-bottom));
+  --r-tip-bg: #001a00;
+  --r-tip-fg: #33ff66;
+  --r-tip-border: #33ff66;
+  --r-tip-shadow: 0 2px 4px rgba(0,0,0,.3);
+  --r-backdrop: rgba(0,0,0,.75);
+  --r-scroll-track: #000800;
+  --r-scroll-track-image: none;
+  --r-scroll-track-size: auto;
+  --r-scroll-thumb: #1a8833;
+  --r-scroll-thumb-color: #1a8833;
+  --r-scroll-thumb-shadow: none;
+}
+
+[data-oldweb="terminal1980"] { color-scheme: dark; }
+[data-oldweb="terminal1980"] h1 { text-transform: uppercase; letter-spacing: 0.12em; }
+[data-oldweb="terminal1980"] a { text-decoration: underline; }
+
+/* == themes/mac1984.css == */
+/* Oldweb UI / themes / mac1984.css
+   1984 Macintosh System 1: 1-bit black & white, Chicago-like bitmap UI, no color, hard edges. */
+[data-oldweb="mac1984"] {
+  --r-font: Chicago, Charcoal, Geneva, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --r-font-mono: "Courier New", monospace;
+  --r-font-size: 12px;
+  --r-line-height: 1.5;
+  --r-heading: #000;
+  --r-heading-shadow: none;
+  --r-bg: #ffffff;
+  --r-bg-image: linear-gradient(#ffffff, #ffffff);
+  --r-fg: #000;
+  --r-fg-muted: #000;
+  --r-surface: #ffffff;
+  --r-surface-alt: #ffffff;
+  --r-border: #000;
+  --r-hr-hi: #000;
+  --r-link: #000;
+  --r-link-visited: #000;
+  --r-link-hover: #000;
+  --r-accent: #000;
+  --r-accent-fg: #fff;
+  --r-disabled-fg: #888;
+  --r-disabled-shadow: none;
+  --r-radius: 0;
+  --r-bw: 1px;
+  --r-gloss: 0;
+  --r-bevel-out: 1px solid #000;
+  --r-bevel-in: inset 1px 1px 0 #000;
+  --r-bevel-press: inset 2px 2px 0 #000;
+  --r-window-shadow: 2px 2px 0 #000;
+  --r-modal-shadow: 3px 3px 0 #000;
+  --r-panel-shadow: 1px 1px 0 #000;
+  --r-text-shadow: none;
+  --r-focus: 2px solid #000;
+  --r-focus-offset: 2px;
+  --r-hover-filter: none;
+  --r-active-filter: none;
+  --r-btn-top: #fff;
+  --r-btn-bottom: #fff;
+  --r-btn-hover-top: #fff;
+  --r-btn-hover-bottom: #fff;
+  --r-btn-active-top: #000;
+  --r-btn-active-bottom: #000;
+  --r-btn-fg: #000;
+  --r-btn-border: #000;
+  --r-btn-pad: 2px 10px;
+  --r-primary-top: #000;
+  --r-primary-bottom: #000;
+  --r-primary-fg: #fff;
+  --r-primary-border: #000;
+  --r-primary-text-shadow: none;
+  --r-primary-shadow: 1px solid #000;
+  --r-primary-active-shadow: var(--r-bevel-press);
+  --r-danger-top: #fff;
+  --r-danger-bottom: #fff;
+  --r-danger-fg: #000;
+  --r-danger-border: #000;
+  --r-field-bg: #fff;
+  --r-field-fg: #000;
+  --r-field-border: #000;
+  --r-field-border-focus: var(--r-accent);
+  --r-field-shadow: none;
+  --r-field-focus: 2px solid #000;
+  --r-field-pad: 4px 6px;
+  --r-fieldset-shadow: none;
+  --r-check-size: 13px;
+  --r-check-radius: 0;
+  --r-check-bg: #fff;
+  --r-check-mark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 13 13'%3E%3Cpath d='M2.5 7l2.5 2.5L10.5 3.5' fill='none' stroke='%23000000' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E");
+  --r-radio-dot: radial-gradient(circle, #000000 30%, transparent 36%);
+  --r-select-top: #fff;
+  --r-select-bottom: #fff;
+  --r-select-shadow: 1px solid #000;
+  --r-select-arrow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10'%3E%3Cpath d='M1 3l4 4 4-4z' fill='%23000'/%3E%3C/svg%3E");
+  --r-select-arrow-pos: right 7px center;
+  --r-select-arrow-size: 10px 10px;
+  --r-select-pad-right: 24px;
+  --r-title-top: #000;
+  --r-title-bottom: #000;
+  --r-title-fg: #fff;
+  --r-title-dir: to bottom;
+  --r-title-shadow: none;
+  --r-title-pad: 2px 6px;
+  --r-card-pad: 0px;
+  --r-body-pad: 12px;
+  --r-table-bg: #fff;
+  --r-th-top: #000;
+  --r-th-bottom: #000;
+  --r-th-fg: #fff;
+  --r-th-shadow: none;
+  --r-row-alt: #fff;
+  --r-row-hover: #000;
+  --r-info-bg: #fff;
+  --r-info-bd: #000;
+  --r-ok-bg: #fff;
+  --r-ok-bd: #000;
+  --r-warn-bg: #fff;
+  --r-warn-bd: #000;
+  --r-err-bg: #fff;
+  --r-err-bd: #000;
+  --r-nav-top: #fff;
+  --r-nav-bottom: #fff;
+  --r-nav-fg: #000;
+  --r-nav-border: #000;
+  --r-nav-shadow: none;
+  --r-nav-text-shadow: none;
+  --r-nav-hover-bg: #000;
+  --r-nav-hover-shadow: none;
+  --r-nav-active-bg: #000;
+  --r-nav-active-shadow: none;
+  --r-tab-shadow: inset 0 1px 0 rgba(255,255,255,.8);
+  --r-progress-fill: repeating-linear-gradient(90deg,#000 0 4px,#fff 4px 8px);
+  --r-tip-bg: #fff;
+  --r-tip-fg: #000;
+  --r-tip-border: #000;
+  --r-tip-shadow: 0 2px 4px rgba(0,0,0,.3);
+  --r-backdrop: rgba(0,0,0,.45);
+  --r-scroll-track: #fff;
+  --r-scroll-track-image: none;
+  --r-scroll-track-size: auto;
+  --r-scroll-thumb: #000;
+  --r-scroll-thumb-color: #000;
+  --r-scroll-thumb-shadow: none;
+}
+
+[data-oldweb="mac1984"] button:active, [data-oldweb="mac1984"] .r-btn:active { color: #fff; background: #000; }
+[data-oldweb="mac1984"] .r-nav a:hover, [data-oldweb="mac1984"] .r-nav a.active { color: #fff; }
+[data-oldweb="mac1984"] tr:hover td { color: #fff; background: #000; }
+
+/* == themes/win31.css == */
+/* Oldweb UI / themes / win31.css
+   1992 Windows 3.1: 16-color VGA palette, MS Sans Serif, flat gray Program Manager look, navy accents. */
+[data-oldweb="win31"] {
+  --r-font: "MS Sans Serif", "Microsoft Sans Serif", Arial, sans-serif;
+  --r-font-mono: "Courier New", monospace;
+  --r-font-size: 11px;
+  --r-line-height: 1.5;
+  --r-heading: #000080;
+  --r-heading-shadow: none;
+  --r-bg: #c0c0c0;
+  --r-bg-image: linear-gradient(#c0c0c0, #c0c0c0);
+  --r-fg: #000;
+  --r-fg-muted: #808080;
+  --r-surface: #c0c0c0;
+  --r-surface-alt: #ffffff;
+  --r-border: #808080;
+  --r-hr-hi: #fff;
+  --r-link: #0000ff;
+  --r-link-visited: #551a8b;
+  --r-link-hover: #e00;
+  --r-accent: #000080;
+  --r-accent-fg: #fff;
+  --r-disabled-fg: #888;
+  --r-disabled-shadow: none;
+  --r-radius: 0;
+  --r-bw: 1px;
+  --r-gloss: 0;
+  --r-bevel-out: inset -1px -1px #000, inset 1px 1px #fff, inset -2px -2px #808080, inset 2px 2px #dfdfdf;
+  --r-bevel-in: inset -1px -1px #fff, inset 1px 1px #808080, inset -2px -2px #dfdfdf, inset 2px 2px #000;
+  --r-bevel-press: inset 1px 1px #000, inset -1px -1px #fff;
+  --r-window-shadow: var(--r-bevel-out);
+  --r-modal-shadow: var(--r-bevel-out);
+  --r-panel-shadow: var(--r-bevel-out);
+  --r-text-shadow: none;
+  --r-focus: 1px dotted #000;
+  --r-focus-offset: 2px;
+  --r-hover-filter: none;
+  --r-active-filter: brightness(0.92);
+  --r-btn-top: #c0c0c0;
+  --r-btn-bottom: #c0c0c0;
+  --r-btn-hover-top: #c0c0c0;
+  --r-btn-hover-bottom: #c0c0c0;
+  --r-btn-active-top: #c0c0c0;
+  --r-btn-active-bottom: #c0c0c0;
+  --r-btn-fg: #000;
+  --r-btn-border: #000;
+  --r-btn-pad: 4px 12px;
+  --r-primary-top: #c0c0c0;
+  --r-primary-bottom: #c0c0c0;
+  --r-primary-fg: #000;
+  --r-primary-border: #000;
+  --r-primary-text-shadow: none;
+  --r-primary-shadow: 0 0 0 1px #000, var(--r-bevel-out);
+  --r-primary-active-shadow: var(--r-bevel-press);
+  --r-danger-top: #c0c0c0;
+  --r-danger-bottom: #c0c0c0;
+  --r-danger-fg: #800000;
+  --r-danger-border: #000;
+  --r-field-bg: #fff;
+  --r-field-fg: #000;
+  --r-field-border: transparent;
+  --r-field-border-focus: var(--r-accent);
+  --r-field-shadow: var(--r-bevel-in);
+  --r-field-focus: none;
+  --r-field-pad: 4px 6px;
+  --r-fieldset-shadow: none;
+  --r-check-size: 13px;
+  --r-check-radius: 2px;
+  --r-check-bg: linear-gradient(#fff, #e8e8e8);
+  --r-check-mark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 13 13'%3E%3Cpath d='M2.5 7l2.5 2.5L10.5 3.5' fill='none' stroke='%23000000' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E");
+  --r-radio-dot: radial-gradient(circle, #000000 30%, transparent 36%);
+  --r-select-top: #fff;
+  --r-select-bottom: #fff;
+  --r-select-shadow: var(--r-bevel-in);
+  --r-select-arrow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10'%3E%3Cpath d='M1 3l4 4 4-4z' fill='%23000'/%3E%3C/svg%3E");
+  --r-select-arrow-pos: right 7px center;
+  --r-select-arrow-size: 10px 10px;
+  --r-select-pad-right: 24px;
+  --r-title-top: #000080;
+  --r-title-bottom: #000080;
+  --r-title-fg: #fff;
+  --r-title-dir: to bottom;
+  --r-title-shadow: none;
+  --r-title-pad: 2px 4px;
+  --r-card-pad: 2px;
+  --r-body-pad: 12px;
+  --r-table-bg: #fff;
+  --r-th-top: #c0c0c0;
+  --r-th-bottom: #c0c0c0;
+  --r-th-fg: #000;
+  --r-th-shadow: var(--r-bevel-out);
+  --r-row-alt: #f7f7f7;
+  --r-row-hover: #000080;
+  --r-info-bg: #e8f0fb;
+  --r-info-bd: #99b3d9;
+  --r-ok-bg: #e8f6e4;
+  --r-ok-bd: #95c98a;
+  --r-warn-bg: #fff6d6;
+  --r-warn-bd: #e0c860;
+  --r-err-bg: #fbe9e7;
+  --r-err-bd: #e09a94;
+  --r-nav-top: #c0c0c0;
+  --r-nav-bottom: #c0c0c0;
+  --r-nav-fg: #000;
+  --r-nav-border: transparent;
+  --r-nav-shadow: var(--r-bevel-out);
+  --r-nav-text-shadow: none;
+  --r-nav-hover-bg: transparent;
+  --r-nav-hover-shadow: none;
+  --r-nav-active-bg: #fff;
+  --r-nav-active-shadow: var(--r-bevel-press);
+  --r-tab-shadow: inset 0 1px 0 rgba(255,255,255,.8);
+  --r-progress-fill: repeating-linear-gradient(90deg,#000080 0 8px,transparent 8px 10px);
+  --r-tip-bg: #ffffe1;
+  --r-tip-fg: #000;
+  --r-tip-border: #000;
+  --r-tip-shadow: 0 2px 4px rgba(0,0,0,.3);
+  --r-backdrop: rgba(0,0,0,.45);
+  --r-scroll-track: #fff;
+  --r-scroll-track-image: repeating-conic-gradient(#c0c0c0 0 25%,#fff 0 50%);
+  --r-scroll-track-size: 2px 2px;
+  --r-scroll-thumb: #c0c0c0;
+  --r-scroll-thumb-color: #c0c0c0;
+  --r-scroll-thumb-shadow: var(--r-bevel-out);
+}
+
+[data-oldweb="win31"] tr:hover td { color: #fff; }
+
+/* == themes/win95.css == */
+/* Oldweb UI / themes / win95.css
+   1995 Windows 95: teal desktop #008080, silver #c0c0c0, royal-blue title bars, classic 3D bevels (desktopcolors.com). */
+[data-oldweb="win95"] {
+  --r-font: "MS Sans Serif", "Microsoft Sans Serif", Tahoma, Arial, sans-serif;
+  --r-font-mono: "Courier New", monospace;
+  --r-font-size: 11px;
+  --r-line-height: 1.5;
+  --r-heading: #000;
+  --r-heading-shadow: none;
+  --r-bg: #008080;
+  --r-bg-image: linear-gradient(#008080, #008080);
+  --r-fg: #000;
+  --r-fg-muted: #404040;
+  --r-surface: #c0c0c0;
+  --r-surface-alt: #dfdfdf;
+  --r-border: #808080;
+  --r-hr-hi: #fff;
+  --r-link: #0000ee;
+  --r-link-visited: #551a8b;
+  --r-link-hover: #e00;
+  --r-accent: #000080;
+  --r-accent-fg: #fff;
+  --r-disabled-fg: #888;
+  --r-disabled-shadow: none;
+  --r-radius: 0;
+  --r-bw: 1px;
+  --r-gloss: 0;
+  --r-bevel-out: inset -1px -1px #0a0a0a, inset 1px 1px #ffffff, inset -2px -2px #808080, inset 2px 2px #dfdfdf;
+  --r-bevel-in: inset -1px -1px #ffffff, inset 1px 1px #808080, inset -2px -2px #dfdfdf, inset 2px 2px #0a0a0a;
+  --r-bevel-press: inset -1px -1px #ffffff, inset 1px 1px #0a0a0a, inset -2px -2px #dfdfdf, inset 2px 2px #808080;
+  --r-window-shadow: var(--r-bevel-out);
+  --r-modal-shadow: var(--r-bevel-out);
+  --r-panel-shadow: var(--r-bevel-out);
+  --r-text-shadow: none;
+  --r-focus: 1px dotted #000;
+  --r-focus-offset: -4px;
+  --r-hover-filter: none;
+  --r-active-filter: brightness(0.92);
+  --r-btn-top: #c0c0c0;
+  --r-btn-bottom: #c0c0c0;
+  --r-btn-hover-top: #c0c0c0;
+  --r-btn-hover-bottom: #c0c0c0;
+  --r-btn-active-top: #c0c0c0;
+  --r-btn-active-bottom: #c0c0c0;
+  --r-btn-fg: #000;
+  --r-btn-border: #000;
+  --r-btn-pad: 3px 12px;
+  --r-primary-top: #c0c0c0;
+  --r-primary-bottom: #c0c0c0;
+  --r-primary-fg: #000;
+  --r-primary-border: #000;
+  --r-primary-text-shadow: none;
+  --r-primary-shadow: 0 0 0 1px #000, var(--r-bevel-out);
+  --r-primary-active-shadow: var(--r-bevel-press);
+  --r-danger-top: #c0c0c0;
+  --r-danger-bottom: #c0c0c0;
+  --r-danger-fg: #800000;
+  --r-danger-border: #000;
+  --r-field-bg: #fff;
+  --r-field-fg: #000;
+  --r-field-border: transparent;
+  --r-field-border-focus: var(--r-accent);
+  --r-field-shadow: var(--r-bevel-in);
+  --r-field-focus: none;
+  --r-field-pad: 4px 6px;
+  --r-fieldset-shadow: none;
+  --r-check-size: 13px;
+  --r-check-radius: 2px;
+  --r-check-bg: linear-gradient(#fff, #e8e8e8);
+  --r-check-mark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 13 13'%3E%3Cpath d='M2.5 7l2.5 2.5L10.5 3.5' fill='none' stroke='%23000000' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E");
+  --r-radio-dot: radial-gradient(circle, #000000 30%, transparent 36%);
+  --r-select-top: #fff;
+  --r-select-bottom: #fff;
+  --r-select-shadow: var(--r-bevel-in);
+  --r-select-arrow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10'%3E%3Cpath d='M1 3l4 4 4-4z' fill='%23000'/%3E%3C/svg%3E");
+  --r-select-arrow-pos: right 7px center;
+  --r-select-arrow-size: 10px 10px;
+  --r-select-pad-right: 24px;
+  --r-title-top: #000080;
+  --r-title-bottom: #1084d0;
+  --r-title-fg: #fff;
+  --r-title-dir: to right;
+  --r-title-shadow: none;
+  --r-title-pad: 2px 4px;
+  --r-card-pad: 3px;
+  --r-body-pad: 12px;
+  --r-table-bg: #fff;
+  --r-th-top: #c0c0c0;
+  --r-th-bottom: #c0c0c0;
+  --r-th-fg: #000;
+  --r-th-shadow: var(--r-bevel-out);
+  --r-row-alt: #f7f7f7;
+  --r-row-hover: #000080;
+  --r-info-bg: #e8f0fb;
+  --r-info-bd: #99b3d9;
+  --r-ok-bg: #e8f6e4;
+  --r-ok-bd: #95c98a;
+  --r-warn-bg: #fff6d6;
+  --r-warn-bd: #e0c860;
+  --r-err-bg: #fbe9e7;
+  --r-err-bd: #e09a94;
+  --r-nav-top: #c0c0c0;
+  --r-nav-bottom: #c0c0c0;
+  --r-nav-fg: #000;
+  --r-nav-border: transparent;
+  --r-nav-shadow: var(--r-bevel-out);
+  --r-nav-text-shadow: none;
+  --r-nav-hover-bg: rgba(255,255,255,.2);
+  --r-nav-hover-shadow: none;
+  --r-nav-active-bg: rgba(0,0,0,.3);
+  --r-nav-active-shadow: var(--r-bevel-press);
+  --r-tab-shadow: inset 0 1px 0 rgba(255,255,255,.8);
+  --r-progress-fill: repeating-linear-gradient(90deg,#000080 0 8px,transparent 8px 10px);
+  --r-tip-bg: #ffffe1;
+  --r-tip-fg: #000;
+  --r-tip-border: #000;
+  --r-tip-shadow: 0 2px 4px rgba(0,0,0,.3);
+  --r-backdrop: rgba(0,0,0,.45);
+  --r-scroll-track: #dfdfdf;
+  --r-scroll-track-image: repeating-conic-gradient(#c0c0c0 0 25%,#fff 0 50%);
+  --r-scroll-track-size: 2px 2px;
+  --r-scroll-thumb: #c0c0c0;
+  --r-scroll-thumb-color: #c0c0c0;
+  --r-scroll-thumb-shadow: var(--r-bevel-out);
+}
+
+[data-oldweb="win95"] .r-container { background: #c0c0c0; }
+[data-oldweb="win95"] tr:hover td { color: #fff; }
+
+/* == themes/web1993.css == */
+/* Oldweb UI / themes / web1993.css
+   1993 Mosaic / early WWW: academic plain HTML — Times, default blue/purple links, white page, no styling chrome. */
+[data-oldweb="web1993"] {
+  --r-font: Times, 'Times New Roman', serif;
+  --r-font-mono: "Courier New", monospace;
+  --r-font-size: 16px;
+  --r-line-height: 1.5;
+  --r-heading: #000;
+  --r-heading-shadow: none;
+  --r-bg: #ffffff;
+  --r-bg-image: linear-gradient(#ffffff, #ffffff);
+  --r-fg: #000;
+  --r-fg-muted: #333;
+  --r-surface: #ffffff;
+  --r-surface-alt: #eeeeee;
+  --r-border: #000;
+  --r-hr-hi: #fff;
+  --r-link: #0000ee;
+  --r-link-visited: #551a8b;
+  --r-link-hover: #0000ee;
+  --r-accent: #0000ee;
+  --r-accent-fg: #fff;
+  --r-disabled-fg: #888;
+  --r-disabled-shadow: none;
+  --r-radius: 0;
+  --r-bw: 1px;
+  --r-gloss: 0;
+  --r-bevel-out: none;
+  --r-bevel-in: none;
+  --r-bevel-press: none;
+  --r-window-shadow: none;
+  --r-modal-shadow: none;
+  --r-panel-shadow: none;
+  --r-text-shadow: none;
+  --r-focus: 2px solid #0000ee;
+  --r-focus-offset: 2px;
+  --r-hover-filter: none;
+  --r-active-filter: brightness(0.92);
+  --r-btn-top: #e0e0e0;
+  --r-btn-bottom: #e0e0e0;
+  --r-btn-hover-top: #fff;
+  --r-btn-hover-bottom: #e8e8e8;
+  --r-btn-active-top: #c8c8c8;
+  --r-btn-active-bottom: #e0e0e0;
+  --r-btn-fg: #000;
+  --r-btn-border: #000;
+  --r-btn-pad: 2px 8px;
+  --r-primary-top: #0000ee;
+  --r-primary-bottom: #0000ee;
+  --r-primary-fg: #fff;
+  --r-primary-border: #000080;
+  --r-primary-text-shadow: none;
+  --r-primary-shadow: none;
+  --r-primary-active-shadow: var(--r-bevel-press);
+  --r-danger-top: #e76;
+  --r-danger-bottom: #a21;
+  --r-danger-fg: #fff;
+  --r-danger-border: #800;
+  --r-field-bg: #fff;
+  --r-field-fg: #000;
+  --r-field-border: #000;
+  --r-field-border-focus: var(--r-accent);
+  --r-field-shadow: none;
+  --r-field-focus: 2px solid rgba(0,102,204,.35);
+  --r-field-pad: 4px 6px;
+  --r-fieldset-shadow: none;
+  --r-check-size: 13px;
+  --r-check-radius: 2px;
+  --r-check-bg: linear-gradient(#fff, #e8e8e8);
+  --r-check-mark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 13 13'%3E%3Cpath d='M2.5 7l2.5 2.5L10.5 3.5' fill='none' stroke='%23000000' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E");
+  --r-radio-dot: radial-gradient(circle, #000000 30%, transparent 36%);
+  --r-select-top: #fff;
+  --r-select-bottom: #fff;
+  --r-select-shadow: none;
+  --r-select-arrow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10'%3E%3Cpath d='M1 3l4 4 4-4z' fill='%23000'/%3E%3C/svg%3E");
+  --r-select-arrow-pos: right 7px center;
+  --r-select-arrow-size: 10px 10px;
+  --r-select-pad-right: 24px;
+  --r-title-top: #eee;
+  --r-title-bottom: #eee;
+  --r-title-fg: #000;
+  --r-title-dir: to bottom;
+  --r-title-shadow: none;
+  --r-title-pad: 5px 10px;
+  --r-card-pad: 0px;
+  --r-body-pad: 12px;
+  --r-table-bg: #fff;
+  --r-th-top: #eee;
+  --r-th-bottom: #eee;
+  --r-th-fg: #000;
+  --r-th-shadow: none;
+  --r-row-alt: #f7f7f7;
+  --r-row-hover: #eee;
+  --r-info-bg: #e8f0fb;
+  --r-info-bd: #99b3d9;
+  --r-ok-bg: #e8f6e4;
+  --r-ok-bd: #95c98a;
+  --r-warn-bg: #fff6d6;
+  --r-warn-bd: #e0c860;
+  --r-err-bg: #fbe9e7;
+  --r-err-bd: #e09a94;
+  --r-nav-top: #eee;
+  --r-nav-bottom: #eee;
+  --r-nav-fg: #0000ee;
+  --r-nav-border: #000;
+  --r-nav-shadow: none;
+  --r-nav-text-shadow: none;
+  --r-nav-hover-bg: rgba(255,255,255,.2);
+  --r-nav-hover-shadow: none;
+  --r-nav-active-bg: rgba(0,0,0,.3);
+  --r-nav-active-shadow: none;
+  --r-tab-shadow: inset 0 1px 0 rgba(255,255,255,.8);
+  --r-progress-fill: linear-gradient(#0000ee,#0000ee);
+  --r-tip-bg: #333;
+  --r-tip-fg: #fff;
+  --r-tip-border: #000;
+  --r-tip-shadow: 0 2px 4px rgba(0,0,0,.3);
+  --r-backdrop: rgba(0,0,0,.45);
+  --r-scroll-track: #eee;
+  --r-scroll-track-image: none;
+  --r-scroll-track-size: auto;
+  --r-scroll-thumb: #bbb;
+  --r-scroll-thumb-color: #bbb;
+  --r-scroll-thumb-shadow: none;
+}
+
+[data-oldweb="web1993"] h1 { font-size: 1.5em; font-weight: bold; }
+[data-oldweb="web1993"] a { font-weight: normal; }
+
+/* == themes/geocities.css == */
+/* Oldweb UI / themes / geocities.css
+   1996 GeoCities / early personal web: tiled yellow pages, Comic Sans headings, bright links, hit counters, clutter. */
+[data-oldweb="geocities"] {
+  --r-font: Times, 'Times New Roman', Georgia, serif;
+  --r-font-mono: "Courier New", monospace;
+  --r-font-size: 16px;
+  --r-line-height: 1.5;
+  --r-heading: #000080;
+  --r-heading-shadow: none;
+  --r-bg: #ffffcc;
+  --r-bg-image: linear-gradient(#ffff99, #ffffcc);
+  --r-fg: #000;
+  --r-fg-muted: #333;
+  --r-surface: #fff;
+  --r-surface-alt: #eee;
+  --r-border: #000;
+  --r-hr-hi: #fff;
+  --r-link: #0000ee;
+  --r-link-visited: #551a8b;
+  --r-link-hover: #ff0000;
+  --r-accent: #0000ee;
+  --r-accent-fg: #fff;
+  --r-disabled-fg: #888;
+  --r-disabled-shadow: none;
+  --r-radius: 0;
+  --r-bw: 2px;
+  --r-gloss: 0;
+  --r-bevel-out: none;
+  --r-bevel-in: none;
+  --r-bevel-press: none;
+  --r-window-shadow: none;
+  --r-modal-shadow: none;
+  --r-panel-shadow: none;
+  --r-text-shadow: none;
+  --r-focus: 2px solid #ff0000;
+  --r-focus-offset: 2px;
+  --r-hover-filter: none;
+  --r-active-filter: brightness(0.92);
+  --r-btn-top: #c0c0c0;
+  --r-btn-bottom: #c0c0c0;
+  --r-btn-hover-top: #fff;
+  --r-btn-hover-bottom: #e8e8e8;
+  --r-btn-active-top: #c8c8c8;
+  --r-btn-active-bottom: #e0e0e0;
+  --r-btn-fg: #000;
+  --r-btn-border: #000;
+  --r-btn-pad: 4px 12px;
+  --r-primary-top: #0000ee;
+  --r-primary-bottom: #0000cc;
+  --r-primary-fg: #fff;
+  --r-primary-border: #000080;
+  --r-primary-text-shadow: none;
+  --r-primary-shadow: none;
+  --r-primary-active-shadow: var(--r-bevel-press);
+  --r-danger-top: #ee0000;
+  --r-danger-bottom: #cc0000;
+  --r-danger-fg: #fff;
+  --r-danger-border: #800;
+  --r-field-bg: #fff;
+  --r-field-fg: #000;
+  --r-field-border: #000;
+  --r-field-border-focus: var(--r-accent);
+  --r-field-shadow: none;
+  --r-field-focus: 2px solid rgba(0,102,204,.35);
+  --r-field-pad: 4px 6px;
+  --r-fieldset-shadow: none;
+  --r-check-size: 13px;
+  --r-check-radius: 2px;
+  --r-check-bg: linear-gradient(#fff, #e8e8e8);
+  --r-check-mark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 13 13'%3E%3Cpath d='M2.5 7l2.5 2.5L10.5 3.5' fill='none' stroke='%23000000' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E");
+  --r-radio-dot: radial-gradient(circle, #000000 30%, transparent 36%);
+  --r-select-top: #fff;
+  --r-select-bottom: #e8e8e8;
+  --r-select-shadow: none;
+  --r-select-arrow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10'%3E%3Cpath d='M1 3l4 4 4-4z' fill='%23000'/%3E%3C/svg%3E");
+  --r-select-arrow-pos: right 7px center;
+  --r-select-arrow-size: 10px 10px;
+  --r-select-pad-right: 24px;
+  --r-title-top: #000080;
+  --r-title-bottom: #000080;
+  --r-title-fg: #fff;
+  --r-title-dir: to bottom;
+  --r-title-shadow: none;
+  --r-title-pad: 5px 10px;
+  --r-card-pad: 0px;
+  --r-body-pad: 12px;
+  --r-table-bg: #fff;
+  --r-th-top: #000080;
+  --r-th-bottom: #000080;
+  --r-th-fg: #fff;
+  --r-th-shadow: none;
+  --r-row-alt: #ffffee;
+  --r-row-hover: #ffff99;
+  --r-info-bg: #ccffff;
+  --r-info-bd: #0000ee;
+  --r-ok-bg: #ccffcc;
+  --r-ok-bd: #008000;
+  --r-warn-bg: #ffff99;
+  --r-warn-bd: #cc9900;
+  --r-err-bg: #ffcccc;
+  --r-err-bd: #ee0000;
+  --r-nav-top: #000080;
+  --r-nav-bottom: #000080;
+  --r-nav-fg: #fff;
+  --r-nav-border: #000;
+  --r-nav-shadow: none;
+  --r-nav-text-shadow: none;
+  --r-nav-hover-bg: rgba(255,255,255,.2);
+  --r-nav-hover-shadow: none;
+  --r-nav-active-bg: rgba(0,0,0,.3);
+  --r-nav-active-shadow: none;
+  --r-tab-shadow: inset 0 1px 0 rgba(255,255,255,.8);
+  --r-progress-fill: linear-gradient(#0000ee,#0000ee);
+  --r-tip-bg: #ffffcc;
+  --r-tip-fg: #000;
+  --r-tip-border: #000;
+  --r-tip-shadow: 0 2px 4px rgba(0,0,0,.3);
+  --r-backdrop: rgba(0,0,0,.45);
+  --r-scroll-track: #eee;
+  --r-scroll-track-image: none;
+  --r-scroll-track-size: auto;
+  --r-scroll-thumb: #bbb;
+  --r-scroll-thumb-color: #bbb;
+  --r-scroll-thumb-shadow: none;
+}
+
+[data-oldweb="geocities"] h1 { font-family: "Comic Sans MS", "Comic Sans", cursive, sans-serif; color: #ff0000; text-align: center; }
+[data-oldweb="geocities"] h2 { font-family: "Comic Sans MS", "Comic Sans", cursive, sans-serif; color: #0000ee; }
+[data-oldweb="geocities"] a { font-weight: bold; }
+[data-oldweb="geocities"] hr { border-color: #ff00ff; border-style: dashed; }
+
+/* == themes/win98.css == */
+/* Oldweb UI / themes / win98.css
+   1998 Windows 98 classic: #c0c0c0 surfaces, 2px bevels, navy→cyan title bars, Tahoma/MS Sans Serif. */
+[data-oldweb="win98"] {
+  --r-font: Tahoma, "MS Sans Serif", "Microsoft Sans Serif", Arial, sans-serif;
+  --r-font-mono: Fixedsys, "Lucida Console", "Courier New", monospace;
+  --r-font-size: 12px;
+  --r-line-height: 1.4;
+  --r-heading: #000;
+  --r-heading-shadow: none;
+  --r-bg: #c0c0c0;
+  --r-bg-image: linear-gradient(#c0c0c0, #c0c0c0);
+  --r-fg: #000;
+  --r-fg-muted: #404040;
+  --r-surface: #c0c0c0;
+  --r-surface-alt: #dfdfdf;
+  --r-border: #808080;
+  --r-hr-hi: #fff;
+  --r-link: #0000ee;
+  --r-link-visited: #551a8b;
+  --r-link-hover: #e00;
+  --r-accent: #000080;
+  --r-accent-fg: #fff;
+  --r-disabled-fg: #808080;
+  --r-disabled-shadow: 1px 1px 0 #fff;
+  --r-radius: 0;
+  --r-bw: 0;
+  --r-gloss: 0;
+  --r-bevel-out: inset -1px -1px #0a0a0a, inset 1px 1px #ffffff, inset -2px -2px #808080, inset 2px 2px #dfdfdf;
+  --r-bevel-in: inset -1px -1px #ffffff, inset 1px 1px #808080, inset -2px -2px #dfdfdf, inset 2px 2px #0a0a0a;
+  --r-bevel-press: inset -1px -1px #ffffff, inset 1px 1px #0a0a0a, inset -2px -2px #dfdfdf, inset 2px 2px #808080;
+  --r-window-shadow: var(--r-bevel-out);
+  --r-modal-shadow: var(--r-bevel-out);
+  --r-panel-shadow: var(--r-bevel-out);
+  --r-text-shadow: none;
+  --r-focus: 1px dotted #000;
+  --r-focus-offset: -4px;
+  --r-hover-filter: none;
+  --r-active-filter: brightness(0.92);
+  --r-btn-top: #c0c0c0;
+  --r-btn-bottom: #c0c0c0;
+  --r-btn-hover-top: #c0c0c0;
+  --r-btn-hover-bottom: #c0c0c0;
+  --r-btn-active-top: #c0c0c0;
+  --r-btn-active-bottom: #c0c0c0;
+  --r-btn-fg: #000;
+  --r-btn-border: #000;
+  --r-btn-pad: 4px 14px;
+  --r-primary-top: #c0c0c0;
+  --r-primary-bottom: #c0c0c0;
+  --r-primary-fg: #000;
+  --r-primary-border: #000;
+  --r-primary-text-shadow: none;
+  --r-primary-shadow: 0 0 0 1px #000, var(--r-bevel-out);
+  --r-primary-active-shadow: 0 0 0 1px #000, var(--r-bevel-press);
+  --r-danger-top: #c0c0c0;
+  --r-danger-bottom: #c0c0c0;
+  --r-danger-fg: #a00000;
+  --r-danger-border: #000;
+  --r-field-bg: #fff;
+  --r-field-fg: #000;
+  --r-field-border: transparent;
+  --r-field-border-focus: var(--r-accent);
+  --r-field-shadow: var(--r-bevel-in);
+  --r-field-focus: none;
+  --r-field-pad: 3px 4px;
+  --r-fieldset-shadow: none;
+  --r-check-size: 13px;
+  --r-check-radius: 2px;
+  --r-check-bg: linear-gradient(#fff, #e8e8e8);
+  --r-check-mark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 13 13'%3E%3Cpath d='M2.5 7l2.5 2.5L10.5 3.5' fill='none' stroke='%23000000' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E");
+  --r-radio-dot: radial-gradient(circle, #000000 30%, transparent 36%);
+  --r-select-top: #fff;
+  --r-select-bottom: #fff;
+  --r-select-shadow: var(--r-bevel-in);
+  --r-select-arrow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10'%3E%3Cpath d='M1 3l4 4 4-4z' fill='%23000'/%3E%3C/svg%3E");
+  --r-select-arrow-pos: right 7px center;
+  --r-select-arrow-size: 10px 10px;
+  --r-select-pad-right: 24px;
+  --r-title-top: #000080;
+  --r-title-bottom: #1084d0;
+  --r-title-fg: #fff;
+  --r-title-dir: to right;
+  --r-title-shadow: none;
+  --r-title-pad: 3px 4px;
+  --r-card-pad: 3px;
+  --r-body-pad: 8px;
+  --r-table-bg: #fff;
+  --r-th-top: #c0c0c0;
+  --r-th-bottom: #c0c0c0;
+  --r-th-fg: #000;
+  --r-th-shadow: var(--r-bevel-out);
+  --r-row-alt: #f7f7f7;
+  --r-row-hover: #ececff;
+  --r-info-bg: #ffffe1;
+  --r-info-bd: #808080;
+  --r-ok-bg: #e8f6e4;
+  --r-ok-bd: #95c98a;
+  --r-warn-bg: #fff6d6;
+  --r-warn-bd: #e0c860;
+  --r-err-bg: #fbe9e7;
+  --r-err-bd: #e09a94;
+  --r-nav-top: #c0c0c0;
+  --r-nav-bottom: #c0c0c0;
+  --r-nav-fg: #000;
+  --r-nav-border: transparent;
+  --r-nav-shadow: var(--r-bevel-out);
+  --r-nav-text-shadow: none;
+  --r-nav-hover-bg: rgba(255,255,255,.2);
+  --r-nav-hover-shadow: none;
+  --r-nav-active-bg: #dfdfdf;
+  --r-nav-active-shadow: var(--r-bevel-press);
+  --r-tab-shadow: inset 0 1px 0 rgba(255,255,255,.8);
+  --r-progress-fill: repeating-linear-gradient(90deg,#000080 0 8px,transparent 8px 10px);
+  --r-tip-bg: #ffffe1;
+  --r-tip-fg: #000;
+  --r-tip-border: #000;
+  --r-tip-shadow: 0 2px 4px rgba(0,0,0,.3);
+  --r-backdrop: rgba(0,0,0,.45);
+  --r-scroll-track: #dfdfdf;
+  --r-scroll-track-image: repeating-conic-gradient(#c0c0c0 0 25%,#fff 0 50%);
+  --r-scroll-track-size: 2px 2px;
+  --r-scroll-thumb: #c0c0c0;
+  --r-scroll-thumb-color: #c0c0c0;
+  --r-scroll-thumb-shadow: var(--r-bevel-out);
+}
+
+/* == themes/macplatinum.css == */
+/* Oldweb UI / themes / macplatinum.css
+   1998 Mac OS 8/9 Platinum: soft greys, purple-grey desktop (~#B3B3DA), Charcoal/Chicago, subtle shading (Appearance Manager). */
+[data-oldweb="macplatinum"] {
+  --r-font: Charcoal, Chicago, Geneva, Helvetica, Arial, sans-serif;
+  --r-font-mono: "Courier New", monospace;
+  --r-font-size: 12px;
+  --r-line-height: 1.5;
+  --r-heading: #000;
+  --r-heading-shadow: none;
+  --r-bg: #b3b3da;
+  --r-bg-image: linear-gradient(#b3b3da, #b3b3da);
+  --r-fg: #000;
+  --r-fg-muted: #555;
+  --r-surface: #dddddd;
+  --r-surface-alt: #eeeeee;
+  --r-border: #888888;
+  --r-hr-hi: #fff;
+  --r-link: #0000cc;
+  --r-link-visited: #551a8b;
+  --r-link-hover: #e00;
+  --r-accent: #666699;
+  --r-accent-fg: #fff;
+  --r-disabled-fg: #888;
+  --r-disabled-shadow: none;
+  --r-radius: 3px;
+  --r-bw: 1px;
+  --r-gloss: 0.15;
+  --r-bevel-out: inset 0 1px 0 #fff, inset 1px 0 0 #fff, inset -1px -1px 0 #666, 0 1px 2px rgba(0,0,0,.2);
+  --r-bevel-in: inset 1px 1px 2px rgba(0,0,0,.25), inset -1px -1px 0 #fff;
+  --r-bevel-press: inset 0 2px 4px rgba(0,0,0,.3);
+  --r-window-shadow: 0 2px 6px rgba(0,0,0,.2);
+  --r-modal-shadow: 0 8px 24px rgba(0,0,0,.35);
+  --r-panel-shadow: 0 1px 3px rgba(0,0,0,.15);
+  --r-text-shadow: none;
+  --r-focus: 2px solid var(--r-accent);
+  --r-focus-offset: 2px;
+  --r-hover-filter: brightness(1.06);
+  --r-active-filter: brightness(0.92);
+  --r-btn-top: #f0f0f0;
+  --r-btn-bottom: #c8c8c8;
+  --r-btn-hover-top: #fff;
+  --r-btn-hover-bottom: #e8e8e8;
+  --r-btn-active-top: #c8c8c8;
+  --r-btn-active-bottom: #e0e0e0;
+  --r-btn-fg: #000;
+  --r-btn-border: #555;
+  --r-btn-pad: 3px 14px;
+  --r-primary-top: #e8e8f0;
+  --r-primary-bottom: #a8a8c0;
+  --r-primary-fg: #000;
+  --r-primary-border: #555;
+  --r-primary-text-shadow: none;
+  --r-primary-shadow: var(--r-bevel-out);
+  --r-primary-active-shadow: var(--r-bevel-press);
+  --r-danger-top: #f0d0d0;
+  --r-danger-bottom: #c08080;
+  --r-danger-fg: #400;
+  --r-danger-border: #800;
+  --r-field-bg: #fff;
+  --r-field-fg: #000;
+  --r-field-border: #888;
+  --r-field-border-focus: var(--r-accent);
+  --r-field-shadow: inset 0 1px 2px rgba(0,0,0,.15);
+  --r-field-focus: 2px solid rgba(0,102,204,.35);
+  --r-field-pad: 4px 6px;
+  --r-fieldset-shadow: none;
+  --r-check-size: 13px;
+  --r-check-radius: 2px;
+  --r-check-bg: linear-gradient(#fff, #e8e8e8);
+  --r-check-mark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 13 13'%3E%3Cpath d='M2.5 7l2.5 2.5L10.5 3.5' fill='none' stroke='%23000000' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E");
+  --r-radio-dot: radial-gradient(circle, #000000 30%, transparent 36%);
+  --r-select-top: #fff;
+  --r-select-bottom: #e8e8e8;
+  --r-select-shadow: var(--r-bevel-out);
+  --r-select-arrow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10'%3E%3Cpath d='M1 3l4 4 4-4z' fill='%23000'/%3E%3C/svg%3E");
+  --r-select-arrow-pos: right 7px center;
+  --r-select-arrow-size: 10px 10px;
+  --r-select-pad-right: 24px;
+  --r-title-top: #9999bb;
+  --r-title-bottom: #666699;
+  --r-title-fg: #fff;
+  --r-title-dir: to bottom;
+  --r-title-shadow: none;
+  --r-title-pad: 3px 8px;
+  --r-card-pad: 0px;
+  --r-body-pad: 12px;
+  --r-table-bg: #fff;
+  --r-th-top: #e8e8e8;
+  --r-th-bottom: #c8c8c8;
+  --r-th-fg: #000;
+  --r-th-shadow: inset 0 1px 0 #fff;
+  --r-row-alt: #f7f7f7;
+  --r-row-hover: #ccccdd;
+  --r-info-bg: #e8f0fb;
+  --r-info-bd: #99b3d9;
+  --r-ok-bg: #e8f6e4;
+  --r-ok-bd: #95c98a;
+  --r-warn-bg: #fff6d6;
+  --r-warn-bd: #e0c860;
+  --r-err-bg: #fbe9e7;
+  --r-err-bd: #e09a94;
+  --r-nav-top: #dddddd;
+  --r-nav-bottom: #bbbbbb;
+  --r-nav-fg: #000;
+  --r-nav-border: #888;
+  --r-nav-shadow: none;
+  --r-nav-text-shadow: none;
+  --r-nav-hover-bg: rgba(0,0,0,.08);
+  --r-nav-hover-shadow: none;
+  --r-nav-active-bg: rgba(0,0,0,.12);
+  --r-nav-active-shadow: none;
+  --r-tab-shadow: inset 0 1px 0 rgba(255,255,255,.8);
+  --r-progress-fill: linear-gradient(#9999bb, #666699);
+  --r-tip-bg: #333;
+  --r-tip-fg: #fff;
+  --r-tip-border: #000;
+  --r-tip-shadow: 0 2px 4px rgba(0,0,0,.3);
+  --r-backdrop: rgba(0,0,0,.45);
+  --r-scroll-track: #eee;
+  --r-scroll-track-image: none;
+  --r-scroll-track-size: auto;
+  --r-scroll-thumb: #bbb;
+  --r-scroll-thumb-color: #bbb;
+  --r-scroll-thumb-shadow: none;
+}
+
+[data-oldweb="macplatinum"] .r-container { background: #dddddd; }
+
+/* == themes/y2k.css == */
+/* Oldweb UI / themes / y2k.css
+   c.2000 Y2K / Flash era: metallic silver chrome, navy accents, lens-flare optimism, beveled metal buttons. */
+[data-oldweb="y2k"] {
+  --r-font: Arial, Helvetica, sans-serif;
+  --r-font-mono: "Courier New", monospace;
+  --r-font-size: 13px;
+  --r-line-height: 1.5;
+  --r-heading: #000066;
+  --r-heading-shadow: none;
+  --r-bg: #c8d0d8;
+  --r-bg-image: linear-gradient(#a8b4c0, #c8d0d8);
+  --r-fg: #000;
+  --r-fg-muted: #555;
+  --r-surface: #e8ecef;
+  --r-surface-alt: #d0d8e0;
+  --r-border: #808890;
+  --r-hr-hi: #fff;
+  --r-link: #0000cc;
+  --r-link-visited: #551a8b;
+  --r-link-hover: #e00;
+  --r-accent: #003399;
+  --r-accent-fg: #fff;
+  --r-disabled-fg: #888;
+  --r-disabled-shadow: none;
+  --r-radius: 2px;
+  --r-bw: 1px;
+  --r-gloss: 0.45;
+  --r-bevel-out: inset 0 1px 0 #fff, inset 1px 0 0 #fff, inset -1px -1px 0 #606870, 0 1px 2px rgba(0,0,0,.25);
+  --r-bevel-in: inset 0 1px 3px rgba(0,0,0,.2);
+  --r-bevel-press: inset 0 2px 4px rgba(0,0,0,.3);
+  --r-window-shadow: 0 2px 6px rgba(0,0,0,.2);
+  --r-modal-shadow: 0 8px 24px rgba(0,0,0,.35);
+  --r-panel-shadow: 0 1px 3px rgba(0,0,0,.15);
+  --r-text-shadow: none;
+  --r-focus: 2px solid var(--r-accent);
+  --r-focus-offset: 2px;
+  --r-hover-filter: brightness(1.06);
+  --r-active-filter: brightness(0.92);
+  --r-btn-top: #f0f4f8;
+  --r-btn-bottom: #a0a8b0;
+  --r-btn-hover-top: #fff;
+  --r-btn-hover-bottom: #e8e8e8;
+  --r-btn-active-top: #c8c8c8;
+  --r-btn-active-bottom: #e0e0e0;
+  --r-btn-fg: #000;
+  --r-btn-border: #404850;
+  --r-btn-pad: 4px 12px;
+  --r-primary-top: #6688cc;
+  --r-primary-bottom: #003399;
+  --r-primary-fg: #fff;
+  --r-primary-border: #001866;
+  --r-primary-text-shadow: 0 -1px 0 rgba(0,40,80,.45);
+  --r-primary-shadow: var(--r-bevel-out);
+  --r-primary-active-shadow: var(--r-bevel-press);
+  --r-danger-top: #e76;
+  --r-danger-bottom: #a21;
+  --r-danger-fg: #fff;
+  --r-danger-border: #800;
+  --r-field-bg: #fff;
+  --r-field-fg: #000;
+  --r-field-border: #888;
+  --r-field-border-focus: var(--r-accent);
+  --r-field-shadow: inset 0 1px 2px rgba(0,0,0,.15);
+  --r-field-focus: 2px solid rgba(0,102,204,.35);
+  --r-field-pad: 4px 6px;
+  --r-fieldset-shadow: none;
+  --r-check-size: 13px;
+  --r-check-radius: 2px;
+  --r-check-bg: linear-gradient(#fff, #e8e8e8);
+  --r-check-mark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 13 13'%3E%3Cpath d='M2.5 7l2.5 2.5L10.5 3.5' fill='none' stroke='%23003399' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E");
+  --r-radio-dot: radial-gradient(circle, #003399 30%, transparent 36%);
+  --r-select-top: #fff;
+  --r-select-bottom: #e8e8e8;
+  --r-select-shadow: var(--r-bevel-out);
+  --r-select-arrow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10'%3E%3Cpath d='M1 3l4 4 4-4z' fill='%23000'/%3E%3C/svg%3E");
+  --r-select-arrow-pos: right 7px center;
+  --r-select-arrow-size: 10px 10px;
+  --r-select-pad-right: 24px;
+  --r-title-top: #404860;
+  --r-title-bottom: #202838;
+  --r-title-fg: #fff;
+  --r-title-dir: to bottom;
+  --r-title-shadow: none;
+  --r-title-pad: 5px 10px;
+  --r-card-pad: 0px;
+  --r-body-pad: 12px;
+  --r-table-bg: #fff;
+  --r-th-top: #d0d8e0;
+  --r-th-bottom: #a8b0b8;
+  --r-th-fg: #000;
+  --r-th-shadow: inset 0 1px 0 #fff;
+  --r-row-alt: #f7f7f7;
+  --r-row-hover: #eee;
+  --r-info-bg: #e8f0fb;
+  --r-info-bd: #99b3d9;
+  --r-ok-bg: #e8f6e4;
+  --r-ok-bd: #95c98a;
+  --r-warn-bg: #fff6d6;
+  --r-warn-bd: #e0c860;
+  --r-err-bg: #fbe9e7;
+  --r-err-bd: #e09a94;
+  --r-nav-top: #606878;
+  --r-nav-bottom: #303848;
+  --r-nav-fg: #fff;
+  --r-nav-border: #000;
+  --r-nav-shadow: none;
+  --r-nav-text-shadow: none;
+  --r-nav-hover-bg: rgba(255,255,255,.2);
+  --r-nav-hover-shadow: none;
+  --r-nav-active-bg: rgba(0,0,0,.3);
+  --r-nav-active-shadow: none;
+  --r-tab-shadow: inset 0 1px 0 rgba(255,255,255,.8);
+  --r-progress-fill: linear-gradient(var(--r-primary-top), var(--r-primary-bottom));
+  --r-tip-bg: #ffffcc;
+  --r-tip-fg: #000;
+  --r-tip-border: #000;
+  --r-tip-shadow: 0 2px 4px rgba(0,0,0,.3);
+  --r-backdrop: rgba(0,0,0,.45);
+  --r-scroll-track: #eee;
+  --r-scroll-track-image: none;
+  --r-scroll-track-size: auto;
+  --r-scroll-thumb: #bbb;
+  --r-scroll-thumb-color: #bbb;
+  --r-scroll-thumb-shadow: none;
+}
+
+/* == themes/aqua.css == */
+/* Oldweb UI / themes / aqua.css
+   2001 Mac OS X Aqua: translucent candy blues, pinstripe greys, gel 'lickable' buttons, Lucida Grande (History of UI). */
+[data-oldweb="aqua"] {
+  --r-font: "Lucida Grande", "Lucida Sans Unicode", Helvetica, Arial, sans-serif;
+  --r-font-mono: "Courier New", monospace;
+  --r-font-size: 13px;
+  --r-line-height: 1.5;
+  --r-heading: #000;
+  --r-heading-shadow: none;
+  --r-bg: #ececec;
+  --r-bg-image: repeating-linear-gradient(180deg, #e8e8e8 0 1px, #f0f0f0 1px 2px);
+  --r-fg: #000;
+  --r-fg-muted: #555;
+  --r-surface: #ffffff;
+  --r-surface-alt: #f0f0f0;
+  --r-border: #8e8e8e;
+  --r-hr-hi: #fff;
+  --r-link: #0b57d0;
+  --r-link-visited: #551a8b;
+  --r-link-hover: #e00;
+  --r-accent: #4b8bf5;
+  --r-accent-fg: #fff;
+  --r-disabled-fg: #888;
+  --r-disabled-shadow: none;
+  --r-radius: 10px;
+  --r-bw: 1px;
+  --r-gloss: 0.7;
+  --r-bevel-out: inset 0 1px 0 rgba(255,255,255,.95), 0 1px 3px rgba(0,0,0,.35);
+  --r-bevel-in: inset 0 2px 5px rgba(0,0,0,.25);
+  --r-bevel-press: inset 0 2px 4px rgba(0,0,0,.3);
+  --r-window-shadow: 0 8px 24px rgba(0,0,0,.35);
+  --r-modal-shadow: 0 16px 40px rgba(0,0,0,.45);
+  --r-panel-shadow: 0 1px 3px rgba(0,0,0,.15);
+  --r-text-shadow: none;
+  --r-focus: 2px solid var(--r-accent);
+  --r-focus-offset: 2px;
+  --r-hover-filter: brightness(1.06);
+  --r-active-filter: brightness(0.92);
+  --r-btn-top: #ffffff;
+  --r-btn-bottom: #d4d4d4;
+  --r-btn-hover-top: #fff;
+  --r-btn-hover-bottom: #e8e8e8;
+  --r-btn-active-top: #c8c8c8;
+  --r-btn-active-bottom: #e0e0e0;
+  --r-btn-fg: #000;
+  --r-btn-border: #8e8e8e;
+  --r-btn-pad: 4px 16px;
+  --r-primary-top: #9ec5f8;
+  --r-primary-bottom: #1d5fd0;
+  --r-primary-fg: #fff;
+  --r-primary-border: #0b3f9a;
+  --r-primary-text-shadow: 0 -1px 0 rgba(0,40,100,.5);
+  --r-primary-shadow: var(--r-bevel-out);
+  --r-primary-active-shadow: var(--r-bevel-press);
+  --r-danger-top: #e76;
+  --r-danger-bottom: #a21;
+  --r-danger-fg: #fff;
+  --r-danger-border: #800;
+  --r-field-bg: #fff;
+  --r-field-fg: #000;
+  --r-field-border: #888;
+  --r-field-border-focus: var(--r-accent);
+  --r-field-shadow: inset 0 2px 4px rgba(0,0,0,.18);
+  --r-field-focus: 2px solid rgba(0,102,204,.35);
+  --r-field-pad: 4px 6px;
+  --r-fieldset-shadow: none;
+  --r-check-size: 13px;
+  --r-check-radius: 4px;
+  --r-check-bg: linear-gradient(#fff, #e8e8e8);
+  --r-check-mark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 13 13'%3E%3Cpath d='M2.5 7l2.5 2.5L10.5 3.5' fill='none' stroke='%231d5fd0' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E");
+  --r-radio-dot: radial-gradient(circle, #1d5fd0 30%, transparent 36%);
+  --r-select-top: #fff;
+  --r-select-bottom: #e8e8e8;
+  --r-select-shadow: var(--r-bevel-out);
+  --r-select-arrow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10'%3E%3Cpath d='M1 3l4 4 4-4z' fill='%23000'/%3E%3C/svg%3E");
+  --r-select-arrow-pos: right 7px center;
+  --r-select-arrow-size: 10px 10px;
+  --r-select-pad-right: 24px;
+  --r-title-top: #7aa3e0;
+  --r-title-bottom: #3a6fc0;
+  --r-title-fg: #fff;
+  --r-title-dir: to bottom;
+  --r-title-shadow: 0 1px 0 rgba(0,0,0,.25);
+  --r-title-pad: 5px 10px;
+  --r-card-pad: 0px;
+  --r-body-pad: 12px;
+  --r-table-bg: #fff;
+  --r-th-top: #f4f4f4;
+  --r-th-bottom: #dcdcdc;
+  --r-th-fg: #000;
+  --r-th-shadow: inset 0 1px 0 #fff;
+  --r-row-alt: #f7f7f7;
+  --r-row-hover: #d6e8ff;
+  --r-info-bg: #e8f0fb;
+  --r-info-bd: #99b3d9;
+  --r-ok-bg: #e8f6e4;
+  --r-ok-bd: #95c98a;
+  --r-warn-bg: #fff6d6;
+  --r-warn-bd: #e0c860;
+  --r-err-bg: #fbe9e7;
+  --r-err-bd: #e09a94;
+  --r-nav-top: #7aa3e0;
+  --r-nav-bottom: #3a6fc0;
+  --r-nav-fg: #fff;
+  --r-nav-border: #000;
+  --r-nav-shadow: inset 0 1px 0 rgba(255,255,255,.45);
+  --r-nav-text-shadow: none;
+  --r-nav-hover-bg: rgba(255,255,255,.2);
+  --r-nav-hover-shadow: none;
+  --r-nav-active-bg: rgba(0,0,0,.3);
+  --r-nav-active-shadow: none;
+  --r-tab-shadow: inset 0 1px 0 rgba(255,255,255,.8);
+  --r-progress-fill: linear-gradient(rgba(255,255,255,.5) 50%, transparent 50%), linear-gradient(#9ec5f8, #1d5fd0);
+  --r-tip-bg: #333;
+  --r-tip-fg: #fff;
+  --r-tip-border: #000;
+  --r-tip-shadow: 0 2px 4px rgba(0,0,0,.3);
+  --r-backdrop: rgba(0,0,0,.45);
+  --r-scroll-track: #eee;
+  --r-scroll-track-image: none;
+  --r-scroll-track-size: auto;
+  --r-scroll-thumb: #bbb;
+  --r-scroll-thumb-color: #bbb;
+  --r-scroll-thumb-shadow: none;
+}
+
+[data-oldweb="aqua"] .r-container { background: #fff; border-radius: 10px; box-shadow: 0 8px 24px rgba(0,0,0,.25); }
+
+/* == themes/xp.css == */
+/* Oldweb UI / themes / xp.css
+   2001 Windows XP Luna: saturated blue titlebars, green Start accents, Tahoma, rounded plastic controls (MS visual styles). */
+[data-oldweb="xp"] {
+  --r-font: Tahoma, "MS Sans Serif", Arial, sans-serif;
+  --r-font-mono: "Courier New", monospace;
+  --r-font-size: 12px;
+  --r-line-height: 1.5;
+  --r-heading: #003399;
+  --r-heading-shadow: none;
+  --r-bg: #3a6ea5;
+  --r-bg-image: linear-gradient(#245693 0%, #3a6ea5 40%, #5b8fc4 100%);
+  --r-fg: #000;
+  --r-fg-muted: #555;
+  --r-surface: #ece9d8;
+  --r-surface-alt: #fff;
+  --r-border: #0054e3;
+  --r-hr-hi: #fff;
+  --r-link: #0066cc;
+  --r-link-visited: #551a8b;
+  --r-link-hover: #e00;
+  --r-accent: #316ac5;
+  --r-accent-fg: #fff;
+  --r-disabled-fg: #888;
+  --r-disabled-shadow: none;
+  --r-radius: 3px;
+  --r-bw: 1px;
+  --r-gloss: 0.35;
+  --r-bevel-out: inset 0 1px 0 rgba(255,255,255,.8), 0 1px 2px rgba(0,0,0,.2);
+  --r-bevel-in: inset 0 1px 3px rgba(0,0,0,.2);
+  --r-bevel-press: inset 0 2px 4px rgba(0,0,0,.3);
+  --r-window-shadow: 0 2px 6px rgba(0,0,0,.2);
+  --r-modal-shadow: 0 8px 24px rgba(0,0,0,.35);
+  --r-panel-shadow: 0 1px 3px rgba(0,0,0,.15);
+  --r-text-shadow: none;
+  --r-focus: 2px solid var(--r-accent);
+  --r-focus-offset: 2px;
+  --r-hover-filter: brightness(1.06);
+  --r-active-filter: brightness(0.92);
+  --r-btn-top: #fff;
+  --r-btn-bottom: #ece9d8;
+  --r-btn-hover-top: #fff;
+  --r-btn-hover-bottom: #e8e8e8;
+  --r-btn-active-top: #c8c8c8;
+  --r-btn-active-bottom: #e0e0e0;
+  --r-btn-fg: #000;
+  --r-btn-border: #003c74;
+  --r-btn-pad: 4px 12px;
+  --r-primary-top: #98d15c;
+  --r-primary-bottom: #3c8a1a;
+  --r-primary-fg: #fff;
+  --r-primary-border: #21610a;
+  --r-primary-text-shadow: 0 -1px 0 rgba(0,60,0,.45);
+  --r-primary-shadow: var(--r-bevel-out);
+  --r-primary-active-shadow: var(--r-bevel-press);
+  --r-danger-top: #f08a7a;
+  --r-danger-bottom: #c23020;
+  --r-danger-fg: #fff;
+  --r-danger-border: #800;
+  --r-field-bg: #fff;
+  --r-field-fg: #000;
+  --r-field-border: #7f9db9;
+  --r-field-border-focus: var(--r-accent);
+  --r-field-shadow: inset 0 1px 2px rgba(0,0,0,.15);
+  --r-field-focus: 2px solid rgba(0,102,204,.35);
+  --r-field-pad: 4px 6px;
+  --r-fieldset-shadow: none;
+  --r-check-size: 13px;
+  --r-check-radius: 2px;
+  --r-check-bg: linear-gradient(#fff, #e8e8e8);
+  --r-check-mark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 13 13'%3E%3Cpath d='M2.5 7l2.5 2.5L10.5 3.5' fill='none' stroke='%23003399' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E");
+  --r-radio-dot: radial-gradient(circle, #003399 30%, transparent 36%);
+  --r-select-top: #fff;
+  --r-select-bottom: #e8e8e8;
+  --r-select-shadow: var(--r-bevel-out);
+  --r-select-arrow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10'%3E%3Cpath d='M1 3l4 4 4-4z' fill='%23000'/%3E%3C/svg%3E");
+  --r-select-arrow-pos: right 7px center;
+  --r-select-arrow-size: 10px 10px;
+  --r-select-pad-right: 24px;
+  --r-title-top: #0a246a;
+  --r-title-bottom: #a6caf0;
+  --r-title-fg: #fff;
+  --r-title-dir: to right;
+  --r-title-shadow: 1px 1px 1px rgba(0,0,0,.4);
+  --r-title-pad: 5px 10px;
+  --r-card-pad: 3px;
+  --r-body-pad: 12px;
+  --r-table-bg: #fff;
+  --r-th-top: #ece9d8;
+  --r-th-bottom: #d6d2c2;
+  --r-th-fg: #000;
+  --r-th-shadow: inset 0 1px 0 #fff;
+  --r-row-alt: #f7f7f7;
+  --r-row-hover: #cde3ff;
+  --r-info-bg: #e8f0fb;
+  --r-info-bd: #99b3d9;
+  --r-ok-bg: #e8f6e4;
+  --r-ok-bd: #95c98a;
+  --r-warn-bg: #fff6d6;
+  --r-warn-bd: #e0c860;
+  --r-err-bg: #fbe9e7;
+  --r-err-bd: #e09a94;
+  --r-nav-top: #245edb;
+  --r-nav-bottom: #0a246a;
+  --r-nav-fg: #fff;
+  --r-nav-border: #003c74;
+  --r-nav-shadow: inset 0 1px 0 rgba(255,255,255,.35);
+  --r-nav-text-shadow: none;
+  --r-nav-hover-bg: rgba(255,255,255,.2);
+  --r-nav-hover-shadow: none;
+  --r-nav-active-bg: rgba(0,0,0,.3);
+  --r-nav-active-shadow: none;
+  --r-tab-shadow: inset 0 1px 0 rgba(255,255,255,.8);
+  --r-progress-fill: linear-gradient(rgba(255,255,255,.45) 50%, transparent 50%), linear-gradient(#98d15c, #3c8a1a);
+  --r-tip-bg: #ffffe1;
+  --r-tip-fg: #000;
+  --r-tip-border: #000;
+  --r-tip-shadow: 0 2px 4px rgba(0,0,0,.3);
+  --r-backdrop: rgba(0,0,0,.45);
+  --r-scroll-track: #eee;
+  --r-scroll-track-image: none;
+  --r-scroll-track-size: auto;
+  --r-scroll-thumb: #bbb;
+  --r-scroll-thumb-color: #bbb;
+  --r-scroll-thumb-shadow: none;
+}
+
+[data-oldweb="xp"] .r-container { background: #ece9d8; }
+
+/* == themes/web20.css == */
+/* Oldweb UI / themes / web20.css
+   2005–2008 Web 2.0 peak: glossy gradients, reflections, rounded candy buttons, Lucida, optimistic blues (Digg/Flickr era). */
+[data-oldweb="web20"] {
+  --r-font: "Lucida Grande", "Lucida Sans Unicode", Verdana, Tahoma, sans-serif;
+  --r-font-mono: "Courier New", monospace;
+  --r-font-size: 13px;
+  --r-line-height: 1.5;
+  --r-heading: #1f4b85;
+  --r-heading-shadow: 0 1px 0 #fff;
+  --r-bg: #e9f0f8;
+  --r-bg-image: linear-gradient(#cddbec, #e9f0f8);
+  --r-fg: #2b3440;
+  --r-fg-muted: #6b7889;
+  --r-surface: #fff;
+  --r-surface-alt: #f4f8fc;
+  --r-border: #b4c3d5;
+  --r-hr-hi: #fff;
+  --r-link: #0a5cc5;
+  --r-link-visited: #5b4a9e;
+  --r-link-hover: #e0630b;
+  --r-accent: #2f7fd6;
+  --r-accent-fg: #fff;
+  --r-disabled-fg: #888;
+  --r-disabled-shadow: none;
+  --r-radius: 8px;
+  --r-bw: 1px;
+  --r-gloss: 0.5;
+  --r-bevel-out: inset 0 1px 0 rgba(255,255,255,.85), 0 1px 3px rgba(20,40,70,.28);
+  --r-bevel-in: inset 0 1px 3px rgba(0,0,0,.2);
+  --r-bevel-press: inset 0 2px 4px rgba(0,0,0,.3);
+  --r-window-shadow: 0 2px 6px rgba(0,0,0,.2);
+  --r-modal-shadow: 0 8px 24px rgba(0,0,0,.35);
+  --r-panel-shadow: 0 1px 3px rgba(0,0,0,.15);
+  --r-text-shadow: 0 1px 0 rgba(255,255,255,.8);
+  --r-focus: 2px solid var(--r-accent);
+  --r-focus-offset: 2px;
+  --r-hover-filter: brightness(1.06);
+  --r-active-filter: brightness(0.92);
+  --r-btn-top: #fbfcfe;
+  --r-btn-bottom: #d3dce8;
+  --r-btn-hover-top: #fff;
+  --r-btn-hover-bottom: #e8e8e8;
+  --r-btn-active-top: #c8c8c8;
+  --r-btn-active-bottom: #e0e0e0;
+  --r-btn-fg: #000;
+  --r-btn-border: #8497b0;
+  --r-btn-pad: 6px 16px;
+  --r-primary-top: #74b4f7;
+  --r-primary-bottom: #2b78d2;
+  --r-primary-fg: #fff;
+  --r-primary-border: #1c5aa6;
+  --r-primary-text-shadow: 0 -1px 0 rgba(0,40,100,.55);
+  --r-primary-shadow: var(--r-bevel-out);
+  --r-primary-active-shadow: var(--r-bevel-press);
+  --r-danger-top: #f4948c;
+  --r-danger-bottom: #cf3b30;
+  --r-danger-fg: #fff;
+  --r-danger-border: #800;
+  --r-field-bg: #fff;
+  --r-field-fg: #000;
+  --r-field-border: #888;
+  --r-field-border-focus: var(--r-accent);
+  --r-field-shadow: inset 0 1px 3px rgba(20,40,70,.18);
+  --r-field-focus: 2px solid rgba(0,102,204,.35);
+  --r-field-pad: 4px 6px;
+  --r-fieldset-shadow: none;
+  --r-check-size: 13px;
+  --r-check-radius: 4px;
+  --r-check-bg: linear-gradient(#fff, #e8e8e8);
+  --r-check-mark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 13 13'%3E%3Cpath d='M2.5 7l2.5 2.5L10.5 3.5' fill='none' stroke='%231f6fd0' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E");
+  --r-radio-dot: radial-gradient(circle, #1f6fd0 30%, transparent 36%);
+  --r-select-top: #fff;
+  --r-select-bottom: #e8e8e8;
+  --r-select-shadow: var(--r-bevel-out);
+  --r-select-arrow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10'%3E%3Cpath d='M1 3l4 4 4-4z' fill='%23000'/%3E%3C/svg%3E");
+  --r-select-arrow-pos: right 7px center;
+  --r-select-arrow-size: 10px 10px;
+  --r-select-pad-right: 24px;
+  --r-title-top: #f7fafd;
+  --r-title-bottom: #cddbea;
+  --r-title-fg: #1f3d63;
+  --r-title-dir: to bottom;
+  --r-title-shadow: none;
+  --r-title-pad: 5px 10px;
+  --r-card-pad: 0px;
+  --r-body-pad: 12px;
+  --r-table-bg: #fff;
+  --r-th-top: #f7fafd;
+  --r-th-bottom: #d5e1ee;
+  --r-th-fg: #1f3d63;
+  --r-th-shadow: inset 0 1px 0 #fff;
+  --r-row-alt: #f7f7f7;
+  --r-row-hover: #e6f1fc;
+  --r-info-bg: #e8f0fb;
+  --r-info-bd: #99b3d9;
+  --r-ok-bg: #e8f6e4;
+  --r-ok-bd: #95c98a;
+  --r-warn-bg: #fff6d6;
+  --r-warn-bd: #e0c860;
+  --r-err-bg: #fbe9e7;
+  --r-err-bd: #e09a94;
+  --r-nav-top: #4f8fd8;
+  --r-nav-bottom: #1f5aa6;
+  --r-nav-fg: #fff;
+  --r-nav-border: #000;
+  --r-nav-shadow: inset 0 1px 0 rgba(255,255,255,.35);
+  --r-nav-text-shadow: 0 -1px 0 rgba(0,30,80,.6);
+  --r-nav-hover-bg: rgba(255,255,255,.2);
+  --r-nav-hover-shadow: none;
+  --r-nav-active-bg: rgba(0,0,0,.3);
+  --r-nav-active-shadow: none;
+  --r-tab-shadow: inset 0 1px 0 rgba(255,255,255,.8);
+  --r-progress-fill: linear-gradient(rgba(255,255,255,.4) 50%, transparent 50%), linear-gradient(#74b4f7, #2b78d2);
+  --r-tip-bg: #333;
+  --r-tip-fg: #fff;
+  --r-tip-border: #000;
+  --r-tip-shadow: 0 2px 4px rgba(0,0,0,.3);
+  --r-backdrop: rgba(0,0,0,.45);
+  --r-scroll-track: #eee;
+  --r-scroll-track-image: none;
+  --r-scroll-track-size: auto;
+  --r-scroll-thumb: #bbb;
+  --r-scroll-thumb-color: #bbb;
+  --r-scroll-thumb-shadow: none;
+}
+
+[data-oldweb="web20"] h1 { letter-spacing: -0.02em; }
+
+/* == themes/vista.css == */
+/* Oldweb UI / themes / vista.css
+   2007 Windows Vista Aero: frosted glass blacks/greys, translucent navy chrome, Segoe UI, soft glow (Aero Glass). */
+[data-oldweb="vista"] {
+  --r-font: "Segoe UI", Tahoma, Arial, sans-serif;
+  --r-font-mono: "Courier New", monospace;
+  --r-font-size: 12px;
+  --r-line-height: 1.5;
+  --r-heading: #1b1b1b;
+  --r-heading-shadow: none;
+  --r-bg: #0a246a;
+  --r-bg-image: linear-gradient(135deg, #1a3a7a 0%, #0a246a 50%, #2a5080 100%);
+  --r-fg: #1b1b1b;
+  --r-fg-muted: #555;
+  --r-surface: rgba(240,240,245,.92);
+  --r-surface-alt: rgba(255,255,255,.85);
+  --r-border: rgba(255,255,255,.4);
+  --r-hr-hi: #fff;
+  --r-link: #0066cc;
+  --r-link-visited: #551a8b;
+  --r-link-hover: #e00;
+  --r-accent: #1e5aa8;
+  --r-accent-fg: #fff;
+  --r-disabled-fg: #888;
+  --r-disabled-shadow: none;
+  --r-radius: 6px;
+  --r-bw: 1px;
+  --r-gloss: 0.4;
+  --r-bevel-out: inset 0 1px 0 rgba(255,255,255,.7), 0 1px 4px rgba(0,0,0,.3);
+  --r-bevel-in: inset 0 1px 3px rgba(0,0,0,.2);
+  --r-bevel-press: inset 0 2px 4px rgba(0,0,0,.3);
+  --r-window-shadow: 0 8px 32px rgba(0,0,0,.45);
+  --r-modal-shadow: 0 16px 48px rgba(0,0,0,.55);
+  --r-panel-shadow: 0 1px 3px rgba(0,0,0,.15);
+  --r-text-shadow: none;
+  --r-focus: 2px solid var(--r-accent);
+  --r-focus-offset: 2px;
+  --r-hover-filter: brightness(1.06);
+  --r-active-filter: brightness(0.92);
+  --r-btn-top: rgba(255,255,255,.85);
+  --r-btn-bottom: rgba(200,205,220,.9);
+  --r-btn-hover-top: #fff;
+  --r-btn-hover-bottom: #e8e8e8;
+  --r-btn-active-top: #c8c8c8;
+  --r-btn-active-bottom: #e0e0e0;
+  --r-btn-fg: #000;
+  --r-btn-border: rgba(60,80,120,.5);
+  --r-btn-pad: 4px 12px;
+  --r-primary-top: #6aa8e8;
+  --r-primary-bottom: #1e5aa8;
+  --r-primary-fg: #fff;
+  --r-primary-border: #0a3a78;
+  --r-primary-text-shadow: 0 -1px 0 rgba(0,40,80,.45);
+  --r-primary-shadow: var(--r-bevel-out);
+  --r-primary-active-shadow: var(--r-bevel-press);
+  --r-danger-top: #e76;
+  --r-danger-bottom: #a21;
+  --r-danger-fg: #fff;
+  --r-danger-border: #800;
+  --r-field-bg: #fff;
+  --r-field-fg: #000;
+  --r-field-border: #888;
+  --r-field-border-focus: var(--r-accent);
+  --r-field-shadow: inset 0 1px 2px rgba(0,0,0,.15);
+  --r-field-focus: 2px solid rgba(0,102,204,.35);
+  --r-field-pad: 4px 6px;
+  --r-fieldset-shadow: none;
+  --r-check-size: 13px;
+  --r-check-radius: 2px;
+  --r-check-bg: linear-gradient(#fff, #e8e8e8);
+  --r-check-mark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 13 13'%3E%3Cpath d='M2.5 7l2.5 2.5L10.5 3.5' fill='none' stroke='%231e5aa8' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E");
+  --r-radio-dot: radial-gradient(circle, #1e5aa8 30%, transparent 36%);
+  --r-select-top: #fff;
+  --r-select-bottom: #e8e8e8;
+  --r-select-shadow: var(--r-bevel-out);
+  --r-select-arrow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10'%3E%3Cpath d='M1 3l4 4 4-4z' fill='%23000'/%3E%3C/svg%3E");
+  --r-select-arrow-pos: right 7px center;
+  --r-select-arrow-size: 10px 10px;
+  --r-select-pad-right: 24px;
+  --r-title-top: rgba(30,60,120,.85);
+  --r-title-bottom: rgba(10,30,80,.9);
+  --r-title-fg: #fff;
+  --r-title-dir: to bottom;
+  --r-title-shadow: none;
+  --r-title-pad: 5px 10px;
+  --r-card-pad: 0px;
+  --r-body-pad: 12px;
+  --r-table-bg: #fff;
+  --r-th-top: rgba(255,255,255,.7);
+  --r-th-bottom: rgba(220,225,235,.8);
+  --r-th-fg: #000;
+  --r-th-shadow: inset 0 1px 0 #fff;
+  --r-row-alt: #f7f7f7;
+  --r-row-hover: rgba(180,210,255,.5);
+  --r-info-bg: #e8f0fb;
+  --r-info-bd: #99b3d9;
+  --r-ok-bg: #e8f6e4;
+  --r-ok-bd: #95c98a;
+  --r-warn-bg: #fff6d6;
+  --r-warn-bd: #e0c860;
+  --r-err-bg: #fbe9e7;
+  --r-err-bd: #e09a94;
+  --r-nav-top: rgba(30,60,120,.9);
+  --r-nav-bottom: rgba(10,30,80,.95);
+  --r-nav-fg: #fff;
+  --r-nav-border: #000;
+  --r-nav-shadow: none;
+  --r-nav-text-shadow: none;
+  --r-nav-hover-bg: rgba(255,255,255,.2);
+  --r-nav-hover-shadow: none;
+  --r-nav-active-bg: rgba(0,0,0,.3);
+  --r-nav-active-shadow: none;
+  --r-tab-shadow: inset 0 1px 0 rgba(255,255,255,.8);
+  --r-progress-fill: linear-gradient(#6aa8e8, #1e5aa8);
+  --r-tip-bg: #333;
+  --r-tip-fg: #fff;
+  --r-tip-border: #000;
+  --r-tip-shadow: 0 2px 4px rgba(0,0,0,.3);
+  --r-backdrop: rgba(0,0,0,.45);
+  --r-scroll-track: #eee;
+  --r-scroll-track-image: none;
+  --r-scroll-track-size: auto;
+  --r-scroll-thumb: #bbb;
+  --r-scroll-thumb-color: #bbb;
+  --r-scroll-thumb-shadow: none;
+}
+
+[data-oldweb="vista"] .r-container { background: rgba(240,240,245,.92); backdrop-filter: blur(8px); }
+
+/* == themes/skeuo.css == */
+/* Oldweb UI / themes / skeuo.css
+   2010–2012 skeuomorphism peak: linen canvas, realistic glossy iOS-blue buttons, inset fields, Helvetica (Apple iOS 4–6 era). */
+[data-oldweb="skeuo"] {
+  --r-font: Helvetica, 'Helvetica Neue', Arial, sans-serif;
+  --r-font-mono: "Courier New", monospace;
+  --r-font-size: 13px;
+  --r-line-height: 1.5;
+  --r-heading: #2c3e50;
+  --r-heading-shadow: none;
+  --r-bg: #c7c7cc;
+  --r-bg-image: repeating-linear-gradient(90deg, #c3c3c8 0 2px, #cacace 2px 4px);
+  --r-fg: #1c1c1e;
+  --r-fg-muted: #636366;
+  --r-surface: #f7f7f7;
+  --r-surface-alt: #ebebeb;
+  --r-border: #a0a0a5;
+  --r-hr-hi: #fff;
+  --r-link: #007aff;
+  --r-link-visited: #551a8b;
+  --r-link-hover: #e00;
+  --r-accent: #007aff;
+  --r-accent-fg: #fff;
+  --r-disabled-fg: #888;
+  --r-disabled-shadow: none;
+  --r-radius: 8px;
+  --r-bw: 1px;
+  --r-gloss: 0.55;
+  --r-bevel-out: inset 0 1px 0 rgba(255,255,255,.9), 0 1px 3px rgba(0,0,0,.3);
+  --r-bevel-in: inset 0 2px 5px rgba(0,0,0,.25);
+  --r-bevel-press: inset 0 2px 4px rgba(0,0,0,.3);
+  --r-window-shadow: 0 2px 6px rgba(0,0,0,.2);
+  --r-modal-shadow: 0 8px 24px rgba(0,0,0,.35);
+  --r-panel-shadow: 0 1px 3px rgba(0,0,0,.15);
+  --r-text-shadow: none;
+  --r-focus: 2px solid var(--r-accent);
+  --r-focus-offset: 2px;
+  --r-hover-filter: brightness(1.06);
+  --r-active-filter: brightness(0.92);
+  --r-btn-top: #fefefe;
+  --r-btn-bottom: #d4d4d8;
+  --r-btn-hover-top: #fff;
+  --r-btn-hover-bottom: #e8e8e8;
+  --r-btn-active-top: #c8c8c8;
+  --r-btn-active-bottom: #e0e0e0;
+  --r-btn-fg: #000;
+  --r-btn-border: #8e8e93;
+  --r-btn-pad: 4px 12px;
+  --r-primary-top: #5ac8fa;
+  --r-primary-bottom: #007aff;
+  --r-primary-fg: #fff;
+  --r-primary-border: #0051a8;
+  --r-primary-text-shadow: 0 -1px 0 rgba(0,40,100,.4);
+  --r-primary-shadow: var(--r-bevel-out);
+  --r-primary-active-shadow: var(--r-bevel-press);
+  --r-danger-top: #e76;
+  --r-danger-bottom: #a21;
+  --r-danger-fg: #fff;
+  --r-danger-border: #800;
+  --r-field-bg: #fff;
+  --r-field-fg: #000;
+  --r-field-border: #888;
+  --r-field-border-focus: var(--r-accent);
+  --r-field-shadow: inset 0 2px 4px rgba(0,0,0,.2);
+  --r-field-focus: 2px solid rgba(0,102,204,.35);
+  --r-field-pad: 4px 6px;
+  --r-fieldset-shadow: none;
+  --r-check-size: 13px;
+  --r-check-radius: 2px;
+  --r-check-bg: linear-gradient(#fff, #e8e8e8);
+  --r-check-mark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 13 13'%3E%3Cpath d='M2.5 7l2.5 2.5L10.5 3.5' fill='none' stroke='%23007aff' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E");
+  --r-radio-dot: radial-gradient(circle, #007aff 30%, transparent 36%);
+  --r-select-top: #fff;
+  --r-select-bottom: #e8e8e8;
+  --r-select-shadow: var(--r-bevel-out);
+  --r-select-arrow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10'%3E%3Cpath d='M1 3l4 4 4-4z' fill='%23000'/%3E%3C/svg%3E");
+  --r-select-arrow-pos: right 7px center;
+  --r-select-arrow-size: 10px 10px;
+  --r-select-pad-right: 24px;
+  --r-title-top: #6d6d72;
+  --r-title-bottom: #3a3a3c;
+  --r-title-fg: #fff;
+  --r-title-dir: to bottom;
+  --r-title-shadow: none;
+  --r-title-pad: 5px 10px;
+  --r-card-pad: 0px;
+  --r-body-pad: 12px;
+  --r-table-bg: #fff;
+  --r-th-top: #f0f0f0;
+  --r-th-bottom: #d8d8dc;
+  --r-th-fg: #000;
+  --r-th-shadow: inset 0 1px 0 #fff;
+  --r-row-alt: #f7f7f7;
+  --r-row-hover: #d6ebff;
+  --r-info-bg: #e8f0fb;
+  --r-info-bd: #99b3d9;
+  --r-ok-bg: #e8f6e4;
+  --r-ok-bd: #95c98a;
+  --r-warn-bg: #fff6d6;
+  --r-warn-bd: #e0c860;
+  --r-err-bg: #fbe9e7;
+  --r-err-bd: #e09a94;
+  --r-nav-top: #5ac8fa;
+  --r-nav-bottom: #007aff;
+  --r-nav-fg: #fff;
+  --r-nav-border: #000;
+  --r-nav-shadow: none;
+  --r-nav-text-shadow: none;
+  --r-nav-hover-bg: rgba(255,255,255,.2);
+  --r-nav-hover-shadow: none;
+  --r-nav-active-bg: rgba(0,0,0,.3);
+  --r-nav-active-shadow: none;
+  --r-tab-shadow: inset 0 1px 0 rgba(255,255,255,.8);
+  --r-progress-fill: linear-gradient(rgba(255,255,255,.45) 50%, transparent 50%), linear-gradient(#5ac8fa, #007aff);
+  --r-tip-bg: #333;
+  --r-tip-fg: #fff;
+  --r-tip-border: #000;
+  --r-tip-shadow: 0 2px 4px rgba(0,0,0,.3);
+  --r-backdrop: rgba(0,0,0,.45);
+  --r-scroll-track: #eee;
+  --r-scroll-track-image: none;
+  --r-scroll-track-size: auto;
+  --r-scroll-thumb: #bbb;
+  --r-scroll-thumb-color: #bbb;
+  --r-scroll-thumb-shadow: none;
+}
+
+[data-oldweb="skeuo"] .r-container { background: #f7f7f7; border-radius: 10px; }
+
+/* == themes/metro.css == */
+/* Oldweb UI / themes / metro.css
+   2010–2012 Metro / Modern UI: typography-first, solid color tiles, zero bevels, Segoe UI (Windows Phone 7 / Win8). */
+[data-oldweb="metro"] {
+  --r-font: "Segoe UI", Tahoma, Geneva, sans-serif;
+  --r-font-mono: "Courier New", monospace;
+  --r-font-size: 14px;
+  --r-line-height: 1.5;
+  --r-heading: #fff;
+  --r-heading-shadow: none;
+  --r-bg: #1f1f1f;
+  --r-bg-image: linear-gradient(#1f1f1f, #1f1f1f);
+  --r-fg: #fff;
+  --r-fg-muted: #a0a0a0;
+  --r-surface: #2d2d30;
+  --r-surface-alt: #3e3e42;
+  --r-border: #0078d7;
+  --r-hr-hi: #fff;
+  --r-link: #3aa0ff;
+  --r-link-visited: #b48dff;
+  --r-link-hover: #60bfff;
+  --r-accent: #0078d7;
+  --r-accent-fg: #fff;
+  --r-disabled-fg: #888;
+  --r-disabled-shadow: none;
+  --r-radius: 0;
+  --r-bw: 1px;
+  --r-gloss: 0;
+  --r-bevel-out: none;
+  --r-bevel-in: none;
+  --r-bevel-press: none;
+  --r-window-shadow: none;
+  --r-modal-shadow: 0 0 0 2px #0078d7;
+  --r-panel-shadow: none;
+  --r-text-shadow: none;
+  --r-focus: 2px solid var(--r-accent);
+  --r-focus-offset: 2px;
+  --r-hover-filter: brightness(1.15);
+  --r-active-filter: brightness(0.92);
+  --r-btn-top: #3e3e42;
+  --r-btn-bottom: #3e3e42;
+  --r-btn-hover-top: #505054;
+  --r-btn-hover-bottom: #505054;
+  --r-btn-active-top: #c8c8c8;
+  --r-btn-active-bottom: #e0e0e0;
+  --r-btn-fg: #fff;
+  --r-btn-border: #0078d7;
+  --r-btn-pad: 10px 20px;
+  --r-primary-top: #0078d7;
+  --r-primary-bottom: #0078d7;
+  --r-primary-fg: #fff;
+  --r-primary-border: #005a9e;
+  --r-primary-text-shadow: none;
+  --r-primary-shadow: none;
+  --r-primary-active-shadow: var(--r-bevel-press);
+  --r-danger-top: #e81123;
+  --r-danger-bottom: #e81123;
+  --r-danger-fg: #fff;
+  --r-danger-border: #800;
+  --r-field-bg: #1f1f1f;
+  --r-field-fg: #fff;
+  --r-field-border: #0078d7;
+  --r-field-border-focus: var(--r-accent);
+  --r-field-shadow: none;
+  --r-field-focus: 2px solid rgba(0,102,204,.35);
+  --r-field-pad: 4px 6px;
+  --r-fieldset-shadow: none;
+  --r-check-size: 13px;
+  --r-check-radius: 0;
+  --r-check-bg: #1f1f1f;
+  --r-check-mark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 13 13'%3E%3Cpath d='M2.5 7l2.5 2.5L10.5 3.5' fill='none' stroke='%233aa0ff' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E");
+  --r-radio-dot: radial-gradient(circle, #3aa0ff 30%, transparent 36%);
+  --r-select-top: #2d2d30;
+  --r-select-bottom: #2d2d30;
+  --r-select-shadow: none;
+  --r-select-arrow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10'%3E%3Cpath d='M1 3l4 4 4-4z' fill='%23ffffff'/%3E%3C/svg%3E");
+  --r-select-arrow-pos: right 7px center;
+  --r-select-arrow-size: 10px 10px;
+  --r-select-pad-right: 24px;
+  --r-title-top: #0078d7;
+  --r-title-bottom: #0078d7;
+  --r-title-fg: #fff;
+  --r-title-dir: to bottom;
+  --r-title-shadow: none;
+  --r-title-pad: 5px 10px;
+  --r-card-pad: 0px;
+  --r-body-pad: 12px;
+  --r-table-bg: #2d2d30;
+  --r-th-top: #0078d7;
+  --r-th-bottom: #0078d7;
+  --r-th-fg: #fff;
+  --r-th-shadow: none;
+  --r-row-alt: #323236;
+  --r-row-hover: #004a8c;
+  --r-info-bg: #003a6b;
+  --r-info-bd: #0078d7;
+  --r-ok-bg: #0e5c2f;
+  --r-ok-bd: #107c10;
+  --r-warn-bg: #5c3a00;
+  --r-warn-bd: #ffb900;
+  --r-err-bg: #5c1010;
+  --r-err-bd: #e81123;
+  --r-nav-top: #0078d7;
+  --r-nav-bottom: #0078d7;
+  --r-nav-fg: #fff;
+  --r-nav-border: #000;
+  --r-nav-shadow: none;
+  --r-nav-text-shadow: none;
+  --r-nav-hover-bg: rgba(255,255,255,.2);
+  --r-nav-hover-shadow: none;
+  --r-nav-active-bg: rgba(0,0,0,.3);
+  --r-nav-active-shadow: none;
+  --r-tab-shadow: inset 0 1px 0 rgba(255,255,255,.8);
+  --r-progress-fill: linear-gradient(var(--r-primary-top), var(--r-primary-bottom));
+  --r-tip-bg: #0078d7;
+  --r-tip-fg: #fff;
+  --r-tip-border: #000;
+  --r-tip-shadow: 0 2px 4px rgba(0,0,0,.3);
+  --r-backdrop: rgba(0,0,0,.65);
+  --r-scroll-track: #1f1f1f;
+  --r-scroll-track-image: none;
+  --r-scroll-track-size: auto;
+  --r-scroll-thumb: #0078d7;
+  --r-scroll-thumb-color: #0078d7;
+  --r-scroll-thumb-shadow: none;
+}
+
+[data-oldweb="metro"] { color-scheme: dark; }
+[data-oldweb="metro"] h1 { font-weight: 200; letter-spacing: .06em; text-transform: uppercase; }
+
+/* == themes/ios7.css == */
+/* Oldweb UI / themes / ios7.css
+   2013 iOS 7 flat: thin Helvetica Neue, white/light grey, system blue #007AFF, no textures (Apple flat turn). */
+[data-oldweb="ios7"] {
+  --r-font: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --r-font-mono: "Courier New", monospace;
+  --r-font-size: 14px;
+  --r-line-height: 1.5;
+  --r-heading: #000;
+  --r-heading-shadow: none;
+  --r-bg: #efeff4;
+  --r-bg-image: linear-gradient(#efeff4, #efeff4);
+  --r-fg: #000;
+  --r-fg-muted: #8e8e93;
+  --r-surface: #fff;
+  --r-surface-alt: #f7f7f7;
+  --r-border: #c8c7cc;
+  --r-hr-hi: #fff;
+  --r-link: #007aff;
+  --r-link-visited: #551a8b;
+  --r-link-hover: #e00;
+  --r-accent: #007aff;
+  --r-accent-fg: #fff;
+  --r-disabled-fg: #888;
+  --r-disabled-shadow: none;
+  --r-radius: 8px;
+  --r-bw: 1px;
+  --r-gloss: 0;
+  --r-bevel-out: none;
+  --r-bevel-in: none;
+  --r-bevel-press: none;
+  --r-window-shadow: 0 0 0 1px rgba(0,0,0,.08);
+  --r-modal-shadow: 0 10px 40px rgba(0,0,0,.25);
+  --r-panel-shadow: 0 0 0 1px rgba(0,0,0,.06);
+  --r-text-shadow: none;
+  --r-focus: 2px solid var(--r-accent);
+  --r-focus-offset: 2px;
+  --r-hover-filter: opacity(.75);
+  --r-active-filter: brightness(0.92);
+  --r-btn-top: #fff;
+  --r-btn-bottom: #fff;
+  --r-btn-hover-top: #f2f2f7;
+  --r-btn-hover-bottom: #f2f2f7;
+  --r-btn-active-top: #c8c8c8;
+  --r-btn-active-bottom: #e0e0e0;
+  --r-btn-fg: #007aff;
+  --r-btn-border: #c8c7cc;
+  --r-btn-pad: 10px 18px;
+  --r-primary-top: #007aff;
+  --r-primary-bottom: #007aff;
+  --r-primary-fg: #fff;
+  --r-primary-border: #007aff;
+  --r-primary-text-shadow: none;
+  --r-primary-shadow: none;
+  --r-primary-active-shadow: var(--r-bevel-press);
+  --r-danger-top: #ff3b30;
+  --r-danger-bottom: #ff3b30;
+  --r-danger-fg: #fff;
+  --r-danger-border: #ff3b30;
+  --r-field-bg: #fff;
+  --r-field-fg: #000;
+  --r-field-border: #888;
+  --r-field-border-focus: var(--r-accent);
+  --r-field-shadow: none;
+  --r-field-focus: 2px solid rgba(0,102,204,.35);
+  --r-field-pad: 10px;
+  --r-fieldset-shadow: none;
+  --r-check-size: 13px;
+  --r-check-radius: 2px;
+  --r-check-bg: linear-gradient(#fff, #e8e8e8);
+  --r-check-mark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 13 13'%3E%3Cpath d='M2.5 7l2.5 2.5L10.5 3.5' fill='none' stroke='%23007aff' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E");
+  --r-radio-dot: radial-gradient(circle, #007aff 30%, transparent 36%);
+  --r-select-top: #fff;
+  --r-select-bottom: #fff;
+  --r-select-shadow: none;
+  --r-select-arrow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10'%3E%3Cpath d='M1 3l4 4 4-4z' fill='%238e8e93'/%3E%3C/svg%3E");
+  --r-select-arrow-pos: right 7px center;
+  --r-select-arrow-size: 10px 10px;
+  --r-select-pad-right: 24px;
+  --r-title-top: #f7f7f7;
+  --r-title-bottom: #f7f7f7;
+  --r-title-fg: #000;
+  --r-title-dir: to bottom;
+  --r-title-shadow: none;
+  --r-title-pad: 12px 16px;
+  --r-card-pad: 0px;
+  --r-body-pad: 12px;
+  --r-table-bg: #fff;
+  --r-th-top: #f7f7f7;
+  --r-th-bottom: #f7f7f7;
+  --r-th-fg: #000;
+  --r-th-shadow: none;
+  --r-row-alt: #f7f7f7;
+  --r-row-hover: #e5f1ff;
+  --r-info-bg: #e5f1ff;
+  --r-info-bd: #007aff;
+  --r-ok-bg: #e6f9e8;
+  --r-ok-bd: #34c759;
+  --r-warn-bg: #fff6e0;
+  --r-warn-bd: #ff9500;
+  --r-err-bg: #ffe5e3;
+  --r-err-bd: #ff3b30;
+  --r-nav-top: #f7f7f7;
+  --r-nav-bottom: #f7f7f7;
+  --r-nav-fg: #007aff;
+  --r-nav-border: #c8c7cc;
+  --r-nav-shadow: none;
+  --r-nav-text-shadow: none;
+  --r-nav-hover-bg: rgba(0,122,255,.08);
+  --r-nav-hover-shadow: none;
+  --r-nav-active-bg: rgba(0,122,255,.12);
+  --r-nav-active-shadow: none;
+  --r-tab-shadow: inset 0 1px 0 rgba(255,255,255,.8);
+  --r-progress-fill: linear-gradient(#007aff, #007aff);
+  --r-tip-bg: #333;
+  --r-tip-fg: #fff;
+  --r-tip-border: #000;
+  --r-tip-shadow: 0 2px 4px rgba(0,0,0,.3);
+  --r-backdrop: rgba(0,0,0,.45);
+  --r-scroll-track: #eee;
+  --r-scroll-track-image: none;
+  --r-scroll-track-size: auto;
+  --r-scroll-thumb: #bbb;
+  --r-scroll-thumb-color: #bbb;
+  --r-scroll-thumb-shadow: none;
+}
+
+[data-oldweb="ios7"] h1 { font-weight: 200; letter-spacing: -0.02em; font-size: 2em; }
+
+/* == themes/material.css == */
+/* Oldweb UI / themes / material.css
+   2014 Material Design: indigo #3F51B5, pink accent, paper elevation shadows, Roboto (Google Material). */
+[data-oldweb="material"] {
+  --r-font: Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --r-font-mono: "Courier New", monospace;
+  --r-font-size: 14px;
+  --r-line-height: 1.5;
+  --r-heading: #212121;
+  --r-heading-shadow: none;
+  --r-bg: #fafafa;
+  --r-bg-image: linear-gradient(#fafafa, #fafafa);
+  --r-fg: #212121;
+  --r-fg-muted: #757575;
+  --r-surface: #fff;
+  --r-surface-alt: #f5f5f5;
+  --r-border: #e0e0e0;
+  --r-hr-hi: #fff;
+  --r-link: #3f51b5;
+  --r-link-visited: #551a8b;
+  --r-link-hover: #e91e63;
+  --r-accent: #3f51b5;
+  --r-accent-fg: #fff;
+  --r-disabled-fg: #888;
+  --r-disabled-shadow: none;
+  --r-radius: 2px;
+  --r-bw: 1px;
+  --r-gloss: 0;
+  --r-bevel-out: 0 1px 3px rgba(0,0,0,.12), 0 1px 2px rgba(0,0,0,.24);
+  --r-bevel-in: inset 0 1px 3px rgba(0,0,0,.2);
+  --r-bevel-press: 0 3px 6px rgba(0,0,0,.16), 0 3px 6px rgba(0,0,0,.23);
+  --r-window-shadow: 0 3px 6px rgba(0,0,0,.16), 0 3px 6px rgba(0,0,0,.23);
+  --r-modal-shadow: 0 10px 20px rgba(0,0,0,.19), 0 6px 6px rgba(0,0,0,.23);
+  --r-panel-shadow: 0 1px 3px rgba(0,0,0,.12), 0 1px 2px rgba(0,0,0,.24);
+  --r-text-shadow: none;
+  --r-focus: 2px solid var(--r-accent);
+  --r-focus-offset: 2px;
+  --r-hover-filter: brightness(1.06);
+  --r-active-filter: brightness(0.92);
+  --r-btn-top: #fff;
+  --r-btn-bottom: #fff;
+  --r-btn-hover-top: #f5f5f5;
+  --r-btn-hover-bottom: #f5f5f5;
+  --r-btn-active-top: #c8c8c8;
+  --r-btn-active-bottom: #e0e0e0;
+  --r-btn-fg: #000;
+  --r-btn-border: transparent;
+  --r-btn-pad: 8px 16px;
+  --r-primary-top: #3f51b5;
+  --r-primary-bottom: #3f51b5;
+  --r-primary-fg: #fff;
+  --r-primary-border: transparent;
+  --r-primary-text-shadow: none;
+  --r-primary-shadow: 0 2px 5px rgba(63,81,181,.4);
+  --r-primary-active-shadow: var(--r-bevel-press);
+  --r-danger-top: #e91e63;
+  --r-danger-bottom: #e91e63;
+  --r-danger-fg: #fff;
+  --r-danger-border: transparent;
+  --r-field-bg: #fff;
+  --r-field-fg: #000;
+  --r-field-border: #bdbdbd;
+  --r-field-border-focus: var(--r-accent);
+  --r-field-shadow: none;
+  --r-field-focus: 2px solid rgba(0,102,204,.35);
+  --r-field-pad: 8px 0;
+  --r-fieldset-shadow: none;
+  --r-check-size: 13px;
+  --r-check-radius: 2px;
+  --r-check-bg: linear-gradient(#fff, #e8e8e8);
+  --r-check-mark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 13 13'%3E%3Cpath d='M2.5 7l2.5 2.5L10.5 3.5' fill='none' stroke='%233f51b5' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E");
+  --r-radio-dot: radial-gradient(circle, #3f51b5 30%, transparent 36%);
+  --r-select-top: #fff;
+  --r-select-bottom: #e8e8e8;
+  --r-select-shadow: 0 1px 3px rgba(0,0,0,.12);
+  --r-select-arrow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10'%3E%3Cpath d='M1 3l4 4 4-4z' fill='%23757575'/%3E%3C/svg%3E");
+  --r-select-arrow-pos: right 7px center;
+  --r-select-arrow-size: 10px 10px;
+  --r-select-pad-right: 24px;
+  --r-title-top: #3f51b5;
+  --r-title-bottom: #3f51b5;
+  --r-title-fg: #fff;
+  --r-title-dir: to bottom;
+  --r-title-shadow: none;
+  --r-title-pad: 14px 16px;
+  --r-card-pad: 0px;
+  --r-body-pad: 16px;
+  --r-table-bg: #fff;
+  --r-th-top: #f5f5f5;
+  --r-th-bottom: #f5f5f5;
+  --r-th-fg: #000;
+  --r-th-shadow: none;
+  --r-row-alt: #f7f7f7;
+  --r-row-hover: #e8eaf6;
+  --r-info-bg: #e8eaf6;
+  --r-info-bd: #3f51b5;
+  --r-ok-bg: #e8f5e9;
+  --r-ok-bd: #4caf50;
+  --r-warn-bg: #fff8e1;
+  --r-warn-bd: #ffc107;
+  --r-err-bg: #fce4ec;
+  --r-err-bd: #e91e63;
+  --r-nav-top: #3f51b5;
+  --r-nav-bottom: #303f9f;
+  --r-nav-fg: #fff;
+  --r-nav-border: transparent;
+  --r-nav-shadow: 0 2px 4px rgba(0,0,0,.2);
+  --r-nav-text-shadow: none;
+  --r-nav-hover-bg: rgba(255,255,255,.2);
+  --r-nav-hover-shadow: none;
+  --r-nav-active-bg: rgba(0,0,0,.3);
+  --r-nav-active-shadow: none;
+  --r-tab-shadow: inset 0 1px 0 rgba(255,255,255,.8);
+  --r-progress-fill: linear-gradient(#3f51b5, #3f51b5);
+  --r-tip-bg: #333;
+  --r-tip-fg: #fff;
+  --r-tip-border: #000;
+  --r-tip-shadow: 0 2px 4px rgba(0,0,0,.3);
+  --r-backdrop: rgba(0,0,0,.45);
+  --r-scroll-track: #eee;
+  --r-scroll-track-image: none;
+  --r-scroll-track-size: auto;
+  --r-scroll-thumb: #bbb;
+  --r-scroll-thumb-color: #bbb;
+  --r-scroll-thumb-shadow: none;
+}
+
+[data-oldweb="material"] .r-card { border: none; }
+[data-oldweb="material"] h1 { font-weight: 400; }
+
+/* == themes/bootstrap3.css == */
+/* Oldweb UI / themes / bootstrap3.css
+   2015 Bootstrap 3 era: flat greys, #337ab7 primary, #d9534f danger, system sans — dominant SaaS/docs look. */
+[data-oldweb="bootstrap3"] {
+  --r-font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --r-font-mono: "Courier New", monospace;
+  --r-font-size: 14px;
+  --r-line-height: 1.5;
+  --r-heading: #333;
+  --r-heading-shadow: none;
+  --r-bg: #f5f7fa;
+  --r-bg-image: linear-gradient(#eef1f5, #f5f7fa);
+  --r-fg: #333;
+  --r-fg-muted: #777;
+  --r-surface: #fff;
+  --r-surface-alt: #f9fafb;
+  --r-border: #ddd;
+  --r-hr-hi: #fff;
+  --r-link: #337ab7;
+  --r-link-visited: #551a8b;
+  --r-link-hover: #23527c;
+  --r-accent: #337ab7;
+  --r-accent-fg: #fff;
+  --r-disabled-fg: #888;
+  --r-disabled-shadow: none;
+  --r-radius: 4px;
+  --r-bw: 1px;
+  --r-gloss: 0;
+  --r-bevel-out: none;
+  --r-bevel-in: inset 0 1px 1px rgba(0,0,0,.075);
+  --r-bevel-press: inset 0 2px 4px rgba(0,0,0,.3);
+  --r-window-shadow: 0 1px 3px rgba(0,0,0,.12);
+  --r-modal-shadow: 0 5px 15px rgba(0,0,0,.3);
+  --r-panel-shadow: 0 1px 1px rgba(0,0,0,.05);
+  --r-text-shadow: none;
+  --r-focus: 2px solid var(--r-accent);
+  --r-focus-offset: 2px;
+  --r-hover-filter: brightness(1.06);
+  --r-active-filter: brightness(0.92);
+  --r-btn-top: #fff;
+  --r-btn-bottom: #fff;
+  --r-btn-hover-top: #e6e6e6;
+  --r-btn-hover-bottom: #e6e6e6;
+  --r-btn-active-top: #c8c8c8;
+  --r-btn-active-bottom: #e0e0e0;
+  --r-btn-fg: #333;
+  --r-btn-border: #ccc;
+  --r-btn-pad: 6px 12px;
+  --r-primary-top: #337ab7;
+  --r-primary-bottom: #337ab7;
+  --r-primary-fg: #fff;
+  --r-primary-border: #2e6da4;
+  --r-primary-text-shadow: none;
+  --r-primary-shadow: none;
+  --r-primary-active-shadow: var(--r-bevel-press);
+  --r-danger-top: #d9534f;
+  --r-danger-bottom: #d9534f;
+  --r-danger-fg: #fff;
+  --r-danger-border: #d43f3a;
+  --r-field-bg: #fff;
+  --r-field-fg: #000;
+  --r-field-border: #ccc;
+  --r-field-border-focus: #66afe9;
+  --r-field-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+  --r-field-focus: 0 0 0 3px rgba(51,122,183,.25);
+  --r-field-pad: 6px 12px;
+  --r-fieldset-shadow: none;
+  --r-check-size: 13px;
+  --r-check-radius: 2px;
+  --r-check-bg: linear-gradient(#fff, #e8e8e8);
+  --r-check-mark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 13 13'%3E%3Cpath d='M2.5 7l2.5 2.5L10.5 3.5' fill='none' stroke='%23337ab7' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E");
+  --r-radio-dot: radial-gradient(circle, #337ab7 30%, transparent 36%);
+  --r-select-top: #fff;
+  --r-select-bottom: #fff;
+  --r-select-shadow: none;
+  --r-select-arrow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10'%3E%3Cpath d='M1 3l4 4 4-4z' fill='%23555555'/%3E%3C/svg%3E");
+  --r-select-arrow-pos: right 7px center;
+  --r-select-arrow-size: 10px 10px;
+  --r-select-pad-right: 24px;
+  --r-title-top: #f5f5f5;
+  --r-title-bottom: #f5f5f5;
+  --r-title-fg: #333;
+  --r-title-dir: to bottom;
+  --r-title-shadow: none;
+  --r-title-pad: 5px 10px;
+  --r-card-pad: 0px;
+  --r-body-pad: 12px;
+  --r-table-bg: #fff;
+  --r-th-top: #f5f5f5;
+  --r-th-bottom: #f5f5f5;
+  --r-th-fg: #000;
+  --r-th-shadow: none;
+  --r-row-alt: #f7f7f7;
+  --r-row-hover: #f5f5f5;
+  --r-info-bg: #d9edf7;
+  --r-info-bd: #bce8f1;
+  --r-ok-bg: #dff0d8;
+  --r-ok-bd: #d6e9c6;
+  --r-warn-bg: #fcf8e3;
+  --r-warn-bd: #faebcc;
+  --r-err-bg: #f2dede;
+  --r-err-bd: #ebccd1;
+  --r-nav-top: #222;
+  --r-nav-bottom: #222;
+  --r-nav-fg: #fff;
+  --r-nav-border: #080808;
+  --r-nav-shadow: none;
+  --r-nav-text-shadow: none;
+  --r-nav-hover-bg: #080808;
+  --r-nav-hover-shadow: none;
+  --r-nav-active-bg: #080808;
+  --r-nav-active-shadow: none;
+  --r-tab-shadow: inset 0 1px 0 rgba(255,255,255,.8);
+  --r-progress-fill: linear-gradient(#337ab7, #337ab7);
+  --r-tip-bg: #000;
+  --r-tip-fg: #fff;
+  --r-tip-border: #000;
+  --r-tip-shadow: 0 2px 4px rgba(0,0,0,.3);
+  --r-backdrop: rgba(0,0,0,.45);
+  --r-scroll-track: #eee;
+  --r-scroll-track-image: none;
+  --r-scroll-track-size: auto;
+  --r-scroll-thumb: #bbb;
+  --r-scroll-thumb-color: #bbb;
+  --r-scroll-thumb-shadow: none;
+}
+
+/* == themes/fluent.css == */
+/* Oldweb UI / themes / fluent.css
+   2017 Fluent Design / Windows 10: acrylic-like dark navy, accent #0078D4, Segoe UI, subtle depth (Microsoft Fluent). */
+[data-oldweb="fluent"] {
+  --r-font: "Segoe UI", system-ui, sans-serif;
+  --r-font-mono: "Courier New", monospace;
+  --r-font-size: 14px;
+  --r-line-height: 1.5;
+  --r-heading: #fff;
+  --r-heading-shadow: none;
+  --r-bg: #202020;
+  --r-bg-image: linear-gradient(#1a1a1a, #202020);
+  --r-fg: #fff;
+  --r-fg-muted: #a0a0a0;
+  --r-surface: #2c2c2c;
+  --r-surface-alt: #383838;
+  --r-border: #3f3f3f;
+  --r-hr-hi: #fff;
+  --r-link: #4cc2ff;
+  --r-link-visited: #551a8b;
+  --r-link-hover: #e00;
+  --r-accent: #0078d4;
+  --r-accent-fg: #fff;
+  --r-disabled-fg: #888;
+  --r-disabled-shadow: none;
+  --r-radius: 4px;
+  --r-bw: 1px;
+  --r-gloss: 0;
+  --r-bevel-out: 0 2px 4px rgba(0,0,0,.3);
+  --r-bevel-in: inset 0 1px 3px rgba(0,0,0,.2);
+  --r-bevel-press: inset 0 2px 4px rgba(0,0,0,.3);
+  --r-window-shadow: 0 8px 16px rgba(0,0,0,.4);
+  --r-modal-shadow: 0 16px 32px rgba(0,0,0,.5);
+  --r-panel-shadow: 0 1px 3px rgba(0,0,0,.15);
+  --r-text-shadow: none;
+  --r-focus: 2px solid var(--r-accent);
+  --r-focus-offset: 2px;
+  --r-hover-filter: brightness(1.06);
+  --r-active-filter: brightness(0.92);
+  --r-btn-top: #333;
+  --r-btn-bottom: #333;
+  --r-btn-hover-top: #3c3c3c;
+  --r-btn-hover-bottom: #3c3c3c;
+  --r-btn-active-top: #c8c8c8;
+  --r-btn-active-bottom: #e0e0e0;
+  --r-btn-fg: #fff;
+  --r-btn-border: #454545;
+  --r-btn-pad: 8px 16px;
+  --r-primary-top: #0078d4;
+  --r-primary-bottom: #0078d4;
+  --r-primary-fg: #fff;
+  --r-primary-border: #006cbd;
+  --r-primary-text-shadow: none;
+  --r-primary-shadow: none;
+  --r-primary-active-shadow: var(--r-bevel-press);
+  --r-danger-top: #c42b1c;
+  --r-danger-bottom: #c42b1c;
+  --r-danger-fg: #fff;
+  --r-danger-border: #a02010;
+  --r-field-bg: #1e1e1e;
+  --r-field-fg: #fff;
+  --r-field-border: #454545;
+  --r-field-border-focus: var(--r-accent);
+  --r-field-shadow: none;
+  --r-field-focus: 2px solid #0078d4;
+  --r-field-pad: 4px 6px;
+  --r-fieldset-shadow: none;
+  --r-check-size: 13px;
+  --r-check-radius: 2px;
+  --r-check-bg: #1e1e1e;
+  --r-check-mark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 13 13'%3E%3Cpath d='M2.5 7l2.5 2.5L10.5 3.5' fill='none' stroke='%234cc2ff' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E");
+  --r-radio-dot: radial-gradient(circle, #4cc2ff 30%, transparent 36%);
+  --r-select-top: #2c2c2c;
+  --r-select-bottom: #2c2c2c;
+  --r-select-shadow: none;
+  --r-select-arrow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10'%3E%3Cpath d='M1 3l4 4 4-4z' fill='%23ffffff'/%3E%3C/svg%3E");
+  --r-select-arrow-pos: right 7px center;
+  --r-select-arrow-size: 10px 10px;
+  --r-select-pad-right: 24px;
+  --r-title-top: #0078d4;
+  --r-title-bottom: #0078d4;
+  --r-title-fg: #fff;
+  --r-title-dir: to bottom;
+  --r-title-shadow: none;
+  --r-title-pad: 5px 10px;
+  --r-card-pad: 0px;
+  --r-body-pad: 12px;
+  --r-table-bg: #2c2c2c;
+  --r-th-top: #383838;
+  --r-th-bottom: #383838;
+  --r-th-fg: #fff;
+  --r-th-shadow: none;
+  --r-row-alt: #323232;
+  --r-row-hover: #0078d4;
+  --r-info-bg: #003d66;
+  --r-info-bd: #0078d4;
+  --r-ok-bg: #0d5c2e;
+  --r-ok-bd: #0f7b0f;
+  --r-warn-bg: #5c3d00;
+  --r-warn-bd: #fce100;
+  --r-err-bg: #5c1a14;
+  --r-err-bd: #c42b1c;
+  --r-nav-top: #0078d4;
+  --r-nav-bottom: #006cbd;
+  --r-nav-fg: #fff;
+  --r-nav-border: #000;
+  --r-nav-shadow: none;
+  --r-nav-text-shadow: none;
+  --r-nav-hover-bg: rgba(255,255,255,.2);
+  --r-nav-hover-shadow: none;
+  --r-nav-active-bg: rgba(0,0,0,.3);
+  --r-nav-active-shadow: none;
+  --r-tab-shadow: inset 0 1px 0 rgba(255,255,255,.8);
+  --r-progress-fill: linear-gradient(var(--r-primary-top), var(--r-primary-bottom));
+  --r-tip-bg: #2c2c2c;
+  --r-tip-fg: #fff;
+  --r-tip-border: #000;
+  --r-tip-shadow: 0 2px 4px rgba(0,0,0,.3);
+  --r-backdrop: rgba(0,0,0,.6);
+  --r-scroll-track: #1e1e1e;
+  --r-scroll-track-image: none;
+  --r-scroll-track-size: auto;
+  --r-scroll-thumb: #0078d4;
+  --r-scroll-thumb-color: #0078d4;
+  --r-scroll-thumb-shadow: none;
+}
+
+[data-oldweb="fluent"] { color-scheme: dark; }
+
+/* == themes/dark2019.css == */
+/* Oldweb UI / themes / dark2019.css
+   2019 dark mode + soft UI trend: near-black canvas, soft extruded greys, muted accents (dark-mode mainstream / neumorphism wave). */
+[data-oldweb="dark2019"] {
+  --r-font: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --r-font-mono: "Courier New", monospace;
+  --r-font-size: 14px;
+  --r-line-height: 1.5;
+  --r-heading: #f0f0f0;
+  --r-heading-shadow: none;
+  --r-bg: #1a1a1e;
+  --r-bg-image: linear-gradient(#1a1a1e, #1a1a1e);
+  --r-fg: #e8e8ec;
+  --r-fg-muted: #8a8a96;
+  --r-surface: #242428;
+  --r-surface-alt: #2e2e34;
+  --r-border: #3a3a42;
+  --r-hr-hi: #fff;
+  --r-link: #7aa2ff;
+  --r-link-visited: #551a8b;
+  --r-link-hover: #e00;
+  --r-accent: #7aa2ff;
+  --r-accent-fg: #fff;
+  --r-disabled-fg: #888;
+  --r-disabled-shadow: none;
+  --r-radius: 12px;
+  --r-bw: 1px;
+  --r-gloss: 0;
+  --r-bevel-out: 6px 6px 12px #121214, -6px -6px 12px #2a2a30;
+  --r-bevel-in: inset 4px 4px 8px #121214, inset -4px -4px 8px #2a2a30;
+  --r-bevel-press: inset 4px 4px 8px #121214;
+  --r-window-shadow: 8px 8px 16px #121214, -8px -8px 16px #2a2a30;
+  --r-modal-shadow: 0 20px 50px rgba(0,0,0,.6);
+  --r-panel-shadow: 4px 4px 10px #121214, -4px -4px 10px #2a2a30;
+  --r-text-shadow: none;
+  --r-focus: 2px solid var(--r-accent);
+  --r-focus-offset: 2px;
+  --r-hover-filter: brightness(1.06);
+  --r-active-filter: brightness(0.92);
+  --r-btn-top: #242428;
+  --r-btn-bottom: #242428;
+  --r-btn-hover-top: #2e2e34;
+  --r-btn-hover-bottom: #2e2e34;
+  --r-btn-active-top: #c8c8c8;
+  --r-btn-active-bottom: #e0e0e0;
+  --r-btn-fg: #e8e8ec;
+  --r-btn-border: transparent;
+  --r-btn-pad: 10px 18px;
+  --r-primary-top: #7aa2ff;
+  --r-primary-bottom: #7aa2ff;
+  --r-primary-fg: #121214;
+  --r-primary-border: transparent;
+  --r-primary-text-shadow: none;
+  --r-primary-shadow: 4px 4px 10px #121214;
+  --r-primary-active-shadow: var(--r-bevel-press);
+  --r-danger-top: #ff6b7a;
+  --r-danger-bottom: #ff6b7a;
+  --r-danger-fg: #121214;
+  --r-danger-border: transparent;
+  --r-field-bg: #1a1a1e;
+  --r-field-fg: #e8e8ec;
+  --r-field-border: transparent;
+  --r-field-border-focus: #7aa2ff;
+  --r-field-shadow: inset 4px 4px 8px #121214, inset -4px -4px 8px #2a2a30;
+  --r-field-focus: none;
+  --r-field-pad: 4px 6px;
+  --r-fieldset-shadow: none;
+  --r-check-size: 13px;
+  --r-check-radius: 6px;
+  --r-check-bg: #1a1a1e;
+  --r-check-mark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 13 13'%3E%3Cpath d='M2.5 7l2.5 2.5L10.5 3.5' fill='none' stroke='%237aa2ff' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E");
+  --r-radio-dot: radial-gradient(circle, #7aa2ff 30%, transparent 36%);
+  --r-select-top: #242428;
+  --r-select-bottom: #242428;
+  --r-select-shadow: 4px 4px 10px #121214, -4px -4px 10px #2a2a30;
+  --r-select-arrow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10'%3E%3Cpath d='M1 3l4 4 4-4z' fill='%23e8e8ec'/%3E%3C/svg%3E");
+  --r-select-arrow-pos: right 7px center;
+  --r-select-arrow-size: 10px 10px;
+  --r-select-pad-right: 24px;
+  --r-title-top: #2e2e34;
+  --r-title-bottom: #2e2e34;
+  --r-title-fg: #f0f0f0;
+  --r-title-dir: to bottom;
+  --r-title-shadow: none;
+  --r-title-pad: 5px 10px;
+  --r-card-pad: 0px;
+  --r-body-pad: 12px;
+  --r-table-bg: #242428;
+  --r-th-top: #2e2e34;
+  --r-th-bottom: #2e2e34;
+  --r-th-fg: #f0f0f0;
+  --r-th-shadow: none;
+  --r-row-alt: #26262c;
+  --r-row-hover: #32323a;
+  --r-info-bg: #1e2840;
+  --r-info-bd: #7aa2ff;
+  --r-ok-bg: #1e3028;
+  --r-ok-bd: #6bcf8e;
+  --r-warn-bg: #302818;
+  --r-warn-bd: #e8c060;
+  --r-err-bg: #301820;
+  --r-err-bd: #ff6b7a;
+  --r-nav-top: #242428;
+  --r-nav-bottom: #242428;
+  --r-nav-fg: #e8e8ec;
+  --r-nav-border: transparent;
+  --r-nav-shadow: 4px 4px 10px #121214, -4px -4px 10px #2a2a30;
+  --r-nav-text-shadow: none;
+  --r-nav-hover-bg: #2e2e34;
+  --r-nav-hover-shadow: none;
+  --r-nav-active-bg: #7aa2ff;
+  --r-nav-active-shadow: none;
+  --r-tab-shadow: inset 0 1px 0 rgba(255,255,255,.8);
+  --r-progress-fill: linear-gradient(var(--r-primary-top), var(--r-primary-bottom));
+  --r-tip-bg: #2e2e34;
+  --r-tip-fg: #fff;
+  --r-tip-border: #000;
+  --r-tip-shadow: 0 2px 4px rgba(0,0,0,.3);
+  --r-backdrop: rgba(0,0,0,.7);
+  --r-scroll-track: #1a1a1e;
+  --r-scroll-track-image: none;
+  --r-scroll-track-size: auto;
+  --r-scroll-thumb: #3a3a42;
+  --r-scroll-thumb-color: #3a3a42;
+  --r-scroll-thumb-shadow: none;
+}
+
+[data-oldweb="dark2019"] { color-scheme: dark; }
+
+/* == themes/saas2020.css == */
+/* Oldweb UI / themes / saas2020.css
+   2020 product/SaaS UI: generous whitespace, soft blue-grey, Inter/system fonts, subtle card shadows, COVID-era web apps. */
+[data-oldweb="saas2020"] {
+  --r-font: Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --r-font-mono: "Courier New", monospace;
+  --r-font-size: 15px;
+  --r-line-height: 1.6;
+  --r-heading: #0f172a;
+  --r-heading-shadow: none;
+  --r-bg: #f8fafc;
+  --r-bg-image: linear-gradient(#f1f5f9, #f8fafc);
+  --r-fg: #0f172a;
+  --r-fg-muted: #64748b;
+  --r-surface: #ffffff;
+  --r-surface-alt: #f1f5f9;
+  --r-border: #e2e8f0;
+  --r-hr-hi: #fff;
+  --r-link: #2563eb;
+  --r-link-visited: #551a8b;
+  --r-link-hover: #1d4ed8;
+  --r-accent: #2563eb;
+  --r-accent-fg: #fff;
+  --r-disabled-fg: #888;
+  --r-disabled-shadow: none;
+  --r-radius: 10px;
+  --r-bw: 1px;
+  --r-gloss: 0;
+  --r-bevel-out: none;
+  --r-bevel-in: none;
+  --r-bevel-press: none;
+  --r-window-shadow: 0 4px 6px -1px rgba(15,23,42,.08), 0 2px 4px -2px rgba(15,23,42,.06);
+  --r-modal-shadow: 0 25px 50px -12px rgba(15,23,42,.25);
+  --r-panel-shadow: 0 1px 3px rgba(15,23,42,.08);
+  --r-text-shadow: none;
+  --r-focus: 2px solid var(--r-accent);
+  --r-focus-offset: 2px;
+  --r-hover-filter: brightness(.98);
+  --r-active-filter: brightness(0.92);
+  --r-btn-top: #fff;
+  --r-btn-bottom: #fff;
+  --r-btn-hover-top: #f8fafc;
+  --r-btn-hover-bottom: #f8fafc;
+  --r-btn-active-top: #c8c8c8;
+  --r-btn-active-bottom: #e0e0e0;
+  --r-btn-fg: #0f172a;
+  --r-btn-border: #e2e8f0;
+  --r-btn-pad: 8px 16px;
+  --r-primary-top: #2563eb;
+  --r-primary-bottom: #2563eb;
+  --r-primary-fg: #fff;
+  --r-primary-border: #1d4ed8;
+  --r-primary-text-shadow: none;
+  --r-primary-shadow: 0 1px 2px rgba(37,99,235,.3);
+  --r-primary-active-shadow: var(--r-bevel-press);
+  --r-danger-top: #ef4444;
+  --r-danger-bottom: #ef4444;
+  --r-danger-fg: #fff;
+  --r-danger-border: #dc2626;
+  --r-field-bg: #fff;
+  --r-field-fg: #000;
+  --r-field-border: #cbd5e1;
+  --r-field-border-focus: #2563eb;
+  --r-field-shadow: none;
+  --r-field-focus: 0 0 0 3px rgba(37,99,235,.25);
+  --r-field-pad: 8px 12px;
+  --r-fieldset-shadow: none;
+  --r-check-size: 13px;
+  --r-check-radius: 4px;
+  --r-check-bg: linear-gradient(#fff, #e8e8e8);
+  --r-check-mark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 13 13'%3E%3Cpath d='M2.5 7l2.5 2.5L10.5 3.5' fill='none' stroke='%232563eb' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E");
+  --r-radio-dot: radial-gradient(circle, #2563eb 30%, transparent 36%);
+  --r-select-top: #fff;
+  --r-select-bottom: #fff;
+  --r-select-shadow: none;
+  --r-select-arrow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10'%3E%3Cpath d='M1 3l4 4 4-4z' fill='%2364748b'/%3E%3C/svg%3E");
+  --r-select-arrow-pos: right 7px center;
+  --r-select-arrow-size: 10px 10px;
+  --r-select-pad-right: 24px;
+  --r-title-top: #fff;
+  --r-title-bottom: #fff;
+  --r-title-fg: #0f172a;
+  --r-title-dir: to bottom;
+  --r-title-shadow: none;
+  --r-title-pad: 14px 18px;
+  --r-card-pad: 0px;
+  --r-body-pad: 18px;
+  --r-table-bg: #fff;
+  --r-th-top: #f8fafc;
+  --r-th-bottom: #f8fafc;
+  --r-th-fg: #475569;
+  --r-th-shadow: none;
+  --r-row-alt: #f7f7f7;
+  --r-row-hover: #f1f5f9;
+  --r-info-bg: #eff6ff;
+  --r-info-bd: #93c5fd;
+  --r-ok-bg: #ecfdf5;
+  --r-ok-bd: #6ee7b7;
+  --r-warn-bg: #fffbeb;
+  --r-warn-bd: #fcd34d;
+  --r-err-bg: #fef2f2;
+  --r-err-bd: #fca5a5;
+  --r-nav-top: #0f172a;
+  --r-nav-bottom: #0f172a;
+  --r-nav-fg: #fff;
+  --r-nav-border: transparent;
+  --r-nav-shadow: none;
+  --r-nav-text-shadow: none;
+  --r-nav-hover-bg: rgba(255,255,255,.08);
+  --r-nav-hover-shadow: none;
+  --r-nav-active-bg: rgba(37,99,235,.9);
+  --r-nav-active-shadow: none;
+  --r-tab-shadow: inset 0 1px 0 rgba(255,255,255,.8);
+  --r-progress-fill: linear-gradient(#2563eb, #2563eb);
+  --r-tip-bg: #0f172a;
+  --r-tip-fg: #fff;
+  --r-tip-border: #000;
+  --r-tip-shadow: 0 2px 4px rgba(0,0,0,.3);
+  --r-backdrop: rgba(0,0,0,.45);
+  --r-scroll-track: #eee;
+  --r-scroll-track-image: none;
+  --r-scroll-track-size: auto;
+  --r-scroll-thumb: #bbb;
+  --r-scroll-thumb-color: #bbb;
+  --r-scroll-thumb-shadow: none;
+}
+
+[data-oldweb="saas2020"] h1 { font-weight: 700; letter-spacing: -0.03em; }
+[data-oldweb="saas2020"] .r-card { border: 1px solid var(--r-border); }

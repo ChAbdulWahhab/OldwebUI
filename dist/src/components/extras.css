@@ -1,0 +1,77 @@
+/* retro-ui / components / extras.css
+   GeoCities / MySpace wala mazaa: .r-blink  .r-marquee  .r-counter  .r-construction  .r-88x31
+   Animations prefers-reduced-motion ko respect karti hain. */
+@keyframes r-blink {
+  50% { opacity: 0; }
+}
+@keyframes r-marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-100%); }
+}
+
+[data-oldweb] .r-blink {
+  animation: r-blink 1s steps(1) infinite;
+}
+
+/* <div class="r-marquee"><span>text...</span></div> */
+[data-oldweb] .r-marquee {
+  overflow: hidden;
+  white-space: nowrap;
+}
+[data-oldweb] .r-marquee > span {
+  display: inline-block;
+  padding-left: 100%;
+  animation: r-marquee 14s linear infinite;
+}
+
+/* <span class="r-counter">000123</span> */
+[data-oldweb] .r-counter {
+  display: inline-block;
+  padding: 1px 6px;
+  font: bold 1.1em/1.3 var(--r-font-mono);
+  letter-spacing: 0.2em;
+  color: #33ff33;
+  background: #000000;
+  border: 2px inset #808080;
+}
+
+/* <div class="r-construction">Under construction</div> */
+[data-oldweb] .r-construction {
+  display: inline-block;
+  padding: 8px 14px;
+  font-weight: bold;
+  color: #000000;
+  background: repeating-linear-gradient(45deg, #ffcc00 0 12px, #1a1a1a 12px 24px);
+  border: 2px solid #000000;
+}
+[data-oldweb] .r-construction > span {
+  display: inline-block;
+  padding: 2px 8px;
+  background: #ffcc00;
+}
+
+/* <span class="r-88x31">MADE WITH<br>NOTEPAD</span> */
+[data-oldweb] .r-88x31 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 88px;
+  height: 31px;
+  font: bold 9px/1.1 var(--r-font);
+  text-align: center;
+  color: var(--r-btn-fg);
+  border: var(--r-bw) solid var(--r-btn-border);
+  border-radius: var(--r-radius);
+  background: linear-gradient(var(--r-btn-top), var(--r-btn-bottom));
+  box-shadow: var(--r-bevel-out);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-oldweb] .r-blink,
+  [data-oldweb] .r-marquee > span {
+    animation: none;
+  }
+  [data-oldweb] .r-marquee > span {
+    padding-left: 0;
+  }
+}

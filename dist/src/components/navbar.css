@@ -1,0 +1,56 @@
+/* retro-ui / components / navbar.css
+   <nav class="r-nav">
+     <a class="r-nav-brand" href="#">Brand</a>
+     <ul><li><a class="active" href="#">Home</a></li><li><a href="#">About</a></li></ul>
+     <a class="r-nav-spacer" href="#">Login</a>
+   </nav> */
+[data-oldweb] .r-nav {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2px 4px;
+  margin: 0 0 12px;
+  padding: 4px 8px;
+  color: var(--r-nav-fg);
+  border: var(--r-bw) solid var(--r-nav-border);
+  border-radius: var(--r-radius);
+  background:
+    linear-gradient(rgba(255, 255, 255, var(--r-gloss)) 50%, transparent 50%),
+    linear-gradient(var(--r-nav-top), var(--r-nav-bottom));
+  box-shadow: var(--r-nav-shadow);
+}
+[data-oldweb] .r-nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+[data-oldweb] .r-nav a,
+[data-oldweb] .r-nav a:visited {
+  display: block;
+  padding: 5px 11px;
+  color: var(--r-nav-fg);
+  text-decoration: none;
+  text-shadow: var(--r-nav-text-shadow);
+  border-radius: var(--r-radius);
+}
+[data-oldweb] .r-nav a:hover {
+  color: var(--r-nav-fg);
+  background: var(--r-nav-hover-bg);
+  box-shadow: var(--r-nav-hover-shadow);
+}
+[data-oldweb] .r-nav a.active,
+[data-oldweb] .r-nav a[aria-current] {
+  background: var(--r-nav-active-bg);
+  box-shadow: var(--r-nav-active-shadow);
+}
+[data-oldweb] .r-nav .r-nav-brand {
+  margin-right: 10px;
+  font-size: 1.15em;
+  font-weight: bold;
+}
+[data-oldweb] .r-nav .r-nav-spacer {
+  margin-left: auto;
+}

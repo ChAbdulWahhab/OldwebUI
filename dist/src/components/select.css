@@ -1,0 +1,121 @@
+/* retro-ui / components / select.css
+   1) Native <select> ko restyle (arrow SVG data-URI se).
+   2) .r-dropdown: <details> par based CSS-only dropdown menu.
+   Popup list ka apna look browser/OS control karta hai, isliye custom menu ke liye .r-dropdown use karo. */
+[data-oldweb] select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  margin: 0;
+  max-width: 100%;
+  font: inherit;
+  line-height: 1.3;
+  padding: var(--r-field-pad);
+  padding-right: var(--r-select-pad-right);
+  color: var(--r-field-fg);
+  cursor: pointer;
+  border: var(--r-bw) solid var(--r-field-border);
+  border-radius: var(--r-radius);
+  box-shadow: var(--r-select-shadow);
+  background-color: transparent;
+  background-image: var(--r-select-arrow), linear-gradient(var(--r-select-top), var(--r-select-bottom));
+  background-repeat: no-repeat;
+  background-position: var(--r-select-arrow-pos), 0 0;
+  background-size: var(--r-select-arrow-size), 100% 100%;
+}
+[data-oldweb] select:focus {
+  border-color: var(--r-field-border-focus);
+  outline: var(--r-field-focus);
+  outline-offset: 0;
+}
+[data-oldweb] select:disabled {
+  color: var(--r-disabled-fg);
+  cursor: not-allowed;
+}
+/* listbox (multiple / size > 1): arrow nahi chahiye */
+[data-oldweb] select[multiple],
+[data-oldweb] select[size]:not([size="1"]) {
+  padding: 2px;
+  cursor: default;
+  background-image: none;
+  background-color: var(--r-field-bg);
+}
+[data-oldweb] :is(option, optgroup) {
+  background: var(--r-field-bg);
+  color: var(--r-field-fg);
+}
+[data-oldweb] option:checked {
+  background: var(--r-accent);
+  color: var(--r-accent-fg);
+}
+
+/* ---------- .r-dropdown (details/summary) ----------
+   <details class="r-dropdown">
+     <summary>Menu</summary>
+     <ul class="r-menu"><li><a href="#">Item</a></li></ul>
+   </details> */
+[data-oldweb] .r-dropdown {
+  position: relative;
+  display: inline-block;
+}
+[data-oldweb] .r-dropdown > summary {
+  display: inline-block;
+  list-style: none;
+  padding: var(--r-btn-pad);
+  color: var(--r-btn-fg);
+  cursor: pointer;
+  user-select: none;
+  border: var(--r-bw) solid var(--r-btn-border);
+  border-radius: var(--r-radius);
+  background:
+    linear-gradient(rgba(255, 255, 255, var(--r-gloss)) 50%, transparent 50%),
+    linear-gradient(var(--r-btn-top), var(--r-btn-bottom));
+  box-shadow: var(--r-bevel-out);
+  text-shadow: var(--r-text-shadow);
+}
+[data-oldweb] .r-dropdown > summary::-webkit-details-marker {
+  display: none;
+}
+[data-oldweb] .r-dropdown > summary::after {
+  content: "";
+  display: inline-block;
+  margin-left: 8px;
+  vertical-align: -2px;
+  border: 4px solid transparent;
+  border-top-color: currentColor;
+  border-bottom-width: 0;
+}
+[data-oldweb] .r-dropdown[open] > summary {
+  box-shadow: var(--r-bevel-press);
+}
+[data-oldweb] .r-menu {
+  position: absolute;
+  z-index: 100;
+  top: 100%;
+  left: 0;
+  min-width: 100%;
+  margin: 2px 0 0;
+  padding: 2px;
+  list-style: none;
+  background: var(--r-surface);
+  border: var(--r-bw) solid var(--r-border);
+  border-radius: var(--r-radius);
+  box-shadow: var(--r-window-shadow);
+}
+[data-oldweb] .r-menu a,
+[data-oldweb] .r-menu a:visited {
+  display: block;
+  padding: 4px 26px 4px 10px;
+  color: var(--r-fg);
+  text-decoration: none;
+  white-space: nowrap;
+}
+[data-oldweb] .r-menu a:hover,
+[data-oldweb] .r-menu a:focus-visible {
+  color: var(--r-accent-fg);
+  background: var(--r-accent);
+  outline: none;
+}
+[data-oldweb] .r-menu hr {
+  margin: 3px 0;
+}

@@ -1,0 +1,1271 @@
+/*! @chabdulwahab/oldweb-ui v1.0.0 - oldweb-metro.css | MIT */
+/* == tokens/defaults.css == */
+/* Oldweb UI / tokens / defaults.css
+   Neutral defaults. :where() keeps specificity at 0 so themes override easily. */
+:where([data-oldweb]) {
+  /* typography */
+  --r-font: Verdana, Tahoma, sans-serif;
+  --r-font-mono: "Courier New", monospace;
+  --r-font-size: 13px;
+  --r-line-height: 1.5;
+  --r-heading: currentColor;
+  --r-heading-shadow: none;
+
+  /* colours */
+  --r-bg: #ffffff;
+  --r-bg-image: linear-gradient(var(--r-bg), var(--r-bg));
+  --r-fg: #000000;
+  --r-fg-muted: #555555;
+  --r-surface: #ffffff;
+  --r-surface-alt: #f2f2f2;
+  --r-border: #999999;
+  --r-hr-hi: #ffffff;
+  --r-link: #0000ee;
+  --r-link-visited: #551a8b;
+  --r-link-hover: #ee0000;
+  --r-accent: #0066cc;
+  --r-accent-fg: #ffffff;
+  --r-disabled-fg: #888888;
+  --r-disabled-shadow: none;
+
+  /* shape + effects */
+  --r-radius: 0px;
+  --r-bw: 1px;
+  --r-gloss: 0;
+  --r-bevel-out: none;
+  --r-bevel-in: none;
+  --r-bevel-press: none;
+  --r-window-shadow: none;
+  --r-modal-shadow: none;
+  --r-panel-shadow: none;
+  --r-text-shadow: none;
+  --r-focus: 2px solid var(--r-accent);
+  --r-focus-offset: 2px;
+  --r-hover-filter: none;
+  --r-active-filter: none;
+
+  /* buttons */
+  --r-btn-top: #eeeeee;
+  --r-btn-bottom: #dddddd;
+  --r-btn-hover-top: #f6f6f6;
+  --r-btn-hover-bottom: #e6e6e6;
+  --r-btn-active-top: #d4d4d4;
+  --r-btn-active-bottom: #e0e0e0;
+  --r-btn-fg: #000000;
+  --r-btn-border: #777777;
+  --r-btn-pad: 4px 12px;
+  --r-primary-top: #3388dd;
+  --r-primary-bottom: #0055aa;
+  --r-primary-fg: #ffffff;
+  --r-primary-border: #003f80;
+  --r-primary-text-shadow: none;
+  --r-primary-shadow: var(--r-bevel-out);
+  --r-primary-active-shadow: var(--r-bevel-press);
+  --r-danger-top: #dd5544;
+  --r-danger-bottom: #aa2211;
+  --r-danger-fg: #ffffff;
+  --r-danger-border: #801808;
+
+  /* text fields */
+  --r-field-bg: #ffffff;
+  --r-field-fg: #000000;
+  --r-field-border: #777777;
+  --r-field-border-focus: var(--r-accent);
+  --r-field-shadow: none;
+  --r-field-focus: 2px solid var(--r-accent);
+  --r-field-pad: 4px 6px;
+  --r-fieldset-shadow: none;
+
+  /* checkbox / radio */
+  --r-check-size: 13px;
+  --r-check-radius: 0px;
+  --r-check-bg: #ffffff;
+  --r-check-mark: none;
+  --r-radio-dot: none;
+
+  /* select */
+  --r-select-top: #ffffff;
+  --r-select-bottom: #ffffff;
+  --r-select-shadow: none;
+  --r-select-arrow: none;
+  --r-select-arrow-pos: 0 0;
+  --r-select-arrow-size: 0 0;
+  --r-select-pad-right: 24px;
+
+  /* card / window / titlebar */
+  --r-title-top: #dddddd;
+  --r-title-bottom: #cccccc;
+  --r-title-fg: #000000;
+  --r-title-dir: to bottom;
+  --r-title-shadow: none;
+  --r-title-pad: 5px 10px;
+  --r-card-pad: 0px;
+  --r-body-pad: 12px;
+
+  /* table */
+  --r-table-bg: #ffffff;
+  --r-th-top: #eeeeee;
+  --r-th-bottom: #dddddd;
+  --r-th-fg: #000000;
+  --r-th-shadow: none;
+  --r-row-alt: #f7f7f7;
+  --r-row-hover: #eeeeee;
+
+  /* alerts */
+  --r-info-bg: #e8f0fb;
+  --r-info-bd: #99b3d9;
+  --r-ok-bg: #e8f6e4;
+  --r-ok-bd: #95c98a;
+  --r-warn-bg: #fff6d6;
+  --r-warn-bd: #e0c860;
+  --r-err-bg: #fbe9e7;
+  --r-err-bd: #e09a94;
+
+  /* navbar */
+  --r-nav-top: #444444;
+  --r-nav-bottom: #222222;
+  --r-nav-fg: #ffffff;
+  --r-nav-border: #000000;
+  --r-nav-shadow: none;
+  --r-nav-text-shadow: none;
+  --r-nav-hover-bg: rgba(255, 255, 255, 0.2);
+  --r-nav-hover-shadow: none;
+  --r-nav-active-bg: rgba(0, 0, 0, 0.3);
+  --r-nav-active-shadow: none;
+
+  /* tabs, progress, tooltip, modal */
+  --r-tab-shadow: none;
+  --r-progress-fill: linear-gradient(var(--r-accent), var(--r-accent));
+  --r-tip-bg: #333333;
+  --r-tip-fg: #ffffff;
+  --r-tip-border: #000000;
+  --r-tip-shadow: none;
+  --r-backdrop: rgba(0, 0, 0, 0.4);
+
+  /* scrollbar */
+  --r-scroll-track: #eeeeee;
+  --r-scroll-track-image: none;
+  --r-scroll-track-size: auto;
+  --r-scroll-thumb: #bbbbbb;
+  --r-scroll-thumb-color: #bbbbbb;
+  --r-scroll-thumb-shadow: none;
+}
+
+/* == components/base.css == */
+/* Oldweb UI / components / base.css
+   Classless mode: set <html data-oldweb="…"> to restyle typography, links, etc. */
+[data-oldweb],
+[data-oldweb] *,
+[data-oldweb] *::before,
+[data-oldweb] *::after {
+  box-sizing: border-box;
+}
+
+[data-oldweb] {
+  color-scheme: light;
+  accent-color: var(--r-accent);
+  font-family: var(--r-font);
+  font-size: var(--r-font-size);
+  line-height: var(--r-line-height);
+  color: var(--r-fg);
+  background: var(--r-bg-image) top left / 100% 260px no-repeat, var(--r-bg);
+  -webkit-text-size-adjust: 100%;
+}
+
+/* links */
+[data-oldweb] a {
+  color: var(--r-link);
+  text-decoration: underline;
+}
+[data-oldweb] a:visited {
+  color: var(--r-link-visited);
+}
+[data-oldweb] a:hover {
+  color: var(--r-link-hover);
+}
+
+/* headings + text */
+[data-oldweb] :is(h1, h2, h3, h4, h5, h6) {
+  margin: 1em 0 0.5em;
+  font-family: inherit;
+  font-weight: bold;
+  line-height: 1.2;
+  color: var(--r-heading);
+  text-shadow: var(--r-heading-shadow);
+}
+[data-oldweb] h1 { font-size: 1.85em; }
+[data-oldweb] h2 { font-size: 1.5em; }
+[data-oldweb] h3 { font-size: 1.25em; }
+[data-oldweb] h4 { font-size: 1.1em; }
+[data-oldweb] h5 { font-size: 1em; }
+[data-oldweb] h6 { font-size: 0.9em; }
+[data-oldweb] p { margin: 0 0 1em; }
+[data-oldweb] :is(ul, ol) { margin: 0 0 1em; padding-left: 2em; }
+[data-oldweb] small { font-size: 0.85em; }
+[data-oldweb] mark { background: #ffff66; color: #000; }
+
+[data-oldweb] hr {
+  height: 2px;
+  margin: 1em 0;
+  border: 0;
+  background: linear-gradient(var(--r-border) 50%, var(--r-hr-hi) 50%);
+}
+
+[data-oldweb] blockquote {
+  margin: 0 0 1em;
+  padding: 0.25em 1em;
+  border-left: 4px solid var(--r-border);
+  color: var(--r-fg-muted);
+}
+
+[data-oldweb] img {
+  max-width: 100%;
+  height: auto;
+  border: 0;
+}
+
+/* code */
+[data-oldweb] :is(code, kbd, samp, pre) {
+  font-family: var(--r-font-mono);
+  font-size: 0.95em;
+}
+[data-oldweb] code {
+  padding: 1px 4px;
+  background: var(--r-surface-alt);
+  border: 1px solid var(--r-border);
+  border-radius: var(--r-radius);
+}
+[data-oldweb] pre {
+  margin: 0 0 1em;
+  padding: 8px 10px;
+  overflow: auto;
+  background: var(--r-field-bg);
+  color: var(--r-field-fg);
+  border: 1px solid var(--r-border);
+  border-radius: var(--r-radius);
+  box-shadow: var(--r-field-shadow);
+}
+[data-oldweb] pre code {
+  padding: 0;
+  background: none;
+  border: 0;
+}
+[data-oldweb] kbd {
+  padding: 1px 6px;
+  color: var(--r-btn-fg);
+  border: 1px solid var(--r-btn-border);
+  border-radius: var(--r-radius);
+  background: linear-gradient(var(--r-btn-top), var(--r-btn-bottom));
+  box-shadow: var(--r-bevel-out);
+}
+
+/* selection + focus */
+[data-oldweb]::selection,
+[data-oldweb] ::selection {
+  background: var(--r-accent);
+  color: var(--r-accent-fg);
+}
+[data-oldweb] :focus-visible {
+  outline: var(--r-focus);
+  outline-offset: var(--r-focus-offset);
+}
+[data-oldweb] a:focus-visible {
+  outline-offset: 1px;
+}
+
+/* helper classes */
+[data-oldweb] .r-container {
+  max-width: 960px;
+  margin: 16px auto;
+  padding: 16px 20px;
+  background: var(--r-surface);
+  border: var(--r-bw) solid var(--r-border);
+  border-radius: var(--r-radius);
+  box-shadow: var(--r-panel-shadow);
+}
+[data-oldweb] .r-muted { color: var(--r-fg-muted); }
+[data-oldweb] .r-full { width: 100%; }
+
+/* == components/button.css == */
+/* retro-ui / components / button.css
+   Classless: har <button> aur input[type=button|submit|reset] khud style ho jata hai.
+   Variants: .r-btn-primary  .r-btn-danger  .r-btn-sm  .r-btn-lg  .r-btn-block
+   Link ko button banane ke liye: <a class="r-btn">.
+   Andar --_xxx local variables hain taake variants sirf variables badlein. */
+
+/* 1. base (specificity kam rakhi hai taake variants asani se jeet sakein) */
+:where([data-oldweb]) :is(button, input[type="button"], input[type="submit"], input[type="reset"], .r-btn) {
+  --_top: var(--r-btn-top);
+  --_bottom: var(--r-btn-bottom);
+  --_hover-top: var(--r-btn-hover-top);
+  --_hover-bottom: var(--r-btn-hover-bottom);
+  --_active-top: var(--r-btn-active-top);
+  --_active-bottom: var(--r-btn-active-bottom);
+  --_fg: var(--r-btn-fg);
+  --_bd: var(--r-btn-border);
+  --_ts: var(--r-text-shadow);
+  --_shadow: var(--r-bevel-out);
+  --_press-shadow: var(--r-bevel-press);
+  --_hover-filter: none;
+  --_active-filter: none;
+  --_pad: var(--r-btn-pad);
+  --_fs: 1em;
+
+  appearance: none;
+  -webkit-appearance: none;
+  display: inline-block;
+  margin: 0;
+  font: inherit;
+  font-size: var(--_fs);
+  line-height: 1.25;
+  text-align: center;
+  cursor: pointer;
+  padding: var(--_pad);
+  color: var(--_fg);
+  border: var(--r-bw) solid var(--_bd);
+  border-radius: var(--r-radius);
+  background:
+    linear-gradient(rgba(255, 255, 255, var(--r-gloss)) 50%, transparent 50%),
+    linear-gradient(var(--_top), var(--_bottom));
+  box-shadow: var(--_shadow);
+  text-shadow: var(--_ts);
+}
+
+/* 2. states */
+[data-oldweb] :is(button, input[type="button"], input[type="submit"], input[type="reset"], .r-btn):hover:not(:disabled):not([aria-disabled="true"]) {
+  background:
+    linear-gradient(rgba(255, 255, 255, var(--r-gloss)) 50%, transparent 50%),
+    linear-gradient(var(--_hover-top), var(--_hover-bottom));
+  filter: var(--_hover-filter);
+}
+[data-oldweb] :is(button, input[type="button"], input[type="submit"], input[type="reset"], .r-btn):active:not(:disabled):not([aria-disabled="true"]) {
+  background:
+    linear-gradient(rgba(255, 255, 255, var(--r-gloss)) 50%, transparent 50%),
+    linear-gradient(var(--_active-top), var(--_active-bottom));
+  box-shadow: var(--_press-shadow);
+  filter: var(--_active-filter);
+}
+[data-oldweb] :is(button, input[type="button"], input[type="submit"], input[type="reset"], .r-btn):disabled,
+[data-oldweb] .r-btn[aria-disabled="true"] {
+  --_top: var(--r-btn-top);
+  --_bottom: var(--r-btn-bottom);
+  --_fg: var(--r-disabled-fg);
+  --_bd: var(--r-btn-border);
+  --_ts: var(--r-disabled-shadow);
+  --_shadow: var(--r-bevel-out);
+  cursor: not-allowed;
+}
+[data-oldweb] a.r-btn[aria-disabled="true"] {
+  pointer-events: none;
+}
+
+/* 3. <a class="r-btn"> ko link ke colours/underline se bachao */
+[data-oldweb] a.r-btn,
+[data-oldweb] a.r-btn:visited,
+[data-oldweb] a.r-btn:hover {
+  color: var(--_fg);
+  text-decoration: none;
+}
+
+/* 4. variants */
+[data-oldweb] .r-btn-primary {
+  --_top: var(--r-primary-top);
+  --_bottom: var(--r-primary-bottom);
+  --_hover-top: var(--r-primary-top);
+  --_hover-bottom: var(--r-primary-bottom);
+  --_active-top: var(--r-primary-bottom);
+  --_active-bottom: var(--r-primary-top);
+  --_fg: var(--r-primary-fg);
+  --_bd: var(--r-primary-border);
+  --_ts: var(--r-primary-text-shadow);
+  --_shadow: var(--r-primary-shadow);
+  --_press-shadow: var(--r-primary-active-shadow);
+  --_hover-filter: var(--r-hover-filter);
+  --_active-filter: var(--r-active-filter);
+  font-weight: bold;
+}
+[data-oldweb] .r-btn-danger {
+  --_top: var(--r-danger-top);
+  --_bottom: var(--r-danger-bottom);
+  --_hover-top: var(--r-danger-top);
+  --_hover-bottom: var(--r-danger-bottom);
+  --_active-top: var(--r-danger-bottom);
+  --_active-bottom: var(--r-danger-top);
+  --_fg: var(--r-danger-fg);
+  --_bd: var(--r-danger-border);
+  --_ts: var(--r-primary-text-shadow);
+  --_hover-filter: var(--r-hover-filter);
+  --_active-filter: var(--r-active-filter);
+}
+[data-oldweb] .r-btn-sm { --_pad: 2px 9px; --_fs: 0.92em; }
+[data-oldweb] .r-btn-lg { --_pad: 8px 22px; --_fs: 1.15em; }
+[data-oldweb] .r-btn-block { display: block; width: 100%; }
+
+/* 5. focus */
+[data-oldweb] :is(button, input[type="button"], input[type="submit"], input[type="reset"], .r-btn):focus-visible {
+  outline: var(--r-focus);
+  outline-offset: var(--r-focus-offset);
+}
+
+/* == components/form.css == */
+/* retro-ui / components / form.css
+   Text inputs, textarea, fieldset, file input, labels.
+   Helper classes: .r-field (label + input ka group), .r-hint, .r-input-block */
+:where([data-oldweb]) :is(
+  input:not([type]),
+  input[type="text"], input[type="email"], input[type="password"], input[type="search"],
+  input[type="url"], input[type="tel"], input[type="number"], input[type="date"],
+  input[type="datetime-local"], input[type="month"], input[type="time"], input[type="week"],
+  textarea
+) {
+  margin: 0;
+  max-width: 100%;
+  font: inherit;
+  line-height: 1.3;
+  padding: var(--r-field-pad);
+  color: var(--r-field-fg);
+  background: var(--r-field-bg);
+  border: var(--r-bw) solid var(--r-field-border);
+  border-radius: var(--r-radius);
+  box-shadow: var(--r-field-shadow);
+}
+
+[data-oldweb] :is(
+  input:not([type]),
+  input[type="text"], input[type="email"], input[type="password"], input[type="search"],
+  input[type="url"], input[type="tel"], input[type="number"], input[type="date"],
+  input[type="datetime-local"], input[type="month"], input[type="time"], input[type="week"],
+  textarea
+):focus {
+  border-color: var(--r-field-border-focus);
+  outline: var(--r-field-focus);
+  outline-offset: 0;
+}
+
+[data-oldweb] :is(
+  input:not([type]), input[type="text"], input[type="email"], input[type="password"],
+  input[type="search"], input[type="url"], input[type="tel"], input[type="number"], textarea
+):disabled {
+  background: var(--r-surface-alt);
+  color: var(--r-disabled-fg);
+  cursor: not-allowed;
+}
+
+[data-oldweb] textarea {
+  resize: vertical;
+  vertical-align: top;
+  min-height: 4.5em;
+}
+[data-oldweb] ::placeholder {
+  color: var(--r-fg-muted);
+  opacity: 0.7;
+}
+
+/* file input ka button */
+[data-oldweb] input[type="file"] {
+  font: inherit;
+  color: var(--r-fg);
+}
+[data-oldweb] input[type="file"]::file-selector-button {
+  margin: 0 8px 0 0;
+  padding: var(--r-btn-pad);
+  font: inherit;
+  color: var(--r-btn-fg);
+  cursor: pointer;
+  border: var(--r-bw) solid var(--r-btn-border);
+  border-radius: var(--r-radius);
+  background:
+    linear-gradient(rgba(255, 255, 255, var(--r-gloss)) 50%, transparent 50%),
+    linear-gradient(var(--r-btn-top), var(--r-btn-bottom));
+  box-shadow: var(--r-bevel-out);
+  text-shadow: var(--r-text-shadow);
+}
+
+/* fieldset + legend */
+[data-oldweb] fieldset {
+  margin: 0 0 12px;
+  padding: 8px 12px 10px;
+  border: 1px solid var(--r-border);
+  border-radius: var(--r-radius);
+  box-shadow: var(--r-fieldset-shadow);
+}
+[data-oldweb] legend {
+  padding: 0 6px;
+  font-weight: bold;
+}
+
+/* helper classes */
+[data-oldweb] .r-field {
+  display: block;
+  margin: 0 0 12px;
+}
+[data-oldweb] .r-field > label {
+  display: block;
+  margin-bottom: 3px;
+  font-weight: bold;
+}
+[data-oldweb] .r-hint {
+  display: block;
+  margin-top: 3px;
+  font-size: 0.92em;
+  color: var(--r-fg-muted);
+}
+[data-oldweb] .r-input-block {
+  display: block;
+  width: 100%;
+}
+
+/* == components/checkbox-radio.css == */
+/* retro-ui / components / checkbox-radio.css
+   Native checkbox/radio ko custom look (appearance: none + SVG tick, images ki zarurat nahi). */
+[data-oldweb] :is(input[type="checkbox"], input[type="radio"]) {
+  appearance: none;
+  -webkit-appearance: none;
+  flex: none;
+  width: var(--r-check-size);
+  height: var(--r-check-size);
+  margin: 0 5px 0 0;
+  vertical-align: -3px;
+  cursor: pointer;
+  background: var(--r-check-bg);
+  border: var(--r-bw) solid var(--r-field-border);
+  border-radius: var(--r-check-radius);
+  box-shadow: var(--r-field-shadow);
+}
+[data-oldweb] input[type="radio"] {
+  border-radius: 50%;
+}
+[data-oldweb] input[type="checkbox"]:checked {
+  background: var(--r-check-mark) center / 100% 100% no-repeat, var(--r-check-bg);
+}
+[data-oldweb] input[type="radio"]:checked {
+  background: var(--r-radio-dot), var(--r-check-bg);
+}
+[data-oldweb] :is(input[type="checkbox"], input[type="radio"]):focus-visible {
+  outline: var(--r-focus);
+  outline-offset: 2px;
+}
+[data-oldweb] :is(input[type="checkbox"], input[type="radio"]):disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+/* == components/select.css == */
+/* retro-ui / components / select.css
+   1) Native <select> ko restyle (arrow SVG data-URI se).
+   2) .r-dropdown: <details> par based CSS-only dropdown menu.
+   Popup list ka apna look browser/OS control karta hai, isliye custom menu ke liye .r-dropdown use karo. */
+[data-oldweb] select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  margin: 0;
+  max-width: 100%;
+  font: inherit;
+  line-height: 1.3;
+  padding: var(--r-field-pad);
+  padding-right: var(--r-select-pad-right);
+  color: var(--r-field-fg);
+  cursor: pointer;
+  border: var(--r-bw) solid var(--r-field-border);
+  border-radius: var(--r-radius);
+  box-shadow: var(--r-select-shadow);
+  background-color: transparent;
+  background-image: var(--r-select-arrow), linear-gradient(var(--r-select-top), var(--r-select-bottom));
+  background-repeat: no-repeat;
+  background-position: var(--r-select-arrow-pos), 0 0;
+  background-size: var(--r-select-arrow-size), 100% 100%;
+}
+[data-oldweb] select:focus {
+  border-color: var(--r-field-border-focus);
+  outline: var(--r-field-focus);
+  outline-offset: 0;
+}
+[data-oldweb] select:disabled {
+  color: var(--r-disabled-fg);
+  cursor: not-allowed;
+}
+/* listbox (multiple / size > 1): arrow nahi chahiye */
+[data-oldweb] select[multiple],
+[data-oldweb] select[size]:not([size="1"]) {
+  padding: 2px;
+  cursor: default;
+  background-image: none;
+  background-color: var(--r-field-bg);
+}
+[data-oldweb] :is(option, optgroup) {
+  background: var(--r-field-bg);
+  color: var(--r-field-fg);
+}
+[data-oldweb] option:checked {
+  background: var(--r-accent);
+  color: var(--r-accent-fg);
+}
+
+/* ---------- .r-dropdown (details/summary) ----------
+   <details class="r-dropdown">
+     <summary>Menu</summary>
+     <ul class="r-menu"><li><a href="#">Item</a></li></ul>
+   </details> */
+[data-oldweb] .r-dropdown {
+  position: relative;
+  display: inline-block;
+}
+[data-oldweb] .r-dropdown > summary {
+  display: inline-block;
+  list-style: none;
+  padding: var(--r-btn-pad);
+  color: var(--r-btn-fg);
+  cursor: pointer;
+  user-select: none;
+  border: var(--r-bw) solid var(--r-btn-border);
+  border-radius: var(--r-radius);
+  background:
+    linear-gradient(rgba(255, 255, 255, var(--r-gloss)) 50%, transparent 50%),
+    linear-gradient(var(--r-btn-top), var(--r-btn-bottom));
+  box-shadow: var(--r-bevel-out);
+  text-shadow: var(--r-text-shadow);
+}
+[data-oldweb] .r-dropdown > summary::-webkit-details-marker {
+  display: none;
+}
+[data-oldweb] .r-dropdown > summary::after {
+  content: "";
+  display: inline-block;
+  margin-left: 8px;
+  vertical-align: -2px;
+  border: 4px solid transparent;
+  border-top-color: currentColor;
+  border-bottom-width: 0;
+}
+[data-oldweb] .r-dropdown[open] > summary {
+  box-shadow: var(--r-bevel-press);
+}
+[data-oldweb] .r-menu {
+  position: absolute;
+  z-index: 100;
+  top: 100%;
+  left: 0;
+  min-width: 100%;
+  margin: 2px 0 0;
+  padding: 2px;
+  list-style: none;
+  background: var(--r-surface);
+  border: var(--r-bw) solid var(--r-border);
+  border-radius: var(--r-radius);
+  box-shadow: var(--r-window-shadow);
+}
+[data-oldweb] .r-menu a,
+[data-oldweb] .r-menu a:visited {
+  display: block;
+  padding: 4px 26px 4px 10px;
+  color: var(--r-fg);
+  text-decoration: none;
+  white-space: nowrap;
+}
+[data-oldweb] .r-menu a:hover,
+[data-oldweb] .r-menu a:focus-visible {
+  color: var(--r-accent-fg);
+  background: var(--r-accent);
+  outline: none;
+}
+[data-oldweb] .r-menu hr {
+  margin: 3px 0;
+}
+
+/* == components/table.css == */
+/* retro-ui / components / table.css
+   Classless: har <table> zebra rows + gradient header ke sath. Full width ke liye .r-full lagao. */
+[data-oldweb] table {
+  border-collapse: collapse;
+  background: var(--r-table-bg);
+  border: 1px solid var(--r-border);
+}
+[data-oldweb] :is(th, td) {
+  padding: 6px 10px;
+  text-align: left;
+  vertical-align: top;
+  border: 1px solid var(--r-border);
+}
+[data-oldweb] th {
+  font-weight: bold;
+  color: var(--r-th-fg);
+  background: linear-gradient(var(--r-th-top), var(--r-th-bottom));
+  box-shadow: var(--r-th-shadow);
+  text-shadow: var(--r-title-shadow);
+}
+[data-oldweb] tbody tr:nth-child(even) > td {
+  background: var(--r-row-alt);
+}
+[data-oldweb] tbody tr:hover > td {
+  background: var(--r-row-hover);
+}
+[data-oldweb] caption {
+  caption-side: bottom;
+  padding: 6px 0;
+  text-align: left;
+  color: var(--r-fg-muted);
+}
+
+/* == components/tabs.css == */
+/* retro-ui / components / tabs.css
+   Sirf styling; switching JS tumhari zimmedari (demo.html me 5 line ka example hai).
+   <nav class="r-tabs" role="tablist">
+     <a href="#a" role="tab" aria-selected="true">One</a>
+     <a href="#b" role="tab">Two</a>
+   </nav>
+   <div class="r-tab-panel" id="a">...</div>
+   Tabs ke liye <a> use karo (button nahi). */
+[data-oldweb] .r-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
+  margin: 0;
+  padding: 0 4px;
+}
+[data-oldweb] .r-tabs > a {
+  position: relative;
+  margin-bottom: -1px;
+  padding: 5px 14px;
+  color: var(--r-fg);
+  text-decoration: none;
+  border: var(--r-bw) solid var(--r-border);
+  border-bottom: 0;
+  border-radius: var(--r-radius) var(--r-radius) 0 0;
+  background: linear-gradient(var(--r-btn-top), var(--r-btn-bottom));
+  box-shadow: var(--r-tab-shadow);
+}
+[data-oldweb] .r-tabs > a:visited {
+  color: var(--r-fg);
+}
+[data-oldweb] .r-tabs > a:hover {
+  color: var(--r-fg);
+  background: linear-gradient(var(--r-btn-hover-top), var(--r-btn-hover-bottom));
+}
+[data-oldweb] .r-tabs > a[aria-selected="true"],
+[data-oldweb] .r-tabs > a.is-active {
+  z-index: 1;
+  padding-bottom: 6px;
+  font-weight: bold;
+  background: var(--r-surface);
+}
+[data-oldweb] .r-tab-panel {
+  position: relative;
+  padding: 12px;
+  background: var(--r-surface);
+  border: var(--r-bw) solid var(--r-border);
+  border-radius: 0 var(--r-radius) var(--r-radius) var(--r-radius);
+  box-shadow: var(--r-panel-shadow);
+}
+[data-oldweb] .r-tab-panel[hidden] {
+  display: none;
+}
+
+/* == components/card.css == */
+/* retro-ui / components / card.css
+   .r-card (= window) + .r-titlebar + .r-card-body + .r-card-footer
+   Titlebar me chhota close button: <button class="r-close" aria-label="Close">x</button> */
+[data-oldweb] .r-card {
+  padding: var(--r-card-pad);
+  background: var(--r-surface);
+  border: var(--r-bw) solid var(--r-border);
+  border-radius: var(--r-radius);
+  box-shadow: var(--r-window-shadow);
+}
+[data-oldweb] :is(.r-titlebar, .r-card-title) {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: var(--r-title-pad);
+  font-weight: bold;
+  color: var(--r-title-fg);
+  text-shadow: var(--r-title-shadow);
+  border-bottom: var(--r-bw) solid var(--r-border);
+  border-radius: var(--r-radius) var(--r-radius) 0 0;
+  background:
+    linear-gradient(rgba(255, 255, 255, var(--r-gloss)) 50%, transparent 50%),
+    linear-gradient(var(--r-title-dir), var(--r-title-top), var(--r-title-bottom));
+}
+[data-oldweb] .r-card-body {
+  padding: var(--r-body-pad);
+}
+[data-oldweb] .r-card-body > :last-child {
+  margin-bottom: 0;
+}
+[data-oldweb] .r-card-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 6px;
+  padding: 8px var(--r-body-pad);
+  background: var(--r-surface-alt);
+  border-top: 1px solid var(--r-border);
+}
+[data-oldweb] .r-close {
+  --_pad: 0 6px;
+  --_fs: 1em;
+  min-width: 1.7em;
+  line-height: 1.2;
+  font-weight: bold;
+}
+
+/* == components/navbar.css == */
+/* retro-ui / components / navbar.css
+   <nav class="r-nav">
+     <a class="r-nav-brand" href="#">Brand</a>
+     <ul><li><a class="active" href="#">Home</a></li><li><a href="#">About</a></li></ul>
+     <a class="r-nav-spacer" href="#">Login</a>
+   </nav> */
+[data-oldweb] .r-nav {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2px 4px;
+  margin: 0 0 12px;
+  padding: 4px 8px;
+  color: var(--r-nav-fg);
+  border: var(--r-bw) solid var(--r-nav-border);
+  border-radius: var(--r-radius);
+  background:
+    linear-gradient(rgba(255, 255, 255, var(--r-gloss)) 50%, transparent 50%),
+    linear-gradient(var(--r-nav-top), var(--r-nav-bottom));
+  box-shadow: var(--r-nav-shadow);
+}
+[data-oldweb] .r-nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+[data-oldweb] .r-nav a,
+[data-oldweb] .r-nav a:visited {
+  display: block;
+  padding: 5px 11px;
+  color: var(--r-nav-fg);
+  text-decoration: none;
+  text-shadow: var(--r-nav-text-shadow);
+  border-radius: var(--r-radius);
+}
+[data-oldweb] .r-nav a:hover {
+  color: var(--r-nav-fg);
+  background: var(--r-nav-hover-bg);
+  box-shadow: var(--r-nav-hover-shadow);
+}
+[data-oldweb] .r-nav a.active,
+[data-oldweb] .r-nav a[aria-current] {
+  background: var(--r-nav-active-bg);
+  box-shadow: var(--r-nav-active-shadow);
+}
+[data-oldweb] .r-nav .r-nav-brand {
+  margin-right: 10px;
+  font-size: 1.15em;
+  font-weight: bold;
+}
+[data-oldweb] .r-nav .r-nav-spacer {
+  margin-left: auto;
+}
+
+/* == components/pagination.css == */
+/* retro-ui / components / pagination.css
+   <ul class="r-pagination"><li><a href="#">1</a></li><li><a aria-current="page">2</a></li></ul> */
+[data-oldweb] .r-pagination {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px;
+  margin: 0 0 1em;
+  padding: 0;
+  list-style: none;
+}
+[data-oldweb] .r-pagination :is(a, span),
+[data-oldweb] .r-pagination a:visited {
+  display: block;
+  min-width: 2.2em;
+  padding: 3px 8px;
+  text-align: center;
+  text-decoration: none;
+  color: var(--r-btn-fg);
+  border: var(--r-bw) solid var(--r-btn-border);
+  border-radius: var(--r-radius);
+  background:
+    linear-gradient(rgba(255, 255, 255, var(--r-gloss)) 50%, transparent 50%),
+    linear-gradient(var(--r-btn-top), var(--r-btn-bottom));
+  box-shadow: var(--r-bevel-out);
+  text-shadow: var(--r-text-shadow);
+}
+[data-oldweb] .r-pagination a:hover {
+  color: var(--r-btn-fg);
+  background:
+    linear-gradient(rgba(255, 255, 255, var(--r-gloss)) 50%, transparent 50%),
+    linear-gradient(var(--r-btn-hover-top), var(--r-btn-hover-bottom));
+}
+[data-oldweb] .r-pagination [aria-current="page"],
+[data-oldweb] .r-pagination a[aria-current="page"]:hover {
+  font-weight: bold;
+  color: var(--r-primary-fg);
+  border-color: var(--r-primary-border);
+  background:
+    linear-gradient(rgba(255, 255, 255, var(--r-gloss)) 50%, transparent 50%),
+    linear-gradient(var(--r-primary-top), var(--r-primary-bottom));
+  box-shadow: var(--r-primary-shadow);
+  text-shadow: var(--r-primary-text-shadow);
+}
+
+/* == components/feedback.css == */
+/* retro-ui / components / feedback.css
+   Alerts (.r-alert + -ok/-warn/-err), badges (.r-badge), <progress>, tooltip ([data-tip]) */
+
+/* alerts */
+[data-oldweb] .r-alert {
+  margin: 0 0 12px;
+  padding: 9px 12px;
+  background: var(--r-info-bg);
+  border: 1px solid var(--r-info-bd);
+  border-radius: var(--r-radius);
+}
+[data-oldweb] .r-alert-ok   { background: var(--r-ok-bg);   border-color: var(--r-ok-bd); }
+[data-oldweb] .r-alert-warn { background: var(--r-warn-bg); border-color: var(--r-warn-bd); }
+[data-oldweb] .r-alert-err  { background: var(--r-err-bg);  border-color: var(--r-err-bd); }
+
+/* badges */
+[data-oldweb] .r-badge {
+  display: inline-block;
+  padding: 1px 8px;
+  font-size: 0.85em;
+  font-weight: bold;
+  line-height: 1.4;
+  color: var(--r-primary-fg);
+  text-shadow: var(--r-primary-text-shadow);
+  border: var(--r-bw) solid var(--r-primary-border);
+  border-radius: calc(var(--r-radius) * 2);
+  background:
+    linear-gradient(rgba(255, 255, 255, var(--r-gloss)) 50%, transparent 50%),
+    linear-gradient(var(--r-primary-top), var(--r-primary-bottom));
+}
+[data-oldweb] .r-badge-danger {
+  color: var(--r-danger-fg);
+  border-color: var(--r-danger-border);
+  background:
+    linear-gradient(rgba(255, 255, 255, var(--r-gloss)) 50%, transparent 50%),
+    linear-gradient(var(--r-danger-top), var(--r-danger-bottom));
+}
+
+/* progress */
+[data-oldweb] progress {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 220px;
+  max-width: 100%;
+  height: 16px;
+  vertical-align: middle;
+  overflow: hidden;
+  color: var(--r-accent);
+  background: var(--r-field-bg);
+  border: var(--r-bw) solid var(--r-field-border);
+  border-radius: var(--r-radius);
+  box-shadow: var(--r-field-shadow);
+}
+[data-oldweb] progress::-webkit-progress-bar {
+  background: transparent;
+}
+[data-oldweb] progress::-webkit-progress-value {
+  background: var(--r-progress-fill);
+}
+[data-oldweb] progress::-moz-progress-bar {
+  background: var(--r-progress-fill);
+}
+
+/* tooltip: <button data-tip="Text">Hover me</button> */
+[data-oldweb] [data-tip] {
+  position: relative;
+}
+[data-oldweb] [data-tip]:is(:hover, :focus-visible)::after {
+  content: attr(data-tip);
+  position: absolute;
+  z-index: 1000;
+  left: 50%;
+  bottom: calc(100% + 6px);
+  transform: translateX(-50%);
+  width: max-content;
+  max-width: 240px;
+  padding: 3px 8px;
+  font: 12px/1.3 var(--r-font);
+  font-weight: normal;
+  text-align: left;
+  white-space: normal;
+  text-shadow: none;
+  color: var(--r-tip-fg);
+  background: var(--r-tip-bg);
+  border: 1px solid var(--r-tip-border);
+  border-radius: var(--r-radius);
+  box-shadow: var(--r-tip-shadow);
+  pointer-events: none;
+}
+
+/* == components/modal.css == */
+/* retro-ui / components / modal.css
+   Native <dialog> use hota hai (dialog.showModal()).
+   <dialog id="d">
+     <div class="r-titlebar">Title <button class="r-close" aria-label="Close">x</button></div>
+     <div class="r-card-body">...</div>
+     <div class="r-card-footer"><button>OK</button></div>
+   </dialog> */
+[data-oldweb] dialog {
+  width: min(92vw, 480px);
+  max-height: 90vh;
+  margin: auto;
+  padding: var(--r-card-pad);
+  overflow: auto;
+  color: var(--r-fg);
+  background: var(--r-surface);
+  border: var(--r-bw) solid var(--r-border);
+  border-radius: var(--r-radius);
+  box-shadow: var(--r-modal-shadow);
+}
+[data-oldweb] dialog::backdrop {
+  background: var(--r-backdrop, rgba(0, 0, 0, 0.4));
+}
+
+/* == components/scrollbar.css == */
+/* retro-ui / components / scrollbar.css
+   Chrome/Edge/Safari: ::-webkit-scrollbar. Firefox: scrollbar-color.
+   (Chrome 121+ me dono ek sath hon to webkit wala ignore hota hai, is liye @supports se alag kiya.) */
+@supports selector(::-webkit-scrollbar) {
+  [data-oldweb]::-webkit-scrollbar,
+  [data-oldweb] *::-webkit-scrollbar {
+    width: 16px;
+    height: 16px;
+  }
+  [data-oldweb]::-webkit-scrollbar-track,
+  [data-oldweb] *::-webkit-scrollbar-track {
+    background-color: var(--r-scroll-track);
+    background-image: var(--r-scroll-track-image);
+    background-size: var(--r-scroll-track-size);
+  }
+  [data-oldweb]::-webkit-scrollbar-thumb,
+  [data-oldweb] *::-webkit-scrollbar-thumb {
+    background: var(--r-scroll-thumb);
+    border: var(--r-bw) solid var(--r-border);
+    border-radius: var(--r-radius);
+    box-shadow: var(--r-scroll-thumb-shadow);
+  }
+  [data-oldweb]::-webkit-scrollbar-corner,
+  [data-oldweb] *::-webkit-scrollbar-corner {
+    background: var(--r-scroll-track);
+  }
+}
+@supports not selector(::-webkit-scrollbar) {
+  [data-oldweb] {
+    scrollbar-color: var(--r-scroll-thumb-color) var(--r-scroll-track);
+  }
+}
+
+/* == components/extras.css == */
+/* retro-ui / components / extras.css
+   GeoCities / MySpace wala mazaa: .r-blink  .r-marquee  .r-counter  .r-construction  .r-88x31
+   Animations prefers-reduced-motion ko respect karti hain. */
+@keyframes r-blink {
+  50% { opacity: 0; }
+}
+@keyframes r-marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-100%); }
+}
+
+[data-oldweb] .r-blink {
+  animation: r-blink 1s steps(1) infinite;
+}
+
+/* <div class="r-marquee"><span>text...</span></div> */
+[data-oldweb] .r-marquee {
+  overflow: hidden;
+  white-space: nowrap;
+}
+[data-oldweb] .r-marquee > span {
+  display: inline-block;
+  padding-left: 100%;
+  animation: r-marquee 14s linear infinite;
+}
+
+/* <span class="r-counter">000123</span> */
+[data-oldweb] .r-counter {
+  display: inline-block;
+  padding: 1px 6px;
+  font: bold 1.1em/1.3 var(--r-font-mono);
+  letter-spacing: 0.2em;
+  color: #33ff33;
+  background: #000000;
+  border: 2px inset #808080;
+}
+
+/* <div class="r-construction">Under construction</div> */
+[data-oldweb] .r-construction {
+  display: inline-block;
+  padding: 8px 14px;
+  font-weight: bold;
+  color: #000000;
+  background: repeating-linear-gradient(45deg, #ffcc00 0 12px, #1a1a1a 12px 24px);
+  border: 2px solid #000000;
+}
+[data-oldweb] .r-construction > span {
+  display: inline-block;
+  padding: 2px 8px;
+  background: #ffcc00;
+}
+
+/* <span class="r-88x31">MADE WITH<br>NOTEPAD</span> */
+[data-oldweb] .r-88x31 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 88px;
+  height: 31px;
+  font: bold 9px/1.1 var(--r-font);
+  text-align: center;
+  color: var(--r-btn-fg);
+  border: var(--r-bw) solid var(--r-btn-border);
+  border-radius: var(--r-radius);
+  background: linear-gradient(var(--r-btn-top), var(--r-btn-bottom));
+  box-shadow: var(--r-bevel-out);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-oldweb] .r-blink,
+  [data-oldweb] .r-marquee > span {
+    animation: none;
+  }
+  [data-oldweb] .r-marquee > span {
+    padding-left: 0;
+  }
+}
+
+/* == themes/metro.css == */
+/* Oldweb UI / themes / metro.css
+   2010–2012 Metro / Modern UI: typography-first, solid color tiles, zero bevels, Segoe UI (Windows Phone 7 / Win8). */
+[data-oldweb="metro"] {
+  --r-font: "Segoe UI", Tahoma, Geneva, sans-serif;
+  --r-font-mono: "Courier New", monospace;
+  --r-font-size: 14px;
+  --r-line-height: 1.5;
+  --r-heading: #fff;
+  --r-heading-shadow: none;
+  --r-bg: #1f1f1f;
+  --r-bg-image: linear-gradient(#1f1f1f, #1f1f1f);
+  --r-fg: #fff;
+  --r-fg-muted: #a0a0a0;
+  --r-surface: #2d2d30;
+  --r-surface-alt: #3e3e42;
+  --r-border: #0078d7;
+  --r-hr-hi: #fff;
+  --r-link: #3aa0ff;
+  --r-link-visited: #b48dff;
+  --r-link-hover: #60bfff;
+  --r-accent: #0078d7;
+  --r-accent-fg: #fff;
+  --r-disabled-fg: #888;
+  --r-disabled-shadow: none;
+  --r-radius: 0;
+  --r-bw: 1px;
+  --r-gloss: 0;
+  --r-bevel-out: none;
+  --r-bevel-in: none;
+  --r-bevel-press: none;
+  --r-window-shadow: none;
+  --r-modal-shadow: 0 0 0 2px #0078d7;
+  --r-panel-shadow: none;
+  --r-text-shadow: none;
+  --r-focus: 2px solid var(--r-accent);
+  --r-focus-offset: 2px;
+  --r-hover-filter: brightness(1.15);
+  --r-active-filter: brightness(0.92);
+  --r-btn-top: #3e3e42;
+  --r-btn-bottom: #3e3e42;
+  --r-btn-hover-top: #505054;
+  --r-btn-hover-bottom: #505054;
+  --r-btn-active-top: #c8c8c8;
+  --r-btn-active-bottom: #e0e0e0;
+  --r-btn-fg: #fff;
+  --r-btn-border: #0078d7;
+  --r-btn-pad: 10px 20px;
+  --r-primary-top: #0078d7;
+  --r-primary-bottom: #0078d7;
+  --r-primary-fg: #fff;
+  --r-primary-border: #005a9e;
+  --r-primary-text-shadow: none;
+  --r-primary-shadow: none;
+  --r-primary-active-shadow: var(--r-bevel-press);
+  --r-danger-top: #e81123;
+  --r-danger-bottom: #e81123;
+  --r-danger-fg: #fff;
+  --r-danger-border: #800;
+  --r-field-bg: #1f1f1f;
+  --r-field-fg: #fff;
+  --r-field-border: #0078d7;
+  --r-field-border-focus: var(--r-accent);
+  --r-field-shadow: none;
+  --r-field-focus: 2px solid rgba(0,102,204,.35);
+  --r-field-pad: 4px 6px;
+  --r-fieldset-shadow: none;
+  --r-check-size: 13px;
+  --r-check-radius: 0;
+  --r-check-bg: #1f1f1f;
+  --r-check-mark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 13 13'%3E%3Cpath d='M2.5 7l2.5 2.5L10.5 3.5' fill='none' stroke='%233aa0ff' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E");
+  --r-radio-dot: radial-gradient(circle, #3aa0ff 30%, transparent 36%);
+  --r-select-top: #2d2d30;
+  --r-select-bottom: #2d2d30;
+  --r-select-shadow: none;
+  --r-select-arrow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10'%3E%3Cpath d='M1 3l4 4 4-4z' fill='%23ffffff'/%3E%3C/svg%3E");
+  --r-select-arrow-pos: right 7px center;
+  --r-select-arrow-size: 10px 10px;
+  --r-select-pad-right: 24px;
+  --r-title-top: #0078d7;
+  --r-title-bottom: #0078d7;
+  --r-title-fg: #fff;
+  --r-title-dir: to bottom;
+  --r-title-shadow: none;
+  --r-title-pad: 5px 10px;
+  --r-card-pad: 0px;
+  --r-body-pad: 12px;
+  --r-table-bg: #2d2d30;
+  --r-th-top: #0078d7;
+  --r-th-bottom: #0078d7;
+  --r-th-fg: #fff;
+  --r-th-shadow: none;
+  --r-row-alt: #323236;
+  --r-row-hover: #004a8c;
+  --r-info-bg: #003a6b;
+  --r-info-bd: #0078d7;
+  --r-ok-bg: #0e5c2f;
+  --r-ok-bd: #107c10;
+  --r-warn-bg: #5c3a00;
+  --r-warn-bd: #ffb900;
+  --r-err-bg: #5c1010;
+  --r-err-bd: #e81123;
+  --r-nav-top: #0078d7;
+  --r-nav-bottom: #0078d7;
+  --r-nav-fg: #fff;
+  --r-nav-border: #000;
+  --r-nav-shadow: none;
+  --r-nav-text-shadow: none;
+  --r-nav-hover-bg: rgba(255,255,255,.2);
+  --r-nav-hover-shadow: none;
+  --r-nav-active-bg: rgba(0,0,0,.3);
+  --r-nav-active-shadow: none;
+  --r-tab-shadow: inset 0 1px 0 rgba(255,255,255,.8);
+  --r-progress-fill: linear-gradient(var(--r-primary-top), var(--r-primary-bottom));
+  --r-tip-bg: #0078d7;
+  --r-tip-fg: #fff;
+  --r-tip-border: #000;
+  --r-tip-shadow: 0 2px 4px rgba(0,0,0,.3);
+  --r-backdrop: rgba(0,0,0,.65);
+  --r-scroll-track: #1f1f1f;
+  --r-scroll-track-image: none;
+  --r-scroll-track-size: auto;
+  --r-scroll-thumb: #0078d7;
+  --r-scroll-thumb-color: #0078d7;
+  --r-scroll-thumb-shadow: none;
+}
+
+[data-oldweb="metro"] { color-scheme: dark; }
+[data-oldweb="metro"] h1 { font-weight: 200; letter-spacing: .06em; text-transform: uppercase; }

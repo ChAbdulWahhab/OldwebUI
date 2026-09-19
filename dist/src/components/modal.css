@@ -1,0 +1,22 @@
+/* retro-ui / components / modal.css
+   Native <dialog> use hota hai (dialog.showModal()).
+   <dialog id="d">
+     <div class="r-titlebar">Title <button class="r-close" aria-label="Close">x</button></div>
+     <div class="r-card-body">...</div>
+     <div class="r-card-footer"><button>OK</button></div>
+   </dialog> */
+[data-oldweb] dialog {
+  width: min(92vw, 480px);
+  max-height: 90vh;
+  margin: auto;
+  padding: var(--r-card-pad);
+  overflow: auto;
+  color: var(--r-fg);
+  background: var(--r-surface);
+  border: var(--r-bw) solid var(--r-border);
+  border-radius: var(--r-radius);
+  box-shadow: var(--r-modal-shadow);
+}
+[data-oldweb] dialog::backdrop {
+  background: var(--r-backdrop, rgba(0, 0, 0, 0.4));
+}

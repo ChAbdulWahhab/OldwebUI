@@ -1,0 +1,32 @@
+/* retro-ui / components / scrollbar.css
+   Chrome/Edge/Safari: ::-webkit-scrollbar. Firefox: scrollbar-color.
+   (Chrome 121+ me dono ek sath hon to webkit wala ignore hota hai, is liye @supports se alag kiya.) */
+@supports selector(::-webkit-scrollbar) {
+  [data-oldweb]::-webkit-scrollbar,
+  [data-oldweb] *::-webkit-scrollbar {
+    width: 16px;
+    height: 16px;
+  }
+  [data-oldweb]::-webkit-scrollbar-track,
+  [data-oldweb] *::-webkit-scrollbar-track {
+    background-color: var(--r-scroll-track);
+    background-image: var(--r-scroll-track-image);
+    background-size: var(--r-scroll-track-size);
+  }
+  [data-oldweb]::-webkit-scrollbar-thumb,
+  [data-oldweb] *::-webkit-scrollbar-thumb {
+    background: var(--r-scroll-thumb);
+    border: var(--r-bw) solid var(--r-border);
+    border-radius: var(--r-radius);
+    box-shadow: var(--r-scroll-thumb-shadow);
+  }
+  [data-oldweb]::-webkit-scrollbar-corner,
+  [data-oldweb] *::-webkit-scrollbar-corner {
+    background: var(--r-scroll-track);
+  }
+}
+@supports not selector(::-webkit-scrollbar) {
+  [data-oldweb] {
+    scrollbar-color: var(--r-scroll-thumb-color) var(--r-scroll-track);
+  }
+}

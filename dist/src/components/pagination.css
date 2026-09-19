@@ -1,0 +1,43 @@
+/* retro-ui / components / pagination.css
+   <ul class="r-pagination"><li><a href="#">1</a></li><li><a aria-current="page">2</a></li></ul> */
+[data-oldweb] .r-pagination {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px;
+  margin: 0 0 1em;
+  padding: 0;
+  list-style: none;
+}
+[data-oldweb] .r-pagination :is(a, span),
+[data-oldweb] .r-pagination a:visited {
+  display: block;
+  min-width: 2.2em;
+  padding: 3px 8px;
+  text-align: center;
+  text-decoration: none;
+  color: var(--r-btn-fg);
+  border: var(--r-bw) solid var(--r-btn-border);
+  border-radius: var(--r-radius);
+  background:
+    linear-gradient(rgba(255, 255, 255, var(--r-gloss)) 50%, transparent 50%),
+    linear-gradient(var(--r-btn-top), var(--r-btn-bottom));
+  box-shadow: var(--r-bevel-out);
+  text-shadow: var(--r-text-shadow);
+}
+[data-oldweb] .r-pagination a:hover {
+  color: var(--r-btn-fg);
+  background:
+    linear-gradient(rgba(255, 255, 255, var(--r-gloss)) 50%, transparent 50%),
+    linear-gradient(var(--r-btn-hover-top), var(--r-btn-hover-bottom));
+}
+[data-oldweb] .r-pagination [aria-current="page"],
+[data-oldweb] .r-pagination a[aria-current="page"]:hover {
+  font-weight: bold;
+  color: var(--r-primary-fg);
+  border-color: var(--r-primary-border);
+  background:
+    linear-gradient(rgba(255, 255, 255, var(--r-gloss)) 50%, transparent 50%),
+    linear-gradient(var(--r-primary-top), var(--r-primary-bottom));
+  box-shadow: var(--r-primary-shadow);
+  text-shadow: var(--r-primary-text-shadow);
+}

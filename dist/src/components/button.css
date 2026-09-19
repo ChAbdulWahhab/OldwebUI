@@ -1,0 +1,119 @@
+/* retro-ui / components / button.css
+   Classless: har <button> aur input[type=button|submit|reset] khud style ho jata hai.
+   Variants: .r-btn-primary  .r-btn-danger  .r-btn-sm  .r-btn-lg  .r-btn-block
+   Link ko button banane ke liye: <a class="r-btn">.
+   Andar --_xxx local variables hain taake variants sirf variables badlein. */
+
+/* 1. base (specificity kam rakhi hai taake variants asani se jeet sakein) */
+:where([data-oldweb]) :is(button, input[type="button"], input[type="submit"], input[type="reset"], .r-btn) {
+  --_top: var(--r-btn-top);
+  --_bottom: var(--r-btn-bottom);
+  --_hover-top: var(--r-btn-hover-top);
+  --_hover-bottom: var(--r-btn-hover-bottom);
+  --_active-top: var(--r-btn-active-top);
+  --_active-bottom: var(--r-btn-active-bottom);
+  --_fg: var(--r-btn-fg);
+  --_bd: var(--r-btn-border);
+  --_ts: var(--r-text-shadow);
+  --_shadow: var(--r-bevel-out);
+  --_press-shadow: var(--r-bevel-press);
+  --_hover-filter: none;
+  --_active-filter: none;
+  --_pad: var(--r-btn-pad);
+  --_fs: 1em;
+
+  appearance: none;
+  -webkit-appearance: none;
+  display: inline-block;
+  margin: 0;
+  font: inherit;
+  font-size: var(--_fs);
+  line-height: 1.25;
+  text-align: center;
+  cursor: pointer;
+  padding: var(--_pad);
+  color: var(--_fg);
+  border: var(--r-bw) solid var(--_bd);
+  border-radius: var(--r-radius);
+  background:
+    linear-gradient(rgba(255, 255, 255, var(--r-gloss)) 50%, transparent 50%),
+    linear-gradient(var(--_top), var(--_bottom));
+  box-shadow: var(--_shadow);
+  text-shadow: var(--_ts);
+}
+
+/* 2. states */
+[data-oldweb] :is(button, input[type="button"], input[type="submit"], input[type="reset"], .r-btn):hover:not(:disabled):not([aria-disabled="true"]) {
+  background:
+    linear-gradient(rgba(255, 255, 255, var(--r-gloss)) 50%, transparent 50%),
+    linear-gradient(var(--_hover-top), var(--_hover-bottom));
+  filter: var(--_hover-filter);
+}
+[data-oldweb] :is(button, input[type="button"], input[type="submit"], input[type="reset"], .r-btn):active:not(:disabled):not([aria-disabled="true"]) {
+  background:
+    linear-gradient(rgba(255, 255, 255, var(--r-gloss)) 50%, transparent 50%),
+    linear-gradient(var(--_active-top), var(--_active-bottom));
+  box-shadow: var(--_press-shadow);
+  filter: var(--_active-filter);
+}
+[data-oldweb] :is(button, input[type="button"], input[type="submit"], input[type="reset"], .r-btn):disabled,
+[data-oldweb] .r-btn[aria-disabled="true"] {
+  --_top: var(--r-btn-top);
+  --_bottom: var(--r-btn-bottom);
+  --_fg: var(--r-disabled-fg);
+  --_bd: var(--r-btn-border);
+  --_ts: var(--r-disabled-shadow);
+  --_shadow: var(--r-bevel-out);
+  cursor: not-allowed;
+}
+[data-oldweb] a.r-btn[aria-disabled="true"] {
+  pointer-events: none;
+}
+
+/* 3. <a class="r-btn"> ko link ke colours/underline se bachao */
+[data-oldweb] a.r-btn,
+[data-oldweb] a.r-btn:visited,
+[data-oldweb] a.r-btn:hover {
+  color: var(--_fg);
+  text-decoration: none;
+}
+
+/* 4. variants */
+[data-oldweb] .r-btn-primary {
+  --_top: var(--r-primary-top);
+  --_bottom: var(--r-primary-bottom);
+  --_hover-top: var(--r-primary-top);
+  --_hover-bottom: var(--r-primary-bottom);
+  --_active-top: var(--r-primary-bottom);
+  --_active-bottom: var(--r-primary-top);
+  --_fg: var(--r-primary-fg);
+  --_bd: var(--r-primary-border);
+  --_ts: var(--r-primary-text-shadow);
+  --_shadow: var(--r-primary-shadow);
+  --_press-shadow: var(--r-primary-active-shadow);
+  --_hover-filter: var(--r-hover-filter);
+  --_active-filter: var(--r-active-filter);
+  font-weight: bold;
+}
+[data-oldweb] .r-btn-danger {
+  --_top: var(--r-danger-top);
+  --_bottom: var(--r-danger-bottom);
+  --_hover-top: var(--r-danger-top);
+  --_hover-bottom: var(--r-danger-bottom);
+  --_active-top: var(--r-danger-bottom);
+  --_active-bottom: var(--r-danger-top);
+  --_fg: var(--r-danger-fg);
+  --_bd: var(--r-danger-border);
+  --_ts: var(--r-primary-text-shadow);
+  --_hover-filter: var(--r-hover-filter);
+  --_active-filter: var(--r-active-filter);
+}
+[data-oldweb] .r-btn-sm { --_pad: 2px 9px; --_fs: 0.92em; }
+[data-oldweb] .r-btn-lg { --_pad: 8px 22px; --_fs: 1.15em; }
+[data-oldweb] .r-btn-block { display: block; width: 100%; }
+
+/* 5. focus */
+[data-oldweb] :is(button, input[type="button"], input[type="submit"], input[type="reset"], .r-btn):focus-visible {
+  outline: var(--r-focus);
+  outline-offset: var(--r-focus-offset);
+}

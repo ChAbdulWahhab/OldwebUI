@@ -1,0 +1,52 @@
+/* retro-ui / components / tabs.css
+   Sirf styling; switching JS tumhari zimmedari (demo.html me 5 line ka example hai).
+   <nav class="r-tabs" role="tablist">
+     <a href="#a" role="tab" aria-selected="true">One</a>
+     <a href="#b" role="tab">Two</a>
+   </nav>
+   <div class="r-tab-panel" id="a">...</div>
+   Tabs ke liye <a> use karo (button nahi). */
+[data-oldweb] .r-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
+  margin: 0;
+  padding: 0 4px;
+}
+[data-oldweb] .r-tabs > a {
+  position: relative;
+  margin-bottom: -1px;
+  padding: 5px 14px;
+  color: var(--r-fg);
+  text-decoration: none;
+  border: var(--r-bw) solid var(--r-border);
+  border-bottom: 0;
+  border-radius: var(--r-radius) var(--r-radius) 0 0;
+  background: linear-gradient(var(--r-btn-top), var(--r-btn-bottom));
+  box-shadow: var(--r-tab-shadow);
+}
+[data-oldweb] .r-tabs > a:visited {
+  color: var(--r-fg);
+}
+[data-oldweb] .r-tabs > a:hover {
+  color: var(--r-fg);
+  background: linear-gradient(var(--r-btn-hover-top), var(--r-btn-hover-bottom));
+}
+[data-oldweb] .r-tabs > a[aria-selected="true"],
+[data-oldweb] .r-tabs > a.is-active {
+  z-index: 1;
+  padding-bottom: 6px;
+  font-weight: bold;
+  background: var(--r-surface);
+}
+[data-oldweb] .r-tab-panel {
+  position: relative;
+  padding: 12px;
+  background: var(--r-surface);
+  border: var(--r-bw) solid var(--r-border);
+  border-radius: 0 var(--r-radius) var(--r-radius) var(--r-radius);
+  box-shadow: var(--r-panel-shadow);
+}
+[data-oldweb] .r-tab-panel[hidden] {
+  display: none;
+}

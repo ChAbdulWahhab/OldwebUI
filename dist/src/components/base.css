@@ -1,0 +1,133 @@
+/* Oldweb UI / components / base.css
+   Classless mode: set <html data-oldweb="…"> to restyle typography, links, etc. */
+[data-oldweb],
+[data-oldweb] *,
+[data-oldweb] *::before,
+[data-oldweb] *::after {
+  box-sizing: border-box;
+}
+
+[data-oldweb] {
+  color-scheme: light;
+  accent-color: var(--r-accent);
+  font-family: var(--r-font);
+  font-size: var(--r-font-size);
+  line-height: var(--r-line-height);
+  color: var(--r-fg);
+  background: var(--r-bg-image) top left / 100% 260px no-repeat, var(--r-bg);
+  -webkit-text-size-adjust: 100%;
+}
+
+/* links */
+[data-oldweb] a {
+  color: var(--r-link);
+  text-decoration: underline;
+}
+[data-oldweb] a:visited {
+  color: var(--r-link-visited);
+}
+[data-oldweb] a:hover {
+  color: var(--r-link-hover);
+}
+
+/* headings + text */
+[data-oldweb] :is(h1, h2, h3, h4, h5, h6) {
+  margin: 1em 0 0.5em;
+  font-family: inherit;
+  font-weight: bold;
+  line-height: 1.2;
+  color: var(--r-heading);
+  text-shadow: var(--r-heading-shadow);
+}
+[data-oldweb] h1 { font-size: 1.85em; }
+[data-oldweb] h2 { font-size: 1.5em; }
+[data-oldweb] h3 { font-size: 1.25em; }
+[data-oldweb] h4 { font-size: 1.1em; }
+[data-oldweb] h5 { font-size: 1em; }
+[data-oldweb] h6 { font-size: 0.9em; }
+[data-oldweb] p { margin: 0 0 1em; }
+[data-oldweb] :is(ul, ol) { margin: 0 0 1em; padding-left: 2em; }
+[data-oldweb] small { font-size: 0.85em; }
+[data-oldweb] mark { background: #ffff66; color: #000; }
+
+[data-oldweb] hr {
+  height: 2px;
+  margin: 1em 0;
+  border: 0;
+  background: linear-gradient(var(--r-border) 50%, var(--r-hr-hi) 50%);
+}
+
+[data-oldweb] blockquote {
+  margin: 0 0 1em;
+  padding: 0.25em 1em;
+  border-left: 4px solid var(--r-border);
+  color: var(--r-fg-muted);
+}
+
+[data-oldweb] img {
+  max-width: 100%;
+  height: auto;
+  border: 0;
+}
+
+/* code */
+[data-oldweb] :is(code, kbd, samp, pre) {
+  font-family: var(--r-font-mono);
+  font-size: 0.95em;
+}
+[data-oldweb] code {
+  padding: 1px 4px;
+  background: var(--r-surface-alt);
+  border: 1px solid var(--r-border);
+  border-radius: var(--r-radius);
+}
+[data-oldweb] pre {
+  margin: 0 0 1em;
+  padding: 8px 10px;
+  overflow: auto;
+  background: var(--r-field-bg);
+  color: var(--r-field-fg);
+  border: 1px solid var(--r-border);
+  border-radius: var(--r-radius);
+  box-shadow: var(--r-field-shadow);
+}
+[data-oldweb] pre code {
+  padding: 0;
+  background: none;
+  border: 0;
+}
+[data-oldweb] kbd {
+  padding: 1px 6px;
+  color: var(--r-btn-fg);
+  border: 1px solid var(--r-btn-border);
+  border-radius: var(--r-radius);
+  background: linear-gradient(var(--r-btn-top), var(--r-btn-bottom));
+  box-shadow: var(--r-bevel-out);
+}
+
+/* selection + focus */
+[data-oldweb]::selection,
+[data-oldweb] ::selection {
+  background: var(--r-accent);
+  color: var(--r-accent-fg);
+}
+[data-oldweb] :focus-visible {
+  outline: var(--r-focus);
+  outline-offset: var(--r-focus-offset);
+}
+[data-oldweb] a:focus-visible {
+  outline-offset: 1px;
+}
+
+/* helper classes */
+[data-oldweb] .r-container {
+  max-width: 960px;
+  margin: 16px auto;
+  padding: 16px 20px;
+  background: var(--r-surface);
+  border: var(--r-bw) solid var(--r-border);
+  border-radius: var(--r-radius);
+  box-shadow: var(--r-panel-shadow);
+}
+[data-oldweb] .r-muted { color: var(--r-fg-muted); }
+[data-oldweb] .r-full { width: 100%; }

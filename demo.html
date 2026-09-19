@@ -1,0 +1,530 @@
+<!doctype html>
+<html lang="en" data-oldweb="web20">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Oldweb UI — Documentation &amp; Examples</title>
+  <link rel="stylesheet" href="dist/oldweb-all.css">
+  <style>
+    /* Docs chrome only — not part of the library */
+    :root { --docs-side: 240px; }
+    body { margin: 0; }
+    .docs-layout { display: grid; grid-template-columns: var(--docs-side) 1fr; min-height: 100vh; }
+    .docs-side {
+      position: sticky; top: 0; height: 100vh; overflow: auto;
+      padding: 16px 12px; border-right: 1px solid var(--r-border, #ccc);
+      background: var(--r-surface-alt, #f4f4f4);
+    }
+    .docs-side h2 { font-size: 0.85em; margin: 16px 8px 6px; text-transform: uppercase; letter-spacing: .04em; opacity: .7; }
+    .docs-side a { display: block; padding: 5px 8px; text-decoration: none; border-radius: 3px; }
+    .docs-side a:hover { background: rgba(0,0,0,.06); }
+    .docs-main { padding: 24px 32px 80px; max-width: 920px; }
+    .docs-hero { margin-bottom: 32px; }
+    .docs-hero p.lead { font-size: 1.15em; max-width: 40em; }
+    .example {
+      margin: 12px 0 8px; padding: 16px;
+      border: 1px solid var(--r-border, #ccc);
+      background: var(--r-surface, #fff);
+      box-shadow: var(--r-panel-shadow, none);
+    }
+    .example-code {
+      margin: 0 0 28px; padding: 12px 14px; overflow: auto;
+      font-family: var(--r-font-mono, monospace); font-size: 12px;
+      background: var(--r-surface-alt, #f2f2f2);
+      border: 1px solid var(--r-border, #ccc);
+      white-space: pre;
+    }
+    .row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 10px; }
+    .cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+    .theme-bar {
+      display: flex; flex-wrap: wrap; gap: 8px; align-items: center;
+      margin: 16px 0 0; padding: 10px 12px;
+      border: 1px solid var(--r-border); background: var(--r-surface);
+    }
+    .theme-bar select { min-width: 220px; }
+    section { margin-bottom: 40px; scroll-margin-top: 16px; }
+    section > h2 { border-bottom: 1px solid var(--r-border); padding-bottom: 6px; }
+    .docs-brand { font-weight: bold; font-size: 1.15em; padding: 4px 8px; display: block; margin-bottom: 8px; }
+    @media (max-width: 800px) {
+      .docs-layout { grid-template-columns: 1fr; }
+      .docs-side { position: relative; height: auto; border-right: none; border-bottom: 1px solid var(--r-border); }
+    }
+  </style>
+</head>
+<body>
+<div class="docs-layout">
+
+  <aside class="docs-side">
+    <a class="docs-brand" href="#">Oldweb UI</a>
+    <label style="display:block;padding:4px 8px;font-size:12px">
+      Theme
+      <select id="theme" style="width:100%;margin-top:4px"></select>
+    </label>
+    <h2>Getting started</h2>
+    <a href="#intro">Introduction</a>
+    <a href="#install">Install</a>
+    <a href="#themes">Themes</a>
+    <h2>Components</h2>
+    <a href="#typography">Typography</a>
+    <a href="#buttons">Buttons</a>
+    <a href="#forms">Forms</a>
+    <a href="#tables">Tables</a>
+    <a href="#nav">Navbar</a>
+    <a href="#tabs">Tabs</a>
+    <a href="#cards">Cards &amp; windows</a>
+    <a href="#alerts">Alerts &amp; badges</a>
+    <a href="#pagination">Pagination</a>
+    <a href="#progress">Progress</a>
+    <a href="#modal">Modal</a>
+    <a href="#dropdown">Dropdown</a>
+    <a href="#tooltip">Tooltip</a>
+    <a href="#extras">Extras</a>
+    <h2>More</h2>
+    <a href="#cdn">CDN</a>
+    <a href="README.md">Full README</a>
+  </aside>
+
+  <main class="docs-main">
+
+    <header class="docs-hero" id="intro">
+      <h1>Oldweb UI</h1>
+      <p class="lead">
+        A zero-dependency CSS library that skins any site with <strong>authentic interface looks from 1980–2020</strong>.
+        Set one attribute, optionally add <code>.r-*</code> classes — classless elements are styled automatically.
+      </p>
+      <div class="theme-bar">
+        <span class="r-muted">Live theme:</span>
+        <strong id="theme-label">web20</strong>
+        <span class="r-muted">— change from the sidebar</span>
+      </div>
+    </header>
+
+    <section id="install">
+      <h2>Install</h2>
+      <div class="example">
+        <p>CDN (all themes):</p>
+        <pre class="example-code" style="margin:0;border:0;padding:0;background:transparent">&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@chabdulwahab/oldweb-ui@1.0.0/dist/oldweb-all.css"&gt;
+&lt;html data-oldweb="web20"&gt;</pre>
+      </div>
+      <p>Or npm: <code>npm install @chabdulwahab/oldweb-ui</code> then <code>import "@chabdulwahab/oldweb-ui"</code>.</p>
+    </section>
+
+    <section id="themes">
+      <h2>Themes (1980–2020)</h2>
+      <p>Each theme is researched from that era’s real OS / web design language — not arbitrary color swaps.</p>
+      <div class="example" style="overflow:auto">
+        <table class="r-full">
+          <thead>
+            <tr><th>ID</th><th>Year</th><th>Inspiration</th></tr>
+          </thead>
+          <tbody id="theme-table"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="typography">
+      <h2>Typography</h2>
+      <p class="r-muted">Classless — headings, links, code, and lists inherit the active theme.</p>
+      <div class="example">
+        <h1>Heading 1</h1>
+        <h2>Heading 2</h2>
+        <h3>Heading 3</h3>
+        <p>Body text with a <a href="#">standard link</a>, <a href="https://example.com">visited-style link</a>,
+          <code>inline code</code>, and <kbd>Ctrl</kbd>+<kbd>C</kbd>.</p>
+        <blockquote>Blockquote — used heavily on early blogs and forums.</blockquote>
+        <p class="r-muted">Muted helper text via <code>.r-muted</code>.</p>
+        <hr>
+        <ul><li>Unordered item</li><li>Another item</li></ul>
+        <ol><li>Ordered item</li><li>Second step</li></ol>
+      </div>
+      <pre class="example-code">&lt;h1&gt;Heading 1&lt;/h1&gt;
+&lt;p&gt;Body with &lt;a href="#"&gt;link&lt;/a&gt; and &lt;code&gt;code&lt;/code&gt;.&lt;/p&gt;
+&lt;p class="r-muted"&gt;Muted text&lt;/p&gt;</pre>
+    </section>
+
+    <section id="buttons">
+      <h2>Buttons</h2>
+      <div class="example">
+        <div class="row">
+          <button>Default</button>
+          <button class="r-btn-primary">Primary</button>
+          <button class="r-btn-danger">Danger</button>
+          <button class="r-btn-sm">Small</button>
+          <button class="r-btn-lg">Large</button>
+          <button disabled>Disabled</button>
+          <a class="r-btn r-btn-primary" href="#buttons">Link button</a>
+          <input type="submit" value="Submit">
+        </div>
+        <button class="r-btn-block r-btn-primary">Block primary</button>
+      </div>
+      <pre class="example-code">&lt;button&gt;Default&lt;/button&gt;
+&lt;button class="r-btn-primary"&gt;Primary&lt;/button&gt;
+&lt;button class="r-btn-danger"&gt;Danger&lt;/button&gt;
+&lt;button class="r-btn-sm"&gt;Small&lt;/button&gt;
+&lt;button class="r-btn-lg"&gt;Large&lt;/button&gt;
+&lt;a class="r-btn r-btn-primary" href="#"&gt;Link button&lt;/a&gt;
+&lt;button class="r-btn-block r-btn-primary"&gt;Block&lt;/button&gt;</pre>
+    </section>
+
+    <section id="forms">
+      <h2>Forms</h2>
+      <div class="example">
+        <div class="cols">
+          <fieldset>
+            <legend>Account</legend>
+            <div class="r-field">
+              <label for="name">Full name</label>
+              <input id="name" class="r-input-block" placeholder="Jane Doe">
+            </div>
+            <div class="r-field">
+              <label for="email">Email</label>
+              <input id="email" type="email" class="r-input-block" placeholder="jane@example.com">
+              <span class="r-hint">We’ll never share your email.</span>
+            </div>
+            <div class="r-field">
+              <label for="pass">Password</label>
+              <input id="pass" type="password" class="r-input-block">
+            </div>
+            <div class="r-field">
+              <label for="country">Country</label>
+              <select id="country" class="r-input-block">
+                <option>Pakistan</option><option>Canada</option><option>Germany</option>
+              </select>
+            </div>
+            <div class="row">
+              <button class="r-btn-primary">Create account</button>
+              <button type="reset">Reset</button>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>Preferences</legend>
+            <p>
+              <label><input type="checkbox" checked> Email digest</label><br>
+              <label><input type="checkbox"> Beta features</label><br>
+              <label><input type="checkbox" disabled> Disabled option</label>
+            </p>
+            <p>
+              <label><input type="radio" name="plan" checked> Free</label><br>
+              <label><input type="radio" name="plan"> Pro</label><br>
+              <label><input type="radio" name="plan"> Team</label>
+            </p>
+            <p><textarea class="r-input-block" rows="3" placeholder="Bio..."></textarea></p>
+            <p><input type="file"></p>
+          </fieldset>
+        </div>
+      </div>
+      <pre class="example-code">&lt;div class="r-field"&gt;
+  &lt;label for="email"&gt;Email&lt;/label&gt;
+  &lt;input id="email" type="email" class="r-input-block"&gt;
+  &lt;span class="r-hint"&gt;Helper text&lt;/span&gt;
+&lt;/div&gt;
+&lt;label&gt;&lt;input type="checkbox" checked&gt; Newsletter&lt;/label&gt;
+&lt;label&gt;&lt;input type="radio" name="plan"&gt; Pro&lt;/label&gt;</pre>
+    </section>
+
+    <section id="tables">
+      <h2>Tables</h2>
+      <div class="example">
+        <table class="r-full">
+          <caption>Example data table</caption>
+          <thead>
+            <tr><th>Product</th><th>Year</th><th>Status</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Oldweb UI</td><td>2026</td><td><span class="r-badge r-badge-danger">Hot</span></td></tr>
+            <tr><td>Windows 95</td><td>1995</td><td><span class="r-badge">Classic</span></td></tr>
+            <tr><td>Material Design</td><td>2014</td><td><span class="r-badge">Docs</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <pre class="example-code">&lt;table class="r-full"&gt;
+  &lt;thead&gt;&lt;tr&gt;&lt;th&gt;Name&lt;/th&gt;&lt;th&gt;Year&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+  &lt;tbody&gt;&lt;tr&gt;&lt;td&gt;Windows 95&lt;/td&gt;&lt;td&gt;1995&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;
+&lt;/table&gt;</pre>
+    </section>
+
+    <section id="nav">
+      <h2>Navbar</h2>
+      <div class="example">
+        <nav class="r-nav">
+          <a class="r-nav-brand" href="#">Brand</a>
+          <ul>
+            <li><a class="active" href="#">Home</a></li>
+            <li><a href="#">Docs</a></li>
+            <li><a href="#">Examples</a></li>
+          </ul>
+          <span class="r-nav-spacer"></span>
+          <a href="#">Login</a>
+        </nav>
+      </div>
+      <pre class="example-code">&lt;nav class="r-nav"&gt;
+  &lt;a class="r-nav-brand" href="#"&gt;Brand&lt;/a&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a class="active" href="#"&gt;Home&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#"&gt;Docs&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;span class="r-nav-spacer"&gt;&lt;/span&gt;
+  &lt;a href="#"&gt;Login&lt;/a&gt;
+&lt;/nav&gt;</pre>
+    </section>
+
+    <section id="tabs">
+      <h2>Tabs</h2>
+      <div class="example">
+        <nav class="r-tabs" role="tablist">
+          <a href="#panel-a" role="tab" aria-selected="true">Overview</a>
+          <a href="#panel-b" role="tab" aria-selected="false">Settings</a>
+          <a href="#panel-c" role="tab" aria-selected="false">Billing</a>
+        </nav>
+        <div class="r-tab-panel" id="panel-a" role="tabpanel">
+          <p>Overview panel — tabs need a few lines of JS to toggle <code>aria-selected</code> / <code>hidden</code>.</p>
+        </div>
+        <div class="r-tab-panel" id="panel-b" role="tabpanel" hidden>
+          <p>Settings panel content.</p>
+        </div>
+        <div class="r-tab-panel" id="panel-c" role="tabpanel" hidden>
+          <p>Billing panel content.</p>
+        </div>
+      </div>
+      <pre class="example-code">&lt;nav class="r-tabs" role="tablist"&gt;
+  &lt;a href="#a" role="tab" aria-selected="true"&gt;One&lt;/a&gt;
+  &lt;a href="#b" role="tab"&gt;Two&lt;/a&gt;
+&lt;/nav&gt;
+&lt;div class="r-tab-panel" id="a"&gt;...&lt;/div&gt;
+&lt;div class="r-tab-panel" id="b" hidden&gt;...&lt;/div&gt;</pre>
+    </section>
+
+    <section id="cards">
+      <h2>Cards &amp; windows</h2>
+      <div class="example">
+        <div class="r-card" style="max-width:420px">
+          <div class="r-titlebar">
+            <span>Document.txt</span>
+            <button class="r-close" aria-label="Close" type="button">x</button>
+          </div>
+          <div class="r-card-body">
+            <p>Window chrome with titlebar, body, and footer — classic desktop metaphor.</p>
+          </div>
+          <div class="r-card-footer">
+            <button class="r-btn-primary">OK</button>
+            <button>Cancel</button>
+          </div>
+        </div>
+      </div>
+      <pre class="example-code">&lt;div class="r-card"&gt;
+  &lt;div class="r-titlebar"&gt;&lt;span&gt;Title&lt;/span&gt;&lt;button class="r-close"&gt;x&lt;/button&gt;&lt;/div&gt;
+  &lt;div class="r-card-body"&gt;...&lt;/div&gt;
+  &lt;div class="r-card-footer"&gt;&lt;button class="r-btn-primary"&gt;OK&lt;/button&gt;&lt;/div&gt;
+&lt;/div&gt;</pre>
+    </section>
+
+    <section id="alerts">
+      <h2>Alerts &amp; badges</h2>
+      <div class="example">
+        <div class="r-alert">Info — your profile was updated.</div>
+        <div class="r-alert r-alert-ok">Success — changes saved.</div>
+        <div class="r-alert r-alert-warn">Warning — storage is nearly full.</div>
+        <div class="r-alert r-alert-err">Error — upload failed.</div>
+        <p style="margin-top:12px">
+          Badges: <span class="r-badge">New</span>
+          <span class="r-badge r-badge-danger">3</span>
+        </p>
+      </div>
+      <pre class="example-code">&lt;div class="r-alert"&gt;Info&lt;/div&gt;
+&lt;div class="r-alert r-alert-ok"&gt;Success&lt;/div&gt;
+&lt;div class="r-alert r-alert-warn"&gt;Warning&lt;/div&gt;
+&lt;div class="r-alert r-alert-err"&gt;Error&lt;/div&gt;
+&lt;span class="r-badge"&gt;New&lt;/span&gt;
+&lt;span class="r-badge r-badge-danger"&gt;3&lt;/span&gt;</pre>
+    </section>
+
+    <section id="pagination">
+      <h2>Pagination</h2>
+      <div class="example">
+        <ul class="r-pagination">
+          <li><a href="#">&laquo;</a></li>
+          <li><a href="#">1</a></li>
+          <li><a href="#" aria-current="page">2</a></li>
+          <li><a href="#">3</a></li>
+          <li><a href="#">&raquo;</a></li>
+        </ul>
+      </div>
+      <pre class="example-code">&lt;ul class="r-pagination"&gt;
+  &lt;li&gt;&lt;a href="#"&gt;1&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="#" aria-current="page"&gt;2&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</pre>
+    </section>
+
+    <section id="progress">
+      <h2>Progress</h2>
+      <div class="example">
+        <p>Upload: <progress value="62" max="100"></progress> 62%</p>
+      </div>
+      <pre class="example-code">&lt;progress value="62" max="100"&gt;&lt;/progress&gt;</pre>
+    </section>
+
+    <section id="modal">
+      <h2>Modal (<code>&lt;dialog&gt;</code>)</h2>
+      <div class="example">
+        <button id="open-dialog" class="r-btn-primary">Open modal</button>
+      </div>
+      <pre class="example-code">&lt;dialog id="dlg"&gt;
+  &lt;div class="r-titlebar"&gt;...&lt;/div&gt;
+  &lt;div class="r-card-body"&gt;...&lt;/div&gt;
+&lt;/dialog&gt;
+&lt;script&gt;dlg.showModal()&lt;/script&gt;</pre>
+    </section>
+
+    <section id="dropdown">
+      <h2>Dropdown</h2>
+      <div class="example">
+        <details class="r-dropdown">
+          <summary>Account menu</summary>
+          <ul class="r-menu">
+            <li><a href="#">Profile</a></li>
+            <li><a href="#">Settings</a></li>
+            <li><hr></li>
+            <li><a href="#">Log out</a></li>
+          </ul>
+        </details>
+      </div>
+      <pre class="example-code">&lt;details class="r-dropdown"&gt;
+  &lt;summary&gt;Menu&lt;/summary&gt;
+  &lt;ul class="r-menu"&gt;
+    &lt;li&gt;&lt;a href="#"&gt;Item&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/details&gt;</pre>
+    </section>
+
+    <section id="tooltip">
+      <h2>Tooltip</h2>
+      <div class="example">
+        <button data-tip="CSS-only tooltip via data-tip">Hover me</button>
+      </div>
+      <pre class="example-code">&lt;button data-tip="Hello"&gt;Hover me&lt;/button&gt;</pre>
+    </section>
+
+    <section id="extras">
+      <h2>Extras (1990s web)</h2>
+      <div class="example">
+        <div class="row">
+          <span class="r-counter">000123</span>
+          <span class="r-88x31">MADE WITH<br>NOTEPAD</span>
+          <span class="r-blink">NEW!</span>
+          <div class="r-construction"><span>Under construction</span></div>
+        </div>
+        <div class="r-marquee"><span>Welcome to my homepage!! Sign my guestbook!!</span></div>
+      </div>
+      <pre class="example-code">&lt;span class="r-blink"&gt;NEW!&lt;/span&gt;
+&lt;div class="r-marquee"&gt;&lt;span&gt;Scrolling text&lt;/span&gt;&lt;/div&gt;
+&lt;span class="r-counter"&gt;000123&lt;/span&gt;
+&lt;div class="r-construction"&gt;&lt;span&gt;Under construction&lt;/span&gt;&lt;/div&gt;
+&lt;span class="r-88x31"&gt;88×31&lt;/span&gt;</pre>
+    </section>
+
+    <section id="cdn">
+      <h2>CDN delivery</h2>
+      <div class="example">
+        <p>After <code>npm publish</code>, jsDelivr serves the package automatically:</p>
+        <pre class="example-code" style="margin:0;border:0;padding:0;background:transparent">https://cdn.jsdelivr.net/npm/@chabdulwahab/oldweb-ui@1.0.0/dist/oldweb-all.css
+https://cdn.jsdelivr.net/npm/@chabdulwahab/oldweb-ui@1.0.0/dist/oldweb-win95.css</pre>
+        <p class="r-muted" style="margin-top:12px">Prefer a single-theme file in production (~36 KB) over <code>oldweb-all.css</code> (~122 KB).</p>
+      </div>
+    </section>
+
+    <hr>
+    <p class="r-muted">Oldweb UI v1.0.0 · MIT · Open <code>README.md</code> for the full class reference.</p>
+  </main>
+</div>
+
+<dialog id="dialog">
+  <div class="r-titlebar">
+    <span>Confirm</span>
+    <button class="r-close" data-close aria-label="Close" type="button">x</button>
+  </div>
+  <div class="r-card-body"><p>Are you sure you want to delete this item?</p></div>
+  <div class="r-card-footer">
+    <button class="r-btn-danger" data-close type="button">Delete</button>
+    <button data-close type="button">Cancel</button>
+  </div>
+</dialog>
+
+<script>
+  var THEMES = [
+    { id: "terminal1980", year: "1980", label: "CRT Terminal", note: "Green phosphor monospace" },
+    { id: "mac1984", year: "1984", label: "Macintosh System 1", note: "1-bit black & white" },
+    { id: "win31", year: "1992", label: "Windows 3.1", note: "VGA greys, navy title" },
+    { id: "win95", year: "1995", label: "Windows 95", note: "Teal #008080 desktop" },
+    { id: "web1993", year: "1993", label: "Mosaic / early WWW", note: "Plain Times + blue links" },
+    { id: "geocities", year: "1996", label: "GeoCities", note: "Yellow page, Comic Sans" },
+    { id: "win98", year: "1998", label: "Windows 98", note: "Classic bevel chrome" },
+    { id: "macplatinum", year: "1998", label: "Mac OS Platinum", note: "Appearance Manager greys" },
+    { id: "y2k", year: "2000", label: "Y2K / Flash", note: "Metallic silver chrome" },
+    { id: "aqua", year: "2001", label: "Mac OS X Aqua", note: "Candy gel buttons" },
+    { id: "xp", year: "2001", label: "Windows XP Luna", note: "Blue title, green Start" },
+    { id: "web20", year: "2005–08", label: "Web 2.0 gloss", note: "Gradients & rounded candy" },
+    { id: "vista", year: "2007", label: "Windows Vista Aero", note: "Frosted glass chrome" },
+    { id: "skeuo", year: "2010", label: "Skeuomorphism", note: "iOS linen & gloss" },
+    { id: "metro", year: "2010–12", label: "Metro / Modern UI", note: "Flat tiles, Segoe" },
+    { id: "ios7", year: "2013", label: "iOS 7 flat", note: "Thin type, #007AFF" },
+    { id: "material", year: "2014", label: "Material Design", note: "Indigo elevation" },
+    { id: "bootstrap3", year: "2015", label: "Bootstrap 3", note: "#337ab7 SaaS docs" },
+    { id: "fluent", year: "2017", label: "Fluent Design", note: "Win10 acrylic dark" },
+    { id: "dark2019", year: "2019", label: "Dark + soft UI", note: "Neumorphic shadows" },
+    { id: "saas2020", year: "2020", label: "Modern SaaS", note: "Inter, soft cards" }
+  ];
+
+  var root = document.documentElement;
+  var sel = document.getElementById("theme");
+  var label = document.getElementById("theme-label");
+  var tbody = document.getElementById("theme-table");
+
+  THEMES.forEach(function (t) {
+    var opt = document.createElement("option");
+    opt.value = t.id;
+    opt.textContent = t.year + " — " + t.label;
+    if (t.id === "web20") opt.selected = true;
+    sel.appendChild(opt);
+
+    var tr = document.createElement("tr");
+    tr.innerHTML = "<td><code>" + t.id + "</code></td><td>" + t.year + "</td><td>" + t.label + " — " + t.note + "</td>";
+    tbody.appendChild(tr);
+  });
+
+  sel.addEventListener("change", function () {
+    root.setAttribute("data-oldweb", sel.value);
+    label.textContent = sel.value;
+  });
+
+  // Tabs
+  document.querySelectorAll(".r-tabs").forEach(function (nav) {
+    var tabs = nav.querySelectorAll(":scope > a");
+    tabs.forEach(function (tab) {
+      tab.addEventListener("click", function (e) {
+        e.preventDefault();
+        tabs.forEach(function (t) {
+          var on = t === tab;
+          t.setAttribute("aria-selected", on ? "true" : "false");
+          var panel = document.querySelector(t.getAttribute("href"));
+          if (panel) panel.hidden = !on;
+        });
+      });
+    });
+  });
+
+  // Modal
+  var dlg = document.getElementById("dialog");
+  document.getElementById("open-dialog").addEventListener("click", function () { dlg.showModal(); });
+  dlg.querySelectorAll("[data-close]").forEach(function (b) {
+    b.addEventListener("click", function () { dlg.close(); });
+  });
+
+  // Dropdown outside click
+  document.addEventListener("click", function (e) {
+    document.querySelectorAll("details.r-dropdown[open]").forEach(function (d) {
+      if (!d.contains(e.target)) d.open = false;
+    });
+  });
+</script>
+</body>
+</html>

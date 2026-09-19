@@ -1,0 +1,150 @@
+/* Oldweb UI / tokens / defaults.css
+   Neutral defaults. :where() keeps specificity at 0 so themes override easily. */
+:where([data-oldweb]) {
+  /* typography */
+  --r-font: Verdana, Tahoma, sans-serif;
+  --r-font-mono: "Courier New", monospace;
+  --r-font-size: 13px;
+  --r-line-height: 1.5;
+  --r-heading: currentColor;
+  --r-heading-shadow: none;
+
+  /* colours */
+  --r-bg: #ffffff;
+  --r-bg-image: linear-gradient(var(--r-bg), var(--r-bg));
+  --r-fg: #000000;
+  --r-fg-muted: #555555;
+  --r-surface: #ffffff;
+  --r-surface-alt: #f2f2f2;
+  --r-border: #999999;
+  --r-hr-hi: #ffffff;
+  --r-link: #0000ee;
+  --r-link-visited: #551a8b;
+  --r-link-hover: #ee0000;
+  --r-accent: #0066cc;
+  --r-accent-fg: #ffffff;
+  --r-disabled-fg: #888888;
+  --r-disabled-shadow: none;
+
+  /* shape + effects */
+  --r-radius: 0px;
+  --r-bw: 1px;
+  --r-gloss: 0;
+  --r-bevel-out: none;
+  --r-bevel-in: none;
+  --r-bevel-press: none;
+  --r-window-shadow: none;
+  --r-modal-shadow: none;
+  --r-panel-shadow: none;
+  --r-text-shadow: none;
+  --r-focus: 2px solid var(--r-accent);
+  --r-focus-offset: 2px;
+  --r-hover-filter: none;
+  --r-active-filter: none;
+
+  /* buttons */
+  --r-btn-top: #eeeeee;
+  --r-btn-bottom: #dddddd;
+  --r-btn-hover-top: #f6f6f6;
+  --r-btn-hover-bottom: #e6e6e6;
+  --r-btn-active-top: #d4d4d4;
+  --r-btn-active-bottom: #e0e0e0;
+  --r-btn-fg: #000000;
+  --r-btn-border: #777777;
+  --r-btn-pad: 4px 12px;
+  --r-primary-top: #3388dd;
+  --r-primary-bottom: #0055aa;
+  --r-primary-fg: #ffffff;
+  --r-primary-border: #003f80;
+  --r-primary-text-shadow: none;
+  --r-primary-shadow: var(--r-bevel-out);
+  --r-primary-active-shadow: var(--r-bevel-press);
+  --r-danger-top: #dd5544;
+  --r-danger-bottom: #aa2211;
+  --r-danger-fg: #ffffff;
+  --r-danger-border: #801808;
+
+  /* text fields */
+  --r-field-bg: #ffffff;
+  --r-field-fg: #000000;
+  --r-field-border: #777777;
+  --r-field-border-focus: var(--r-accent);
+  --r-field-shadow: none;
+  --r-field-focus: 2px solid var(--r-accent);
+  --r-field-pad: 4px 6px;
+  --r-fieldset-shadow: none;
+
+  /* checkbox / radio */
+  --r-check-size: 13px;
+  --r-check-radius: 0px;
+  --r-check-bg: #ffffff;
+  --r-check-mark: none;
+  --r-radio-dot: none;
+
+  /* select */
+  --r-select-top: #ffffff;
+  --r-select-bottom: #ffffff;
+  --r-select-shadow: none;
+  --r-select-arrow: none;
+  --r-select-arrow-pos: 0 0;
+  --r-select-arrow-size: 0 0;
+  --r-select-pad-right: 24px;
+
+  /* card / window / titlebar */
+  --r-title-top: #dddddd;
+  --r-title-bottom: #cccccc;
+  --r-title-fg: #000000;
+  --r-title-dir: to bottom;
+  --r-title-shadow: none;
+  --r-title-pad: 5px 10px;
+  --r-card-pad: 0px;
+  --r-body-pad: 12px;
+
+  /* table */
+  --r-table-bg: #ffffff;
+  --r-th-top: #eeeeee;
+  --r-th-bottom: #dddddd;
+  --r-th-fg: #000000;
+  --r-th-shadow: none;
+  --r-row-alt: #f7f7f7;
+  --r-row-hover: #eeeeee;
+
+  /* alerts */
+  --r-info-bg: #e8f0fb;
+  --r-info-bd: #99b3d9;
+  --r-ok-bg: #e8f6e4;
+  --r-ok-bd: #95c98a;
+  --r-warn-bg: #fff6d6;
+  --r-warn-bd: #e0c860;
+  --r-err-bg: #fbe9e7;
+  --r-err-bd: #e09a94;
+
+  /* navbar */
+  --r-nav-top: #444444;
+  --r-nav-bottom: #222222;
+  --r-nav-fg: #ffffff;
+  --r-nav-border: #000000;
+  --r-nav-shadow: none;
+  --r-nav-text-shadow: none;
+  --r-nav-hover-bg: rgba(255, 255, 255, 0.2);
+  --r-nav-hover-shadow: none;
+  --r-nav-active-bg: rgba(0, 0, 0, 0.3);
+  --r-nav-active-shadow: none;
+
+  /* tabs, progress, tooltip, modal */
+  --r-tab-shadow: none;
+  --r-progress-fill: linear-gradient(var(--r-accent), var(--r-accent));
+  --r-tip-bg: #333333;
+  --r-tip-fg: #ffffff;
+  --r-tip-border: #000000;
+  --r-tip-shadow: none;
+  --r-backdrop: rgba(0, 0, 0, 0.4);
+
+  /* scrollbar */
+  --r-scroll-track: #eeeeee;
+  --r-scroll-track-image: none;
+  --r-scroll-track-size: auto;
+  --r-scroll-thumb: #bbbbbb;
+  --r-scroll-thumb-color: #bbbbbb;
+  --r-scroll-thumb-shadow: none;
+}

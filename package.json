@@ -1,0 +1,62 @@
+{
+  "name": "@chabdulwahab/oldweb-ui",
+  "version": "1.0.0",
+  "description": "Oldweb UI — zero-dependency CSS themes that recreate authentic interface looks from 1980–2020.",
+  "style": "dist/oldweb-all.css",
+  "exports": {
+    ".": "./dist/oldweb-all.css",
+    "./terminal1980": "./dist/oldweb-terminal1980.css",
+    "./mac1984": "./dist/oldweb-mac1984.css",
+    "./win31": "./dist/oldweb-win31.css",
+    "./win95": "./dist/oldweb-win95.css",
+    "./web1993": "./dist/oldweb-web1993.css",
+    "./geocities": "./dist/oldweb-geocities.css",
+    "./win98": "./dist/oldweb-win98.css",
+    "./macplatinum": "./dist/oldweb-macplatinum.css",
+    "./y2k": "./dist/oldweb-y2k.css",
+    "./aqua": "./dist/oldweb-aqua.css",
+    "./xp": "./dist/oldweb-xp.css",
+    "./web20": "./dist/oldweb-web20.css",
+    "./vista": "./dist/oldweb-vista.css",
+    "./skeuo": "./dist/oldweb-skeuo.css",
+    "./metro": "./dist/oldweb-metro.css",
+    "./ios7": "./dist/oldweb-ios7.css",
+    "./material": "./dist/oldweb-material.css",
+    "./bootstrap3": "./dist/oldweb-bootstrap3.css",
+    "./fluent": "./dist/oldweb-fluent.css",
+    "./dark2019": "./dist/oldweb-dark2019.css",
+    "./saas2020": "./dist/oldweb-saas2020.css",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist/*.css",
+    "dist/src",
+    "README.md",
+    "LICENSE",
+    "demo.html"
+  ],
+  "sideEffects": ["*.css"],
+  "scripts": {
+    "build": "node build.js",
+    "generate:themes": "node scripts/generate-era-themes.js"
+  },
+  "keywords": [
+    "css",
+    "oldweb",
+    "retro",
+    "ui",
+    "theme",
+    "windows-95",
+    "windows-xp",
+    "geocities",
+    "material-design",
+    "metro",
+    "zero-dependency",
+    "cdn"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ChAbdulWahhab/OldwebUI"
+  }
+}
