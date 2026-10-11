@@ -578,26 +578,6 @@ In your `base.html` template:
 
 ---
 
-## Local Development & Building
-
-If you clone the repository to customize or contribute:
-
-```bash
-# Clone the repository
-git clone https://github.com/ChAbdulWahhab/OldwebUI.git
-cd OldwebUI
-
-# Build the CSS bundles in dist/
-npm run build
-
-# Regenerate all 21 researched themes from source
-npm run generate:themes
-```
-
-Zero npm external runtime dependencies — only native Node.js scripts!
-
----
-
 ## License & Author
 
 Created with retro passion by **[Ch Abdul Wahhab](https://github.com/ChAbdulWahhab)**.
