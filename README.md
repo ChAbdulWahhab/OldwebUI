@@ -598,44 +598,6 @@ Zero npm external runtime dependencies — only native Node.js scripts!
 
 ---
 
-## Publishing to npm
-
-If you are the maintainer or publishing your own fork, follow these simple steps:
-
-### 1. Login to your npm account
-```bash
-npm login
-```
-*(Enter your username, password, email, and 2FA code)*
-
-### 2. Verify everything compiles cleanly
-```bash
-npm run build
-```
-
-### 3. Test pack dry-run (inspect files without publishing)
-```bash
-npm pack --dry-run
-```
-
-### 4. Publish to npm
-Since the package is scoped (`@chabdulwahab/oldweb-ui`), npm requires public access:
-```bash
-npm publish --access public
-```
-
-### 5. Future Releases
-Whenever you update code and want to release a new version:
-```bash
-# Bump version (1.0.0 -> 1.0.1)
-npm version patch
-
-# Publish updated version
-npm publish --access public
-```
-
----
-
 ## License & Author
 
 Created with retro passion by **[Ch Abdul Wahhab](https://github.com/ChAbdulWahhab)**.
