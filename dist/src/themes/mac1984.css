@@ -102,7 +102,12 @@
   --r-nav-top: #fff;
   --r-nav-bottom: #fff;
   --r-nav-fg: #000;
+  --r-nav-hover-fg: #fff;
+  --r-nav-active-fg: #fff;
+  --r-nav-brand-fg: #000;
   --r-nav-border: #000;
+  --r-nav-pad: 4px 8px;
+  --r-nav-radius: var(--r-radius);
   --r-nav-shadow: none;
   --r-nav-text-shadow: none;
   --r-nav-hover-bg: #000;

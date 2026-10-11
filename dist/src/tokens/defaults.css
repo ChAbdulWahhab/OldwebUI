@@ -123,7 +123,12 @@
   --r-nav-top: #444444;
   --r-nav-bottom: #222222;
   --r-nav-fg: #ffffff;
+  --r-nav-hover-fg: var(--r-nav-fg);
+  --r-nav-active-fg: var(--r-nav-fg);
+  --r-nav-brand-fg: var(--r-nav-fg);
   --r-nav-border: #000000;
+  --r-nav-pad: 4px 8px;
+  --r-nav-radius: var(--r-radius);
   --r-nav-shadow: none;
   --r-nav-text-shadow: none;
   --r-nav-hover-bg: rgba(255, 255, 255, 0.2);

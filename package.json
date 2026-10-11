@@ -36,9 +36,13 @@
     "demo.html"
   ],
   "sideEffects": ["*.css"],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "node build.js",
-    "generate:themes": "node scripts/generate-era-themes.js"
+    "generate:themes": "node scripts/generate-era-themes.js",
+    "prepublishOnly": "npm run build"
   },
   "keywords": [
     "css",
@@ -54,9 +58,14 @@
     "zero-dependency",
     "cdn"
   ],
+  "author": "Ch Abdul Wahhab",
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/ChAbdulWahhab/OldwebUI"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/ChAbdulWahhab/OldwebUI/issues"
+  },
+  "homepage": "https://github.com/ChAbdulWahhab/OldwebUI#readme"
 }

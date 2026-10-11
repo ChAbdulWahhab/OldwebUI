@@ -125,7 +125,12 @@
   --r-nav-top: #444444;
   --r-nav-bottom: #222222;
   --r-nav-fg: #ffffff;
+  --r-nav-hover-fg: var(--r-nav-fg);
+  --r-nav-active-fg: var(--r-nav-fg);
+  --r-nav-brand-fg: var(--r-nav-fg);
   --r-nav-border: #000000;
+  --r-nav-pad: 4px 8px;
+  --r-nav-radius: var(--r-radius);
   --r-nav-shadow: none;
   --r-nav-text-shadow: none;
   --r-nav-hover-bg: rgba(255, 255, 255, 0.2);
@@ -810,61 +815,508 @@
 }
 
 /* == components/navbar.css == */
-/* retro-ui / components / navbar.css
-   <nav class="r-nav">
-     <a class="r-nav-brand" href="#">Brand</a>
-     <ul><li><a class="active" href="#">Home</a></li><li><a href="#">About</a></li></ul>
-     <a class="r-nav-spacer" href="#">Login</a>
-   </nav> */
+/* Oldweb UI / components / navbar.css
+   Authentic retro navigation bars, OS menubars, application toolbars, taskbars & statusbars.
+   Variants:
+     - .r-nav          : Standard flexible navigation bar
+     - .r-nav-menubar  : Authentic OS desktop menu bar (File, Edit, View, Help) with dropdowns
+     - .r-nav-toolbar  : Desktop application button strip (New, Open, Save...)
+     - .r-nav-taskbar  : Classic Windows/OS taskbar with Start button, active windows & tray
+     - .r-nav-tabs     : Tabbed navigation attached to content cards/windows
+     - .r-nav-portal   : 90s Web directory & GeoCities bracketed links [ Home ] [ Links ]
+     - .r-statusbar    : Desktop sunken status panels (Ready, CAPS, NUM, zoom, grip)
+     - .r-nav-inverse  : High-contrast / dark inverse theme navbar
+*/
+
+/* 1. Standard Navbar (.r-nav) */
 [data-oldweb] .r-nav {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 2px 4px;
+  gap: 2px 6px;
   margin: 0 0 12px;
-  padding: 4px 8px;
+  padding: var(--r-nav-pad, 4px 8px);
   color: var(--r-nav-fg);
   border: var(--r-bw) solid var(--r-nav-border);
-  border-radius: var(--r-radius);
+  border-radius: var(--r-nav-radius, var(--r-radius));
   background:
     linear-gradient(rgba(255, 255, 255, var(--r-gloss)) 50%, transparent 50%),
     linear-gradient(var(--r-nav-top), var(--r-nav-bottom));
   box-shadow: var(--r-nav-shadow);
+  box-sizing: border-box;
 }
+
 [data-oldweb] .r-nav ul {
   display: flex;
+  align-items: center;
   flex-wrap: wrap;
   gap: 2px;
   margin: 0;
   padding: 0;
   list-style: none;
 }
+
 [data-oldweb] .r-nav a,
 [data-oldweb] .r-nav a:visited {
-  display: block;
-  padding: 5px 11px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
   color: var(--r-nav-fg);
   text-decoration: none;
   text-shadow: var(--r-nav-text-shadow);
-  border-radius: var(--r-radius);
+  border-radius: var(--r-nav-radius, var(--r-radius));
+  transition: background 0.1s ease, color 0.1s ease;
 }
+
 [data-oldweb] .r-nav a:hover {
-  color: var(--r-nav-fg);
+  color: var(--r-nav-hover-fg, var(--r-nav-fg));
   background: var(--r-nav-hover-bg);
   box-shadow: var(--r-nav-hover-shadow);
 }
+
 [data-oldweb] .r-nav a.active,
-[data-oldweb] .r-nav a[aria-current] {
+[data-oldweb] .r-nav a[aria-current],
+[data-oldweb] .r-nav a[aria-selected="true"] {
+  color: var(--r-nav-active-fg, var(--r-nav-fg));
   background: var(--r-nav-active-bg);
   box-shadow: var(--r-nav-active-shadow);
-}
-[data-oldweb] .r-nav .r-nav-brand {
-  margin-right: 10px;
-  font-size: 1.15em;
   font-weight: bold;
 }
-[data-oldweb] .r-nav .r-nav-spacer {
+
+[data-oldweb] .r-nav .r-nav-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-right: 12px;
+  font-size: 1.15em;
+  font-weight: bold;
+  color: var(--r-nav-brand-fg, var(--r-nav-fg));
+  text-decoration: none;
+}
+
+[data-oldweb] .r-nav .r-nav-spacer,
+[data-oldweb] :is(.r-nav-menubar, .r-nav-toolbar, .r-nav-taskbar) .r-nav-spacer {
   margin-left: auto;
+}
+
+/* 2. Desktop OS Menubar (.r-nav-menubar) & Dropdowns */
+[data-oldweb] .r-nav-menubar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0;
+  margin: 0 0 8px;
+  padding: 2px 4px;
+  font-family: var(--r-font);
+  font-size: 0.95em;
+  color: var(--r-nav-fg);
+  border: var(--r-bw) solid var(--r-nav-border);
+  border-radius: var(--r-nav-radius, var(--r-radius));
+  background:
+    linear-gradient(rgba(255, 255, 255, var(--r-gloss)) 50%, transparent 50%),
+    linear-gradient(var(--r-nav-top), var(--r-nav-bottom));
+  box-shadow: var(--r-nav-shadow);
+  user-select: none;
+}
+
+[data-oldweb] .r-nav-menubar u,
+[data-oldweb] .r-dropdown-menu u {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* Dropdown Menu Container */
+[data-oldweb] .r-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+[data-oldweb] .r-dropdown > :is(a, button, .r-menu-trigger) {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 8px;
+  margin: 0;
+  font: inherit;
+  color: var(--r-nav-fg);
+  background: transparent;
+  border: none;
+  border-radius: var(--r-nav-radius, var(--r-radius));
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: none;
+}
+
+[data-oldweb] .r-dropdown:hover > :is(a, button, .r-menu-trigger),
+[data-oldweb] .r-dropdown:focus-within > :is(a, button, .r-menu-trigger),
+[data-oldweb] .r-dropdown.is-open > :is(a, button, .r-menu-trigger) {
+  color: var(--r-nav-hover-fg, var(--r-nav-fg));
+  background: var(--r-nav-hover-bg);
+  box-shadow: var(--r-nav-hover-shadow);
+}
+
+/* Floating Dropdown Popup */
+[data-oldweb] .r-dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  min-width: 170px;
+  margin-top: 1px;
+  padding: 2px;
+  background: var(--r-surface);
+  color: var(--r-fg);
+  border: var(--r-bw) solid var(--r-border);
+  border-radius: var(--r-radius);
+  box-shadow: var(--r-bevel-out), var(--r-window-shadow);
+  list-style: none;
+}
+
+[data-oldweb] .r-dropdown:hover > .r-dropdown-menu,
+[data-oldweb] .r-dropdown:focus-within > .r-dropdown-menu,
+[data-oldweb] .r-dropdown.is-open > .r-dropdown-menu {
+  display: block;
+}
+
+[data-oldweb] .r-menu-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 4px 10px;
+  color: var(--r-fg);
+  text-decoration: none;
+  cursor: pointer;
+  white-space: nowrap;
+  border-radius: var(--r-radius);
+}
+
+[data-oldweb] .r-menu-item:hover,
+[data-oldweb] .r-menu-item:focus {
+  color: var(--r-nav-active-fg, #ffffff);
+  background: var(--r-accent);
+  outline: none;
+}
+
+[data-oldweb] .r-menu-shortcut {
+  margin-left: auto;
+  font-size: 0.85em;
+  opacity: 0.75;
+}
+
+[data-oldweb] .r-menu-divider {
+  height: 0;
+  margin: 3px 1px;
+  border: 0;
+  border-top: 1px solid var(--r-border);
+  box-shadow: 0 1px 0 var(--r-hr-hi, #ffffff);
+}
+
+[data-oldweb] .r-menu-header {
+  padding: 4px 10px;
+  font-size: 0.8em;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: var(--r-fg-muted);
+}
+
+/* 3. Application Toolbar (.r-nav-toolbar) */
+[data-oldweb] .r-nav-toolbar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 3px;
+  margin: 0 0 8px;
+  padding: 3px 6px;
+  color: var(--r-fg);
+  background: var(--r-surface);
+  border: var(--r-bw) solid var(--r-border);
+  border-radius: var(--r-radius);
+  box-shadow: var(--r-bevel-out);
+}
+
+[data-oldweb] .r-tool-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  min-width: 24px;
+  min-height: 24px;
+  padding: 3px 8px;
+  margin: 0;
+  font: inherit;
+  font-size: 0.9em;
+  color: var(--r-fg);
+  text-decoration: none;
+  background: linear-gradient(var(--r-btn-top), var(--r-btn-bottom));
+  border: var(--r-bw) solid var(--r-btn-border);
+  border-radius: var(--r-radius);
+  box-shadow: var(--r-bevel-out);
+  cursor: pointer;
+}
+
+[data-oldweb] .r-tool-btn:hover {
+  background: linear-gradient(var(--r-btn-hover-top), var(--r-btn-hover-bottom));
+}
+
+[data-oldweb] .r-tool-btn:active,
+[data-oldweb] .r-tool-btn.active,
+[data-oldweb] .r-tool-btn[aria-pressed="true"] {
+  background: linear-gradient(var(--r-btn-active-top), var(--r-btn-active-bottom));
+  box-shadow: var(--r-bevel-press);
+}
+
+[data-oldweb] .r-toolbar-sep {
+  display: inline-block;
+  width: 0;
+  height: 20px;
+  margin: 0 4px;
+  border-left: 1px solid var(--r-border);
+  border-right: 1px solid var(--r-hr-hi, #ffffff);
+}
+
+[data-oldweb] .r-toolbar-group {
+  display: inline-flex;
+  align-items: center;
+  gap: 1px;
+}
+
+/* 4. Classic Taskbar (.r-nav-taskbar) */
+[data-oldweb] .r-nav-taskbar {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin: 0 0 8px;
+  padding: 2px 4px;
+  color: var(--r-fg);
+  background: var(--r-surface);
+  border: var(--r-bw) solid var(--r-border);
+  box-shadow: var(--r-bevel-out);
+  user-select: none;
+}
+
+[data-oldweb] .r-taskbar-start {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-weight: bold;
+  padding: 3px 10px;
+  color: var(--r-fg);
+  background: linear-gradient(var(--r-btn-top), var(--r-btn-bottom));
+  border: var(--r-bw) solid var(--r-btn-border);
+  border-radius: var(--r-radius);
+  box-shadow: var(--r-bevel-out);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+[data-oldweb] .r-taskbar-start:active,
+[data-oldweb] .r-taskbar-start.active {
+  box-shadow: var(--r-bevel-press);
+}
+
+[data-oldweb] .r-taskbar-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  max-width: 160px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding: 3px 8px;
+  font-size: 0.9em;
+  color: var(--r-fg);
+  background: linear-gradient(var(--r-btn-top), var(--r-btn-bottom));
+  border: var(--r-bw) solid var(--r-btn-border);
+  border-radius: var(--r-radius);
+  box-shadow: var(--r-bevel-out);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+[data-oldweb] .r-taskbar-item.active,
+[data-oldweb] .r-taskbar-item[aria-selected="true"] {
+  font-weight: bold;
+  background: var(--r-surface-alt, #e0e0e0);
+  box-shadow: var(--r-bevel-press);
+}
+
+[data-oldweb] :is(.r-taskbar-tray, .r-systray) {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 2px 8px;
+  font-size: 0.9em;
+  background: var(--r-surface);
+  border: var(--r-bw) solid var(--r-border);
+  box-shadow: var(--r-bevel-in);
+}
+
+/* 5. Tabbed Navbar (.r-nav-tabs) */
+[data-oldweb] .r-nav-tabs {
+  display: flex;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 2px;
+  margin: 0;
+  padding: 4px 6px 0;
+  border-bottom: var(--r-bw) solid var(--r-border);
+}
+
+[data-oldweb] .r-nav-tabs a {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: -1px;
+  padding: 5px 14px;
+  color: var(--r-fg);
+  text-decoration: none;
+  border: var(--r-bw) solid var(--r-border);
+  border-bottom: 0;
+  border-radius: var(--r-radius) var(--r-radius) 0 0;
+  background: linear-gradient(var(--r-btn-top), var(--r-btn-bottom));
+  box-shadow: var(--r-tab-shadow, var(--r-bevel-out));
+}
+
+[data-oldweb] .r-nav-tabs a:hover {
+  background: linear-gradient(var(--r-btn-hover-top), var(--r-btn-hover-bottom));
+}
+
+[data-oldweb] .r-nav-tabs a.active,
+[data-oldweb] .r-nav-tabs a[aria-current],
+[data-oldweb] .r-nav-tabs a[aria-selected="true"] {
+  z-index: 2;
+  font-weight: bold;
+  padding-bottom: 6px;
+  background: var(--r-surface);
+  border-bottom: 1px solid var(--r-surface);
+}
+
+/* 6. 90s Web Directory & Portal Navigation (.r-nav-portal) */
+[data-oldweb] .r-nav-portal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+  margin: 0 0 12px;
+  padding: 8px 12px;
+  text-align: center;
+  font-size: 1.05em;
+  color: var(--r-fg);
+  background: var(--r-surface);
+  border: 2px groove var(--r-border);
+}
+
+[data-oldweb] .r-nav-portal a {
+  display: inline-flex;
+  align-items: center;
+  color: var(--r-link);
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+[data-oldweb] .r-nav-portal a::before {
+  content: "[ ";
+  color: var(--r-fg-muted);
+  text-decoration: none;
+}
+
+[data-oldweb] .r-nav-portal a::after {
+  content: " ]";
+  color: var(--r-fg-muted);
+  text-decoration: none;
+}
+
+[data-oldweb] .r-nav-portal a:hover {
+  color: var(--r-link-hover);
+}
+
+[data-oldweb] .r-nav-portal a:visited {
+  color: var(--r-link-visited);
+}
+
+[data-oldweb] .r-nav-sep {
+  color: var(--r-border);
+  user-select: none;
+}
+
+/* 7. Desktop Status Bar (.r-statusbar) */
+[data-oldweb] .r-statusbar {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  margin: 8px 0 0;
+  padding: 2px;
+  font-family: var(--r-font);
+  font-size: 0.85em;
+  color: var(--r-fg);
+  background: var(--r-surface);
+  border-top: var(--r-bw) solid var(--r-border);
+  box-sizing: border-box;
+}
+
+[data-oldweb] .r-status-panel {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 2px 8px;
+  background: var(--r-surface);
+  box-shadow: var(--r-bevel-in);
+  min-height: 18px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+[data-oldweb] .r-status-panel.r-status-main {
+  flex: 1;
+}
+
+[data-oldweb] .r-status-grip {
+  width: 12px;
+  height: 12px;
+  margin-left: auto;
+  opacity: 0.5;
+  background: repeating-linear-gradient(
+    -45deg,
+    var(--r-fg) 0 1px,
+    transparent 1px 3px
+  );
+}
+
+/* 8. Inverse Navbar Variant (.r-nav-inverse) */
+[data-oldweb] .r-nav-inverse {
+  color: #ffffff;
+  background: #222222;
+  border-color: #080808;
+}
+
+[data-oldweb] .r-nav-inverse a,
+[data-oldweb] .r-nav-inverse a:visited {
+  color: #9d9d9d;
+}
+
+[data-oldweb] .r-nav-inverse a:hover {
+  color: #ffffff;
+  background: transparent;
+}
+
+[data-oldweb] .r-nav-inverse a.active,
+[data-oldweb] .r-nav-inverse a[aria-current] {
+  color: #ffffff;
+  background: #080808;
+}
+
+[data-oldweb] .r-nav-inverse .r-nav-brand {
+  color: #9d9d9d;
+}
+
+[data-oldweb] .r-nav-inverse .r-nav-brand:hover {
+  color: #ffffff;
 }
 
 /* == components/pagination.css == */
@@ -1245,12 +1697,17 @@
   --r-nav-top: #c0c0c0;
   --r-nav-bottom: #c0c0c0;
   --r-nav-fg: #000;
+  --r-nav-hover-fg: #fff;
+  --r-nav-active-fg: #fff;
+  --r-nav-brand-fg: #000080;
   --r-nav-border: transparent;
+  --r-nav-pad: 4px 8px;
+  --r-nav-radius: var(--r-radius);
   --r-nav-shadow: var(--r-bevel-out);
   --r-nav-text-shadow: none;
-  --r-nav-hover-bg: rgba(255,255,255,.2);
+  --r-nav-hover-bg: #000080;
   --r-nav-hover-shadow: none;
-  --r-nav-active-bg: rgba(0,0,0,.3);
+  --r-nav-active-bg: #000080;
   --r-nav-active-shadow: var(--r-bevel-press);
   --r-tab-shadow: inset 0 1px 0 rgba(255,255,255,.8);
   --r-progress-fill: repeating-linear-gradient(90deg,#000080 0 8px,transparent 8px 10px);

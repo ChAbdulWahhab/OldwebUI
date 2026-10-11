@@ -245,28 +245,210 @@
     </section>
 
     <section id="nav">
-      <h2>Navbar</h2>
+      <h2>Navbar &amp; Navigation Variants</h2>
+      <p class="r-muted">Authentic retro navigation that morphs with each era. From 1980 terminal command bars to Windows 95/XP menubars and modern headers.</p>
+      
+      <h3>1. Standard Navbar (<code>.r-nav</code>)</h3>
       <div class="example">
         <nav class="r-nav">
-          <a class="r-nav-brand" href="#">Brand</a>
+          <a class="r-nav-brand" href="#">Oldweb UI</a>
           <ul>
             <li><a class="active" href="#">Home</a></li>
-            <li><a href="#">Docs</a></li>
-            <li><a href="#">Examples</a></li>
+            <li><a href="#">Articles</a></li>
+            <li><a href="#">Download</a></li>
+            <li><a href="#">Guestbook</a></li>
           </ul>
           <span class="r-nav-spacer"></span>
-          <a href="#">Login</a>
+          <a href="#">Admin Login</a>
         </nav>
       </div>
       <pre class="example-code">&lt;nav class="r-nav"&gt;
-  &lt;a class="r-nav-brand" href="#"&gt;Brand&lt;/a&gt;
+  &lt;a class="r-nav-brand" href="#"&gt;Oldweb UI&lt;/a&gt;
   &lt;ul&gt;
     &lt;li&gt;&lt;a class="active" href="#"&gt;Home&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href="#"&gt;Docs&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#"&gt;Articles&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#"&gt;Download&lt;/a&gt;&lt;/li&gt;
   &lt;/ul&gt;
   &lt;span class="r-nav-spacer"&gt;&lt;/span&gt;
-  &lt;a href="#"&gt;Login&lt;/a&gt;
+  &lt;a href="#"&gt;Admin Login&lt;/a&gt;
 &lt;/nav&gt;</pre>
+
+      <h3>2. Desktop OS Menubar with Dropdowns (<code>.r-nav-menubar</code>)</h3>
+      <div class="example">
+        <nav class="r-nav-menubar">
+          <div class="r-dropdown">
+            <button class="r-menu-trigger"><u>F</u>ile</button>
+            <div class="r-dropdown-menu">
+              <a href="#" class="r-menu-item">New Document <span class="r-shortcut">Ctrl+N</span></a>
+              <a href="#" class="r-menu-item">Open File... <span class="r-shortcut">Ctrl+O</span></a>
+              <div class="r-menu-divider"></div>
+              <a href="#" class="r-menu-item">Save <span class="r-shortcut">Ctrl+S</span></a>
+              <a href="#" class="r-menu-item">Save As...</a>
+              <div class="r-menu-divider"></div>
+              <a href="#" class="r-menu-item">Exit</a>
+            </div>
+          </div>
+          <div class="r-dropdown">
+            <button class="r-menu-trigger"><u>E</u>dit</button>
+            <div class="r-dropdown-menu">
+              <a href="#" class="r-menu-item">Undo <span class="r-shortcut">Ctrl+Z</span></a>
+              <a href="#" class="r-menu-item">Redo <span class="r-shortcut">Ctrl+Y</span></a>
+              <div class="r-menu-divider"></div>
+              <a href="#" class="r-menu-item">Cut <span class="r-shortcut">Ctrl+X</span></a>
+              <a href="#" class="r-menu-item">Copy <span class="r-shortcut">Ctrl+C</span></a>
+              <a href="#" class="r-menu-item">Paste <span class="r-shortcut">Ctrl+V</span></a>
+            </div>
+          </div>
+          <div class="r-dropdown">
+            <button class="r-menu-trigger"><u>V</u>iew</button>
+            <div class="r-dropdown-menu">
+              <a href="#" class="r-menu-item">Toolbar</a>
+              <a href="#" class="r-menu-item">Status Bar</a>
+              <a href="#" class="r-menu-item">Refresh <span class="r-shortcut">F5</span></a>
+            </div>
+          </div>
+          <div class="r-dropdown">
+            <button class="r-menu-trigger"><u>H</u>elp</button>
+            <div class="r-dropdown-menu">
+              <a href="#" class="r-menu-item">Help Topics <span class="r-shortcut">F1</span></a>
+              <div class="r-menu-divider"></div>
+              <a href="#" class="r-menu-item">About Oldweb UI...</a>
+            </div>
+          </div>
+          <span class="r-nav-spacer"></span>
+          <span class="r-muted" style="font-size:11px;padding:0 6px">Hover menus to open</span>
+        </nav>
+      </div>
+      <pre class="example-code">&lt;nav class="r-nav-menubar"&gt;
+  &lt;div class="r-dropdown"&gt;
+    &lt;button class="r-menu-trigger"&gt;&lt;u&gt;F&lt;/u&gt;ile&lt;/button&gt;
+    &lt;div class="r-dropdown-menu"&gt;
+      &lt;a href="#" class="r-menu-item"&gt;New &lt;span class="r-shortcut"&gt;Ctrl+N&lt;/span&gt;&lt;/a&gt;
+      &lt;a href="#" class="r-menu-item"&gt;Open... &lt;span class="r-shortcut"&gt;Ctrl+O&lt;/span&gt;&lt;/a&gt;
+      &lt;div class="r-menu-divider"&gt;&lt;/div&gt;
+      &lt;a href="#" class="r-menu-item"&gt;Save &lt;span class="r-shortcut"&gt;Ctrl+S&lt;/span&gt;&lt;/a&gt;
+      &lt;a href="#" class="r-menu-item"&gt;Exit&lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="r-dropdown"&gt;
+    &lt;button class="r-menu-trigger"&gt;&lt;u&gt;E&lt;/u&gt;dit&lt;/button&gt;
+    ...
+  &lt;/div&gt;
+&lt;/nav&gt;</pre>
+
+      <h3>3. Application Toolbar (<code>.r-nav-toolbar</code>)</h3>
+      <div class="example">
+        <nav class="r-nav-toolbar">
+          <div class="r-toolbar-group">
+            <button class="r-tool-btn" title="New file">📄 New</button>
+            <button class="r-tool-btn" title="Open file">📂 Open</button>
+            <button class="r-tool-btn" title="Save file">💾 Save</button>
+          </div>
+          <span class="r-toolbar-sep"></span>
+          <div class="r-toolbar-group">
+            <button class="r-tool-btn" title="Cut">✂️ Cut</button>
+            <button class="r-tool-btn" title="Copy">📋 Copy</button>
+            <button class="r-tool-btn" title="Paste">📥 Paste</button>
+          </div>
+          <span class="r-toolbar-sep"></span>
+          <div class="r-toolbar-group">
+            <button class="r-tool-btn active" title="Bold (Active)"><strong>B</strong></button>
+            <button class="r-tool-btn" title="Italic"><em>I</em></button>
+            <button class="r-tool-btn" title="Underline"><u>U</u></button>
+          </div>
+          <span class="r-nav-spacer"></span>
+          <button class="r-tool-btn" title="Help">❓ Help</button>
+        </nav>
+      </div>
+      <pre class="example-code">&lt;nav class="r-nav-toolbar"&gt;
+  &lt;div class="r-toolbar-group"&gt;
+    &lt;button class="r-tool-btn"&gt;📄 New&lt;/button&gt;
+    &lt;button class="r-tool-btn"&gt;📂 Open&lt;/button&gt;
+    &lt;button class="r-tool-btn"&gt;💾 Save&lt;/button&gt;
+  &lt;/div&gt;
+  &lt;span class="r-toolbar-sep"&gt;&lt;/span&gt;
+  &lt;div class="r-toolbar-group"&gt;
+    &lt;button class="r-tool-btn active"&gt;&lt;strong&gt;B&lt;/strong&gt;&lt;/button&gt;
+    &lt;button class="r-tool-btn"&gt;&lt;em&gt;I&lt;/em&gt;&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/nav&gt;</pre>
+
+      <h3>4. Classic OS Taskbar (<code>.r-nav-taskbar</code>)</h3>
+      <div class="example">
+        <nav class="r-nav-taskbar">
+          <button class="r-taskbar-start">🪟 Start</button>
+          <button class="r-taskbar-item active">📝 Notepad - Untitled</button>
+          <button class="r-taskbar-item">📁 C:\Documents</button>
+          <button class="r-taskbar-item">🌐 Oldweb Browser</button>
+          <span class="r-nav-spacer"></span>
+          <div class="r-taskbar-tray">
+            <span>🔊</span>
+            <span id="demo-clock">12:00 PM</span>
+          </div>
+        </nav>
+      </div>
+      <pre class="example-code">&lt;nav class="r-nav-taskbar"&gt;
+  &lt;button class="r-taskbar-start"&gt;🪟 Start&lt;/button&gt;
+  &lt;button class="r-taskbar-item active"&gt;📝 App (Active)&lt;/button&gt;
+  &lt;button class="r-taskbar-item"&gt;📁 Folder&lt;/button&gt;
+  &lt;span class="r-nav-spacer"&gt;&lt;/span&gt;
+  &lt;div class="r-taskbar-tray"&gt;
+    &lt;span&gt;🔊&lt;/span&gt;
+    &lt;span&gt;12:00 PM&lt;/span&gt;
+  &lt;/div&gt;
+&lt;/nav&gt;</pre>
+
+      <h3>5. 90s Web Portal / Directory (<code>.r-nav-portal</code>)</h3>
+      <div class="example">
+        <nav class="r-nav-portal">
+          <a href="#">HOME</a>
+          <span class="r-nav-sep">|</span>
+          <a href="#">ABOUT US</a>
+          <span class="r-nav-sep">|</span>
+          <a href="#">SOFTWARE ARCHIVE</a>
+          <span class="r-nav-sep">|</span>
+          <a href="#">WEB RINGS</a>
+          <span class="r-nav-sep">|</span>
+          <a href="#">SIGN GUESTBOOK</a>
+        </nav>
+      </div>
+      <pre class="example-code">&lt;nav class="r-nav-portal"&gt;
+  &lt;a href="#"&gt;HOME&lt;/a&gt;
+  &lt;span class="r-nav-sep"&gt;|&lt;/span&gt;
+  &lt;a href="#"&gt;ABOUT US&lt;/a&gt;
+  &lt;span class="r-nav-sep"&gt;|&lt;/span&gt;
+  &lt;a href="#"&gt;DOWNLOADS&lt;/a&gt;
+  &lt;span class="r-nav-sep"&gt;|&lt;/span&gt;
+  &lt;a href="#"&gt;GUESTBOOK&lt;/a&gt;
+&lt;/nav&gt;</pre>
+
+      <h3>6. Desktop Application Status Bar (<code>.r-statusbar</code>)</h3>
+      <div class="example">
+        <div class="r-card">
+          <div class="r-titlebar">
+            <span>Document Editor</span>
+            <button class="r-close">✕</button>
+          </div>
+          <div class="r-card-body">
+            <textarea class="r-input-block" rows="3">Ready for backend data binding...</textarea>
+          </div>
+          <div class="r-statusbar">
+            <span class="r-status-panel r-status-main">Ready</span>
+            <span class="r-status-panel">Ln 42, Col 12</span>
+            <span class="r-status-panel">100%</span>
+            <span class="r-status-panel">NUM</span>
+            <span class="r-status-panel">CAPS</span>
+            <span class="r-status-grip"></span>
+          </div>
+        </div>
+      </div>
+      <pre class="example-code">&lt;div class="r-statusbar"&gt;
+  &lt;span class="r-status-panel r-status-main"&gt;Ready&lt;/span&gt;
+  &lt;span class="r-status-panel"&gt;Ln 1, Col 1&lt;/span&gt;
+  &lt;span class="r-status-panel"&gt;100%&lt;/span&gt;
+  &lt;span class="r-status-panel"&gt;CAPS&lt;/span&gt;
+  &lt;span class="r-status-grip"&gt;&lt;/span&gt;
+&lt;/div&gt;</pre>
     </section>
 
     <section id="tabs">
@@ -520,12 +702,19 @@ https://cdn.jsdelivr.net/gh/ChAbdulWahhab/OldwebUI@v1.0.0/dist/oldweb-win95.css<
     b.addEventListener("click", function () { dlg.close(); });
   });
 
-  // Dropdown outside click
-  document.addEventListener("click", function (e) {
-    document.querySelectorAll("details.r-dropdown[open]").forEach(function (d) {
-      if (!d.contains(e.target)) d.open = false;
-    });
-  });
+  // Taskbar live clock
+  function updateClock() {
+    var clk = document.getElementById("demo-clock");
+    if (clk) {
+      var d = new Date();
+      var h = d.getHours();
+      var m = String(d.getMinutes()).padStart(2, "0");
+      var ampm = h >= 12 ? "PM" : "AM";
+      clk.textContent = (h % 12 || 12) + ":" + m + " " + ampm;
+    }
+  }
+  updateClock();
+  setInterval(updateClock, 30000);
 </script>
 </body>
 </html>
