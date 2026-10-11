@@ -13,7 +13,7 @@ if (!src) {
 }
 
 const COMPONENTS = [
-  "base", "button", "form", "checkbox-radio", "select", "table", "tabs",
+  "base", "layout", "button", "form", "checkbox-radio", "select", "table", "tabs",
   "card", "navbar", "pagination", "feedback", "modal", "scrollbar", "extras",
 ];
 

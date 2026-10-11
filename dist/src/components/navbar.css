@@ -1,24 +1,22 @@
 /* Oldweb UI / components / navbar.css
-   Authentic retro navigation bars, OS menubars, application toolbars, taskbars & statusbars.
+   Web application navigation bars, dropdown menus, breadcrumbs, and tabs.
    Variants:
-     - .r-nav          : Standard flexible navigation bar
-     - .r-nav-menubar  : Authentic OS desktop menu bar (File, Edit, View, Help) with dropdowns
-     - .r-nav-toolbar  : Desktop application button strip (New, Open, Save...)
-     - .r-nav-taskbar  : Classic Windows/OS taskbar with Start button, active windows & tray
-     - .r-nav-tabs     : Tabbed navigation attached to content cards/windows
-     - .r-nav-portal   : 90s Web directory & GeoCities bracketed links [ Home ] [ Links ]
-     - .r-statusbar    : Desktop sunken status panels (Ready, CAPS, NUM, zoom, grip)
-     - .r-nav-inverse  : High-contrast / dark inverse theme navbar
+     - .r-nav          : Responsive web application navbar
+     - .r-dropdown     : Web dropdown menu on nav links or buttons
+     - .r-breadcrumb   : Breadcrumb page navigation hierarchy
+     - .r-nav-tabs     : Tabbed navigation strip
+     - .r-nav-portal   : 90s Web portal directory links [ Home ] | [ About ]
+     - .r-nav-inverse  : High-contrast dark navbar
 */
 
-/* 1. Standard Navbar (.r-nav) */
+/* 1. Web Application Navbar (.r-nav) */
 [data-oldweb] .r-nav {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 2px 6px;
-  margin: 0 0 12px;
-  padding: var(--r-nav-pad, 4px 8px);
+  gap: 4px 10px;
+  margin: 10px 0 16px;
+  padding: var(--r-nav-pad, 6px 12px);
   color: var(--r-nav-fg);
   border: var(--r-bw) solid var(--r-nav-border);
   border-radius: var(--r-nav-radius, var(--r-radius));
@@ -29,22 +27,57 @@
   box-sizing: border-box;
 }
 
-[data-oldweb] .r-nav ul {
+/* Flush top header (edge-to-edge) */
+[data-oldweb] .r-nav:is(.r-nav-top, .r-nav-flush) {
+  margin: 0 0 16px;
+  border-radius: 0;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  width: 100%;
+}
+
+/* Sticky top navigation */
+[data-oldweb] .r-nav.r-nav-sticky {
+  position: sticky;
+  top: 0;
+  z-index: 500;
+}
+
+/* Floating rounded container navbar */
+[data-oldweb] .r-nav.r-nav-floating {
+  margin: 12px auto 20px;
+  max-width: 1100px;
+  border-radius: max(var(--r-nav-radius, var(--r-radius)), 8px);
+}
+
+/* Force rounded or pill */
+[data-oldweb] .r-nav.r-nav-rounded {
+  border-radius: 8px !important;
+}
+
+[data-oldweb] .r-nav.r-nav-pill {
+  border-radius: 9999px !important;
+}
+
+[data-oldweb] .r-nav ul,
+[data-oldweb] .r-nav-links {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 2px;
+  gap: 4px;
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-[data-oldweb] .r-nav a,
-[data-oldweb] .r-nav a:visited {
+/* Nav links - explicitly exclude dropdown menu items to prevent style leakage */
+[data-oldweb] .r-nav a:not(.r-menu-item):not(.r-dropdown-menu a):not(.r-nav-brand),
+[data-oldweb] .r-nav a:not(.r-menu-item):not(.r-dropdown-menu a):visited {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 4px 10px;
+  padding: 5px 12px;
   color: var(--r-nav-fg);
   text-decoration: none;
   text-shadow: var(--r-nav-text-shadow);
@@ -52,15 +85,15 @@
   transition: background 0.1s ease, color 0.1s ease;
 }
 
-[data-oldweb] .r-nav a:hover {
+[data-oldweb] .r-nav a:not(.r-menu-item):not(.r-dropdown-menu a):hover {
   color: var(--r-nav-hover-fg, var(--r-nav-fg));
   background: var(--r-nav-hover-bg);
   box-shadow: var(--r-nav-hover-shadow);
 }
 
-[data-oldweb] .r-nav a.active,
-[data-oldweb] .r-nav a[aria-current],
-[data-oldweb] .r-nav a[aria-selected="true"] {
+[data-oldweb] .r-nav a:not(.r-menu-item):not(.r-dropdown-menu a).active,
+[data-oldweb] .r-nav a:not(.r-menu-item):not(.r-dropdown-menu a)[aria-current],
+[data-oldweb] .r-nav a:not(.r-menu-item):not(.r-dropdown-menu a)[aria-selected="true"] {
   color: var(--r-nav-active-fg, var(--r-nav-fg));
   background: var(--r-nav-active-bg);
   box-shadow: var(--r-nav-active-shadow);
@@ -70,280 +103,216 @@
 [data-oldweb] .r-nav .r-nav-brand {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  margin-right: 12px;
+  gap: 8px;
+  margin-right: 14px;
   font-size: 1.15em;
   font-weight: bold;
   color: var(--r-nav-brand-fg, var(--r-nav-fg));
   text-decoration: none;
 }
 
-[data-oldweb] .r-nav .r-nav-spacer,
-[data-oldweb] :is(.r-nav-menubar, .r-nav-toolbar, .r-nav-taskbar) .r-nav-spacer {
+[data-oldweb] .r-nav .r-nav-spacer {
   margin-left: auto;
 }
 
-/* 2. Desktop OS Menubar (.r-nav-menubar) & Dropdowns */
-[data-oldweb] .r-nav-menubar {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 0;
-  margin: 0 0 8px;
-  padding: 2px 4px;
-  font-family: var(--r-font);
-  font-size: 0.95em;
-  color: var(--r-nav-fg);
-  border: var(--r-bw) solid var(--r-nav-border);
-  border-radius: var(--r-nav-radius, var(--r-radius));
-  background:
-    linear-gradient(rgba(255, 255, 255, var(--r-gloss)) 50%, transparent 50%),
-    linear-gradient(var(--r-nav-top), var(--r-nav-bottom));
-  box-shadow: var(--r-nav-shadow);
-  user-select: none;
-}
-
-[data-oldweb] .r-nav-menubar u,
-[data-oldweb] .r-dropdown-menu u {
-  text-decoration: underline;
-  text-underline-offset: 2px;
-}
-
-/* Dropdown Menu Container */
+/* 2. Web Dropdown Menus (.r-dropdown) */
 [data-oldweb] .r-dropdown {
   position: relative;
   display: inline-block;
 }
 
-[data-oldweb] .r-dropdown > :is(a, button, .r-menu-trigger) {
+/* Dropdown trigger: button or link inside .r-nav seamlessly matches nav link styling */
+[data-oldweb] .r-nav :is(.r-dropdown-btn, .r-dropdown > button, .r-dropdown > a, .r-menu-trigger) {
+  appearance: none;
+  -webkit-appearance: none;
   display: inline-flex;
   align-items: center;
-  gap: 4px;
-  padding: 3px 8px;
+  gap: 6px;
+  padding: 5px 12px;
   margin: 0;
   font: inherit;
-  color: var(--r-nav-fg);
-  background: transparent;
-  border: none;
-  border-radius: var(--r-nav-radius, var(--r-radius));
-  cursor: pointer;
+  font-size: 1em;
+  line-height: inherit;
+  color: var(--r-nav-fg) !important;
   text-decoration: none;
-  box-shadow: none;
+  text-shadow: var(--r-nav-text-shadow);
+  background: transparent !important;
+  border: none !important;
+  border-radius: var(--r-nav-radius, var(--r-radius));
+  box-shadow: none !important;
+  cursor: pointer;
+  filter: none !important;
+  transition: background 0.1s ease, color 0.1s ease;
 }
 
-[data-oldweb] .r-dropdown:hover > :is(a, button, .r-menu-trigger),
-[data-oldweb] .r-dropdown:focus-within > :is(a, button, .r-menu-trigger),
-[data-oldweb] .r-dropdown.is-open > :is(a, button, .r-menu-trigger) {
-  color: var(--r-nav-hover-fg, var(--r-nav-fg));
-  background: var(--r-nav-hover-bg);
-  box-shadow: var(--r-nav-hover-shadow);
+[data-oldweb] .r-nav :is(.r-dropdown-btn, .r-dropdown > button, .r-dropdown > a, .r-menu-trigger):hover,
+[data-oldweb] .r-nav :is(.r-dropdown-btn, .r-dropdown > button, .r-dropdown > a, .r-menu-trigger):focus,
+[data-oldweb] .r-nav .r-dropdown:hover > :is(.r-dropdown-btn, button, a) {
+  color: var(--r-nav-hover-fg, var(--r-nav-fg)) !important;
+  background: var(--r-nav-hover-bg) !important;
+  box-shadow: var(--r-nav-hover-shadow) !important;
+  filter: none !important;
 }
 
-/* Floating Dropdown Popup */
+/* Standalone dropdown trigger outside .r-nav (e.g. inside a card or page) */
+[data-oldweb]:not(.r-nav) .r-dropdown > :is(a, button, .r-dropdown-btn) {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+
+/* Dropdown Menu Popup Panel: strictly vertical column and theme surface */
 [data-oldweb] .r-dropdown-menu {
   display: none;
+  flex-direction: column !important;
   position: absolute;
   top: 100%;
   left: 0;
   z-index: 1000;
-  min-width: 170px;
-  margin-top: 1px;
-  padding: 2px;
-  background: var(--r-surface);
-  color: var(--r-fg);
-  border: var(--r-bw) solid var(--r-border);
-  border-radius: var(--r-radius);
-  box-shadow: var(--r-bevel-out), var(--r-window-shadow);
-  list-style: none;
+  min-width: 190px;
+  margin-top: 2px;
+  padding: 4px;
+  background: var(--r-surface) !important;
+  color: var(--r-fg) !important;
+  border: var(--r-bw) solid var(--r-border) !important;
+  border-radius: var(--r-radius) !important;
+  box-shadow: var(--r-bevel-out), var(--r-window-shadow) !important;
+  list-style: none !important;
+  box-sizing: border-box !important;
+}
+
+[data-oldweb] .r-dropdown-menu-right {
+  left: auto;
+  right: 0;
 }
 
 [data-oldweb] .r-dropdown:hover > .r-dropdown-menu,
 [data-oldweb] .r-dropdown:focus-within > .r-dropdown-menu,
 [data-oldweb] .r-dropdown.is-open > .r-dropdown-menu {
-  display: block;
+  display: flex !important;
 }
 
-[data-oldweb] .r-menu-item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  padding: 4px 10px;
-  color: var(--r-fg);
-  text-decoration: none;
-  cursor: pointer;
-  white-space: nowrap;
-  border-radius: var(--r-radius);
+/* Dropdown Menu Items: Full-width, high-contrast, theme-accurate */
+[data-oldweb] .r-dropdown-menu :is(a, button, .r-menu-item) {
+  appearance: none;
+  -webkit-appearance: none;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  width: 100% !important;
+  gap: 16px !important;
+  padding: 6px 12px !important;
+  margin: 1px 0 !important;
+  font: inherit !important;
+  font-size: 0.95em !important;
+  font-weight: normal !important;
+  color: var(--r-fg) !important;
+  text-decoration: none !important;
+  text-shadow: none !important;
+  background: transparent !important;
+  border: none !important;
+  border-radius: var(--r-radius) !important;
+  box-shadow: none !important;
+  box-sizing: border-box !important;
+  cursor: pointer !important;
+  white-space: nowrap !important;
+  filter: none !important;
+  transition: none !important;
+  text-align: left;
 }
 
-[data-oldweb] .r-menu-item:hover,
-[data-oldweb] .r-menu-item:focus {
-  color: var(--r-nav-active-fg, #ffffff);
-  background: var(--r-accent);
-  outline: none;
+/* Dropdown Item Hover / Focus Highlight across ALL themes */
+[data-oldweb] .r-dropdown-menu :is(a, button, .r-menu-item):hover,
+[data-oldweb] .r-dropdown-menu :is(a, button, .r-menu-item):focus {
+  color: var(--r-accent-fg, #ffffff) !important;
+  background: var(--r-accent) !important;
+  text-shadow: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+  filter: none !important;
 }
 
-[data-oldweb] .r-menu-shortcut {
+[data-oldweb] .r-dropdown-menu :is(a, button, .r-menu-item) .r-shortcut {
   margin-left: auto;
   font-size: 0.85em;
-  opacity: 0.75;
-}
-
-[data-oldweb] .r-menu-divider {
-  height: 0;
-  margin: 3px 1px;
-  border: 0;
-  border-top: 1px solid var(--r-border);
-  box-shadow: 0 1px 0 var(--r-hr-hi, #ffffff);
-}
-
-[data-oldweb] .r-menu-header {
-  padding: 4px 10px;
-  font-size: 0.8em;
-  font-weight: bold;
-  text-transform: uppercase;
   color: var(--r-fg-muted);
 }
 
-/* 3. Application Toolbar (.r-nav-toolbar) */
-[data-oldweb] .r-nav-toolbar {
+[data-oldweb] .r-dropdown-menu :is(a, button, .r-menu-item):hover .r-shortcut,
+[data-oldweb] .r-dropdown-menu :is(a, button, .r-menu-item):focus .r-shortcut {
+  color: var(--r-accent-fg, #ffffff) !important;
+  opacity: 0.9;
+}
+
+[data-oldweb] .r-dropdown-menu .r-menu-divider {
+  display: block !important;
+  width: 100% !important;
+  height: 0 !important;
+  margin: 4px 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-top: 1px solid var(--r-border) !important;
+  box-shadow: 0 1px 0 var(--r-hr-hi, rgba(255, 255, 255, 0.4)) !important;
+  box-sizing: border-box !important;
+}
+
+[data-oldweb] .r-dropdown-menu .r-menu-header {
+  display: block !important;
+  width: 100% !important;
+  padding: 6px 12px 3px !important;
+  margin: 0 !important;
+  font-size: 0.75em !important;
+  font-weight: bold !important;
+  letter-spacing: 0.05em !important;
+  text-transform: uppercase !important;
+  color: var(--r-fg-muted) !important;
+  text-shadow: none !important;
+  box-sizing: border-box !important;
+}
+
+/* 3. Web Breadcrumbs (.r-breadcrumb) */
+[data-oldweb] .r-breadcrumb {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 3px;
-  margin: 0 0 8px;
-  padding: 3px 6px;
-  color: var(--r-fg);
-  background: var(--r-surface);
-  border: var(--r-bw) solid var(--r-border);
-  border-radius: var(--r-radius);
-  box-shadow: var(--r-bevel-out);
-}
-
-[data-oldweb] .r-tool-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 4px;
-  min-width: 24px;
-  min-height: 24px;
-  padding: 3px 8px;
-  margin: 0;
-  font: inherit;
+  gap: 6px;
+  margin: 0 0 16px;
+  padding: 8px 12px;
   font-size: 0.9em;
-  color: var(--r-fg);
-  text-decoration: none;
-  background: linear-gradient(var(--r-btn-top), var(--r-btn-bottom));
-  border: var(--r-bw) solid var(--r-btn-border);
-  border-radius: var(--r-radius);
-  box-shadow: var(--r-bevel-out);
-  cursor: pointer;
-}
-
-[data-oldweb] .r-tool-btn:hover {
-  background: linear-gradient(var(--r-btn-hover-top), var(--r-btn-hover-bottom));
-}
-
-[data-oldweb] .r-tool-btn:active,
-[data-oldweb] .r-tool-btn.active,
-[data-oldweb] .r-tool-btn[aria-pressed="true"] {
-  background: linear-gradient(var(--r-btn-active-top), var(--r-btn-active-bottom));
-  box-shadow: var(--r-bevel-press);
-}
-
-[data-oldweb] .r-toolbar-sep {
-  display: inline-block;
-  width: 0;
-  height: 20px;
-  margin: 0 4px;
-  border-left: 1px solid var(--r-border);
-  border-right: 1px solid var(--r-hr-hi, #ffffff);
-}
-
-[data-oldweb] .r-toolbar-group {
-  display: inline-flex;
-  align-items: center;
-  gap: 1px;
-}
-
-/* 4. Classic Taskbar (.r-nav-taskbar) */
-[data-oldweb] .r-nav-taskbar {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  margin: 0 0 8px;
-  padding: 2px 4px;
-  color: var(--r-fg);
+  list-style: none;
   background: var(--r-surface);
   border: var(--r-bw) solid var(--r-border);
-  box-shadow: var(--r-bevel-out);
+  border-radius: var(--r-radius);
+  box-shadow: var(--r-panel-shadow);
+}
+
+[data-oldweb] .r-breadcrumb a {
+  color: var(--r-link);
+  text-decoration: underline;
+}
+
+[data-oldweb] .r-breadcrumb a:hover {
+  color: var(--r-link-hover);
+}
+
+[data-oldweb] .r-breadcrumb-sep {
+  color: var(--r-fg-muted);
   user-select: none;
 }
 
-[data-oldweb] .r-taskbar-start {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
+[data-oldweb] .r-breadcrumb-current {
+  color: var(--r-fg-muted);
   font-weight: bold;
-  padding: 3px 10px;
-  color: var(--r-fg);
-  background: linear-gradient(var(--r-btn-top), var(--r-btn-bottom));
-  border: var(--r-bw) solid var(--r-btn-border);
-  border-radius: var(--r-radius);
-  box-shadow: var(--r-bevel-out);
-  cursor: pointer;
-  text-decoration: none;
 }
 
-[data-oldweb] .r-taskbar-start:active,
-[data-oldweb] .r-taskbar-start.active {
-  box-shadow: var(--r-bevel-press);
-}
-
-[data-oldweb] .r-taskbar-item {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  max-width: 160px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  padding: 3px 8px;
-  font-size: 0.9em;
-  color: var(--r-fg);
-  background: linear-gradient(var(--r-btn-top), var(--r-btn-bottom));
-  border: var(--r-bw) solid var(--r-btn-border);
-  border-radius: var(--r-radius);
-  box-shadow: var(--r-bevel-out);
-  cursor: pointer;
-  text-decoration: none;
-}
-
-[data-oldweb] .r-taskbar-item.active,
-[data-oldweb] .r-taskbar-item[aria-selected="true"] {
-  font-weight: bold;
-  background: var(--r-surface-alt, #e0e0e0);
-  box-shadow: var(--r-bevel-press);
-}
-
-[data-oldweb] :is(.r-taskbar-tray, .r-systray) {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 2px 8px;
-  font-size: 0.9em;
-  background: var(--r-surface);
-  border: var(--r-bw) solid var(--r-border);
-  box-shadow: var(--r-bevel-in);
-}
-
-/* 5. Tabbed Navbar (.r-nav-tabs) */
+/* 4. Tabbed Web Navigation (.r-nav-tabs) */
 [data-oldweb] .r-nav-tabs {
   display: flex;
   align-items: flex-end;
   flex-wrap: wrap;
   gap: 2px;
-  margin: 0;
+  margin: 0 0 16px;
   padding: 4px 6px 0;
   border-bottom: var(--r-bw) solid var(--r-border);
 }
@@ -354,7 +323,7 @@
   align-items: center;
   gap: 6px;
   margin-bottom: -1px;
-  padding: 5px 14px;
+  padding: 6px 16px;
   color: var(--r-fg);
   text-decoration: none;
   border: var(--r-bw) solid var(--r-border);
@@ -373,20 +342,20 @@
 [data-oldweb] .r-nav-tabs a[aria-selected="true"] {
   z-index: 2;
   font-weight: bold;
-  padding-bottom: 6px;
+  padding-bottom: 7px;
   background: var(--r-surface);
   border-bottom: 1px solid var(--r-surface);
 }
 
-/* 6. 90s Web Directory & Portal Navigation (.r-nav-portal) */
+/* 5. 90s Web Directory & Portal Links (.r-nav-portal) */
 [data-oldweb] .r-nav-portal {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
   gap: 8px 12px;
-  margin: 0 0 12px;
-  padding: 8px 12px;
+  margin: 0 0 16px;
+  padding: 10px 14px;
   text-align: center;
   font-size: 1.05em;
   color: var(--r-fg);
@@ -427,51 +396,7 @@
   user-select: none;
 }
 
-/* 7. Desktop Status Bar (.r-statusbar) */
-[data-oldweb] .r-statusbar {
-  display: flex;
-  align-items: center;
-  gap: 3px;
-  margin: 8px 0 0;
-  padding: 2px;
-  font-family: var(--r-font);
-  font-size: 0.85em;
-  color: var(--r-fg);
-  background: var(--r-surface);
-  border-top: var(--r-bw) solid var(--r-border);
-  box-sizing: border-box;
-}
-
-[data-oldweb] .r-status-panel {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 2px 8px;
-  background: var(--r-surface);
-  box-shadow: var(--r-bevel-in);
-  min-height: 18px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-[data-oldweb] .r-status-panel.r-status-main {
-  flex: 1;
-}
-
-[data-oldweb] .r-status-grip {
-  width: 12px;
-  height: 12px;
-  margin-left: auto;
-  opacity: 0.5;
-  background: repeating-linear-gradient(
-    -45deg,
-    var(--r-fg) 0 1px,
-    transparent 1px 3px
-  );
-}
-
-/* 8. Inverse Navbar Variant (.r-nav-inverse) */
+/* 6. Inverse Dark Navbar (.r-nav-inverse) */
 [data-oldweb] .r-nav-inverse {
   color: #ffffff;
   background: #222222;

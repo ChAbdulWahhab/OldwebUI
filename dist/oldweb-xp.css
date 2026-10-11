@@ -278,18 +278,359 @@
   outline-offset: 1px;
 }
 
+[data-oldweb] body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
 /* helper classes */
+[data-oldweb] .r-muted { color: var(--r-fg-muted); }
+[data-oldweb] .r-full { width: 100%; }
+
+/* == components/layout.css == */
+/* Oldweb UI / components / layout.css
+   Authentic retro layouts, app shells, sidebar dashboards, grid systems, and flex helpers.
+   Variants:
+     - .r-layout-app        : Full viewport application shell (header + body + footer)
+     - .r-layout-sidebar    : Classic admin / dashboard two-column layout
+     - .r-layout-desktop    : Operating system desktop workspace with icons & taskbar
+     - .r-container         : Responsive centered page wrappers (.r-container-sm, .r-container-lg, .r-container-card)
+     - .r-grid              : Retro-friendly CSS grid (.r-grid-2, .r-grid-3, .r-grid-4, .r-grid-auto)
+     - .r-row / .r-stack    : Horizontal and vertical flex helpers
+     - .r-split             : Split pane view with vintage divider
+*/
+
+/* 1. Containers */
 [data-oldweb] .r-container {
-  max-width: 960px;
-  margin: 16px auto;
-  padding: 16px 20px;
+  width: 100%;
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 16px;
+  padding-right: 16px;
+  box-sizing: border-box;
+}
+
+[data-oldweb] .r-container-sm {
+  max-width: 680px;
+}
+
+[data-oldweb] .r-container-lg {
+  max-width: 1360px;
+}
+
+[data-oldweb] .r-container-fluid {
+  max-width: 100%;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+/* Container styled as a distinct retro window/card box */
+[data-oldweb] .r-container-card {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 20px 24px;
   background: var(--r-surface);
   border: var(--r-bw) solid var(--r-border);
   border-radius: var(--r-radius);
   box-shadow: var(--r-panel-shadow);
 }
-[data-oldweb] .r-muted { color: var(--r-fg-muted); }
-[data-oldweb] .r-full { width: 100%; }
+
+/* 2. Full Viewport App Shell (.r-layout-app) */
+[data-oldweb] .r-layout-app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+[data-oldweb] .r-app-header {
+  flex-shrink: 0;
+  width: 100%;
+  z-index: 100;
+}
+
+[data-oldweb] .r-app-body {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+}
+
+[data-oldweb] .r-app-content {
+  flex: 1;
+  min-width: 0;
+  padding: 16px 20px;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+[data-oldweb] .r-app-footer {
+  flex-shrink: 0;
+  width: 100%;
+  z-index: 100;
+}
+
+/* 3. Sidebar Dashboard Layout (.r-layout-sidebar) */
+[data-oldweb] .r-layout-sidebar {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+[data-oldweb] .r-sidebar {
+  width: 250px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 12px 10px;
+  background: var(--r-surface);
+  border-right: var(--r-bw) solid var(--r-border);
+  box-shadow: var(--r-panel-shadow);
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+[data-oldweb] .r-sidebar-sm {
+  width: 200px;
+}
+
+[data-oldweb] .r-sidebar-lg {
+  width: 300px;
+}
+
+[data-oldweb] .r-sidebar-brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px 12px;
+  font-size: 1.15em;
+  font-weight: bold;
+  color: var(--r-heading);
+  border-bottom: var(--r-bw) solid var(--r-border);
+  margin-bottom: 10px;
+}
+
+[data-oldweb] .r-sidebar-section {
+  font-size: 0.8em;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--r-fg-muted);
+  padding: 10px 10px 4px;
+}
+
+[data-oldweb] .r-sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+[data-oldweb] .r-sidebar-nav a,
+[data-oldweb] .r-sidebar-nav button {
+  appearance: none;
+  -webkit-appearance: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 7px 12px;
+  margin: 0;
+  font: inherit;
+  font-size: 0.95em;
+  color: var(--r-fg) !important;
+  text-decoration: none;
+  text-shadow: none;
+  background: transparent !important;
+  border: 1px solid transparent !important;
+  border-radius: var(--r-radius);
+  box-shadow: none !important;
+  cursor: pointer;
+  box-sizing: border-box;
+  text-align: left;
+  filter: none !important;
+  transition: background 0.1s ease, color 0.1s ease;
+}
+
+[data-oldweb] .r-sidebar-nav a:hover,
+[data-oldweb] .r-sidebar-nav button:hover {
+  background: var(--r-surface-alt, rgba(0, 0, 0, 0.06)) !important;
+  color: var(--r-fg) !important;
+  border-color: var(--r-border) !important;
+  box-shadow: none !important;
+}
+
+[data-oldweb] .r-sidebar-nav a.active,
+[data-oldweb] .r-sidebar-nav a[aria-current],
+[data-oldweb] .r-sidebar-nav button.active {
+  color: var(--r-accent-fg, #ffffff) !important;
+  background: var(--r-accent) !important;
+  border-color: var(--r-accent) !important;
+  font-weight: bold;
+  text-shadow: none !important;
+  box-shadow: none !important;
+}
+
+[data-oldweb] .r-sidebar-footer {
+  margin-top: auto;
+  padding-top: 12px;
+  border-top: var(--r-bw) solid var(--r-border);
+  font-size: 0.85em;
+  color: var(--r-fg-muted);
+}
+
+[data-oldweb] .r-main {
+  flex: 1;
+  min-width: 0;
+  padding: 20px 24px;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+/* 4. Retro Grid System (.r-grid) */
+[data-oldweb] .r-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+  margin-bottom: 16px;
+  box-sizing: border-box;
+}
+
+[data-oldweb] .r-grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+[data-oldweb] .r-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+[data-oldweb] .r-grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+[data-oldweb] .r-grid-sidebar {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 16px;
+}
+
+/* 6. Flexbox Row and Stack Helpers */
+[data-oldweb] .r-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+[data-oldweb] .r-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+[data-oldweb] .r-flex {
+  display: flex;
+  align-items: center;
+}
+
+[data-oldweb] .r-flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+[data-oldweb] .r-flex-wrap {
+  flex-wrap: wrap;
+}
+
+[data-oldweb] .r-flex-between {
+  justify-content: space-between;
+}
+
+[data-oldweb] .r-flex-center {
+  justify-content: center;
+  align-items: center;
+}
+
+[data-oldweb] .r-flex-end {
+  justify-content: flex-end;
+}
+
+[data-oldweb] .r-flex-1 {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Gaps */
+[data-oldweb] .r-gap-xs { gap: 4px; }
+[data-oldweb] .r-gap-sm { gap: 8px; }
+[data-oldweb] .r-gap-md { gap: 16px; }
+[data-oldweb] .r-gap-lg { gap: 24px; }
+
+/* 7. Split Pane View (.r-split) */
+[data-oldweb] .r-split {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: stretch;
+  gap: 0;
+  border: var(--r-bw) solid var(--r-border);
+  background: var(--r-surface);
+  box-shadow: var(--r-bevel-out);
+}
+
+[data-oldweb] .r-split-pane {
+  padding: 12px;
+  overflow: auto;
+}
+
+[data-oldweb] .r-split-divider {
+  width: 4px;
+  background: var(--r-surface-alt, #dfdfdf);
+  border-left: 1px solid var(--r-border);
+  border-right: 1px solid var(--r-hr-hi, #ffffff);
+  cursor: col-resize;
+}
+
+/* Responsive collapse on mobile */
+@media (max-width: 768px) {
+  [data-oldweb] .r-layout-sidebar {
+    flex-direction: column;
+  }
+  [data-oldweb] .r-sidebar {
+    width: 100%;
+    border-right: none;
+    border-bottom: var(--r-bw) solid var(--r-border);
+  }
+  [data-oldweb] .r-grid-2,
+  [data-oldweb] .r-grid-3,
+  [data-oldweb] .r-grid-4,
+  [data-oldweb] .r-grid-sidebar {
+    grid-template-columns: 1fr;
+  }
+  [data-oldweb] .r-split {
+    grid-template-columns: 1fr;
+  }
+  [data-oldweb] .r-split-divider {
+    height: 4px;
+    width: 100%;
+    cursor: row-resize;
+  }
+}
 
 /* == components/button.css == */
 /* retro-ui / components / button.css
@@ -767,16 +1108,21 @@
 }
 
 /* == components/card.css == */
-/* retro-ui / components / card.css
-   .r-card (= window) + .r-titlebar + .r-card-body + .r-card-footer
-   Titlebar me chhota close button: <button class="r-close" aria-label="Close">x</button> */
-[data-oldweb] .r-card {
+/* Oldweb UI / components / card.css
+   Authentic retro windows, cards, dialog titlebars, and window control buttons.
+   .r-card / .r-window + .r-titlebar + .r-card-body + .r-card-footer
+*/
+
+[data-oldweb] :is(.r-card, .r-window) {
+  display: block;
   padding: var(--r-card-pad);
   background: var(--r-surface);
   border: var(--r-bw) solid var(--r-border);
   border-radius: var(--r-radius);
   box-shadow: var(--r-window-shadow);
+  box-sizing: border-box;
 }
+
 [data-oldweb] :is(.r-titlebar, .r-card-title) {
   display: flex;
   align-items: center;
@@ -784,6 +1130,7 @@
   gap: 8px;
   padding: var(--r-title-pad);
   font-weight: bold;
+  font-size: 0.95em;
   color: var(--r-title-fg);
   text-shadow: var(--r-title-shadow);
   border-bottom: var(--r-bw) solid var(--r-border);
@@ -791,51 +1138,102 @@
   background:
     linear-gradient(rgba(255, 255, 255, var(--r-gloss)) 50%, transparent 50%),
     linear-gradient(var(--r-title-dir), var(--r-title-top), var(--r-title-bottom));
+  user-select: none;
 }
+
+[data-oldweb] :is(.r-titlebar-title, .r-card-heading) {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Inactive window titlebar state */
+[data-oldweb] :is(.r-card-inactive, .r-window-inactive) :is(.r-titlebar, .r-card-title) {
+  color: #c0c0c0;
+  background: linear-gradient(to right, #808080, #b0b0b0);
+}
+
+[data-oldweb] .r-titlebar-controls {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  margin-left: auto;
+}
+
+/* Minimize, Maximize, Close Buttons */
+[data-oldweb] :is(.r-titlebar-btn, .r-close) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 16px;
+  min-width: 18px;
+  padding: 0;
+  margin: 0;
+  font-family: var(--r-font);
+  font-size: 10px;
+  font-weight: bold;
+  line-height: 1;
+  color: var(--r-btn-fg);
+  background: linear-gradient(var(--r-btn-top), var(--r-btn-bottom));
+  border: var(--r-bw) solid var(--r-btn-border);
+  border-radius: var(--r-radius);
+  box-shadow: var(--r-bevel-out);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+[data-oldweb] :is(.r-titlebar-btn, .r-close):hover {
+  background: linear-gradient(var(--r-btn-hover-top), var(--r-btn-hover-bottom));
+}
+
+[data-oldweb] :is(.r-titlebar-btn, .r-close):active {
+  box-shadow: var(--r-bevel-press);
+}
+
 [data-oldweb] .r-card-body {
   padding: var(--r-body-pad);
+  box-sizing: border-box;
 }
+
 [data-oldweb] .r-card-body > :last-child {
   margin-bottom: 0;
 }
+
 [data-oldweb] .r-card-footer {
   display: flex;
+  align-items: center;
   justify-content: flex-end;
   gap: 6px;
   padding: 8px var(--r-body-pad);
   background: var(--r-surface-alt);
   border-top: 1px solid var(--r-border);
-}
-[data-oldweb] .r-close {
-  --_pad: 0 6px;
-  --_fs: 1em;
-  min-width: 1.7em;
-  line-height: 1.2;
-  font-weight: bold;
+  box-sizing: border-box;
 }
 
 /* == components/navbar.css == */
 /* Oldweb UI / components / navbar.css
-   Authentic retro navigation bars, OS menubars, application toolbars, taskbars & statusbars.
+   Web application navigation bars, dropdown menus, breadcrumbs, and tabs.
    Variants:
-     - .r-nav          : Standard flexible navigation bar
-     - .r-nav-menubar  : Authentic OS desktop menu bar (File, Edit, View, Help) with dropdowns
-     - .r-nav-toolbar  : Desktop application button strip (New, Open, Save...)
-     - .r-nav-taskbar  : Classic Windows/OS taskbar with Start button, active windows & tray
-     - .r-nav-tabs     : Tabbed navigation attached to content cards/windows
-     - .r-nav-portal   : 90s Web directory & GeoCities bracketed links [ Home ] [ Links ]
-     - .r-statusbar    : Desktop sunken status panels (Ready, CAPS, NUM, zoom, grip)
-     - .r-nav-inverse  : High-contrast / dark inverse theme navbar
+     - .r-nav          : Responsive web application navbar
+     - .r-dropdown     : Web dropdown menu on nav links or buttons
+     - .r-breadcrumb   : Breadcrumb page navigation hierarchy
+     - .r-nav-tabs     : Tabbed navigation strip
+     - .r-nav-portal   : 90s Web portal directory links [ Home ] | [ About ]
+     - .r-nav-inverse  : High-contrast dark navbar
 */
 
-/* 1. Standard Navbar (.r-nav) */
+/* 1. Web Application Navbar (.r-nav) */
 [data-oldweb] .r-nav {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 2px 6px;
-  margin: 0 0 12px;
-  padding: var(--r-nav-pad, 4px 8px);
+  gap: 4px 10px;
+  margin: 10px 0 16px;
+  padding: var(--r-nav-pad, 6px 12px);
   color: var(--r-nav-fg);
   border: var(--r-bw) solid var(--r-nav-border);
   border-radius: var(--r-nav-radius, var(--r-radius));
@@ -846,22 +1244,57 @@
   box-sizing: border-box;
 }
 
-[data-oldweb] .r-nav ul {
+/* Flush top header (edge-to-edge) */
+[data-oldweb] .r-nav:is(.r-nav-top, .r-nav-flush) {
+  margin: 0 0 16px;
+  border-radius: 0;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  width: 100%;
+}
+
+/* Sticky top navigation */
+[data-oldweb] .r-nav.r-nav-sticky {
+  position: sticky;
+  top: 0;
+  z-index: 500;
+}
+
+/* Floating rounded container navbar */
+[data-oldweb] .r-nav.r-nav-floating {
+  margin: 12px auto 20px;
+  max-width: 1100px;
+  border-radius: max(var(--r-nav-radius, var(--r-radius)), 8px);
+}
+
+/* Force rounded or pill */
+[data-oldweb] .r-nav.r-nav-rounded {
+  border-radius: 8px !important;
+}
+
+[data-oldweb] .r-nav.r-nav-pill {
+  border-radius: 9999px !important;
+}
+
+[data-oldweb] .r-nav ul,
+[data-oldweb] .r-nav-links {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 2px;
+  gap: 4px;
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-[data-oldweb] .r-nav a,
-[data-oldweb] .r-nav a:visited {
+/* Nav links - explicitly exclude dropdown menu items to prevent style leakage */
+[data-oldweb] .r-nav a:not(.r-menu-item):not(.r-dropdown-menu a):not(.r-nav-brand),
+[data-oldweb] .r-nav a:not(.r-menu-item):not(.r-dropdown-menu a):visited {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 4px 10px;
+  padding: 5px 12px;
   color: var(--r-nav-fg);
   text-decoration: none;
   text-shadow: var(--r-nav-text-shadow);
@@ -869,15 +1302,15 @@
   transition: background 0.1s ease, color 0.1s ease;
 }
 
-[data-oldweb] .r-nav a:hover {
+[data-oldweb] .r-nav a:not(.r-menu-item):not(.r-dropdown-menu a):hover {
   color: var(--r-nav-hover-fg, var(--r-nav-fg));
   background: var(--r-nav-hover-bg);
   box-shadow: var(--r-nav-hover-shadow);
 }
 
-[data-oldweb] .r-nav a.active,
-[data-oldweb] .r-nav a[aria-current],
-[data-oldweb] .r-nav a[aria-selected="true"] {
+[data-oldweb] .r-nav a:not(.r-menu-item):not(.r-dropdown-menu a).active,
+[data-oldweb] .r-nav a:not(.r-menu-item):not(.r-dropdown-menu a)[aria-current],
+[data-oldweb] .r-nav a:not(.r-menu-item):not(.r-dropdown-menu a)[aria-selected="true"] {
   color: var(--r-nav-active-fg, var(--r-nav-fg));
   background: var(--r-nav-active-bg);
   box-shadow: var(--r-nav-active-shadow);
@@ -887,280 +1320,216 @@
 [data-oldweb] .r-nav .r-nav-brand {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  margin-right: 12px;
+  gap: 8px;
+  margin-right: 14px;
   font-size: 1.15em;
   font-weight: bold;
   color: var(--r-nav-brand-fg, var(--r-nav-fg));
   text-decoration: none;
 }
 
-[data-oldweb] .r-nav .r-nav-spacer,
-[data-oldweb] :is(.r-nav-menubar, .r-nav-toolbar, .r-nav-taskbar) .r-nav-spacer {
+[data-oldweb] .r-nav .r-nav-spacer {
   margin-left: auto;
 }
 
-/* 2. Desktop OS Menubar (.r-nav-menubar) & Dropdowns */
-[data-oldweb] .r-nav-menubar {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 0;
-  margin: 0 0 8px;
-  padding: 2px 4px;
-  font-family: var(--r-font);
-  font-size: 0.95em;
-  color: var(--r-nav-fg);
-  border: var(--r-bw) solid var(--r-nav-border);
-  border-radius: var(--r-nav-radius, var(--r-radius));
-  background:
-    linear-gradient(rgba(255, 255, 255, var(--r-gloss)) 50%, transparent 50%),
-    linear-gradient(var(--r-nav-top), var(--r-nav-bottom));
-  box-shadow: var(--r-nav-shadow);
-  user-select: none;
-}
-
-[data-oldweb] .r-nav-menubar u,
-[data-oldweb] .r-dropdown-menu u {
-  text-decoration: underline;
-  text-underline-offset: 2px;
-}
-
-/* Dropdown Menu Container */
+/* 2. Web Dropdown Menus (.r-dropdown) */
 [data-oldweb] .r-dropdown {
   position: relative;
   display: inline-block;
 }
 
-[data-oldweb] .r-dropdown > :is(a, button, .r-menu-trigger) {
+/* Dropdown trigger: button or link inside .r-nav seamlessly matches nav link styling */
+[data-oldweb] .r-nav :is(.r-dropdown-btn, .r-dropdown > button, .r-dropdown > a, .r-menu-trigger) {
+  appearance: none;
+  -webkit-appearance: none;
   display: inline-flex;
   align-items: center;
-  gap: 4px;
-  padding: 3px 8px;
+  gap: 6px;
+  padding: 5px 12px;
   margin: 0;
   font: inherit;
-  color: var(--r-nav-fg);
-  background: transparent;
-  border: none;
-  border-radius: var(--r-nav-radius, var(--r-radius));
-  cursor: pointer;
+  font-size: 1em;
+  line-height: inherit;
+  color: var(--r-nav-fg) !important;
   text-decoration: none;
-  box-shadow: none;
+  text-shadow: var(--r-nav-text-shadow);
+  background: transparent !important;
+  border: none !important;
+  border-radius: var(--r-nav-radius, var(--r-radius));
+  box-shadow: none !important;
+  cursor: pointer;
+  filter: none !important;
+  transition: background 0.1s ease, color 0.1s ease;
 }
 
-[data-oldweb] .r-dropdown:hover > :is(a, button, .r-menu-trigger),
-[data-oldweb] .r-dropdown:focus-within > :is(a, button, .r-menu-trigger),
-[data-oldweb] .r-dropdown.is-open > :is(a, button, .r-menu-trigger) {
-  color: var(--r-nav-hover-fg, var(--r-nav-fg));
-  background: var(--r-nav-hover-bg);
-  box-shadow: var(--r-nav-hover-shadow);
+[data-oldweb] .r-nav :is(.r-dropdown-btn, .r-dropdown > button, .r-dropdown > a, .r-menu-trigger):hover,
+[data-oldweb] .r-nav :is(.r-dropdown-btn, .r-dropdown > button, .r-dropdown > a, .r-menu-trigger):focus,
+[data-oldweb] .r-nav .r-dropdown:hover > :is(.r-dropdown-btn, button, a) {
+  color: var(--r-nav-hover-fg, var(--r-nav-fg)) !important;
+  background: var(--r-nav-hover-bg) !important;
+  box-shadow: var(--r-nav-hover-shadow) !important;
+  filter: none !important;
 }
 
-/* Floating Dropdown Popup */
+/* Standalone dropdown trigger outside .r-nav (e.g. inside a card or page) */
+[data-oldweb]:not(.r-nav) .r-dropdown > :is(a, button, .r-dropdown-btn) {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+
+/* Dropdown Menu Popup Panel: strictly vertical column and theme surface */
 [data-oldweb] .r-dropdown-menu {
   display: none;
+  flex-direction: column !important;
   position: absolute;
   top: 100%;
   left: 0;
   z-index: 1000;
-  min-width: 170px;
-  margin-top: 1px;
-  padding: 2px;
-  background: var(--r-surface);
-  color: var(--r-fg);
-  border: var(--r-bw) solid var(--r-border);
-  border-radius: var(--r-radius);
-  box-shadow: var(--r-bevel-out), var(--r-window-shadow);
-  list-style: none;
+  min-width: 190px;
+  margin-top: 2px;
+  padding: 4px;
+  background: var(--r-surface) !important;
+  color: var(--r-fg) !important;
+  border: var(--r-bw) solid var(--r-border) !important;
+  border-radius: var(--r-radius) !important;
+  box-shadow: var(--r-bevel-out), var(--r-window-shadow) !important;
+  list-style: none !important;
+  box-sizing: border-box !important;
+}
+
+[data-oldweb] .r-dropdown-menu-right {
+  left: auto;
+  right: 0;
 }
 
 [data-oldweb] .r-dropdown:hover > .r-dropdown-menu,
 [data-oldweb] .r-dropdown:focus-within > .r-dropdown-menu,
 [data-oldweb] .r-dropdown.is-open > .r-dropdown-menu {
-  display: block;
+  display: flex !important;
 }
 
-[data-oldweb] .r-menu-item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  padding: 4px 10px;
-  color: var(--r-fg);
-  text-decoration: none;
-  cursor: pointer;
-  white-space: nowrap;
-  border-radius: var(--r-radius);
+/* Dropdown Menu Items: Full-width, high-contrast, theme-accurate */
+[data-oldweb] .r-dropdown-menu :is(a, button, .r-menu-item) {
+  appearance: none;
+  -webkit-appearance: none;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  width: 100% !important;
+  gap: 16px !important;
+  padding: 6px 12px !important;
+  margin: 1px 0 !important;
+  font: inherit !important;
+  font-size: 0.95em !important;
+  font-weight: normal !important;
+  color: var(--r-fg) !important;
+  text-decoration: none !important;
+  text-shadow: none !important;
+  background: transparent !important;
+  border: none !important;
+  border-radius: var(--r-radius) !important;
+  box-shadow: none !important;
+  box-sizing: border-box !important;
+  cursor: pointer !important;
+  white-space: nowrap !important;
+  filter: none !important;
+  transition: none !important;
+  text-align: left;
 }
 
-[data-oldweb] .r-menu-item:hover,
-[data-oldweb] .r-menu-item:focus {
-  color: var(--r-nav-active-fg, #ffffff);
-  background: var(--r-accent);
-  outline: none;
+/* Dropdown Item Hover / Focus Highlight across ALL themes */
+[data-oldweb] .r-dropdown-menu :is(a, button, .r-menu-item):hover,
+[data-oldweb] .r-dropdown-menu :is(a, button, .r-menu-item):focus {
+  color: var(--r-accent-fg, #ffffff) !important;
+  background: var(--r-accent) !important;
+  text-shadow: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+  filter: none !important;
 }
 
-[data-oldweb] .r-menu-shortcut {
+[data-oldweb] .r-dropdown-menu :is(a, button, .r-menu-item) .r-shortcut {
   margin-left: auto;
   font-size: 0.85em;
-  opacity: 0.75;
-}
-
-[data-oldweb] .r-menu-divider {
-  height: 0;
-  margin: 3px 1px;
-  border: 0;
-  border-top: 1px solid var(--r-border);
-  box-shadow: 0 1px 0 var(--r-hr-hi, #ffffff);
-}
-
-[data-oldweb] .r-menu-header {
-  padding: 4px 10px;
-  font-size: 0.8em;
-  font-weight: bold;
-  text-transform: uppercase;
   color: var(--r-fg-muted);
 }
 
-/* 3. Application Toolbar (.r-nav-toolbar) */
-[data-oldweb] .r-nav-toolbar {
+[data-oldweb] .r-dropdown-menu :is(a, button, .r-menu-item):hover .r-shortcut,
+[data-oldweb] .r-dropdown-menu :is(a, button, .r-menu-item):focus .r-shortcut {
+  color: var(--r-accent-fg, #ffffff) !important;
+  opacity: 0.9;
+}
+
+[data-oldweb] .r-dropdown-menu .r-menu-divider {
+  display: block !important;
+  width: 100% !important;
+  height: 0 !important;
+  margin: 4px 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-top: 1px solid var(--r-border) !important;
+  box-shadow: 0 1px 0 var(--r-hr-hi, rgba(255, 255, 255, 0.4)) !important;
+  box-sizing: border-box !important;
+}
+
+[data-oldweb] .r-dropdown-menu .r-menu-header {
+  display: block !important;
+  width: 100% !important;
+  padding: 6px 12px 3px !important;
+  margin: 0 !important;
+  font-size: 0.75em !important;
+  font-weight: bold !important;
+  letter-spacing: 0.05em !important;
+  text-transform: uppercase !important;
+  color: var(--r-fg-muted) !important;
+  text-shadow: none !important;
+  box-sizing: border-box !important;
+}
+
+/* 3. Web Breadcrumbs (.r-breadcrumb) */
+[data-oldweb] .r-breadcrumb {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 3px;
-  margin: 0 0 8px;
-  padding: 3px 6px;
-  color: var(--r-fg);
-  background: var(--r-surface);
-  border: var(--r-bw) solid var(--r-border);
-  border-radius: var(--r-radius);
-  box-shadow: var(--r-bevel-out);
-}
-
-[data-oldweb] .r-tool-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 4px;
-  min-width: 24px;
-  min-height: 24px;
-  padding: 3px 8px;
-  margin: 0;
-  font: inherit;
+  gap: 6px;
+  margin: 0 0 16px;
+  padding: 8px 12px;
   font-size: 0.9em;
-  color: var(--r-fg);
-  text-decoration: none;
-  background: linear-gradient(var(--r-btn-top), var(--r-btn-bottom));
-  border: var(--r-bw) solid var(--r-btn-border);
-  border-radius: var(--r-radius);
-  box-shadow: var(--r-bevel-out);
-  cursor: pointer;
-}
-
-[data-oldweb] .r-tool-btn:hover {
-  background: linear-gradient(var(--r-btn-hover-top), var(--r-btn-hover-bottom));
-}
-
-[data-oldweb] .r-tool-btn:active,
-[data-oldweb] .r-tool-btn.active,
-[data-oldweb] .r-tool-btn[aria-pressed="true"] {
-  background: linear-gradient(var(--r-btn-active-top), var(--r-btn-active-bottom));
-  box-shadow: var(--r-bevel-press);
-}
-
-[data-oldweb] .r-toolbar-sep {
-  display: inline-block;
-  width: 0;
-  height: 20px;
-  margin: 0 4px;
-  border-left: 1px solid var(--r-border);
-  border-right: 1px solid var(--r-hr-hi, #ffffff);
-}
-
-[data-oldweb] .r-toolbar-group {
-  display: inline-flex;
-  align-items: center;
-  gap: 1px;
-}
-
-/* 4. Classic Taskbar (.r-nav-taskbar) */
-[data-oldweb] .r-nav-taskbar {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  margin: 0 0 8px;
-  padding: 2px 4px;
-  color: var(--r-fg);
+  list-style: none;
   background: var(--r-surface);
   border: var(--r-bw) solid var(--r-border);
-  box-shadow: var(--r-bevel-out);
+  border-radius: var(--r-radius);
+  box-shadow: var(--r-panel-shadow);
+}
+
+[data-oldweb] .r-breadcrumb a {
+  color: var(--r-link);
+  text-decoration: underline;
+}
+
+[data-oldweb] .r-breadcrumb a:hover {
+  color: var(--r-link-hover);
+}
+
+[data-oldweb] .r-breadcrumb-sep {
+  color: var(--r-fg-muted);
   user-select: none;
 }
 
-[data-oldweb] .r-taskbar-start {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
+[data-oldweb] .r-breadcrumb-current {
+  color: var(--r-fg-muted);
   font-weight: bold;
-  padding: 3px 10px;
-  color: var(--r-fg);
-  background: linear-gradient(var(--r-btn-top), var(--r-btn-bottom));
-  border: var(--r-bw) solid var(--r-btn-border);
-  border-radius: var(--r-radius);
-  box-shadow: var(--r-bevel-out);
-  cursor: pointer;
-  text-decoration: none;
 }
 
-[data-oldweb] .r-taskbar-start:active,
-[data-oldweb] .r-taskbar-start.active {
-  box-shadow: var(--r-bevel-press);
-}
-
-[data-oldweb] .r-taskbar-item {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  max-width: 160px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  padding: 3px 8px;
-  font-size: 0.9em;
-  color: var(--r-fg);
-  background: linear-gradient(var(--r-btn-top), var(--r-btn-bottom));
-  border: var(--r-bw) solid var(--r-btn-border);
-  border-radius: var(--r-radius);
-  box-shadow: var(--r-bevel-out);
-  cursor: pointer;
-  text-decoration: none;
-}
-
-[data-oldweb] .r-taskbar-item.active,
-[data-oldweb] .r-taskbar-item[aria-selected="true"] {
-  font-weight: bold;
-  background: var(--r-surface-alt, #e0e0e0);
-  box-shadow: var(--r-bevel-press);
-}
-
-[data-oldweb] :is(.r-taskbar-tray, .r-systray) {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 2px 8px;
-  font-size: 0.9em;
-  background: var(--r-surface);
-  border: var(--r-bw) solid var(--r-border);
-  box-shadow: var(--r-bevel-in);
-}
-
-/* 5. Tabbed Navbar (.r-nav-tabs) */
+/* 4. Tabbed Web Navigation (.r-nav-tabs) */
 [data-oldweb] .r-nav-tabs {
   display: flex;
   align-items: flex-end;
   flex-wrap: wrap;
   gap: 2px;
-  margin: 0;
+  margin: 0 0 16px;
   padding: 4px 6px 0;
   border-bottom: var(--r-bw) solid var(--r-border);
 }
@@ -1171,7 +1540,7 @@
   align-items: center;
   gap: 6px;
   margin-bottom: -1px;
-  padding: 5px 14px;
+  padding: 6px 16px;
   color: var(--r-fg);
   text-decoration: none;
   border: var(--r-bw) solid var(--r-border);
@@ -1190,20 +1559,20 @@
 [data-oldweb] .r-nav-tabs a[aria-selected="true"] {
   z-index: 2;
   font-weight: bold;
-  padding-bottom: 6px;
+  padding-bottom: 7px;
   background: var(--r-surface);
   border-bottom: 1px solid var(--r-surface);
 }
 
-/* 6. 90s Web Directory & Portal Navigation (.r-nav-portal) */
+/* 5. 90s Web Directory & Portal Links (.r-nav-portal) */
 [data-oldweb] .r-nav-portal {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
   gap: 8px 12px;
-  margin: 0 0 12px;
-  padding: 8px 12px;
+  margin: 0 0 16px;
+  padding: 10px 14px;
   text-align: center;
   font-size: 1.05em;
   color: var(--r-fg);
@@ -1244,51 +1613,7 @@
   user-select: none;
 }
 
-/* 7. Desktop Status Bar (.r-statusbar) */
-[data-oldweb] .r-statusbar {
-  display: flex;
-  align-items: center;
-  gap: 3px;
-  margin: 8px 0 0;
-  padding: 2px;
-  font-family: var(--r-font);
-  font-size: 0.85em;
-  color: var(--r-fg);
-  background: var(--r-surface);
-  border-top: var(--r-bw) solid var(--r-border);
-  box-sizing: border-box;
-}
-
-[data-oldweb] .r-status-panel {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 2px 8px;
-  background: var(--r-surface);
-  box-shadow: var(--r-bevel-in);
-  min-height: 18px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-[data-oldweb] .r-status-panel.r-status-main {
-  flex: 1;
-}
-
-[data-oldweb] .r-status-grip {
-  width: 12px;
-  height: 12px;
-  margin-left: auto;
-  opacity: 0.5;
-  background: repeating-linear-gradient(
-    -45deg,
-    var(--r-fg) 0 1px,
-    transparent 1px 3px
-  );
-}
-
-/* 8. Inverse Navbar Variant (.r-nav-inverse) */
+/* 6. Inverse Dark Navbar (.r-nav-inverse) */
 [data-oldweb] .r-nav-inverse {
   color: #ffffff;
   background: #222222;
@@ -1456,27 +1781,187 @@
 }
 
 /* == components/modal.css == */
-/* retro-ui / components / modal.css
-   Native <dialog> use hota hai (dialog.showModal()).
-   <dialog id="d">
-     <div class="r-titlebar">Title <button class="r-close" aria-label="Close">x</button></div>
-     <div class="r-card-body">...</div>
-     <div class="r-card-footer"><button>OK</button></div>
-   </dialog> */
-[data-oldweb] dialog {
-  width: min(92vw, 480px);
-  max-height: 90vh;
+/* Oldweb UI / components / modal.css
+   Authentic retro modal dialogs with era-specific titlebars, close buttons, and backdrops.
+   Works seamlessly with native HTML5 <dialog> or .r-modal-overlay + .r-modal.
+*/
+
+/* 1. Modal Dialog Container */
+[data-oldweb] dialog,
+[data-oldweb] .r-modal {
+  position: relative;
+  width: min(92vw, 500px);
+  max-height: 88vh;
   margin: auto;
-  padding: var(--r-card-pad);
-  overflow: auto;
+  padding: 0;
+  overflow: hidden;
   color: var(--r-fg);
   background: var(--r-surface);
   border: var(--r-bw) solid var(--r-border);
   border-radius: var(--r-radius);
   box-shadow: var(--r-modal-shadow);
+  box-sizing: border-box;
 }
-[data-oldweb] dialog::backdrop {
-  background: var(--r-backdrop, rgba(0, 0, 0, 0.4));
+
+/* Reset native dialog border & outline */
+[data-oldweb] dialog:not([open]) {
+  display: none;
+}
+
+[data-oldweb] dialog:focus-visible {
+  outline: none;
+}
+
+/* 2. Dialog Backdrop */
+[data-oldweb] dialog::backdrop,
+[data-oldweb] .r-modal-overlay {
+  background: var(--r-backdrop, rgba(0, 0, 0, 0.5));
+}
+
+[data-oldweb] .r-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+/* 3. Titlebar / Header */
+[data-oldweb] :is(dialog, .r-modal) :is(.r-titlebar, .r-modal-header) {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: var(--r-title-pad, 4px 8px);
+  color: var(--r-title-fg);
+  font-weight: bold;
+  font-size: 0.95em;
+  text-shadow: var(--r-title-shadow);
+  background:
+    linear-gradient(rgba(255, 255, 255, var(--r-gloss)) 50%, transparent 50%),
+    linear-gradient(var(--r-title-dir, to bottom), var(--r-title-top), var(--r-title-bottom));
+  border-bottom: var(--r-bw) solid var(--r-border);
+  border-radius: var(--r-radius) var(--r-radius) 0 0;
+  user-select: none;
+}
+
+[data-oldweb] :is(dialog, .r-modal) .r-titlebar-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+[data-oldweb] :is(dialog, .r-modal) .r-titlebar-controls {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  margin-left: auto;
+}
+
+/* 4. Close and Control Buttons */
+[data-oldweb] :is(dialog, .r-modal, .r-card) .r-close,
+[data-oldweb] :is(dialog, .r-modal, .r-card) .r-titlebar-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 16px;
+  min-width: 18px;
+  padding: 0;
+  margin: 0;
+  font-family: var(--r-font);
+  font-size: 10px;
+  font-weight: bold;
+  line-height: 1;
+  color: var(--r-btn-fg);
+  background: linear-gradient(var(--r-btn-top), var(--r-btn-bottom));
+  border: var(--r-bw) solid var(--r-btn-border);
+  border-radius: var(--r-radius);
+  box-shadow: var(--r-bevel-out);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+[data-oldweb] :is(dialog, .r-modal, .r-card) :is(.r-close, .r-titlebar-btn):hover {
+  background: linear-gradient(var(--r-btn-hover-top), var(--r-btn-hover-bottom));
+}
+
+[data-oldweb] :is(dialog, .r-modal, .r-card) :is(.r-close, .r-titlebar-btn):active {
+  box-shadow: var(--r-bevel-press);
+}
+
+/* Era Specific Close Buttons */
+[data-oldweb="xp"] :is(dialog, .r-modal, .r-card) .r-close {
+  color: #ffffff;
+  background: linear-gradient(#e25340, #b72715);
+  border-color: #7a1508;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45), 0 1px 2px rgba(0, 0, 0, 0.25);
+}
+[data-oldweb="xp"] :is(dialog, .r-modal, .r-card) .r-close:hover {
+  background: linear-gradient(#ff6a58, #d43422);
+}
+
+[data-oldweb="aqua"] :is(dialog, .r-modal, .r-card) .r-close {
+  width: 13px;
+  height: 13px;
+  min-width: 13px;
+  border-radius: 50%;
+  color: transparent;
+  font-size: 0;
+  background: linear-gradient(#ff6b62, #e0322c);
+  border: 1px solid #9c1c17;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.8), 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+[data-oldweb="aqua"] :is(dialog, .r-modal, .r-card) .r-close:hover {
+  color: #550000;
+  font-size: 9px;
+}
+
+/* 5. Modal Body */
+[data-oldweb] :is(dialog, .r-modal) .r-modal-body,
+[data-oldweb] :is(dialog, .r-modal) .r-card-body {
+  padding: 16px 20px;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+[data-oldweb] :is(dialog, .r-modal) .r-modal-body > :last-child {
+  margin-bottom: 0;
+}
+
+/* Icon Dialogue Helper */
+[data-oldweb] .r-dialog-message {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+[data-oldweb] .r-dialog-icon {
+  font-size: 32px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+/* 6. Modal Footer */
+[data-oldweb] :is(dialog, .r-modal) .r-modal-footer,
+[data-oldweb] :is(dialog, .r-modal) .r-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 10px 16px;
+  background: var(--r-surface-alt);
+  border-top: var(--r-bw) solid var(--r-border);
+  box-sizing: border-box;
 }
 
 /* == components/scrollbar.css == */
@@ -1602,13 +2087,13 @@
   --r-line-height: 1.5;
   --r-heading: #003399;
   --r-heading-shadow: none;
-  --r-bg: #3a6ea5;
-  --r-bg-image: linear-gradient(#245693 0%, #3a6ea5 40%, #5b8fc4 100%);
+  --r-bg: #ece9d8;
+  --r-bg-image: linear-gradient(180deg, #dce8f5 0%, #ece9d8 260px);
   --r-fg: #000;
   --r-fg-muted: #555;
-  --r-surface: #ece9d8;
-  --r-surface-alt: #fff;
-  --r-border: #0054e3;
+  --r-surface: #ffffff;
+  --r-surface-alt: #ece9d8;
+  --r-border: #7f9db9;
   --r-hr-hi: #fff;
   --r-link: #0066cc;
   --r-link-visited: #551a8b;

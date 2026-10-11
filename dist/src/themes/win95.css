@@ -5,10 +5,10 @@
   --r-font-mono: "Courier New", monospace;
   --r-font-size: 11px;
   --r-line-height: 1.5;
-  --r-heading: #000;
+  --r-heading: #000080;
   --r-heading-shadow: none;
-  --r-bg: #008080;
-  --r-bg-image: linear-gradient(#008080, #008080);
+  --r-bg: #c0c0c0;
+  --r-bg-image: linear-gradient(#c0c0c0, #c0c0c0);
   --r-fg: #000;
   --r-fg-muted: #404040;
   --r-surface: #c0c0c0;

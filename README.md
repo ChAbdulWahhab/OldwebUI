@@ -1,4 +1,4 @@
-# Oldweb UI 🕹️
+# Oldweb UI
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Release](https://img.shields.io/github/v/release/ChAbdulWahhab/OldwebUI?color=0a7)](https://github.com/ChAbdulWahhab/OldwebUI/releases)
@@ -8,25 +8,25 @@
 > **The zero-dependency retro CSS library built for developers who want to focus 100% on their backend logic.**
 > Recreate authentic interface looks spanning **1980 to 2020** with zero configuration and zero build steps.
 
-**[🌐 Live Interactive Demo](https://chabdulwahhab.github.io/OldwebUI/demo.html)** · **[📦 npm package](https://www.npmjs.com/package/@chabdulwahab/oldweb-ui)** · **[💾 Download v1.0.0](https://github.com/ChAbdulWahhab/OldwebUI/releases/tag/v1.0.0)**
+**[Live Interactive Demo](https://chabdulwahhab.github.io/OldwebUI/demo.html)** · **[npm package](https://www.npmjs.com/package/@chabdulwahab/oldweb-ui)** · **[Download v1.0.0](https://github.com/ChAbdulWahhab/OldwebUI/releases/tag/v1.0.0)**
 
 ---
 
-## 🎯 Why Oldweb UI?
+## Why Oldweb UI?
 
 Modern web development often forces backend developers into frontend rabbit holes: complex bundlers, node_modules bloat, and endless CSS styling for simple administrative tools, internal dashboards, and prototypes.
 
 **Oldweb UI solves this:**
-- 🚫 **Zero JavaScript dependencies** — 100% pure CSS.
-- ⚡ **Zero build step required** — Drop one `<link>` tag and you're done.
-- 🪟 **Classless HTML styling** — Standard `<button>`, `<input>`, `<table>`, `<fieldset>` style themselves automatically.
-- 🎨 **21 Era-accurate Themes** — From 1980 green CRT terminals to Windows 95, GeoCities, XP Luna, Aqua, and 2020 SaaS.
-- 🧭 **Complete Navigation Chrome** — Desktop OS Menubars (with dropdowns), Toolbars, Taskbars, Status bars, and 90s Portal banners.
-- 🐍 **Perfect for Backend Frameworks** — Django, Flask, FastAPI, Go/HTMX, Laravel, Express, and Rails.
+- **Zero JavaScript dependencies** — 100% pure CSS.
+- **Zero build step required** — Drop one `<link>` tag and you're done.
+- **Classless HTML styling** — Standard `<button>`, `<input>`, `<table>`, `<fieldset>` style themselves automatically.
+- **21 Era-accurate Themes** — From 1980 green CRT terminals to Windows 95, GeoCities, XP Luna, Aqua, and 2020 SaaS.
+- **Web Application Navigation** — Top navbars, dropdown menus, breadcrumbs, web tab bars, and 90s portal directory links.
+- **Perfect for Backend Frameworks** — Django, Flask, FastAPI, Go/HTMX, Laravel, Express, and Rails.
 
 ---
 
-## ⚡ 30-Second Quickstart
+## 30-Second Quickstart
 
 ```html
 <!doctype html>
@@ -43,7 +43,7 @@ Modern web development often forces backend developers into frontend rabbit hole
   <div class="r-card" style="max-width: 480px; margin: 40px auto;">
     <div class="r-titlebar">
       <span>Database Manager</span>
-      <button class="r-close">✕</button>
+      <button class="r-close">X</button>
     </div>
     <div class="r-card-body">
       <p>Your backend data models are loaded.</p>
@@ -58,7 +58,7 @@ Modern web development often forces backend developers into frontend rabbit hole
 
 ---
 
-## 📦 Installation Options
+## Installation Options
 
 ### Option A — CDN (Fastest, zero install)
 
@@ -107,7 +107,7 @@ import "@chabdulwahab/oldweb-ui/terminal1980";
 
 ---
 
-## 🕰️ The 21 Eras (1980–2020)
+## The 21 Eras (1980–2020)
 
 Activate any theme by setting `data-oldweb="theme-id"` on your `<html>` tag:
 
@@ -146,96 +146,75 @@ document.documentElement.setAttribute("data-oldweb", "xp");
 
 ---
 
-## 🧭 Navigation & Chrome Components
+## Web Application Navigation
 
 Every navigation component adapts authentically to whatever era theme is currently active.
 
-### 1. Standard Navbar (`.r-nav`)
-Clean, responsive horizontal navbar with brand and active link support:
+### 1. Standard Web Navbar (`.r-nav`)
+Responsive horizontal navbar with brand, links, and right-aligned controls:
 
 ```html
 <nav class="r-nav">
   <a class="r-nav-brand" href="#">Oldweb UI</a>
   <ul>
-    <li><a class="active" href="#">Home</a></li>
-    <li><a href="#">Articles</a></li>
-    <li><a href="#">Download</a></li>
+    <li><a class="active" href="#">Dashboard</a></li>
+    <li><a href="#">Users</a></li>
+    <li><a href="#">Settings</a></li>
   </ul>
   <span class="r-nav-spacer"></span>
   <a href="#">Admin Login</a>
 </nav>
 ```
 
-### 2. Desktop OS Menubar with Dropdowns (`.r-nav-menubar`)
-Authentic OS menu bar (File, Edit, View, Help) with accesskey mnemonics (`<u>F</u>ile`), keyboard shortcut hints (`Ctrl+S`), and pure CSS hover/click dropdowns:
+### 2. Navigation with Dropdown Menu (`.r-dropdown`)
+Pure CSS accessible dropdown menus for account menus, quick actions, or category navigation:
 
 ```html
-<nav class="r-nav-menubar">
-  <!-- File Menu -->
-  <div class="r-dropdown">
-    <button class="r-menu-trigger"><u>F</u>ile</button>
-    <div class="r-dropdown-menu">
-      <a href="#" class="r-menu-item">New Document <span class="r-shortcut">Ctrl+N</span></a>
-      <a href="#" class="r-menu-item">Open File... <span class="r-shortcut">Ctrl+O</span></a>
-      <div class="r-menu-divider"></div>
-      <a href="#" class="r-menu-item">Save <span class="r-shortcut">Ctrl+S</span></a>
-      <a href="#" class="r-menu-item">Exit</a>
-    </div>
-  </div>
-
-  <!-- Edit Menu -->
-  <div class="r-dropdown">
-    <button class="r-menu-trigger"><u>E</u>dit</button>
-    <div class="r-dropdown-menu">
-      <a href="#" class="r-menu-item">Undo <span class="r-shortcut">Ctrl+Z</span></a>
-      <a href="#" class="r-menu-item">Cut <span class="r-shortcut">Ctrl+X</span></a>
-      <a href="#" class="r-menu-item">Copy <span class="r-shortcut">Ctrl+C</span></a>
-      <a href="#" class="r-menu-item">Paste <span class="r-shortcut">Ctrl+V</span></a>
-    </div>
-  </div>
-
-  <span class="r-nav-spacer"></span>
+<nav class="r-nav">
+  <span class="r-nav-brand">App Console</span>
+  <ul>
+    <li><a href="#" class="active">Overview</a></li>
+    <li class="r-dropdown">
+      <button class="r-menu-trigger">Manage ▼</button>
+      <div class="r-dropdown-menu">
+        <a href="#" class="r-menu-item">Users & Roles</a>
+        <a href="#" class="r-menu-item">Databases</a>
+        <div class="r-menu-divider"></div>
+        <a href="#" class="r-menu-item">API Keys</a>
+      </div>
+    </li>
+  </ul>
 </nav>
 ```
 
-### 3. Application Toolbar (`.r-nav-toolbar`)
-Desktop application tool buttons that bevel up on hover and sink on click:
+### 3. Web Breadcrumb Trail (`.r-breadcrumb`)
+Clean hierarchical navigation trail for nested web apps and admin pages:
 
 ```html
-<nav class="r-nav-toolbar">
-  <div class="r-toolbar-group">
-    <button class="r-tool-btn" title="New file">📄 New</button>
-    <button class="r-tool-btn" title="Open file">📂 Open</button>
-    <button class="r-tool-btn" title="Save file">💾 Save</button>
-  </div>
-  <span class="r-toolbar-sep"></span>
-  <div class="r-toolbar-group">
-    <button class="r-tool-btn active" title="Bold"><strong>B</strong></button>
-    <button class="r-tool-btn" title="Italic"><em>I</em></button>
-    <button class="r-tool-btn" title="Underline"><u>U</u></button>
-  </div>
-  <span class="r-nav-spacer"></span>
-  <button class="r-tool-btn">❓ Help</button>
+<nav class="r-breadcrumb">
+  <a href="#">Root</a>
+  <span class="r-breadcrumb-sep">/</span>
+  <a href="#">Projects</a>
+  <span class="r-breadcrumb-sep">/</span>
+  <a href="#">Oldweb UI</a>
+  <span class="r-breadcrumb-sep">/</span>
+  <span class="r-breadcrumb-current">Settings</span>
 </nav>
 ```
 
-### 4. Classic OS Taskbar (`.r-nav-taskbar`)
-Windows 95/98/XP style taskbar with Start button, running window items, and system tray:
+### 4. Web Navigation Tabs (`.r-nav-tabs`)
+Horizontal tabs for secondary section navigation within web apps:
 
 ```html
-<nav class="r-nav-taskbar">
-  <button class="r-taskbar-start">🪟 Start</button>
-  <button class="r-taskbar-item active">📝 Notepad - Untitled</button>
-  <button class="r-taskbar-item">📁 C:\Projects</button>
-  <span class="r-nav-spacer"></span>
-  <div class="r-taskbar-tray">
-    <span>🔊</span>
-    <span>12:00 PM</span>
-  </div>
+<nav class="r-nav-tabs">
+  <a href="#" class="active">General</a>
+  <a href="#">Security</a>
+  <a href="#">Webhooks</a>
+  <a href="#">Audit Logs</a>
 </nav>
 ```
 
-### 5. 90s Web Portal / Directory (`.r-nav-portal`)
+### 5. 90s Web Portal / Directory Bar (`.r-nav-portal`)
 Vintage 90s web directory with bracketed links:
 
 ```html
@@ -246,34 +225,163 @@ Vintage 90s web directory with bracketed links:
   <span class="r-nav-sep">|</span>
   <a href="#">DOWNLOADS</a>
   <span class="r-nav-sep">|</span>
-  <a href="#">SIGN GUESTBOOK</a>
+  <a href="#">DOCUMENTATION</a>
 </nav>
 ```
 
-### 6. Desktop Status Bar (`.r-statusbar`)
-Bottom sunken status panels for application windows:
-
-```html
-<div class="r-statusbar">
-  <span class="r-status-panel r-status-main">Ready</span>
-  <span class="r-status-panel">Ln 42, Col 8</span>
-  <span class="r-status-panel">100%</span>
-  <span class="r-status-panel">NUM</span>
-  <span class="r-status-panel">CAPS</span>
-  <span class="r-status-grip"></span>
-</div>
-```
+### 6. Navbar Placement & Rounding Options
+Adjust how navbars sit on your page:
+- `.r-nav-top` / `.r-nav-flush` — Edge-to-edge top header bar (no border-radius, flush with screen top).
+- `.r-nav-sticky` — Sticky top bar that stays in view while scrolling.
+- `.r-nav-floating` — Centered floating rounded bar with margins.
+- `.r-nav-rounded` — Force modern rounded corners (`8px`) on any retro theme.
+- `.r-nav-pill` — Capsule pill-shaped navbar.
 
 ---
 
-## 🖥️ Components Reference
+## Layout & Grid System
 
-### Windows & Cards (`.r-card`)
+Oldweb UI includes a built-in layout framework so developers don't have to write any custom structural CSS.
+
+### 1. Two-Column Dashboard Layout (`.r-layout-sidebar`)
+Perfect for backend admin portals, database viewers, and control panels:
+
+```html
+<div class="r-layout-sidebar">
+  <aside class="r-sidebar">
+    <div class="r-sidebar-brand">Admin Console</div>
+    <nav class="r-sidebar-nav">
+      <a href="#" class="active">Overview</a>
+      <a href="#">Users</a>
+      <a href="#">Database</a>
+      <a href="#">Settings</a>
+    </nav>
+    <div class="r-sidebar-footer">Server v2.4</div>
+  </aside>
+
+  <main class="r-main">
+    <!-- Top header -->
+    <nav class="r-nav r-nav-top">
+      <span class="r-nav-brand">Dashboard</span>
+      <span class="r-nav-spacer"></span>
+      <span class="r-badge r-badge-ok">Online</span>
+    </nav>
+    <!-- Content goes here -->
+  </main>
+</div>
+```
+
+### 2. Full Application Shell (`.r-layout-app`)
+Header + body with sidebar and scrollable main content + sticky footer:
+
+```html
+<div class="r-layout-app">
+  <header class="r-app-header">
+    <nav class="r-nav r-nav-top">...</nav>
+  </header>
+  <div class="r-app-body">
+    <aside class="r-sidebar">...</aside>
+    <main class="r-app-content">...</main>
+  </div>
+  <footer class="r-app-footer">
+    <span>Oldweb UI &middot; Server v2.4</span>
+  </footer>
+</div>
+```
+
+### 3. Responsive Metric & Card Grids (`.r-grid`)
+```html
+<!-- 3-column metric card grid -->
+<div class="r-grid-3">
+  <div class="r-card">
+    <div class="r-titlebar"><span>Total Users</span></div>
+    <div class="r-card-body"><h3>12,450</h3></div>
+  </div>
+  <div class="r-card">
+    <div class="r-titlebar"><span>Active Sessions</span></div>
+    <div class="r-card-body"><h3>842</h3></div>
+  </div>
+  <div class="r-card">
+    <div class="r-titlebar"><span>CPU Load</span></div>
+    <div class="r-card-body"><h3>18.4%</h3></div>
+  </div>
+</div>
+
+<!-- Available grid classes: .r-grid-2, .r-grid-3, .r-grid-4, .r-grid (auto-fit) -->
+```
+
+### 4. Split Pane View (`.r-split`)
+Side-by-side split panels with an authentic groove separator:
+
+```html
+<div class="r-split">
+  <div class="r-split-pane">Directory Tree / Left Panel</div>
+  <div class="r-split-divider"></div>
+  <div class="r-split-pane">Editor / Right Panel</div>
+</div>
+```
+
+### 5. Page Containers
+- `.r-container` — Responsive centered page container (1100px max-width).
+- `.r-container-card` — Centered container with distinct retro window surface, border, and shadow.
+- `.r-container-sm` — Narrow 680px container (ideal for login screens, single dialogs, forms).
+- `.r-container-lg` — Wide 1360px container.
+
+---
+
+## Responsive Design & Mobile Behavior
+
+Oldweb UI is engineered to look vintage while behaving with modern responsiveness out of the box:
+
+- **Automatic Grid Collapsing**: `.r-grid-2`, `.r-grid-3`, and `.r-grid-4` automatically adapt on screens under 768px to clean single-column layouts.
+- **Mobile Sidebar Dashboard**: `.r-layout-sidebar` seamlessly transforms from a two-column desktop console into a stacked mobile layout.
+- **Split Pane Adapting**: `.r-split` switches from horizontal side-by-side columns to a vertically stacked panel view on small screens.
+- **Viewport-Safe Modals**: `<dialog class="r-modal">` uses `width: min(92vw, 500px)` and `max-height: 88vh` so popup windows never clip or overflow mobile screens.
+- **Fluid Navbars**: `.r-nav` wraps naturally on smaller screens and supports `.r-nav-sticky` for mobile header bars.
+
+---
+
+## Quick Class Reference Cheat Sheet
+
+| Category | Class | Description |
+|---|---|---|
+| **Layout** | `.r-layout-sidebar` | Responsive 2-column dashboard (collapses cleanly on mobile) |
+| | `.r-layout-app` | Full viewport app shell (header + sidebar + scrollable body + footer) |
+| | `.r-grid-2` / `.r-grid-3` / `.r-grid-4` | Multi-column responsive card grids |
+| | `.r-split` | Two-pane split view with retro groove divider |
+| | `.r-container` | Centered responsive content container (1100px) |
+| | `.r-container-sm` / `.r-container-lg` | Narrow (680px) and wide (1360px) container sizes |
+| **Navigation** | `.r-nav` | Horizontal web application navbar with brand & links |
+| | `.r-nav-top` / `.r-nav-flush` | Flush edge-to-edge top header bar |
+| | `.r-nav-sticky` | Sticky header that remains fixed on scroll |
+| | `.r-nav-rounded` | Enforces modern rounded corners (`8px`) on any theme |
+| | `.r-dropdown` | Dropdown menu container (`.r-dropdown-menu`, `.r-menu-item`) |
+| | `.r-breadcrumb` | Hierarchical navigation trail with separators |
+| | `.r-nav-tabs` | Horizontal tab navigation strip |
+| | `.r-nav-portal` | Authentic 90s web portal / directory link bar |
+| **Windows & Modals** | `.r-card` / `.r-window` | Retro window box with surface bevel and shadow |
+| | `.r-titlebar` | Window title header with caption and `.r-close` button |
+| | `<dialog class="r-modal">` | HTML5 popup modal with backdrop and titlebar |
+| **Actions & Badges** | `<button class="r-btn-primary">` | Primary accent call-to-action button |
+| | `<button class="r-btn-danger">` | Destructive action button |
+| | `.r-badge` | Status badge (`.r-badge-ok`, `.r-badge-warn`, `.r-badge-danger`) |
+| **Forms** | `.r-field` | Form control wrapper with `<label>`, input, and `.r-hint` |
+| | `.r-input-block` | Full-width input, select, or textarea |
+
+---
+
+## Components Reference
+
+### Windows & Cards (`.r-card` / `.r-window`)
 ```html
 <div class="r-card">
   <div class="r-titlebar">
-    <span>System Properties</span>
-    <button class="r-close" aria-label="Close">✕</button>
+    <span class="r-titlebar-title">System Properties</span>
+    <div class="r-titlebar-controls">
+      <button class="r-titlebar-btn" title="Minimize">_</button>
+      <button class="r-titlebar-btn" title="Maximize">[ ]</button>
+      <button class="r-close" title="Close">X</button>
+    </div>
   </div>
   <div class="r-card-body">
     <p>General application settings go here.</p>
@@ -284,6 +392,27 @@ Bottom sunken status panels for application windows:
     <button>Apply</button>
   </div>
 </div>
+```
+
+### Popup Modal Dialogs (`<dialog class="r-modal">`)
+Authentic web popup dialogs with titlebars, backdrop dismissal, and Cancel button:
+
+```html
+<dialog id="my-modal" class="r-modal">
+  <div class="r-titlebar">
+    <span class="r-titlebar-title">Confirm Deletion</span>
+  </div>
+  <div class="r-modal-body">
+    <p>Are you sure you want to write changes to disk?</p>
+  </div>
+  <div class="r-modal-footer">
+    <button class="r-btn-primary" data-close>OK</button>
+    <button data-close>Cancel</button>
+  </div>
+</dialog>
+
+<!-- Open via JS: document.getElementById('my-modal').showModal() -->
+<!-- Dismissal: Clicking 'Cancel', clicking the backdrop, or pressing Escape automatically closes the modal -->
 ```
 
 ### Buttons
@@ -367,7 +496,7 @@ Standard inputs, selects, radios, and checkboxes style themselves:
 <span class="r-counter">001337</span>
 
 <!-- Hazard-striped under construction banner -->
-<div class="r-construction"><span>🚧 UNDER CONSTRUCTION 🚧</span></div>
+<div class="r-construction"><span>UNDER CONSTRUCTION</span></div>
 
 <!-- Vintage 88x31 community badge -->
 <span class="r-88x31">BEST VIEWED<br>IN 800x600</span>
@@ -375,11 +504,11 @@ Standard inputs, selects, radios, and checkboxes style themselves:
 
 ---
 
-## 🚀 Backend Framework Integration
+## Backend Framework Integration
 
 Because Oldweb UI requires **zero build steps and zero npm dependencies**, it is a dream to use inside traditional backend template engines.
 
-### 🐍 Python (Django / Flask)
+### Python (Django / Flask)
 
 In your `base.html` template:
 ```html
@@ -397,7 +526,7 @@ In your `base.html` template:
 </html>
 ```
 
-### 🐹 Go + HTMX
+### Go + HTMX
 
 ```html
 <!doctype html>
@@ -417,7 +546,7 @@ In your `base.html` template:
 </html>
 ```
 
-### 🐘 PHP / Laravel (Blade)
+### PHP / Laravel (Blade)
 
 ```html
 <!-- resources/views/layouts/app.blade.php -->
@@ -433,7 +562,7 @@ In your `base.html` template:
 </html>
 ```
 
-### 🟢 Node.js (Express / EJS)
+### Node.js (Express / EJS)
 
 ```html
 <!doctype html>
@@ -449,7 +578,7 @@ In your `base.html` template:
 
 ---
 
-## 🛠️ Local Development & Building
+## Local Development & Building
 
 If you clone the repository to customize or contribute:
 
@@ -469,7 +598,7 @@ Zero npm external runtime dependencies — only native Node.js scripts!
 
 ---
 
-## 🚢 Publishing to npm
+## Publishing to npm
 
 If you are the maintainer or publishing your own fork, follow these simple steps:
 
@@ -507,7 +636,7 @@ npm publish --access public
 
 ---
 
-## 📜 License & Author
+## License & Author
 
 Created with retro passion by **[Ch Abdul Wahhab](https://github.com/ChAbdulWahhab)**.
 

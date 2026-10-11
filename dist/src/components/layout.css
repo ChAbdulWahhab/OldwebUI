@@ -1,0 +1,342 @@
+/* Oldweb UI / components / layout.css
+   Authentic retro layouts, app shells, sidebar dashboards, grid systems, and flex helpers.
+   Variants:
+     - .r-layout-app        : Full viewport application shell (header + body + footer)
+     - .r-layout-sidebar    : Classic admin / dashboard two-column layout
+     - .r-layout-desktop    : Operating system desktop workspace with icons & taskbar
+     - .r-container         : Responsive centered page wrappers (.r-container-sm, .r-container-lg, .r-container-card)
+     - .r-grid              : Retro-friendly CSS grid (.r-grid-2, .r-grid-3, .r-grid-4, .r-grid-auto)
+     - .r-row / .r-stack    : Horizontal and vertical flex helpers
+     - .r-split             : Split pane view with vintage divider
+*/
+
+/* 1. Containers */
+[data-oldweb] .r-container {
+  width: 100%;
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 16px;
+  padding-right: 16px;
+  box-sizing: border-box;
+}
+
+[data-oldweb] .r-container-sm {
+  max-width: 680px;
+}
+
+[data-oldweb] .r-container-lg {
+  max-width: 1360px;
+}
+
+[data-oldweb] .r-container-fluid {
+  max-width: 100%;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+/* Container styled as a distinct retro window/card box */
+[data-oldweb] .r-container-card {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 20px 24px;
+  background: var(--r-surface);
+  border: var(--r-bw) solid var(--r-border);
+  border-radius: var(--r-radius);
+  box-shadow: var(--r-panel-shadow);
+}
+
+/* 2. Full Viewport App Shell (.r-layout-app) */
+[data-oldweb] .r-layout-app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+[data-oldweb] .r-app-header {
+  flex-shrink: 0;
+  width: 100%;
+  z-index: 100;
+}
+
+[data-oldweb] .r-app-body {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+}
+
+[data-oldweb] .r-app-content {
+  flex: 1;
+  min-width: 0;
+  padding: 16px 20px;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+[data-oldweb] .r-app-footer {
+  flex-shrink: 0;
+  width: 100%;
+  z-index: 100;
+}
+
+/* 3. Sidebar Dashboard Layout (.r-layout-sidebar) */
+[data-oldweb] .r-layout-sidebar {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+[data-oldweb] .r-sidebar {
+  width: 250px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 12px 10px;
+  background: var(--r-surface);
+  border-right: var(--r-bw) solid var(--r-border);
+  box-shadow: var(--r-panel-shadow);
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+[data-oldweb] .r-sidebar-sm {
+  width: 200px;
+}
+
+[data-oldweb] .r-sidebar-lg {
+  width: 300px;
+}
+
+[data-oldweb] .r-sidebar-brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px 12px;
+  font-size: 1.15em;
+  font-weight: bold;
+  color: var(--r-heading);
+  border-bottom: var(--r-bw) solid var(--r-border);
+  margin-bottom: 10px;
+}
+
+[data-oldweb] .r-sidebar-section {
+  font-size: 0.8em;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--r-fg-muted);
+  padding: 10px 10px 4px;
+}
+
+[data-oldweb] .r-sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+[data-oldweb] .r-sidebar-nav a,
+[data-oldweb] .r-sidebar-nav button {
+  appearance: none;
+  -webkit-appearance: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 7px 12px;
+  margin: 0;
+  font: inherit;
+  font-size: 0.95em;
+  color: var(--r-fg) !important;
+  text-decoration: none;
+  text-shadow: none;
+  background: transparent !important;
+  border: 1px solid transparent !important;
+  border-radius: var(--r-radius);
+  box-shadow: none !important;
+  cursor: pointer;
+  box-sizing: border-box;
+  text-align: left;
+  filter: none !important;
+  transition: background 0.1s ease, color 0.1s ease;
+}
+
+[data-oldweb] .r-sidebar-nav a:hover,
+[data-oldweb] .r-sidebar-nav button:hover {
+  background: var(--r-surface-alt, rgba(0, 0, 0, 0.06)) !important;
+  color: var(--r-fg) !important;
+  border-color: var(--r-border) !important;
+  box-shadow: none !important;
+}
+
+[data-oldweb] .r-sidebar-nav a.active,
+[data-oldweb] .r-sidebar-nav a[aria-current],
+[data-oldweb] .r-sidebar-nav button.active {
+  color: var(--r-accent-fg, #ffffff) !important;
+  background: var(--r-accent) !important;
+  border-color: var(--r-accent) !important;
+  font-weight: bold;
+  text-shadow: none !important;
+  box-shadow: none !important;
+}
+
+[data-oldweb] .r-sidebar-footer {
+  margin-top: auto;
+  padding-top: 12px;
+  border-top: var(--r-bw) solid var(--r-border);
+  font-size: 0.85em;
+  color: var(--r-fg-muted);
+}
+
+[data-oldweb] .r-main {
+  flex: 1;
+  min-width: 0;
+  padding: 20px 24px;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+/* 4. Retro Grid System (.r-grid) */
+[data-oldweb] .r-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+  margin-bottom: 16px;
+  box-sizing: border-box;
+}
+
+[data-oldweb] .r-grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+[data-oldweb] .r-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+[data-oldweb] .r-grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+[data-oldweb] .r-grid-sidebar {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 16px;
+}
+
+/* 6. Flexbox Row and Stack Helpers */
+[data-oldweb] .r-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+[data-oldweb] .r-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+[data-oldweb] .r-flex {
+  display: flex;
+  align-items: center;
+}
+
+[data-oldweb] .r-flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+[data-oldweb] .r-flex-wrap {
+  flex-wrap: wrap;
+}
+
+[data-oldweb] .r-flex-between {
+  justify-content: space-between;
+}
+
+[data-oldweb] .r-flex-center {
+  justify-content: center;
+  align-items: center;
+}
+
+[data-oldweb] .r-flex-end {
+  justify-content: flex-end;
+}
+
+[data-oldweb] .r-flex-1 {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Gaps */
+[data-oldweb] .r-gap-xs { gap: 4px; }
+[data-oldweb] .r-gap-sm { gap: 8px; }
+[data-oldweb] .r-gap-md { gap: 16px; }
+[data-oldweb] .r-gap-lg { gap: 24px; }
+
+/* 7. Split Pane View (.r-split) */
+[data-oldweb] .r-split {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: stretch;
+  gap: 0;
+  border: var(--r-bw) solid var(--r-border);
+  background: var(--r-surface);
+  box-shadow: var(--r-bevel-out);
+}
+
+[data-oldweb] .r-split-pane {
+  padding: 12px;
+  overflow: auto;
+}
+
+[data-oldweb] .r-split-divider {
+  width: 4px;
+  background: var(--r-surface-alt, #dfdfdf);
+  border-left: 1px solid var(--r-border);
+  border-right: 1px solid var(--r-hr-hi, #ffffff);
+  cursor: col-resize;
+}
+
+/* Responsive collapse on mobile */
+@media (max-width: 768px) {
+  [data-oldweb] .r-layout-sidebar {
+    flex-direction: column;
+  }
+  [data-oldweb] .r-sidebar {
+    width: 100%;
+    border-right: none;
+    border-bottom: var(--r-bw) solid var(--r-border);
+  }
+  [data-oldweb] .r-grid-2,
+  [data-oldweb] .r-grid-3,
+  [data-oldweb] .r-grid-4,
+  [data-oldweb] .r-grid-sidebar {
+    grid-template-columns: 1fr;
+  }
+  [data-oldweb] .r-split {
+    grid-template-columns: 1fr;
+  }
+  [data-oldweb] .r-split-divider {
+    height: 4px;
+    width: 100%;
+    cursor: row-resize;
+  }
+}

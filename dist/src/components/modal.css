@@ -1,22 +1,182 @@
-/* retro-ui / components / modal.css
-   Native <dialog> use hota hai (dialog.showModal()).
-   <dialog id="d">
-     <div class="r-titlebar">Title <button class="r-close" aria-label="Close">x</button></div>
-     <div class="r-card-body">...</div>
-     <div class="r-card-footer"><button>OK</button></div>
-   </dialog> */
-[data-oldweb] dialog {
-  width: min(92vw, 480px);
-  max-height: 90vh;
+/* Oldweb UI / components / modal.css
+   Authentic retro modal dialogs with era-specific titlebars, close buttons, and backdrops.
+   Works seamlessly with native HTML5 <dialog> or .r-modal-overlay + .r-modal.
+*/
+
+/* 1. Modal Dialog Container */
+[data-oldweb] dialog,
+[data-oldweb] .r-modal {
+  position: relative;
+  width: min(92vw, 500px);
+  max-height: 88vh;
   margin: auto;
-  padding: var(--r-card-pad);
-  overflow: auto;
+  padding: 0;
+  overflow: hidden;
   color: var(--r-fg);
   background: var(--r-surface);
   border: var(--r-bw) solid var(--r-border);
   border-radius: var(--r-radius);
   box-shadow: var(--r-modal-shadow);
+  box-sizing: border-box;
 }
-[data-oldweb] dialog::backdrop {
-  background: var(--r-backdrop, rgba(0, 0, 0, 0.4));
+
+/* Reset native dialog border & outline */
+[data-oldweb] dialog:not([open]) {
+  display: none;
+}
+
+[data-oldweb] dialog:focus-visible {
+  outline: none;
+}
+
+/* 2. Dialog Backdrop */
+[data-oldweb] dialog::backdrop,
+[data-oldweb] .r-modal-overlay {
+  background: var(--r-backdrop, rgba(0, 0, 0, 0.5));
+}
+
+[data-oldweb] .r-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+/* 3. Titlebar / Header */
+[data-oldweb] :is(dialog, .r-modal) :is(.r-titlebar, .r-modal-header) {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: var(--r-title-pad, 4px 8px);
+  color: var(--r-title-fg);
+  font-weight: bold;
+  font-size: 0.95em;
+  text-shadow: var(--r-title-shadow);
+  background:
+    linear-gradient(rgba(255, 255, 255, var(--r-gloss)) 50%, transparent 50%),
+    linear-gradient(var(--r-title-dir, to bottom), var(--r-title-top), var(--r-title-bottom));
+  border-bottom: var(--r-bw) solid var(--r-border);
+  border-radius: var(--r-radius) var(--r-radius) 0 0;
+  user-select: none;
+}
+
+[data-oldweb] :is(dialog, .r-modal) .r-titlebar-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+[data-oldweb] :is(dialog, .r-modal) .r-titlebar-controls {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  margin-left: auto;
+}
+
+/* 4. Close and Control Buttons */
+[data-oldweb] :is(dialog, .r-modal, .r-card) .r-close,
+[data-oldweb] :is(dialog, .r-modal, .r-card) .r-titlebar-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 16px;
+  min-width: 18px;
+  padding: 0;
+  margin: 0;
+  font-family: var(--r-font);
+  font-size: 10px;
+  font-weight: bold;
+  line-height: 1;
+  color: var(--r-btn-fg);
+  background: linear-gradient(var(--r-btn-top), var(--r-btn-bottom));
+  border: var(--r-bw) solid var(--r-btn-border);
+  border-radius: var(--r-radius);
+  box-shadow: var(--r-bevel-out);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+[data-oldweb] :is(dialog, .r-modal, .r-card) :is(.r-close, .r-titlebar-btn):hover {
+  background: linear-gradient(var(--r-btn-hover-top), var(--r-btn-hover-bottom));
+}
+
+[data-oldweb] :is(dialog, .r-modal, .r-card) :is(.r-close, .r-titlebar-btn):active {
+  box-shadow: var(--r-bevel-press);
+}
+
+/* Era Specific Close Buttons */
+[data-oldweb="xp"] :is(dialog, .r-modal, .r-card) .r-close {
+  color: #ffffff;
+  background: linear-gradient(#e25340, #b72715);
+  border-color: #7a1508;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45), 0 1px 2px rgba(0, 0, 0, 0.25);
+}
+[data-oldweb="xp"] :is(dialog, .r-modal, .r-card) .r-close:hover {
+  background: linear-gradient(#ff6a58, #d43422);
+}
+
+[data-oldweb="aqua"] :is(dialog, .r-modal, .r-card) .r-close {
+  width: 13px;
+  height: 13px;
+  min-width: 13px;
+  border-radius: 50%;
+  color: transparent;
+  font-size: 0;
+  background: linear-gradient(#ff6b62, #e0322c);
+  border: 1px solid #9c1c17;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.8), 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+[data-oldweb="aqua"] :is(dialog, .r-modal, .r-card) .r-close:hover {
+  color: #550000;
+  font-size: 9px;
+}
+
+/* 5. Modal Body */
+[data-oldweb] :is(dialog, .r-modal) .r-modal-body,
+[data-oldweb] :is(dialog, .r-modal) .r-card-body {
+  padding: 16px 20px;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+[data-oldweb] :is(dialog, .r-modal) .r-modal-body > :last-child {
+  margin-bottom: 0;
+}
+
+/* Icon Dialogue Helper */
+[data-oldweb] .r-dialog-message {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+[data-oldweb] .r-dialog-icon {
+  font-size: 32px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+/* 6. Modal Footer */
+[data-oldweb] :is(dialog, .r-modal) .r-modal-footer,
+[data-oldweb] :is(dialog, .r-modal) .r-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 10px 16px;
+  background: var(--r-surface-alt);
+  border-top: var(--r-bw) solid var(--r-border);
+  box-sizing: border-box;
 }

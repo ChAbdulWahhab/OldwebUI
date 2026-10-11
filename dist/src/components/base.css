@@ -119,15 +119,12 @@
   outline-offset: 1px;
 }
 
-/* helper classes */
-[data-oldweb] .r-container {
-  max-width: 960px;
-  margin: 16px auto;
-  padding: 16px 20px;
-  background: var(--r-surface);
-  border: var(--r-bw) solid var(--r-border);
-  border-radius: var(--r-radius);
-  box-shadow: var(--r-panel-shadow);
+[data-oldweb] body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
 }
+
+/* helper classes */
 [data-oldweb] .r-muted { color: var(--r-fg-muted); }
 [data-oldweb] .r-full { width: 100%; }

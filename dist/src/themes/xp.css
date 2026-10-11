@@ -7,13 +7,13 @@
   --r-line-height: 1.5;
   --r-heading: #003399;
   --r-heading-shadow: none;
-  --r-bg: #3a6ea5;
-  --r-bg-image: linear-gradient(#245693 0%, #3a6ea5 40%, #5b8fc4 100%);
+  --r-bg: #ece9d8;
+  --r-bg-image: linear-gradient(180deg, #dce8f5 0%, #ece9d8 260px);
   --r-fg: #000;
   --r-fg-muted: #555;
-  --r-surface: #ece9d8;
-  --r-surface-alt: #fff;
-  --r-border: #0054e3;
+  --r-surface: #ffffff;
+  --r-surface-alt: #ece9d8;
+  --r-border: #7f9db9;
   --r-hr-hi: #fff;
   --r-link: #0066cc;
   --r-link-visited: #551a8b;
