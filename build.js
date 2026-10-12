@@ -60,3 +60,8 @@ fs.readdirSync(dist)
     fs.unlinkSync(path.join(dist, f));
     console.log("removed stale dist/" + f);
   });
+
+// Keep index.html in sync with demo.html for GitHub Pages root
+if (fs.existsSync(path.join(root, "demo.html"))) {
+  fs.copyFileSync(path.join(root, "demo.html"), path.join(root, "index.html"));
+}

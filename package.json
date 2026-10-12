@@ -1,6 +1,6 @@
 {
   "name": "@chabdulwahab/oldweb-ui",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Oldweb UI — zero-dependency CSS themes that recreate authentic interface looks from 1980–2020.",
   "style": "dist/oldweb-all.css",
   "exports": {
@@ -35,7 +35,9 @@
     "LICENSE",
     "demo.html"
   ],
-  "sideEffects": ["*.css"],
+  "sideEffects": [
+    "*.css"
+  ],
   "publishConfig": {
     "access": "public"
   },
@@ -62,7 +64,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ChAbdulWahhab/OldwebUI"
+    "url": "git+https://github.com/ChAbdulWahhab/OldwebUI.git"
   },
   "bugs": {
     "url": "https://github.com/ChAbdulWahhab/OldwebUI/issues"

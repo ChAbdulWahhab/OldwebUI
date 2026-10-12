@@ -223,11 +223,15 @@
         <h2>Install</h2>
         <div class="example">
           <p>CDN (all themes):</p>
-          <pre class="example-code" style="margin:0;border:0;padding:0;background:transparent">&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ChAbdulWahhab/OldwebUI@v1.0.0/dist/oldweb-all.css"&gt;
+          <pre class="example-code" style="margin:0;border:0;padding:0;background:transparent">&lt;!-- Option 1: jsDelivr GitHub CDN --&gt;
+&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ChAbdulWahhab/OldwebUI@v1.0.1/dist/oldweb-all.css"&gt;
+
+&lt;!-- Option 2: GitHub Pages Direct CDN (Immediate fallback) --&gt;
+&lt;link rel="stylesheet" href="https://chabdulwahhab.github.io/OldwebUI/dist/oldweb-all.css"&gt;
+
 &lt;html data-oldweb="web20"&gt;</pre>
         </div>
-        <p>Or download from <a href="https://github.com/ChAbdulWahhab/OldwebUI/releases">Releases</a>. npm package
-          coming soon.</p>
+        <p>Or install via npm: <code>npm install @chabdulwahab/oldweb-ui</code> · Download from <a href="https://github.com/ChAbdulWahhab/OldwebUI/releases">Releases</a>.</p>
       </section>
 
       <section id="themes">
@@ -828,17 +832,20 @@
       <section id="cdn">
         <h2>CDN delivery</h2>
         <div class="example">
-          <p>jsDelivr serves files directly from this GitHub repo:</p>
-          <pre class="example-code" style="margin:0;border:0;padding:0;background:transparent">https://cdn.jsdelivr.net/gh/ChAbdulWahhab/OldwebUI@v1.0.0/dist/oldweb-all.css
-https://cdn.jsdelivr.net/gh/ChAbdulWahhab/OldwebUI@v1.0.0/dist/oldweb-win95.css</pre>
+          <p>jsDelivr serves files directly from GitHub (v1.0.1 or @main):</p>
+          <pre class="example-code" style="margin:0;border:0;padding:0;background:transparent">https://cdn.jsdelivr.net/gh/ChAbdulWahhab/OldwebUI@v1.0.1/dist/oldweb-all.css
+https://cdn.jsdelivr.net/gh/ChAbdulWahhab/OldwebUI@v1.0.1/dist/oldweb-win95.css</pre>
+          <p style="margin-top:12px">GitHub Pages Direct CDN (Instant & zero cache-delay):</p>
+          <pre class="example-code" style="margin:0;border:0;padding:0;background:transparent">https://chabdulwahhab.github.io/OldwebUI/dist/oldweb-all.css
+https://chabdulwahhab.github.io/OldwebUI/dist/oldweb-win95.css</pre>
           <p class="r-muted" style="margin-top:12px">Prefer a single-theme file in production (~36 KB) over
-            <code>oldweb-all.css</code> (~122 KB).
+            <code>oldweb-all.css</code> (~148 KB).
           </p>
         </div>
       </section>
 
       <hr>
-      <p class="r-muted">Oldweb UI v1.0.0 · MIT · Open <code>README.md</code> for the full class reference.</p>
+      <p class="r-muted">Oldweb UI v1.0.1 · MIT · Open <code>README.md</code> for the full class reference.</p>
     </main>
   </div>
 

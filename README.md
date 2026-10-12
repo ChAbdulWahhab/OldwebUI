@@ -3,12 +3,12 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Release](https://img.shields.io/github/v/release/ChAbdulWahhab/OldwebUI?color=0a7)](https://github.com/ChAbdulWahhab/OldwebUI/releases)
 [![npm version](https://img.shields.io/npm/v/@chabdulwahab/oldweb-ui?color=cb3837)](https://www.npmjs.com/package/@chabdulwahab/oldweb-ui)
-[![Demo](https://img.shields.io/badge/demo-live-brightgreen)](https://chabdulwahhab.github.io/OldwebUI/demo.html)
+[![Demo](https://img.shields.io/badge/demo-live-brightgreen)](https://chabdulwahhab.github.io/OldwebUI/)
 
 > **The zero-dependency retro CSS library built for developers who want to focus 100% on their backend logic.**
 > Recreate authentic interface looks spanning **1980 to 2020** with zero configuration and zero build steps.
 
-**[Live Interactive Demo](https://chabdulwahhab.github.io/OldwebUI/demo.html)** · **[npm package](https://www.npmjs.com/package/@chabdulwahab/oldweb-ui)** · **[Download v1.0.0](https://github.com/ChAbdulWahhab/OldwebUI/releases/tag/v1.0.0)**
+**[Live Interactive Demo](https://chabdulwahhab.github.io/OldwebUI/)** · **[npm package](https://www.npmjs.com/package/@chabdulwahab/oldweb-ui)** · **[Download v1.0.1](https://github.com/ChAbdulWahhab/OldwebUI/releases/tag/v1.0.1)**
 
 ---
 
@@ -36,14 +36,13 @@ Modern web development often forces backend developers into frontend rabbit hole
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Windows 95 App</title>
   <!-- 1. Include Oldweb UI -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ChAbdulWahhab/OldwebUI@v1.0.0/dist/oldweb-all.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ChAbdulWahhab/OldwebUI@v1.0.1/dist/oldweb-all.css">
 </head>
 <body>
   <!-- 2. Write plain HTML — it styles itself! -->
   <div class="r-card" style="max-width: 480px; margin: 40px auto;">
     <div class="r-titlebar">
       <span>Database Manager</span>
-      <button class="r-close">X</button>
     </div>
     <div class="r-card-body">
       <p>Your backend data models are loaded.</p>
@@ -62,21 +61,30 @@ Modern web development often forces backend developers into frontend rabbit hole
 
 ### Option A — CDN (Fastest, zero install)
 
-**All 21 themes bundled in one file (~136 KB):**
+**1. jsDelivr GitHub CDN (Fast global edge caching):**
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ChAbdulWahhab/OldwebUI@v1.0.0/dist/oldweb-all.css">
+<!-- Pinned to release v1.0.1 -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ChAbdulWahhab/OldwebUI@v1.0.1/dist/oldweb-all.css">
+
+<!-- Or latest main branch -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ChAbdulWahhab/OldwebUI@main/dist/oldweb-all.css">
 ```
 
-**Or load only the specific theme you need (~47 KB):**
+**2. GitHub Pages Direct CDN (Immediate fallback with zero CDN cache-delay):**
+```html
+<link rel="stylesheet" href="https://chabdulwahhab.github.io/OldwebUI/dist/oldweb-all.css">
+```
+
+**3. Single Theme (~36 KB instead of all themes):**
 ```html
 <!-- Load Windows 95 only -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ChAbdulWahhab/OldwebUI@v1.0.0/dist/oldweb-win95.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ChAbdulWahhab/OldwebUI@v1.0.1/dist/oldweb-win95.css">
 
 <!-- Load Windows XP Luna only -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ChAbdulWahhab/OldwebUI@v1.0.0/dist/oldweb-xp.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ChAbdulWahhab/OldwebUI@v1.0.1/dist/oldweb-xp.css">
 
 <!-- Load 1980 CRT Terminal only -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ChAbdulWahhab/OldwebUI@v1.0.0/dist/oldweb-terminal1980.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ChAbdulWahhab/OldwebUI@v1.0.1/dist/oldweb-terminal1980.css">
 ```
 
 ### Option B — npm
@@ -518,7 +526,7 @@ In your `base.html` template:
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{% block title %}Django Admin{% endblock %}</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ChAbdulWahhab/OldwebUI@v1.0.0/dist/oldweb-all.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ChAbdulWahhab/OldwebUI@v1.0.1/dist/oldweb-all.css">
 </head>
 <body class="r-container">
   {% block content %}{% endblock %}
@@ -532,7 +540,7 @@ In your `base.html` template:
 <!doctype html>
 <html data-oldweb="xp">
 <head>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ChAbdulWahhab/OldwebUI@v1.0.0/dist/oldweb-all.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ChAbdulWahhab/OldwebUI@v1.0.1/dist/oldweb-all.css">
   <script src="https://unpkg.com/htmx.org@1.9.10"></script>
 </head>
 <body class="r-container">
@@ -554,7 +562,7 @@ In your `base.html` template:
 <html data-oldweb="{{ config('app.theme', 'win98') }}">
 <head>
   <title>{{ config('app.name') }}</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ChAbdulWahhab/OldwebUI@v1.0.0/dist/oldweb-all.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ChAbdulWahhab/OldwebUI@v1.0.1/dist/oldweb-all.css">
 </head>
 <body>
   @yield('content')
